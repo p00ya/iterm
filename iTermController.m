@@ -384,6 +384,7 @@ static BOOL usingAutoLaunchScript = NO;
 		
 		[term setColumns: [displayProfileMgr windowColumnsForProfile: displayProfile]];
 		[term setRows: [displayProfileMgr windowRowsForProfile: displayProfile]];
+		[term setAntiAlias: [displayProfileMgr windowAntiAliasForProfile: displayProfile]];
 		[term setFont: [displayProfileMgr windowFontForProfile: displayProfile] 
 			   nafont: [displayProfileMgr windowNAFontForProfile: displayProfile]];
 		[term setCharacterSpacingHorizontal: [displayProfileMgr windowHorizontalCharSpacingForProfile: displayProfile] 

@@ -178,6 +178,7 @@ static SInt32 systemVersion;
           __FILE__, __LINE__, antiAliasFlag);
 #endif
     antiAlias = antiAliasFlag;
+	[self resetCharCache];
 }
 
 - (BOOL) blinkingCursor
@@ -1998,7 +1999,7 @@ static SInt32 systemVersion;
 	crap = [[[NSAttributedString alloc]initWithString:[NSString stringWithCharacters:&carac length:1]
 										   attributes:attrib] autorelease];
 	[image lockFocus];
-	[[NSGraphicsContext currentContext] setShouldAntialias:antiAlias];
+	[[NSGraphicsContext currentContext] setShouldAntialias:(antiAlias || bold)];
 	[crap drawAtPoint:NSMakePoint(0,0)];
 	// on older systems, for bold, redraw the character
 	if (bold && systemVersion < 0x00001030)
