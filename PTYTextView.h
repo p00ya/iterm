@@ -33,6 +33,10 @@
     // anti-alias flag
     BOOL antiAlias;
 
+    // dead key support
+    NSEvent *deadKeyEvent;
+    BOOL deadkey;
+
 }
 
 - (id)init;
