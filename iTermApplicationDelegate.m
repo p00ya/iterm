@@ -5,7 +5,7 @@
  **
  **  Copyright (c) 2002, 2003
  **
- **  Author: Fabian, Ujwal S. Sathyam
+ **  Author: Fabian, Ujwal S. Setlur
  **	     Initial code by Kiichi Kusama
  **
  **  Project: iTerm
@@ -234,7 +234,7 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
                         [NSNumber numberWithInt: NSSingleUnderlineStyle], NSUnderlineStyleAttributeName,
 					    [NSColor blueColor], NSForegroundColorAttributeName,
 					    NULL];
-    author2 = [[NSAttributedString alloc] initWithString: NSLocalizedStringFromTableInBundle(@"Ujwal S. Sathyam",@"iTerm", [NSBundle bundleForClass: [self class]], @"Author") attributes: linkAttributes];
+    author2 = [[NSAttributedString alloc] initWithString: NSLocalizedStringFromTableInBundle(@"Ujwal S. Setlur",@"iTerm", [NSBundle bundleForClass: [self class]], @"Author") attributes: linkAttributes];
     
     // Web URL
     webURL = [NSURL URLWithString: @"http://iterm.sourceforge.net"];
