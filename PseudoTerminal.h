@@ -129,7 +129,6 @@
 - (void)setWindowTitle;
 - (void)setWindowTitle: (NSString *)title;
 - (void)setAllFont:(NSFont *)font nafont:(NSFont *)nafont;
-- (void)setFont:(NSFont *)font nafont:(NSFont *)nafont;
 
 
 // MainMenu
@@ -196,7 +195,7 @@
 
 @interface PseudoTerminal (Private)
 
-- (void) _buildToolbarItemPopUpMenu: (NSToolbarItem *) toolbarItem;
+- (void) _buildToolbarItemPopUpMenu: (NSToolbarItem *) toolbarItem forToolbar: (NSToolbar *)toolbar;
 - (void) _reloadAddressBookMenu: (NSNotification *) aNotification;
 - (void) _toggleNewWindowState: (id) sender;
 

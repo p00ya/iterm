@@ -693,18 +693,6 @@ static NSString *ConfigToolbarItem = @"Config";
     NAFONT=[[nafont copy] retain];
 }
 
-- (void)setFont:(NSFont *)font nafont:(NSFont *) nafont
-{
-#if DEBUG_METHOD_TRACE
-    NSLog(@"%s(%d):-[PseudoTerminal setFont:%@]",
-          __FILE__, __LINE__, font);
-#endif
-    [[currentPtySession TEXTVIEW]  setFont:font];
-    [[currentPtySession SCREEN]  setFont:font nafont:nafont];
-/*    if (FONT) [FONT autorelease];
-    FONT=[[font copy] retain]; */
-}
-
 - (void)changeFont:(id)sender
 {
 #if DEBUG_METHOD_TRACE
