@@ -647,7 +647,7 @@ static BOOL PLAYBELL = YES;
 
     case VT100CSI_DECSET:
     case VT100CSI_DECRST:
-        if (token.u.csi.p[0]==3) {	// set the column
+        if (token.u.csi.p[0]==3 && [TERMINAL allowColumnMode] == YES) {	// set the column
 //            [STORAGE endEditing];
             [[SESSION parent] resizeWindow:([TERMINAL columnMode]?132:80)
                                     height:HEIGHT];

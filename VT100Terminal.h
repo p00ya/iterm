@@ -220,6 +220,7 @@ typedef enum {
     BOOL TRACE;
 
     BOOL strictAnsiMode;
+    BOOL allowColumnMode;
     
     NSMutableDictionary *characterAttributeDictionary[2];
     NSMutableDictionary *defaultCharacterAttributeDictionary[2];
@@ -237,6 +238,9 @@ typedef enum {
 
 - (BOOL)strictAnsiMode;
 - (void)setStrictAnsiMode: (BOOL)flag;
+
+- (BOOL)allowColumnMode;
+- (void)setAllowColumnMode: (BOOL)flag;
 
 - (NSStringEncoding)encoding;
 - (void)setEncoding:(NSStringEncoding)encoding;
