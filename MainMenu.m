@@ -112,7 +112,7 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
 - (void)applicationDidUnhide:(NSNotification *)aNotification
 {
     // Make sure that the first responder stuff is set up OK.
-    [FRONT selectSession: [FRONT currentSessionIndex]];
+    [FRONT selectSessionAtIndex: [FRONT currentSessionIndex]];
 }
 
 
