@@ -638,6 +638,7 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
             [[term currentSession] setColorTable:i highLight:YES color:[PREF_PANEL colorFromTable:i highLight:YES]];
         }
     }
+    [[term currentSession] setBoldColor: [entry objectForKey:@"BoldColor"]];
     
 }
 

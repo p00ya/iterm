@@ -216,6 +216,7 @@ typedef enum {
     NSColor* colorTable[2][8];
     NSColor* defaultFGColor;
     NSColor* defaultBGColor;
+    NSColor* defaultBoldColor;
     int	bold, under, blink, reversed;
 
     int saveBold, saveUnder, saveBlink, saveReversed;
@@ -296,9 +297,11 @@ typedef enum {
 - (int)backgroundColorCode;
 - (void) setFGColor:(NSColor*)color;
 - (void) setBGColor:(NSColor*)color;
+- (void) setBoldColor:(NSColor*)color;
 - (void) setColorTable:(int) index highLight:(BOOL)hili color:(NSColor *) c;
 - (NSColor *) defaultFGColor;
 - (NSColor *) defaultBGColor;
+- (NSColor *) defaultBoldColor;
 - (NSColor *) colorFromTable:(int) index bold:(BOOL) b;
 
 - (NSData *)reportActivePositionWithX:(int)x Y:(int)y;

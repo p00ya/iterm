@@ -60,6 +60,7 @@
     IBOutlet id CONFIG_NAME;
     IBOutlet id CONFIG_ANTIALIAS;
     IBOutlet id CONFIG_SELECTION;
+    IBOutlet id CONFIG_BOLD;
     
     // anti-idle
     IBOutlet id AI_CODE;
