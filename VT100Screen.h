@@ -35,7 +35,7 @@
     PTYTask *SHELL;
     PTYSession *SESSION;
     NSWindow *WINDOW;
-    int charset[4];
+    int charset[4], saveCharset[4];
     
     unsigned int  TOP_LINE;
     unsigned int  LINE_LIMIT;
@@ -100,7 +100,7 @@
 - (void)cursorRight:(int)n;
 - (void)cursorUp:(int)n;
 - (void)cursorDown:(int)n;
-- (void) cursorToX: (int) x;
+- (void)cursorToX: (int) x;
 - (void)cursorToX:(int)x Y:(int)y; 
 - (void)saveCursorPosition;
 - (void)restoreCursorPosition;
@@ -122,6 +122,7 @@
 - (int) cursorY;
 
 - (NSAttributedString *)attrString:(NSString *)str ascii:(BOOL)asc;
+- (NSAttributedString *)defaultAttrString:(NSString *)str;
 - (int) getIndex:(int)x y:(int)y;
 - (BOOL) isDoubleWidthCharacter:(unichar)code;
 

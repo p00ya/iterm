@@ -194,7 +194,7 @@ typedef struct {
     NSColor *DefaultBG;
 
     unsigned int saveCHARATTR;
-    BOOL saveCHARSET;
+    int saveCHARSET;
     
     BOOL TRACE;
 }
