@@ -255,6 +255,11 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 - (long)conversationIdentifier;
 - (NSRect)firstRectForCharacterRange:(NSRange)theRange;
 
+	// service stuff
+- (id)validRequestorForSendType:(NSString *)sendType returnType:(NSString *)returnType;
+- (BOOL)writeSelectionToPasteboard:(NSPasteboard *)pboard types:(NSArray *)types;
+- (BOOL)readSelectionFromPasteboard:(NSPasteboard *)pboard;	
+
 - (void)resetCharCache;
 
 @end
