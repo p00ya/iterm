@@ -49,6 +49,7 @@
 
     // about window
     IBOutlet id ABOUT;
+    IBOutlet NSTextView *AUTHORS;
     // address book data
     NSMutableArray *addressBook;
 
