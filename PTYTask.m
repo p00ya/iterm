@@ -486,6 +486,9 @@ static int writep(int fds, char *buf, size_t len)
 {
     struct winsize winsize;
 
+    if(FILDES == -1)
+	return;
+
     ioctl(FILDES, TIOCGWINSZ, &winsize);
     winsize.ws_col = width;
     winsize.ws_row = height;
