@@ -45,7 +45,7 @@
 	PTYSession *currentSession;
 	unsigned int modflag;
     NSString *unmodkeystr;
-    unichar unmodunicode;	
+    unichar unmodunicode = 0;	
 	
 	
 	if([anEvent type] == NSKeyDown)
