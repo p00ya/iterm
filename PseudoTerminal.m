@@ -1285,6 +1285,11 @@ static NSString *ConfigToolbarItem = @"Config";
     // Separator
     [theMenu addItem:[NSMenuItem separatorItem]];
 
+    // Close current session
+    [theMenu addItemWithTitle:NSLocalizedStringFromTable(@"Close",@"iTerm",@"Toolbar Item: Close Session")
+						   action:@selector(closeCurrentSession:) keyEquivalent:@""];
+
+
     // Configure
     [theMenu addItemWithTitle:NSLocalizedStringFromTable(@"Configure...",@"iTerm",@"Context menu")
 				     action:@selector(showConfigWindow:) keyEquivalent:@""];
