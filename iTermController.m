@@ -404,9 +404,10 @@ static BOOL usingAutoLaunchScript = NO;
         term = theTerm;
     
     // Initialize a new session
-    aSession = [[[PTYSession alloc] init] autorelease];
+    aSession = [[PTYSession alloc] init];
     // Add this session to our term and make it current
     [term addInSessions: aSession];
+    [aSession release];
 
     // set our preferences
     [aSession setAddressBookEntry:entry];

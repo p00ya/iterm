@@ -1439,7 +1439,7 @@
 
 - (void)setDataSource: (id) aDataSource
 {
-    [dataSource autorelease];
+    [dataSource release];
     dataSource = [aDataSource retain];
 }
 
