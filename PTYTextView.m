@@ -1966,7 +1966,10 @@ static SInt32 systemVersion;
 		
 		// check if conversion was successful, else use our own methods to convert to bold
 		if([[NSFontManager sharedFontManager] fontNamed: [theFont fontName] hasTraits: NSBoldFontMask] == YES)
+		{
 			strokeWidth = 0;
+			renderBold = NO;
+		}
 		else
 		{
 			strokeWidth = antiAlias?(float)bold*(-0.1):0;
