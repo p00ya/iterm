@@ -76,7 +76,7 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
           __FILE__, __LINE__);
 #endif
 
-    if(([terminalWindows count] > 0) && ![[terminalWindows objectAtIndex: 0] showCloseWindow])
+    if(([terminalWindows count] > 0) && [PREF_PANEL promptOnClose] && ![[terminalWindows objectAtIndex: 0] showCloseWindow])
 	return (NO);
     
     [terminalWindows removeAllObjects];

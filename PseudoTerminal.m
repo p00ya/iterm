@@ -772,7 +772,11 @@ static NSString *ConfigToolbarItem = @"Config";
     NSLog(@"%s(%d):-[PseudoTerminal windowShouldClose:%@]",
 	  __FILE__, __LINE__, aNotification);
 #endif
-    return [self showCloseWindow];
+
+    if([pref promptOnClose])
+	return [self showCloseWindow];
+    else
+	return (YES);
 }
 
 - (void)windowWillClose:(NSNotification *)aNotification
