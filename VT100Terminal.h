@@ -212,7 +212,6 @@ typedef enum {
     
     int FG_COLORCODE;
     int BG_COLORCODE;
-    float alpha;
     NSColor* colorTable[2][8];
     NSColor* defaultFGColor;
     NSColor* defaultBGColor;
