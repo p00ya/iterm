@@ -2283,10 +2283,12 @@ static BOOL ignoreCase = NO;
 {
     if(searchString != nil)
     {
+	if([aString isEqualToString: searchString] == NO)
+	{
+	    lastSearchLocation = 0;
+	}	
 	[searchString release];
 	searchString = nil;
-	if([aString isEqualToString: searchString] == NO)
-	    lastSearchLocation = 0;
     }
     if(aString != nil)
     {
