@@ -1497,19 +1497,19 @@ static VT100TCC decode_string(unsigned char *datap,
             KEYPAD_MODE = NO;
             break;
         case VT100CC_SI:
-        case VT100CSI_SCS0:
+//        case VT100CSI_SCS0:
             CHARSET = 0;
             break;
         case VT100CC_SO:
-        case VT100CSI_SCS1:
+//        case VT100CSI_SCS1:
             CHARSET = 1;
             break;
-        case VT100CSI_SCS2:
+/*        case VT100CSI_SCS2:
             CHARSET = 2;
             break;
         case VT100CSI_SCS3:
             CHARSET = 3;
-            break;
+            break;  */
         case VT100CC_DC1:
             XON = YES;
             break;
