@@ -2215,9 +2215,10 @@ static BOOL PLAYBELL = YES;
                initWithString:str
                    attributes:[TERMINAL characterAttributeDictionary:asc]];
 
+    // Mark graphical characters and use our embedded font that has the necessary glyphs
     if(charset[[TERMINAL charset]])
     {
-	//[attr addAttribute: NSFontAttributeName value: [NSFont fontWithName:@"FreeMonoBold" size:[[self font] pointSize]] range: NSMakeRange(0, [attr length])];
+	[attr addAttribute: NSFontAttributeName value: [NSFont fontWithName:@"FreeMonoBold" size:[[self font] pointSize]] range: NSMakeRange(0, [attr length])];
 	[attr addAttribute: @"VT100GraphicalCharacter" value: [NSNumber numberWithInt:1] range: NSMakeRange(0, [attr length])];
     }
     
