@@ -1453,7 +1453,6 @@ static BOOL PLAYBELL = YES;
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[VT100Screen numberOfLines]",  __FILE__, __LINE__ );
 #endif
-        
     return ((bufferWrapped?scrollbackLines:lastBufferLineIndex)+HEIGHT);
 }
 

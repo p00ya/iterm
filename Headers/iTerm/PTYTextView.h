@@ -159,6 +159,7 @@ typedef struct
 - (void) setCharWidth: (float) width;
 
 - (void) refresh;
+- (void) setFrameSize: (NSSize) aSize;
 - (void) setForceUpdate: (BOOL) flag;
 - (void) showCursor;
 - (void) hideCursor;
