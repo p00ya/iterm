@@ -129,6 +129,11 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
 //    NSLog(@"showABWindow: %d\n%@",[addressBook count], addressBook);
 
     [AB_PANEL center];
+    if([adTable numberOfRows] > 0){
+	[adTable selectRow: 0 byExtendingSelection: NO];
+	[AB_PANEL makeFirstResponder: adTable];
+    }
+    [adTable setDoubleAction: @selector(adbEditEntry:)];
     r= [NSApp runModalForWindow:AB_PANEL];
     [AB_PANEL close];
 }
