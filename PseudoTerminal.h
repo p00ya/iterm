@@ -25,7 +25,6 @@
     
     /// Terminal Window
     IBOutlet id TABVIEW;
-    IBOutlet id SCROLLVIEW;	// PTYScrollView
     IBOutlet id WINDOW;
 
     // config window
@@ -87,6 +86,7 @@
           encoding:(NSStringEncoding)encoding
               term:(NSString *)term;
 
+- (void) addSession: (PTYSession *)aSession;
 - (void) switchSession: (id) sender;
 - (void) selectSession: (int) sessionIndex;
 - (void) closeSession: (PTYSession*) aSession;
@@ -149,6 +149,7 @@
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem;
 - (void)tabViewContextualMenu: (NSEvent *)theEvent menu: (NSMenu *)theMenu;
 - (void) closeTabContextualMenuAction: (id) sender;
+- (void) moveTabToNewWindowContextualMenuAction: (id) sender;
 
 
 // Config Window
