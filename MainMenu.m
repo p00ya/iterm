@@ -415,6 +415,7 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
 - (void) initPreferences
 {
     PREF_PANEL = [[PreferencePanel alloc] init];
+    [PREF_PANEL setMainMenu: self];
 }
 
 // Utility
