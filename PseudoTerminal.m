@@ -294,8 +294,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     currentPtySession = aSession;
     [self setWindowTitle];
     [currentPtySession setLabelAttribute];
-    [[self window] makeFirstResponder:[currentPtySession TEXTVIEW]];
-    [[self window] setNextResponder:self];
+    [[TABVIEW window] makeFirstResponder:[currentPtySession TEXTVIEW]];
+    [[TABVIEW window] setNextResponder:self];
 }
 
 
@@ -1452,8 +1452,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     currentSessionIndex = [TABVIEW indexOfTabViewItem: tabViewItem];
     currentPtySession = aSession;
     [self setWindowTitle];
-    [[self window] makeFirstResponder:[currentPtySession TEXTVIEW]];
-    [[self window] setNextResponder:self];
+    [[TABVIEW window] makeFirstResponder:[currentPtySession TEXTVIEW]];
+    [[TABVIEW window] setNextResponder:self];
 }
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem
