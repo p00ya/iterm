@@ -972,6 +972,7 @@ static SInt32 systemVersion;
 		  (modflag & NSFunctionKeyMask)))
 	{
 		[delegate keyDown:event];
+		return;
 	}
 	
     IM_INPUT_INSERT = NO;
