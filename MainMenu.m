@@ -189,7 +189,7 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
 //    [self initAddressBook];
 //    NSLog(@"showABWindow: %d\n%@",[addressBook count], addressBook);
 
-    abWindowController = [[AddressBookWindowController alloc] initWithWindowNibName: @"AddressBook"];
+    abWindowController = [AddressBookWindowController singleInstance];
     [abWindowController setAddressBook: addressBook];
     [abWindowController setPreferences: PREF_PANEL];
     [abWindowController run];    
