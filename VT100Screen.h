@@ -55,6 +55,8 @@
     PTYSession *SESSION;
     NSWindow *WINDOW;
     int charset[4], saveCharset[4];
+    NSMutableAttributedString *BUFFER;
+    int updateIndex;
     
     unsigned int  TOP_LINE;
     unsigned int  LINE_LIMIT;
@@ -139,6 +141,9 @@
 - (void)blink;
 - (int) cursorX;
 - (int) cursorY;
+
+- (void) updateScreen;
+- (void) renewBuffer;
 
 - (NSAttributedString *)attrString:(NSString *)str ascii:(BOOL)asc;
 - (NSAttributedString *)defaultAttrString:(NSString *)str;

@@ -1057,7 +1057,7 @@ static NSString *ConfigToolbarItem = @"Config";
         [[[ptyList objectAtIndex:i] SCREEN] beginEditing];
         [[[ptyList objectAtIndex:i] SCREEN] resizeWidth:w height:h];
         [[[ptyList objectAtIndex:i] SCREEN] endEditing];
-        [[[ptyList objectAtIndex:i] SHELL] setWidth:w  height:h];
+        [[[ptyList objectAtIndex:i] SHELL] setWidth:w height:h];
         [[[ptyList objectAtIndex:i] TEXTVIEW] setFrameSize:vsize];
     }
     WIDTH=w;
