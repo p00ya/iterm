@@ -1037,8 +1037,9 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 	}
 	
 	memset(screenLines+idx1,0,(idx2-idx1)*sizeof(unichar));
-	memset(screenFGColor+idx1,[TERMINAL foregroundColorCode],(idx2-idx1)*sizeof(char));
-	memset(screenBGColor+idx1,[TERMINAL backgroundColorCode],(idx2-idx1)*sizeof(char));
+	// give default foreground and background colors
+	memset(screenFGColor+idx1,DEFAULT_FG_COLOR_CODE,(idx2-idx1)*sizeof(char));
+	memset(screenBGColor+idx1,DEFAULT_BG_COLOR_CODE,(idx2-idx1)*sizeof(char));
 	memset(dirty+idx1,1,(idx2-idx1)*sizeof(char));
 }
 
