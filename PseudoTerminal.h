@@ -206,6 +206,7 @@
 // (See NSScriptKeyValueCoding.h)
 -(id)valueInSessionsAtIndex:(unsigned)index;
 -(id)valueWithName: (NSString *)uniqueName inPropertyWithKey: (NSString*)propertyKey;
+-(id)valueWithID: (NSString *)uniqueID inPropertyWithKey: (NSString*)propertyKey;
 -(void)replaceInSessions:(PTYSession *)object atIndex:(unsigned)index;
 -(void)addInSessions:(PTYSession *)object;
 -(void)insertInSessions:(PTYSession *)object;

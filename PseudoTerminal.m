@@ -1750,6 +1750,28 @@ static int windowCount = 0;
     return result;
 }
 
+// The 'uniqueID' argument might be an NSString or an NSNumber.
+-(id)valueWithID: (NSString *)uniqueID inPropertyWithKey: (NSString*)propertyKey
+{
+    id result = nil;
+    int i;
+
+    if([propertyKey isEqualToString: sessionsKey] == YES)
+    {
+	PTYSession *aSession;
+
+	for (i= 0; i < [ptyList count]; i++)
+	{
+	    aSession = [ptyList objectAtIndex: i];
+	    if([[aSession tty] isEqualToString: uniqueID] == YES)
+		return (aSession);
+	}
+    }
+    
+    return result;
+}
+
+
 
 -(void)replaceInSessions:(PTYSession *)object atIndex:(unsigned)index
 {
