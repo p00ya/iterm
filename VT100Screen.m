@@ -1432,8 +1432,10 @@ static BOOL PLAYBELL = YES;
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[VT100Screen playBell]",  __FILE__, __LINE__);
 #endif
-    if (PLAYBELL)
+    if (PLAYBELL) {
 	NSBeep();
+        [SESSION setBell];
+    }
 }
 
 - (void)removeOverLine
