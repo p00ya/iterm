@@ -119,6 +119,7 @@ static float versionNumber;
     [blinkingCursor setState: defaultBlinkingCursor?NSOnState:NSOffState];
 	[focusFollowsMouse setState: defaultFocusFollowsMouse?NSOnState:NSOffState];
     
+	[[self window] setDelegate: self];
 	[self showWindow: self];
 	
 }
@@ -179,6 +180,12 @@ static float versionNumber;
     [promptOnClose setState:defaultPromptOnClose?NSOnState:NSOffState];
     [tabPosition selectCellWithTag: defaultTabViewType];
     [blinkingCursor setState:defaultBlinkingCursor?NSOnState:NSOffState];
+}
+
+- (void)windowWillLoad;
+{
+    // We finally set our autosave window frame name and restore the one from the user's defaults.
+    [self setWindowFrameAutosaveName: @"Preferences"];
 }
 
 - (void)windowDidBecomeKey:(NSNotification *)aNotification
