@@ -99,6 +99,7 @@
 - (VT100Terminal *)terminal;
 - (void)setShellTask:(PTYTask *)shell;
 - (PTYTask *)shellTask;
+- (PTYSession *) session;
 - (void)setSession:(PTYSession *)session;
 
 - (void)setTextStorage:(NSTextStorage *)storage;

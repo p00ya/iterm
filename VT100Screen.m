@@ -362,6 +362,11 @@ static BOOL PLAYBELL = YES;
     scrollbackLines=lines;
 }
 
+- (PTYSession *) session
+{
+    return (SESSION);
+}
+
 - (void)setSession:(PTYSession *)session
 {
     [SESSION release];
@@ -457,7 +462,6 @@ static BOOL PLAYBELL = YES;
 {
     blinkingCursor = flag;
 }
-
 
 -(void) initScreen
 {
