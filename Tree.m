@@ -104,6 +104,7 @@
 		{
 			data = [entry objectForKey: KEY_DATA];
             child = [[[TreeNode alloc] initWithData: data parent:nil children: [NSArray array]] autorelease];
+			[child setIsLeaf: YES];
 		}
         [self insertChild: child atIndex: [self numberOfChildren]];
     }
