@@ -618,6 +618,13 @@
     
 }
 
+- (void)otherMouseDown:(NSEvent *)theEvent
+{
+    NSLog(@"otherMouseDown");
+    //[self paste];
+}
+
+
 
 @end
 
@@ -664,7 +671,6 @@
     [(NSData *)theContextInfo release];
     
 }
-
 
 @end
 

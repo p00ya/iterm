@@ -191,7 +191,7 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
         [term setWindowSize];
     };
     [term setCurrentSessionName:[entry objectForKey:@"Name"]];
-    
+    [[term currentSession] setAddressBookEntry:entry];    
 }
 
 - (IBAction)adbAddEntry:(id)sender
@@ -742,4 +742,10 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
     [addressBook sortUsingFunction: addressBookComparator context: nil];
     [adTable reloadData];
 }
+
+- (void) replaceAddressBookEntry:(NSDictionary *) old with:(NSDictionary *)new
+{
+    [addressBook replaceObjectAtIndex:[addressBook indexOfObject:old] withObject:new];
+}
+
 @end

@@ -99,6 +99,7 @@
 - (NSArray *)addressBookNames;
 - (NSDictionary *)addressBookEntry: (int) entryIndex;
 - (void) addAddressBookEntry: (NSDictionary *) entry;
+- (void) replaceAddressBookEntry:(NSDictionary *) old with:(NSDictionary *)new;
 
 // Preference Panel
 - (IBAction)showPrefWindow:(id)sender;
