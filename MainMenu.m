@@ -489,7 +489,7 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
 }
 
 
-// Build the address book menu
+// Build the bookmarks menu
 - (void) buildAddressBookMenu: (NSMenu *) abMenu forTerminal: (id) sender
 {
     NSEnumerator *abEnumerator;

@@ -46,7 +46,7 @@
     // Menu items
     IBOutlet NSMenuItem *selectTab;
     
-    // address book data
+    // bookmarks data
     NSMutableArray *addressBook;
 
     // PseudoTerminal objects

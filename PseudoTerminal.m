@@ -1218,7 +1218,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     if ([itemIdent isEqual: ABToolbarItem]) {
         [toolbarItem setLabel: NSLocalizedStringFromTableInBundle(@"Bookmarks",@"iTerm", [NSBundle bundleForClass: [self class]], @"Toolbar Item:Bookmarks")];
         [toolbarItem setPaletteLabel: NSLocalizedStringFromTableInBundle(@"Bookmarks",@"iTerm", [NSBundle bundleForClass: [self class]], @"Toolbar Item:Bookmarks")];
-        [toolbarItem setToolTip: NSLocalizedStringFromTableInBundle(@"Open the address book",@"iTerm", [NSBundle bundleForClass: [self class]], @"Toolbar Item Tip:Bookmarks")];
+        [toolbarItem setToolTip: NSLocalizedStringFromTableInBundle(@"Open the bookmarks",@"iTerm", [NSBundle bundleForClass: [self class]], @"Toolbar Item Tip:Bookmarks")];
         [toolbarItem setImage: [NSImage imageNamed: @"addressbook"]];
         [toolbarItem setTarget: MAINMENU];
         [toolbarItem setAction: @selector(showABWindow:)];
@@ -1334,7 +1334,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     // Separator
     [theMenu insertItem:[NSMenuItem separatorItem] atIndex: 1];
 
-    // Build the address book menu
+    // Build the bookmarks menu
     NSMenu *abMenu = [[NSMenu alloc] initWithTitle: @"Bookmarks"];
     [MAINMENU buildAddressBookMenu: abMenu forTerminal: (newWin?nil:self)];
 
