@@ -55,6 +55,7 @@
     PTYSession *SESSION;
     int charset[4], saveCharset[4];
     NSMutableAttributedString *BUFFER;
+    NSAttributedString *savedBuffer;
     int updateIndex, minIndex;
     BOOL blinkShow;
 
@@ -119,6 +120,8 @@
 - (void)putToken:(VT100TCC)token;
 - (void)clearBuffer;
 - (void)clearScrollbackBuffer;
+- (void) saveBuffer;
+- (void) restoreBuffer;
 
 // internal
 - (void)setDoubleWidthString:(NSString *)s;
