@@ -231,7 +231,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [[aSession SCREEN] setWidth:WIDTH height:HEIGHT];
 //    NSLog(@"%d,%d",WIDTH,HEIGHT);
     
-    [aSession startTimer];
+    //[aSession startTimer];
 
     [[aSession TERMINAL] setTrace:YES];	// debug vt100 escape sequence decode
 
