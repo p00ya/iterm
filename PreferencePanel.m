@@ -121,6 +121,7 @@ static float versionNumber;
     [silenceBell setState:defaultSilenceBell?NSOnState:NSOffState];
     [openAddressBook setState:defaultOpenAddressBook?NSOnState:NSOffState];
     [promptOnClose setState:defaultPromptOnClose?NSOnState:NSOffState];
+    [blinkingCursor setState: defaultBlinkingCursor?NSOnState:NSOffState];
    
     [NSApp runModalForWindow:prefPanel];
     [prefPanel close];
