@@ -829,7 +829,7 @@ static BOOL PLAYBELL = YES;
     }
     [savedBuffer release];
     savedBuffer = nil;
-    updateIndex=0;
+    //updateIndex=0;
 }
 
 - (int) getIndexAtX:(int)x Y:(int)y withPadding:(BOOL)padding
