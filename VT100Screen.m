@@ -527,6 +527,13 @@ static BOOL PLAYBELL = YES;
 #if USE_CUSTOM_DRAWING
     NSMutableAttributedString *aLine;
 #endif
+
+    // If we are in print mode, send to printer.
+    if([TERMINAL printToAnsi] == YES && token.type != ANSICSI_PRINT)
+    {
+	[TERMINAL printToken: token];
+	return;
+    }
     
     switch (token.type) {
     // our special code
@@ -671,6 +678,13 @@ static BOOL PLAYBELL = YES;
         
     case STRICT_ANSI_MODE:
 	[TERMINAL setStrictAnsiMode: ![TERMINAL strictAnsiMode]];
+	break;
+
+    case ANSICSI_PRINT:
+	if(token.u.csi.p[0] == 4)
+	    [TERMINAL setPrintToAnsi: NO];
+	else if (token.u.csi.p[0] == 5)
+	    [TERMINAL setPrintToAnsi: YES];
 	break;
 	
     // XTERM extensions
