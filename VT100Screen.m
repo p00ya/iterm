@@ -1297,16 +1297,13 @@ static BOOL PLAYBELL = YES;
     if (CURSOR_Y  < SCROLL_BOTTOM || (CURSOR_Y < (HEIGHT - 1) && CURSOR_Y > SCROLL_BOTTOM)) {
         CURSOR_Y++;
     }
-    // if top of scrolling area is at the top of the screen, add a new line at the bottom of the scrolling area so that
+    // if top of scrolling area is the same as the screen, add a new line at the bottom of the scrolling area so that
     // the top line goes into the scrollback buffer.
-    else if (SCROLL_TOP == 0) {
+    else if (SCROLL_TOP == 0 && SCROLL_BOTTOM == HEIGHT - 1) {
 #if DEBUG_USE_BUFFER
 	if(newLineString == nil)
 	    newLineString = [[self attrString:@"\n" ascii:YES] retain];
-	if(SCROLL_BOTTOM == HEIGHT - 1)
-	    [BUFFER appendAttributedString:newLineString];
-	else
-	    [BUFFER insertAttributedString: newLineString atIndex: [self getIndexAtX: 0 Y: SCROLL_BOTTOM+1 withPadding: YES]];
+	[BUFFER appendAttributedString:newLineString];
 #endif
 
 #if DEBUG_USE_ARRAY
@@ -1810,6 +1807,7 @@ static BOOL PLAYBELL = YES;
     aRange = NSMakeRange(idx,idx2-idx);
     if(aRange.length <= 0)
         aRange.length = 1;
+
     [BUFFER deleteCharactersInRange:aRange];
 #endif
 
