@@ -236,6 +236,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
     // Save method
 - (void) saveDocumentAs: (id) sender;
 - (void) print:(id)sender;
+- (void) printContent: (NSString *) aString;
 
 // Find method
 - (void) findString: (NSString *) aString forwardDirection: (BOOL) direction ignoringCase: (BOOL) ignoreCase;
