@@ -2425,6 +2425,9 @@ static BOOL PLAYBELL = YES;
         fg=[TERMINAL defaultFGColor];
         bg=[TERMINAL defaultBGColor];
     }
+
+    bg = [bg colorWithAlphaComponent: [[SESSION backgroundColor] alphaComponent]];
+    fg = [fg colorWithAlphaComponent: [[SESSION foregroundColor] alphaComponent]];
     
     [BUFFER removeAttribute: NSForegroundColorAttributeName
                        range: NSMakeRange(0, [BUFFER length])];
