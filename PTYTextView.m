@@ -70,6 +70,12 @@
                                                  name:NSWindowDidResizeNotification
                                                object:nil];
 	
+	// register for drag and drop
+	[self registerForDraggedTypes: [NSArray arrayWithObjects:
+        NSFilenamesPboardType,
+        NSStringPboardType,
+        nil]];
+	
 	// init the cache
 	memset(charImages, 0, CACHESIZE*sizeof(CharCache));	
     charWidth = 12;
@@ -1211,9 +1217,9 @@
 //
 - (void) draggingExited:(id <NSDraggingInfo>)sender
 {
-#if DEBUG_METHOD_TRACE
+//#if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PTYTextView draggingExited:%@]", __FILE__, __LINE__, sender );
-#endif
+//#endif
     
     // We don't do anything special, so let the parent NSTextView handle this.
     [super draggingExited: sender];
