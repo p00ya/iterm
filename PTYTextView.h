@@ -55,7 +55,6 @@
     BOOL antiAlias;
 
     // dead key support
-    NSEvent *deadKeyEvent;
     BOOL deadkey;
     int	cursorIndex;
 

@@ -47,7 +47,6 @@
     self = [super init];
     [[NSCursor IBeamCursor] setOnMouseEntered: NO];
 
-    deadKeyEvent = nil;
     deadkey = NO;
 
     return (self);
@@ -62,7 +61,6 @@
     self = [super initWithFrame: aRect];
     [[NSCursor IBeamCursor] setOnMouseEntered: NO];
 
-    deadKeyEvent = nil;
     deadkey = NO;
 
     return (self);
@@ -306,14 +304,12 @@
 
     // Check for dead keys
     if (deadkey) {
-        [self interpretKeyEvents:[NSArray arrayWithObjects:deadKeyEvent,event,nil]];
-        [deadKeyEvent release];
-        deadkey=NO;
+        [self interpretKeyEvents:[NSArray arrayWithObject:event]];
+        deadkey=[self hasMarkedText];
 	return;
     }
     else if ([[event characters] length]<1) {
         deadkey=YES;
-        deadKeyEvent=[event copy];
 	[self interpretKeyEvents:[NSArray arrayWithObject:event]];
 	return;
     }    
