@@ -427,7 +427,7 @@ static float versionNumber;
 
 - (void)_addKBProfileSheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
-	if(returnCode == NSOKButton)
+	if(returnCode == NSOKButton && [[kbProfileName stringValue] length] > 0)
 	{
 		NSEnumerator *kbProfileEnumerator;
 		NSString *aString;
