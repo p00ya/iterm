@@ -230,6 +230,7 @@ typedef struct {
     BOOL strictAnsiMode;
 
     NSMutableDictionary *defaultCharacterAttributeDictionary;
+    unsigned int streamOffset;
 }
 
 + (void)initialize;
