@@ -210,15 +210,9 @@ static float versionNumber;
 - (IBAction) kbProfileChanged: (id) sender
 {
 	//NSLog(@"%s; %@", __PRETTY_FUNCTION__, sender);
-	
-	NSString *commonProfile;
-	
-	commonProfile = NSLocalizedStringFromTableInBundle(@"Common",@"iTerm", [NSBundle bundleForClass: [self class]], @"Key Binding Profiles");
-	
-	if([[kbProfileSelector titleOfSelectedItem] isEqualToString: commonProfile])
-		[kbProfileDeleteButton setEnabled: NO];
-	else
-		[kbProfileDeleteButton setEnabled: YES];
+		
+	[kbProfileDeleteButton setEnabled: ![[iTermKeyBindingMgr singleInstance] isGlobalProfile: [kbProfileSelector titleOfSelectedItem]]];
+
 	[kbEntryTableView reloadData];
 }
 
@@ -266,7 +260,6 @@ static float versionNumber;
 
 - (IBAction) kbEntryAdd: (id) sender
 {
-	NSString *commonProfile;
 	int i;
 
 	//NSLog(@"%s", __PRETTY_FUNCTION__);
@@ -291,9 +284,8 @@ static float versionNumber;
 	[kbEntryAction setAction: @selector(kbEntrySelectorChanged:)];
 	
 	
-	commonProfile = NSLocalizedStringFromTableInBundle(@"Common",@"iTerm", [NSBundle bundleForClass: [self class]], @"Key Binding Profiles");
 	
-	if([[kbProfileSelector titleOfSelectedItem] isEqualToString: commonProfile])
+	if([[iTermKeyBindingMgr singleInstance] isGlobalProfile: [kbProfileSelector titleOfSelectedItem]])
 	{
 		for (i = KEY_ACTION_NEXT_SESSION; i < KEY_ACTION_ESCAPE_SEQUENCE; i++)
 		{
