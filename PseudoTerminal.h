@@ -37,14 +37,15 @@
 #import "VT100Screen.h"
 #import "PTYSession.h"
 
+@class PTYTabView;
+
 @interface PseudoTerminal : NSWindowController
 {
     /// MainMenu reference
     MainMenu *MAINMENU;
     
-    /// Terminal Window
-    IBOutlet id TABVIEW;
-    IBOutlet id WINDOW;
+    /// tab view
+    PTYTabView *TABVIEW;
 
     // config window
     IBOutlet id CONFIG_PANEL;
