@@ -172,7 +172,7 @@ static BOOL PLAYBELL = YES;
     for(i=0;i<300;i++) spaces[i]=' ';
     for(i=0;i<4;i++) saveCharset[i]=charset[i]=0;
 
-    BUFFER=[[[NSMutableAttributedString alloc] init] retain];
+    BUFFER=[[NSMutableAttributedString alloc] init];
     
     return self;
 }
@@ -184,6 +184,9 @@ static BOOL PLAYBELL = YES;
 #endif
 
     [FONT release];
+
+    if(BUFFER != nil)
+	[BUFFER release];
 
     [super dealloc];
 }
