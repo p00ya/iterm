@@ -58,6 +58,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    NSImage *scriptIcon = [NSImage imageNamed: @"script"];
+    NSMenu *scriptMenu = [[NSMenu alloc] initWithTitle: @"Script"];
+    NSMenuItem *scriptMenuItem = [[NSMenuItem alloc] initWithTitle: @"Script Item" action: nil keyEquivalent: @""];
+    [scriptMenuItem setSubmenu: scriptMenu];
+    [scriptMenu release];
+    [scriptMenuItem setImage: scriptIcon];
+    [[NSApp mainMenu] addItem: scriptMenuItem];
+    [scriptMenuItem release];
 }
 
 - (BOOL) applicationShouldTerminate: (NSNotification *) theNotification
