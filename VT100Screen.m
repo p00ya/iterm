@@ -440,7 +440,7 @@ static BOOL PLAYBELL = YES;
     case VT100CSI_DA:   [self deviceAttribute:token]; break;
     case VT100CSI_DECALN:
         if (!s[0]) {
-            for (i=0;i<WIDTH;i++) s[i]='E';
+            for (i=0;i<300;i++) s[i]='E';
         }
         str=[NSString stringWithCharacters:s length:WIDTH];
         for(i=0;i<HEIGHT;i++)
@@ -698,7 +698,7 @@ static BOOL PLAYBELL = YES;
     int sx, sy;
 
 #if DEBUG_METHOD_TRACE
-    NSLog(@"%s(%d):-[VT100Screen setString:%d Y:%d string:%@]",
+    NSLog(@"%s(%d):-[VT100Screen setStringToX:%d Y:%d string:%@]",
           __FILE__, __LINE__, x, y, string);
 #endif
 
