@@ -57,6 +57,7 @@
     int charset[4], saveCharset[4];
     NSMutableAttributedString *BUFFER;
     int updateIndex, minIndex;
+    BOOL blinkShow;
 
     NSMutableArray *screenLines;
     int screenTop;
