@@ -965,6 +965,9 @@ static NSString *ConfigToolbarItem = @"Config";
     NSString *aTitle = [NSString stringWithFormat:@"%@ (%d,%d)", [currentPtySession name], WIDTH, HEIGHT];
     [self setWindowTitle: aTitle];
 
+    // Reset the scrollbar to the bottom
+    [[currentPtySession TEXTVIEW] moveLastLine];
+
     //NSLog(@"Didresize: w = %d, h = %d; frame.size.width = %f, frame.size.height = %f",WIDTH,HEIGHT, [WINDOW frame].size.width, [WINDOW frame].size.height);
 
 
