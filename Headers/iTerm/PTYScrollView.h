@@ -35,6 +35,7 @@
 }
 
 - (id)init;
+- (void) mouseDown: (NSEvent *)theEvent;
 - (void)trackScrollButtons:(NSEvent *)theEvent;
 - (void)trackKnob:(NSEvent *)theEvent;
 - (BOOL)userScroll;
@@ -49,5 +50,6 @@
 - (void) dealloc;
 - (id)initWithFrame:(NSRect)frame;
 - (void)scrollWheel:(NSEvent *)theEvent;
+- (void)detectUserScroll;
 
 @end
