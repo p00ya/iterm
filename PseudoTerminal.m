@@ -218,7 +218,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [[aSession SCREEN] setTextStorage:[[aSession TEXTVIEW] textStorage]];
 #endif
     [[aSession SCREEN] setWidth:WIDTH height:HEIGHT];
-    [[aSession SCREEN] setScrollback:[[PreferencePanel sharedInstance] scrollbackLines]];
 //    NSLog(@"%d,%d",WIDTH,HEIGHT);
     
     // initialize the screen

@@ -35,6 +35,7 @@
 #import <iTerm/PreferencePanel.h>
 #import <iTerm/PseudoTerminal.h>
 #import <iTerm/PTYSession.h>
+#import <iTerm/VT100Screen.h>
 #import <iTerm/NSStringITerm.h>
 #import <iTerm/AddressBookWindowController.h>
 #import <iTerm/ITAddressBookMgr.h>
@@ -431,6 +432,10 @@ static BOOL usingAutoLaunchScript = NO;
     // set our preferences
     [aSession setAddressBookEntry:entry];
     [aSession setPreferencesFromAddressBookEntry: entry];
+    if ([entry objectForKey: @"Scrollback"])
+        [[aSession SCREEN] setScrollback:[[entry objectForKey: @"Scrollback"] intValue]];
+    else
+        [[aSession SCREEN] setScrollback:100000];
     
     NSDictionary *env=[NSDictionary dictionaryWithObject:([entry objectForKey:@"Directory"]?[entry objectForKey:@"Directory"]:@"~")  forKey:@"PWD"];
     

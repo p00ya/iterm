@@ -339,11 +339,16 @@ static size_t getCSIParam(unsigned char *datap,
                 case VT100CC_CAN:
                 case VT100CC_SUB: break;
                 case VT100CC_DEL: [SCREEN deleteCharacters:1];break;
-                default: unrecognized=YES; break;
+                default:
+                    NSLog(@"Unrecoginzed escape sequence: %c", *datap);
+                    param->cmd=0xff;
+                    unrecognized=YES;
+                    break;
             }
             datalen--;
             datap++;
 	}
+//        if (unrecognized) break;
     }
     return datap - orgp;
 }
@@ -1346,7 +1351,7 @@ static VT100TCC decode_string(unsigned char *datap,
                 result = decode_ascii(datap, datalen, &rmlen);
             }
             else if (isString(datap,ENCODING)) {
-		result = decode_string(datap, datalen, &rmlen, ENCODING);
+                result = decode_string(datap, datalen, &rmlen, ENCODING);
                 if(result.type != VT100_WAIT && rmlen == 0) {
                     result.type = VT100_UNKNOWNCHAR;
                     result.u.code = datap[0];
