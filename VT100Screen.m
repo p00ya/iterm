@@ -762,12 +762,19 @@ static BOOL PLAYBELL = YES;
 
     // clear everything up to the current line
 #if DEBUG_USE_BUFFER
-    int idx=[self getIndexAtX:0 Y:CURSOR_Y withPadding:NO];
+    [self setScreenLock];
 
-    [STORAGE deleteCharactersInRange:NSMakeRange(0, idx+updateIndex)];
+    int idx=[self getIndexAtX:0 Y:CURSOR_Y withPadding:NO];
+    int idx2 = idx+updateIndex;
+
+    if(idx2 >= [STORAGE length])
+	idx2 = [STORAGE length];
+
+    [STORAGE deleteCharactersInRange:NSMakeRange(0, idx2)];
     [BUFFER deleteCharactersInRange:NSMakeRange(0, idx)];
     updateIndex=0;
     minIndex=0;
+    [self removeScreenLock];
 #endif
 
 #if DEBUG_USE_ARRAY
