@@ -263,12 +263,8 @@
         return NO;
     else if ([item action]==@selector(saveDocumentAs:))
     {
-        // If we are calling from the main menu, we validate it always
-        if([[item menu] supermenu] != nil)
-            return YES;
-        // Else this is being called from the contextual menu; validate only if there is a selection.
-        else 
-            return ([self selectedRange].length>0);
+	// We always validate the "Save" command
+	return (YES);
     }
     else if ([item action]==@selector(mail:) || 
              [item action]==@selector(browse:)) 
