@@ -1004,6 +1004,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 
 	int idx, x1 ,x2;
 	
+	x1 = x2 = 0;
     switch (token.u.csi.p[0]) {
     case 1:
 		x1=0;
