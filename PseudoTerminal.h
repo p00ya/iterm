@@ -49,7 +49,7 @@
 
     // Contextual Menu
     id cMenu;
-    
+        
     // Session list
     NSMutableArray *ptyList;
     NSMutableArray *buttonList;
@@ -156,3 +156,11 @@
 - (void) _drawSessionButtons;
 
 @end
+
+@interface PseudoTerminal (Private)
+
+- (void) _addressbookPopupSelectionDidChange: (id) sender;
+- (void) _reloadAddressBookMenu: (NSNotification *) aNotification;
+
+@end
+

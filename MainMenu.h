@@ -80,6 +80,7 @@
 - (IBAction)adbEditEntry:(id)sender;
 - (IBAction)adbGotoQuickOpen:(id)sender;
 - (IBAction)adbOk:(id)sender;
+- (IBAction) executeABCommand: (id) sender;
 
 // Address entry window
 - (IBAction)adbRemoveEntry:(id)sender;
@@ -103,6 +104,8 @@
 - (void) addTerminalWindow: (PseudoTerminal *) theTerminalWindow;
 - (void) removeTerminalWindow: (PseudoTerminal *) theTerminalWindow;
 - (NSStringEncoding const*) encodingList;
+- (NSArray *)addressBookNames;
+- (NSDictionary *)addressBookEntry: (int) entryIndex;
 
 // Preference Panel
 - (IBAction)showPrefWindow:(id)sender;
