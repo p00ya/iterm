@@ -193,6 +193,9 @@ static NSString *ConfigToolbarItem = @"Config";
    
     TEXTVIEW = [aSession TEXTVIEW];
     [TEXTVIEW setDelegate: aSession];
+
+    // Set the bell option
+    [VT100Screen setPlayBellFlag: ![pref silenceBell]];
     
     // Set the anti-alias
     [TEXTVIEW setAntiAlias: [pref antiAlias]];
