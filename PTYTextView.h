@@ -282,7 +282,8 @@
 // Save method
 - (void) saveDocumentAs: (id) sender;
 
-// Print selection
+// Print
+- (void) print: (id) sender;
 - (void) printSelection: (id) sender;
 
 @end

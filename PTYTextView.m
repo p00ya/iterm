@@ -1869,6 +1869,7 @@
 	[delegate pasteString:aString];
 }
 
+
 - (BOOL)validateMenuItem:(NSMenuItem *)item
 {
 #if DEBUG_METHOD_TRACE
@@ -2190,6 +2191,19 @@
     }
     
     bExtendedDragNDrop = NO;
+}
+
+// Print
+- (void) print: (id) sender
+{
+    NSPrintInfo *aPrintInfo;
+
+    aPrintInfo = [NSPrintInfo sharedPrintInfo];
+    [aPrintInfo setHorizontalPagination: NSFitPagination];
+    [aPrintInfo setVerticalPagination: NSAutoPagination];
+
+    [[NSPrintOperation printOperationWithView: self  printInfo: aPrintInfo] runOperation];
+
 }
 
 // Print selection
