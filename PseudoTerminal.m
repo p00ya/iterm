@@ -972,7 +972,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [[iTermController sharedInstance] setCurrentTerminal: self];
 	
     // update the cursor
-    //[[[_sessionMgr currentSession] SCREEN] showCursor];
+    [[[_sessionMgr currentSession] TEXTVIEW] setNeedsDisplay: YES];
 }
 
 - (void) windowDidResignKey: (NSNotification *)aNotification
@@ -985,7 +985,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [self windowDidResignMain: aNotification];
 	
     // update the cursor
-    //[[[_sessionMgr currentSession] SCREEN] showCursor];
+    [[[_sessionMgr currentSession] TEXTVIEW] setNeedsDisplay: YES];
 	
 }
 

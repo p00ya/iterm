@@ -777,9 +777,19 @@
 		if(showCursor)
 		{
 			[[self defaultCursorColor] set];
-			NSRectFill(NSMakeRect(x1*charWidth,
-								  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight,
-								  charWidth,lineHeight));
+			if([[self window] isKeyWindow])
+			{
+				NSRectFill(NSMakeRect(x1*charWidth,
+									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight,
+									  charWidth,lineHeight));
+			}
+			else
+			{
+				NSFrameRect(NSMakeRect(x1*charWidth,
+									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight,
+									  charWidth,lineHeight));
+				
+			}
 			// draw any character on cursor if we need to
 			unichar aChar = [dataSource screenLines][i];
 			if (aChar)
