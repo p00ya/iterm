@@ -993,7 +993,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     WIDTH=w;
     HEIGHT=h;
 
-    [self setWindowSize: YES];
+    [self setWindowSize: NO];
 }
 
 // Contextual menu
