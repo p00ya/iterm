@@ -2446,10 +2446,10 @@ static BOOL PLAYBELL = YES;
                 if (fgBlink==nil) {
                     fgBlink=fg;
                 }
-		
+
 		dic=[NSDictionary dictionaryWithObjectsAndKeys:
 		    bg,NSBackgroundColorAttributeName,
-		    (fgBlink?fgBlink:bg),NSForegroundColorAttributeName,
+		    (blinkShow?fgBlink:bg),NSForegroundColorAttributeName,
 		    fgBlink,NSBlinkForegroundColorAttributeName,
 		    [NSNumber numberWithInt:1],NSBlinkAttributeName,
 		    nil];
