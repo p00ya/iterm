@@ -546,7 +546,7 @@ static NSString *ConfigToolbarItem = @"Config";
 
     thisWindow = [SCROLLVIEW window];
     winSize = size;
-    winSize.height = size.height + 3*[SCROLLVIEW lineScroll];
+    winSize.height = size.height + 28;
     [thisWindow setContentSize:winSize];
 }
 
@@ -743,7 +743,7 @@ static NSString *ConfigToolbarItem = @"Config";
 #endif
 
     termSize = [VT100Screen screenSizeInFrame: frame font: [SCREEN font]];
-
+    
     w = (int)(termSize.width);
     h = (int)(termSize.height);
     
