@@ -609,7 +609,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		tabviewRect.origin.x -= 10;
 		tabviewRect.size.width += 20;
 		tabviewRect.origin.y -= 13;
-		tabviewRect.size.height += 10;
+		tabviewRect.size.height += 9;
     }
     else if([TABVIEW tabViewType] == NSLeftTabsBezelBorder)
     {
