@@ -291,7 +291,7 @@ static float versionNumber;
 	[abWindowController setAddressBook: [iTerm addressBook]];
 	[abWindowController setPreferences: self];
     }
-    [abWindowController adbEditEntry: nil];
+    [abWindowController adbEditEntryAtIndex: 0 newEntry: NO];
     
 }
 
