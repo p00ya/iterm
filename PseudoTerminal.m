@@ -465,9 +465,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 #endif
     [self releaseObjects];
     [_toolbarController release];
-    
-#warning is this getting called?
-    
+        
     [super dealloc];
 }
 
