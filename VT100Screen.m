@@ -475,7 +475,7 @@ static BOOL PLAYBELL = YES;
     case VT100CSI_IND:
 	if(CURSOR_Y == SCROLL_BOTTOM)
 	{
-	    [self scrollDown];
+	    [self scrollUp];
 	}
 	else
 	{
@@ -1153,7 +1153,7 @@ static BOOL PLAYBELL = YES;
     [STORAGE insertAttributedString:[self attrString:@"\n"] atIndex:idx];
     if (SCROLL_BOTTOM>=HEIGHT-1) {
         idx=[self getIndex:0 y:SCROLL_BOTTOM];
-        [STORAGE deleteCharactersInRange:NSMakeRange(idx,[STORAGE length]-idx)];
+        [STORAGE deleteCharactersInRange:NSMakeRange(idx-1,[STORAGE length]-idx)];
     }
     else {
         idx=[self getIndex:0 y:SCROLL_BOTTOM];
