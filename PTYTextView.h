@@ -219,6 +219,9 @@
 
     // print selection
     BOOL printingSelection;
+
+    // for the typesetter
+    NSFont *font;
 }
 
 - (id)init;
@@ -256,6 +259,9 @@
 - (void) setLineHeight: (float) aLineHeight;
 - (float) lineWidth;
 - (void) setLineWidth: (float) aLineWidth;
+
+- (NSFont *) font;
+- (void) setFont: (NSFont *)aFont;
 
 - (void) refresh;
 - (void) scrollHome;
