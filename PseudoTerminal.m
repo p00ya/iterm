@@ -330,15 +330,16 @@ static NSString *ConfigToolbarItem = @"Config";
 	[aTabViewItem setLabel: [aSession name]];
 	[aTabViewItem setView: [aSession SCROLLVIEW]];
 	[TABVIEW addTabViewItem: aTabViewItem];
-	currentSessionIndex = [ptyList count] - 1;
-	currentPtySession = aSession;
+	//currentSessionIndex = [ptyList count] - 1;
+	//currentPtySession = aSession;
 	[aTabViewItem release];
 	[aSession setTabViewItem: aTabViewItem];
-	[self selectSession: currentSessionIndex];
+	[self selectSession: [ptyList count] - 1];
 
 	if ([TABVIEW numberOfTabViewItems] == 1)
 	{
 #if USE_CUSTOM_DRAWING
+            [[aSession TEXTVIEW] moveLastLine];
 #else
 	    [[aSession TEXTVIEW] scrollRangeToVisible: NSMakeRange([[[aSession TEXTVIEW] string] length] - 1, 1)];
 #endif
@@ -1492,11 +1493,13 @@ static NSString *ConfigToolbarItem = @"Config";
     {
 	if([pref hideTab])
 	{
-	    [TABVIEW setTabViewType: NSNoTabsBezelBorder];
+            PTYSession *aSession = [[TABVIEW tabViewItemAtIndex: 0] identifier];
+
+            [TABVIEW setTabViewType: NSNoTabsBezelBorder];
 	    [self setWindowSize: NO];
 #if USE_CUSTOM_DRAWING
+            [[aSession TEXTVIEW] moveLastLine];
 #else
-            PTYSession *aSession = [[TABVIEW tabViewItemAtIndex: 0] identifier];
 	    [[aSession TEXTVIEW] scrollRangeToVisible: NSMakeRange([[[aSession TEXTVIEW] string] length] - 1, 1)];
 #endif
 	}

@@ -270,6 +270,7 @@
 {
 //    NSLog(@"setDirtyline:%d",y);
     [self setNeedsDisplayInRect:NSMakeRect(0,y*lineHeight,[self frame].size.width,(y+1)*lineHeight)];
+    if (startIndex!=-1&&y>=startY && y<=endY) startIndex=-1;
 }
 
 - (void) refresh
