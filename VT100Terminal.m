@@ -1182,6 +1182,8 @@ static VT100TCC decode_string(unsigned char *datap,
     defaultCharacterAttributeDictionary[1] = [[NSMutableDictionary alloc] init];
     streamOffset = 0;
 
+    numLock = YES;
+
     return self;
 }
 
@@ -1421,6 +1423,16 @@ static VT100TCC decode_string(unsigned char *datap,
     }
 
     return (theData);
+}
+
+- (void) toggleNumLock
+{
+    numLock = !numLock;
+}
+
+- (BOOL) numLock
+{
+    return (numLock);
 }
 
 - (NSData *) keypadData: (unichar) unicode keystr: (NSString *) keystr

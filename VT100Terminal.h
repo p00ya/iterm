@@ -214,6 +214,7 @@ typedef struct {
     BOOL INSERT_MODE;		// YES=Insert, NO=Replace
     int  CHARSET;		// G0...G3
     BOOL XON;			// YES=XON, NO=XOFF
+    BOOL numLock;		// YES=ON, NO=OFF, default=YES;
     
     unsigned int CHARATTR;
     int FG_COLORCODE;
@@ -250,6 +251,9 @@ typedef struct {
 - (void)cleanStream;
 - (void)putStreamData:(NSData *)data;
 - (VT100TCC)getNextToken;
+
+- (void) toggleNumLock;
+- (BOOL) numLock;
 
 - (NSData *)keyArrowUp;
 - (NSData *)keyArrowDown;
