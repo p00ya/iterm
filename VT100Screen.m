@@ -685,11 +685,14 @@ static BOOL PLAYBELL = YES;
         //[SESSION setName:token.u.string];
         if (token.type==XTERMCC_WIN_TITLE||token.type==XTERMCC_WINICON_TITLE) 
         {
-            if([[SESSION parent] currentSession] == SESSION)
-                [[[SESSION parent] window] setTitle:token.u.string];
-            [SESSION setName: token.u.string];
+	    //NSLog(@"setting window title to %@", token.u.string);
+	    [SESSION setWindowTitle: token.u.string];
         }
-        if (token.type==XTERMCC_ICON_TITLE||token.type==XTERMCC_WINICON_TITLE) [SESSION setName:token.u.string];
+        if (token.type==XTERMCC_ICON_TITLE||token.type==XTERMCC_WINICON_TITLE)
+	{
+	    //NSLog(@"setting session title to %@", token.u.string);
+	    [SESSION setName:token.u.string];
+	}
         break;
     case XTERMCC_INSBLNK: [self insertBlank:token.u.csi.p[0]]; break;
     case XTERMCC_INSLN: [self insertLines:token.u.csi.p[0]]; break;

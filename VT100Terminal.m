@@ -615,14 +615,17 @@ static VT100TCC decode_xterm(unsigned char *datap,
         data = [NSData dataWithBytes:s length:c-s];
         result.u.string = [[[NSString alloc] initWithData:data
                                                  encoding:enc] autorelease];
-        switch (mode) {
+	switch (mode) {
             case 0:
                result.type = XTERMCC_WINICON_TITLE;
+		break;
             case 1:
                result.type = XTERMCC_ICON_TITLE;
+		break;
             case 2:
             default:
                 result.type = XTERMCC_WIN_TITLE;
+		break;
         }
 //        NSLog(@"result: %d[%@],%d",result.type,result.u.string,*rmlen);
     }
