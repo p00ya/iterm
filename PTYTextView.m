@@ -167,7 +167,8 @@
           __FILE__, __LINE__,attr);
 #endif
     [markedTextAttributes release];
-    markedTextAttributes=[attr copy];
+    [attr retain]
+    markedTextAttributes=attr;
 }
 
 - (NSColor *) selectionColor
@@ -219,9 +220,11 @@
             NULL]];
     
     [font release];
-    font=[aFont copy];
+    [aFont retain]
+    font=aFont;
     [nafont release];
-    nafont=[naFont copy];
+    [naFont retain];
+    nafont=naFont;
 }
 
 - (id) dataSource
@@ -1048,7 +1051,7 @@
 #endif
     
     // We get our content of the textview or selection, if any
-    copyString=[[NSMutableString alloc] init];
+    copyString=[[[NSMutableString alloc] init] autorelease];
     if (startIndex<0) {
         sy=0;
         ey=[dataSource numberOfLines]-1;
@@ -1101,6 +1104,7 @@
                          modalDelegate: self
                         didEndSelector: @selector(_savePanelDidEnd: returnCode: contextInfo:)
                            contextInfo: aData];
+    [aData autorelease];
 }
 
 - (void) print:(id)sender

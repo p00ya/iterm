@@ -677,9 +677,11 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 - (void)setFont:(NSFont *)font nafont:(NSFont *)nafont
 {
     [FONT autorelease];
-    FONT=[font copy];
+    [font retain];
+    FONT=font;
     [NAFONT autorelease];
-    NAFONT=[nafont copy];
+    [nafont retain];
+    NAFONT=nafont;
 }
 
 - (void)setAllFont:(NSFont *)font nafont:(NSFont *) nafont
@@ -700,9 +702,11 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
         [[session SCREEN]  setFont:font nafont:nafont];
     }
     [FONT autorelease];
-    FONT=[font copy];
+    [font retain];
+    FONT=font;
     [NAFONT autorelease];
-    NAFONT=[nafont copy];
+    [nafont retain];
+    NAFONT=nafont;
 }
 
 - (void)clearBuffer:(id)sender
