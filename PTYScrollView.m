@@ -17,6 +17,17 @@
 
 @implementation PTYScrollView
 
+- (void) dealloc
+{
+
+#if DEBUG_ALLOC
+    NSLog(@"%s(%d):-[PTYScrollView dealloc");
+#endif
+    
+    [super dealloc];
+
+}
+
 - (id)initWithFrame:(NSRect)frame
 {
     //PTYTextView *textview;

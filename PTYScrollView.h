@@ -14,6 +14,7 @@
 {
 }
 
+- (void) dealloc;
 - (id)initWithFrame:(NSRect)frame;
 
 @end
