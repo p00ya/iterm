@@ -943,7 +943,14 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     
     while ((aSession = [sessionEnumerator nextObject]) != nil)
     {
+		PTYScroller *ptys=(PTYScroller *)[[aSession SCROLLVIEW] verticalScroller];
+		
 		[[aSession SHELL] writeTask:data];
+
+		// Make sure we scroll down to the end
+		[[aSession TEXTVIEW] scrollEnd];
+		[ptys setUserScroll: NO];		
+		
     }    
 	
 	[pool release];
