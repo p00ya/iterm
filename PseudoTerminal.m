@@ -1639,6 +1639,12 @@ static NSString *ConfigToolbarItem = @"Config";
             NULL];
         //    NSLog(@"new entry:%@",ae);
         [MAINMENU replaceAddressBookEntry:old with:new];
+        NSRunAlertPanel(NSLocalizedStringFromTable(@"Configuration saved",@"iTerm",@"Config"),
+                        [old objectForKey:@"Name"],
+                        NSLocalizedStringFromTable(@"OK",@"iTerm",@"OK"),
+                        nil,nil);
+        
+        
     }
     else {
         new=[[NSDictionary alloc] initWithObjectsAndKeys:
@@ -1661,9 +1667,12 @@ static NSString *ConfigToolbarItem = @"Config";
             NULL];
         //    NSLog(@"new entry:%@",ae);
         [MAINMENU addAddressBookEntry: new];
+        NSRunAlertPanel(NSLocalizedStringFromTable(@"Configuration saved as a new entry in Address Book",@"iTerm",@"Config"),
+                        [new objectForKey:@"Name"],
+                        NSLocalizedStringFromTable(@"OK",@"iTerm",@"OK"),
+                        nil,nil);
     }
     [MAINMENU saveAddressBook];
-
 }
 
 @end

@@ -188,6 +188,7 @@
 - (void)setPreference:(id)pref;
 - (id) preference;
 
+
 @end
 
 @interface PseudoTerminal (Private)

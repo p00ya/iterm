@@ -58,6 +58,7 @@
     IBOutlet id adAICode;
     IBOutlet id adClose;
     IBOutlet id adDoubleWidth;
+    IBOutlet id adShortcut;
     IBOutlet NSTextField *adNATextExample;
     IBOutlet NSColorWell *adSelection;
     
@@ -125,6 +126,7 @@
 - (void) replaceAddressBookEntry:(NSDictionary *) old with:(NSDictionary *)new;
 - (void) buildAddressBookMenu: (NSMenu *) abMenu forTerminal: (id) sender;
 - (void) executeABCommandAtIndex: (int) theIndex inTerminal: (PseudoTerminal *) theTerm;
+- (void) interpreteKey: (int) code newWindow:(BOOL) newWin;
 
 // Preference Panel
 - (IBAction)showPrefWindow:(id)sender;
