@@ -47,8 +47,6 @@ static NSStringEncoding const *encodingList=nil;
 
 static BOOL usingAutoLaunchScript = NO;
 
-static NSTimer *timer;
-
 @implementation iTermController
 
 + (iTermController*)sharedInstance;
@@ -179,13 +177,6 @@ static NSTimer *timer;
     
     encodingList=[NSString availableStringEncodings];
     terminalWindows = [[NSMutableArray alloc] init];
-
-    // start a common timer for all the periodic timer code for all sessions
-    timer =[[NSTimer scheduledTimerWithTimeInterval:0.02
-                                             target:self
-                                           selector:@selector(timerTick:)
-                                           userInfo:nil
-                                            repeats:YES] retain];
     
     return (self);
 }
@@ -199,29 +190,8 @@ static NSTimer *timer;
     
     [terminalWindows removeAllObjects];
     [terminalWindows release];
-
-    [timer invalidate];
-    [timer release];
     
     [super dealloc];
-}
-
-- (void) timerTick: (NSTimer *) sender
-{
-    PseudoTerminal *aTerminal;
-    PTYSession *aSession;
-    NSEnumerator *terminalEnumerator, *sessionEnumerator;
-
-    terminalEnumerator = [[self terminals] objectEnumerator];
-
-    // call periodic code in each session of each terminal
-    while ((aTerminal = [terminalEnumerator nextObject]) != nil)
-    {
-	sessionEnumerator = [[aTerminal sessions] objectEnumerator];
-	while ((aSession = [sessionEnumerator nextObject]) != nil)
-	    [aSession timerTick: sender];
-    }
-        
 }
 
 // Action methods

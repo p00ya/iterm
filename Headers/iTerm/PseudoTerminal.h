@@ -47,6 +47,7 @@
     BOOL tabViewDragOperationInProgress;
     BOOL resizeInProgress;
     BOOL windowInited;
+    NSTimer *timer;
 }
 
 - (id)init;
