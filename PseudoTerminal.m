@@ -278,6 +278,11 @@ static NSDictionary *newOutputStateAttribute;
     
 }
 
+- (void) closeCurrentSession: (PTYSession *)theSession
+{
+    [self closeSession: currentPtySession];
+}
+
 
 - (IBAction) previousSession:(id)sender
 {
