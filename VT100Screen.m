@@ -1588,7 +1588,7 @@ static BOOL PLAYBELL = YES;
     int i;
 
     for(i=0;i<strlen(sc);i++) t[i]=charmap[(int)sc[i]];
-    ts=[[NSString stringWithCharacters:t length:strlen(sc)] retain];
+    ts=[NSString stringWithCharacters:t length:strlen(sc)];
 
     return ts;
    
