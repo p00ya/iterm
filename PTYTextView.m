@@ -655,6 +655,9 @@
     {
 		// current line we are processing
 		line = i + lineOffset;
+		
+		if(line >= [dataSource numberOfLines])
+			break;
 
 		// we start at the beginning of the line
 		curX=0;
