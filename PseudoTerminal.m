@@ -99,8 +99,8 @@ static NSString *ConfigToolbarItem = @"Config";
     [MainMenu breakDown:[pref shell] cmdPath:&cmd cmdArgs:&arg];
 
     [self initSession:nil
-     foregroundColor:[[currentPtySession TERMINAL] defaultFGColor]
-     backgroundColor:[[[currentPtySession TERMINAL] defaultBGColor] colorWithAlphaComponent: [[[currentPtySession TERMINAL] defaultBGColor] alphaComponent]]
+     foregroundColor:[pref foreground]
+     backgroundColor:[[pref background] colorWithAlphaComponent: (1.0-[pref transparency]/100.0)]
      selectionColor: [pref selectionColor]
             encoding:[pref encoding]
                 term:[pref terminalType]];
