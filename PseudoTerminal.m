@@ -750,6 +750,11 @@ static int windowCount = 0;
     [currentPtySession clearBuffer];
 }
 
+- (void)clearScrollbackBuffer:(id)sender
+{
+    [currentPtySession clearScrollbackBuffer];
+}
+
 - (IBAction)logStart:(id)sender
 {
     if (![[currentPtySession SHELL] logging]) [currentPtySession logStart];

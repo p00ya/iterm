@@ -111,6 +111,7 @@
 // edit screen buffer
 - (void)putToken:(VT100TCC)token;
 - (void)clearBuffer;
+- (void)clearScrollbackBuffer;
 
 // internal
 - (void)setDoubleWidthString:(NSString *)s;

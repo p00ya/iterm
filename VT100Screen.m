@@ -736,6 +736,29 @@ static BOOL PLAYBELL = YES;
     CURSOR_X = CURSOR_Y = 0;
 }
 
+- (void)clearScrollbackBuffer
+{
+#if DEBUG_METHOD_TRACE
+    NSLog(@"%s(%d):-[VT100Screen clearScrollbackBuffer]",  __FILE__, __LINE__ );
+#endif
+
+#if DEBUG_USE_BUFFER
+    int idx=[self getIndexAtX:0 Y:0 withPadding:NO];
+    
+    [STORAGE deleteCharactersInRange:NSMakeRange(0, idx+updateIndex)];
+    [BUFFER deleteCharactersInRange:NSMakeRange(0, idx)];
+    updateIndex=0;
+    minIndex=0;
+#endif
+
+#if DEBUG_USE_ARRAY
+    for(i = 0; i < TOP_LINE; i++)
+        [screenLines removeObjectAtIndex: 0];
+#endif
+    TOP_LINE = 0;
+    
+}
+
 - (int) getIndexAtX:(int)x Y:(int)y withPadding:(BOOL)padding
 {
 
