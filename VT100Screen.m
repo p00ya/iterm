@@ -97,8 +97,8 @@ static BOOL PLAYBELL = YES;
 #endif
     sz = [VT100Screen fontSize:font];
 
-    w = frame.size.width / sz.width - 2;
-    h = frame.size.height / sz.height - 1;
+    w = (int)(frame.size.width / sz.width + 0.5) - 2;
+    h = (int)(frame.size.height / sz.height + 0.5)-1 ;
 
     return NSMakeSize(w, h);
 }
