@@ -1380,7 +1380,6 @@ static NSString *ConfigToolbarItem = @"Config";
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PseudoTerminal tabView: didSelectTabViewItem]", __FILE__, __LINE__);
 #endif
-
     
     [currentPtySession setLabelAttribute];
     
