@@ -122,17 +122,18 @@ static BOOL editingBookmark = NO;
 	// load nib if we haven't already
 	if([self window] == nil)
 		[self initWithWindowNibName: @"PreferencePanel"];
-	    
-    [tabPosition selectCellWithTag: defaultTabViewType];
+			    
+	[[self window] setDelegate: self];
+	
+	[tabPosition selectCellWithTag: defaultTabViewType];
     [selectionCopiesText setState:defaultCopySelection?NSOnState:NSOffState];
     [hideTab setState:defaultHideTab?NSOnState:NSOffState];
     [promptOnClose setState:defaultPromptOnClose?NSOnState:NSOffState];
 	[focusFollowsMouse setState: defaultFocusFollowsMouse?NSOnState:NSOffState];
-	[wordChars setStringValue: [prefs objectForKey: @"WordCharacters"]?[prefs objectForKey: @"WordCharacters"]:@""];
-	    
-	[[self window] setDelegate: self];
-	[self showWindow: self];
+	[wordChars setStringValue: [prefs objectForKey: @"WordCharacters"]?[prefs objectForKey: @"WordCharacters"]:@""];	
 	
+	[self showWindow: self];
+
 }
 
 - (IBAction)cancel:(id)sender
