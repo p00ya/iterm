@@ -1025,7 +1025,7 @@
 	if (x<0) x=0;
     if (x>=[dataSource width]) x=[dataSource width] - 1;
     y = locationInTextView.y/lineHeight;
-	if(locationInTextView.x < MARGIN)
+	if(locationInTextView.x < MARGIN && startY < y)
 	{
 		// complete selection of previous line
 		x = [dataSource width] - 1;
@@ -1113,7 +1113,7 @@
 	if([self _isBlankLine: y] && y >= 0)
 		x = [dataSource width] - 1;
 	
-	if(locationInTextView.x < MARGIN)
+	if(locationInTextView.x < MARGIN && startY < y)
 	{
 		// complete selection of previous line
 		x = [dataSource width] - 1;
