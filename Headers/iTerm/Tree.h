@@ -59,6 +59,7 @@
 
 - (BOOL) isLeaf;
 - (void) setIsLeaf: (BOOL) flag;
+- (BOOL)isGroup;
 
 - (void)insertChild:(TreeNode*)child atIndex:(int)index;
 - (void)insertChildren:(NSArray*)children atIndex:(int)index;

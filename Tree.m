@@ -170,6 +170,11 @@
     return nodeParent; 
 }
 
+- (BOOL)isGroup
+{
+	return (!isLeaf);
+}
+
 - (BOOL) isLeaf
 {
 	return (isLeaf);
