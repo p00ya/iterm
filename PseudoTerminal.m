@@ -76,6 +76,8 @@ static NSString *ConfigToolbarItem = @"Config";
     [self startProgram:cmd arguments:arg];
     [self setCurrentSessionName:nil];
     [currentPtySession setAutoClose: [pref autoclose]];
+    [currentPtySession setDoubleWidth:[pref doubleWidth]];
+
 }
 
 - (id)init
@@ -1401,6 +1403,7 @@ static NSString *ConfigToolbarItem = @"Config";
             [NSNumber numberWithBool:[[self currentSession] antiIdle]],@"AntiIdle",
             [NSNumber numberWithUnsignedInt:[[self currentSession] antiCode]],@"AICode",
             [NSNumber numberWithBool:[[self currentSession] autoClose]],@"AutoClose",
+            [NSNumber numberWithBool:[[self currentSession] doubleWidth]],@"doubleWidth",
             NULL];
         //    NSLog(@"new entry:%@",ae);
         [MAINMENU replaceAddressBookEntry:old with:new];
@@ -1422,6 +1425,7 @@ static NSString *ConfigToolbarItem = @"Config";
             [NSNumber numberWithBool:[[self currentSession] antiIdle]],@"AntiIdle",
             [NSNumber numberWithUnsignedInt:[[self currentSession] antiCode]],@"AICode",
             [NSNumber numberWithBool:[[self currentSession] autoClose]],@"AutoClose",
+            [NSNumber numberWithBool:[[self currentSession] doubleWidth]],@"doubleWidth",
             NULL];
         //    NSLog(@"new entry:%@",ae);
         [MAINMENU addAddressBookEntry: new];
@@ -1589,7 +1593,8 @@ static NSString *ConfigToolbarItem = @"Config";
     [[term currentSession] setEncoding:[[anEntry objectForKey:@"Encoding"] unsignedIntValue]];
     [[term currentSession] setAntiCode:[[anEntry objectForKey:@"AICode"] intValue]];
     [[term currentSession] setAntiIdle:[[anEntry objectForKey:@"AntiIdle"] boolValue]];
-    [[term currentSession] setAutoClose:[[anEntry objectForKey:@"AutoClose"] intValue]];
+    [[term currentSession] setAutoClose:[[anEntry objectForKey:@"AutoClose"] boolValue]];
+    [[term currentSession] setDoubleWidth:[[anEntry objectForKey:@"DoubleWidth"] boolValue]];
     [[term currentSession] setAddressBookEntry:anEntry];
     
 }
