@@ -241,9 +241,9 @@
 	    return;
 
 	numLines = rect.size.height/lineHeight;
-	lineOffset = rect.origin.y/lineHeight;
+	lineOffset = rect.origin.y/lineHeight+1;
 
-	for(i = 0; i < numLines; i++)
+	for(i = 0; i <numLines; i++)
 	{
 	    aLine = [[self dataSource] stringAtLine: i + lineOffset];
 	    if(aLine == nil)

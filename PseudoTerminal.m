@@ -33,7 +33,7 @@
 #define DEBUG_METHOD_TRACE    0
 #define DEBUG_KEYDOWNDUMP     0
 
-#define USE_CUSTOM_DRAWING	0
+#define USE_CUSTOM_DRAWING	1
 
 #import "PseudoTerminal.h"
 #import "PTYScrollView.h"
@@ -247,6 +247,7 @@ static NSString *ConfigToolbarItem = @"Config";
 
     // initialize the screen
     [[aSession SCREEN] initScreen];
+    [aSession startTimer];
 
     // set the encoding
     [[aSession TERMINAL] setEncoding:encoding];
