@@ -206,7 +206,6 @@ static BOOL PLAYBELL = YES;
     updateIndex=minIndex=0;
     screenLock= [[NSLock alloc] init];
     screenIsLocked = NO;
-    clearingBuffer = NO;
     
     return self;
 }
@@ -805,7 +804,6 @@ static BOOL PLAYBELL = YES;
     [self clearScreen];
     [self initScreen];
     CURSOR_X = CURSOR_Y = 0;
-    clearingBuffer = YES;
     if([aLine length] > 0)
     {
 	[BUFFER replaceCharactersInRange: NSMakeRange(0, 1) withAttributedString: aLine];
@@ -1555,7 +1553,7 @@ static BOOL PLAYBELL = YES;
 #if DEBUG_USE_BUFFER    
     // if we are clearing the entire screen, move the current screen into the scrollback buffer
     [newLineString setAttributes:[TERMINAL characterAttributeDictionary:YES] range:NSMakeRange(0,1)];
-    if(x1 == 0 && y1 == 0 && x2 == (WIDTH -1 ) && y2 == (HEIGHT - 1) && clearingBuffer == NO)
+    if(x1 == 0 && y1 == 0 && x2 == (WIDTH -1 ) && y2 == (HEIGHT - 1))
     {
 	
 /*	[self setScreenLock];

@@ -60,7 +60,6 @@
     NSAttributedString *savedBuffer;
     int updateIndex, minIndex;
     BOOL blinkShow;
-    BOOL clearingBuffer;
 
     NSMutableArray *screenLines;
     
