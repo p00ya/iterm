@@ -44,6 +44,7 @@ typedef struct
 } CharCache;
 	
 #define CACHESIZE 2048
+enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 
 @interface PTYTextView : NSView <NSTextInput>
 {
@@ -105,6 +106,7 @@ typedef struct
     int startX, startY, endX, endY;
 	BOOL mouseDown;
 	BOOL mouseDragged;
+    char selectMode;
 	
 	//find support
 	int lastFindX, lastFindY;
