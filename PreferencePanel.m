@@ -152,6 +152,90 @@ static float versionNumber;
     [[self window] performClose: self];
 }
 
+// NSOutlineView data source methods
+// required
+- (id)outlineView:(NSOutlineView *)ov child:(int)index ofItem:(id)item
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return [[ITAddressBookMgr sharedInstance] child:index ofItem: item];
+}
+
+- (BOOL)outlineView:(NSOutlineView *)ov isItemExpandable:(id)item
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return [[ITAddressBookMgr sharedInstance] isExpandable: item];
+}
+
+- (int)outlineView:(NSOutlineView *)ov numberOfChildrenOfItem:(id)item
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return [[ITAddressBookMgr sharedInstance] numberOfChildrenOfItem: item];
+}
+
+- (id)outlineView:(NSOutlineView *)ov objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+	// item should be a dictionary
+    return [item objectForKey:[tableColumn identifier]];
+}
+
+// Bookmark actions
+- (IBAction) addBookmarkFolder: (id) sender
+{
+	
+}
+
+- (IBAction) addBookmarkFolderConfirm: (id) sender
+{
+	
+}
+
+- (IBAction) addBookmarkFolderCancel: (id) sender
+{
+	
+}
+
+- (IBAction) deleteBookmarkFolder: (id) sender
+{
+	
+}
+
+- (IBAction) deleteBookmarkConfirm: (id) sender
+{
+	
+}
+
+- (IBAction) deleteBookmarkCancel: (id) sender
+{
+	
+}
+
+- (IBAction) addBookmark: (id) sender
+{
+	
+}
+
+- (IBAction) addBookmarkConfirm: (id) sender
+{
+	
+}
+
+- (IBAction) addBookmarkCancel: (id) sender
+{
+	
+}
+
+- (IBAction) deleteBookmark: (id) sender
+{
+	
+}
+
+- (IBAction) editBookmark: (id) sender
+{
+	
+}
+
+
 // NSWindow delegate
 - (void)windowWillLoad;
 {
