@@ -342,7 +342,8 @@
     aString = [aMutableAttributedString string];
     if((aString == nil) || ([aString length] == 0))
 	return;
-    aString = [aString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if([aString length] > 1) // Cocoa bug?
+	aString = [aString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
     // Put the trimmed string on the pasteboard
     [pboard declareTypes: [NSArray arrayWithObject: NSStringPboardType] owner: self];
