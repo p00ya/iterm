@@ -676,6 +676,8 @@ static BOOL editingBookmark = NO;
         [parentNode insertChildren: _draggedNodes atIndex: childIndex];
     } 
 	
+	[bookmarksView reloadData];
+
 }
 
 - (void) _reloadAddressBook: (NSNotification *) aNotification
