@@ -1965,7 +1965,7 @@ static SInt32 systemVersion;
 			strokeWidth = 0;
 		else
 		{
-			strokeWidth = antiAlias?(float)bold*(-0.2):0;
+			strokeWidth = antiAlias?(float)bold*(-0.1):0;
 			theFont = aFont;
 		}
 	}
