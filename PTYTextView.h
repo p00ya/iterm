@@ -59,6 +59,8 @@
 // get/set methods
 - (BOOL) antiAlias;
 - (void) setAntiAlias: (BOOL) antiAliasFlag;
+- (NSColor *) selectionColor;
+- (void) setSelectionColor: (NSColor *) aColor;
 
 //
 // Drag and Drop methods for our text view

@@ -38,6 +38,7 @@
     IBOutlet id adAICode;
     IBOutlet id adClose;
     IBOutlet NSTextField *adNATextExample;
+    IBOutlet NSColorWell *adSelection;
     
     NSFont *aeFont, *aeNAFont;
     BOOL changingNA;

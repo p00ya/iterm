@@ -23,9 +23,24 @@
 #if DEBUG_ALLOC
     NSLog(@"PTYTextView: -init");
 #endif
+
+    self = [super init];
     [[NSCursor IBeamCursor] setOnMouseEntered: NO];
 
-    return [super init];
+    return (self);
+}
+
+- (id)initWithFrame: (NSRect) aRect
+{
+#if DEBUG_ALLOC
+    NSLog(@"PTYTextView: -init");
+#endif
+
+    self = [super initWithFrame: aRect];
+    [[NSCursor IBeamCursor] setOnMouseEntered: NO];
+
+    return (self);
+    
 }
 
 - (void) dealloc
@@ -59,6 +74,29 @@
 #endif
     antiAlias = antiAliasFlag;
 }
+
+- (NSColor *) selectionColor
+{
+    NSDictionary *dic;
+    
+    dic = [self selectedTextAttributes];
+    
+    return ([dic objectForKey: NSBackgroundColorAttributeName]);
+
+}
+
+- (void) setSelectionColor: (NSColor *) aColor
+{
+    NSDictionary *dic;
+    
+    if(aColor != nil)
+    {
+        dic = [NSDictionary dictionaryWithObjectsAndKeys: aColor, NSBackgroundColorAttributeName, nil];
+        [self setSelectedTextAttributes: dic];
+    }
+
+}
+
 
 - (void)drawRect:(NSRect)rect
 {

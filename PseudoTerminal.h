@@ -41,6 +41,7 @@
     IBOutlet id CONFIG_TRANS2;
     IBOutlet id CONFIG_NAME;
     IBOutlet id CONFIG_ANTIALIAS;
+    IBOutlet id CONFIG_SELECTION;
     
     // anti-idle
     IBOutlet id AI_PANEL;
@@ -88,6 +89,7 @@
 - (void)initSession:(NSString *)title
    foregroundColor:(NSColor *) fg
    backgroundColor:(NSColor *) bg
+   selectionColor: (NSColor*) sc
           encoding:(NSStringEncoding)encoding
               term:(NSString *)term;
 
