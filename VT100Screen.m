@@ -1519,7 +1519,7 @@ static BOOL PLAYBELL = YES;
     // if we are clearing the entire screen, move the current screen into the scrollback buffer
     if(x1 == 0 && y1 == 0 && x2 == (WIDTH -1 ) && y2 == (HEIGHT - 1) && clearingBuffer == NO)
     {
-	NSString *newLineString;
+	NSAttributedString *newLineString;
 	
 	[self setScreenLock];
 	[STORAGE beginEditing];
