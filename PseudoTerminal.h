@@ -205,6 +205,7 @@
 // accessors for to-many relationships:
 // (See NSScriptKeyValueCoding.h)
 -(id)valueInSessionsAtIndex:(unsigned)index;
+-(id)valueWithName: (NSString *)uniqueName inPropertyWithKey: (NSString*)propertyKey;
 -(void)replaceInSessions:(PTYSession *)object atIndex:(unsigned)index;
 -(void)addInSessions:(PTYSession *)object;
 -(void)insertInSessions:(PTYSession *)object;

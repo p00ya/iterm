@@ -1726,6 +1726,27 @@ static int windowCount = 0;
     return ([ptyList objectAtIndex: index]);
 }
 
+-(id)valueWithName: (NSString *)uniqueName inPropertyWithKey: (NSString*)propertyKey
+{
+    id result = nil;
+    int i;
+
+    if([propertyKey isEqualToString: sessionsKey] == YES)
+    {
+	PTYSession *aSession;
+	
+	for (i= 0; i < [ptyList count]; i++)
+	{
+	    aSession = [ptyList objectAtIndex: i];
+	    if([[aSession name] isEqualToString: uniqueName] == YES)
+		return (aSession);
+	}
+    }
+
+    return result;
+}
+
+
 -(void)replaceInSessions:(PTYSession *)object atIndex:(unsigned)index
 {
     // NSLog(@"PseudoTerminal: -replaceInSessions: 0x%x atIndex: %d", object, index);
