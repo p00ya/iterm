@@ -2487,7 +2487,7 @@ static BOOL PLAYBELL = YES;
 	}
     
 	// Check if the cursor needs to blink
-	if([self blinkingCursor] == YES && [SESSION isActiveSession] == YES)
+	if([self blinkingCursor] == YES && [SESSION isActiveSession] == YES && [[[SESSION parent] window] isKeyWindow])
 	{
 	    idx = [self getTVIndex: CURSOR_X y: CURSOR_Y];
 	    if(idx < len)
