@@ -244,7 +244,6 @@ typedef enum {
     int  CHARSET;			// G0...G3
     BOOL XON;				// YES=XON, NO=XOFF
     BOOL numLock;			// YES=ON, NO=OFF, default=YES;
-    BOOL printToAnsi;		// YES=ON, NO=OFF, default=NO;
     
     int FG_COLORCODE;
     int BG_COLORCODE;
@@ -260,8 +259,6 @@ typedef enum {
     
     unsigned int streamOffset;
 
-    // for interprocess communication
-    FILE *pipeFile;
 }
 
 + (void)initialize;
@@ -278,16 +275,12 @@ typedef enum {
 - (BOOL)allowColumnMode;
 - (void)setAllowColumnMode: (BOOL)flag;
 
-- (BOOL)printToAnsi;
-- (void)setPrintToAnsi: (BOOL)flag;
-
 - (NSStringEncoding)encoding;
 - (void)setEncoding:(NSStringEncoding)encoding;
 
 - (void)cleanStream;
 - (void)putStreamData:(NSData *)data;
 - (VT100TCC)getNextToken;
-- (void)printToken: (VT100TCC) token;
 
 - (NSData *)keyArrowUp:(unsigned int)modflag;
 - (NSData *)keyArrowDown:(unsigned int)modflag;

@@ -77,6 +77,10 @@
 	
 	char *tempBuffer;
 	
+	// print to ansi...
+	BOOL printToAnsi;		// YES=ON, NO=OFF, default=NO;
+	NSMutableString *printToAnsiString;
+	
 	NSLock *screenLock;
 }
 
@@ -168,5 +172,10 @@
 
 - (void)resetDirty;
 - (void)setDirty;
+
+// print to ansi...
+- (BOOL) printToAnsi;
+- (void) setPrintToAnsi: (BOOL) aFlag;
+- (void) printStringToAnsi: (NSString *) aString;
 
 @end
