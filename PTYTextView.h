@@ -60,6 +60,8 @@
 
     // dead key support
     BOOL deadkey;
+
+    BOOL resized;
     BOOL CURSOR;
     int	cursorIndex;
 
@@ -124,8 +126,9 @@
 - (void) refresh;
 - (void) setDirtyLine: (int) y;
 - (void) moveLastLine;
--(void) showCursor;
--(void) hideCursor;
+- (BOOL) resized;
+- (void) showCursor;
+- (void) hideCursor;
 
     //
     // Drag and Drop methods for our text view
