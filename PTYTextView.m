@@ -557,11 +557,22 @@
                 propertyList = [pb propertyListForType: NSFilenamesPboardType];
                 for(i = 0; i < [propertyList count]; i++)
                 {
-                    // Just paste the file names into the shell.
+                    // Just paste the file names into the shell after escaping special characters.
                     if ([delegate respondsToSelector:@selector(pasteString:)])
                     {
-                        [delegate pasteString: (NSString*)[propertyList objectAtIndex: i]];
+			NSMutableString *aMutableString;
+
+			aMutableString = [[NSMutableString alloc] initWithString: (NSString*)[propertyList objectAtIndex: i]];
+			// get rid of special characters
+			[aMutableString replaceOccurrencesOfString: @" " withString: @"\\ " options: 0 range: NSMakeRange(0, [aMutableString length])];
+			[aMutableString replaceOccurrencesOfString: @"(" withString: @"\\(" options: 0 range: NSMakeRange(0, [aMutableString length])];
+			[aMutableString replaceOccurrencesOfString: @")" withString: @"\\)" options: 0 range: NSMakeRange(0, [aMutableString length])];
+			[aMutableString replaceOccurrencesOfString: @"\"" withString: @"\\\"" options: 0 range: NSMakeRange(0, [aMutableString length])];
+[aMutableString replaceOccurrencesOfString: @"'" withString: @"\\'" options: 0 range: NSMakeRange(0, [aMutableString length])];
+			
+                        [delegate pasteString: aMutableString];
                         [delegate pasteString: @" "];
+			[aMutableString release];
                     }
 
                 }
