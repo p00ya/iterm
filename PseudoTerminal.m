@@ -957,6 +957,7 @@ static NSString *ConfigToolbarItem = @"Config";
         [[self currentSession] setEncoding:[MAINMENU encodingList][[CONFIG_ENCODING indexOfSelectedItem]]];
         if ((configFont != nil&&[SCREEN font]!=configFont)||(configNAFont!= nil&&[SCREEN nafont]!=configNAFont)) {
             [self setAllFont:configFont nafont:configNAFont];
+            [self resizeWindow:[CONFIG_COL intValue] height:[CONFIG_ROW intValue]];
         }
 
         // resiz the window if asked for
