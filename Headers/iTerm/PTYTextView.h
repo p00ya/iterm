@@ -103,6 +103,7 @@ typedef struct
 	
     //selection
     int startX, startY, endX, endY;
+	BOOL mouseDown;
 	BOOL mouseDragged;
 	
 	//find support

@@ -996,6 +996,7 @@ static SInt32 systemVersion;
     int x, y;
 	
 	mouseDragged = NO;
+	mouseDown = YES;
     
     locationInWindow = [event locationInWindow];
     locationInTextView = [self convertPoint: locationInWindow fromView: nil];
@@ -1033,6 +1034,10 @@ static SInt32 systemVersion;
     NSLog(@"%s(%d):-[PTYTextView mouseUp:%@]",
           __FILE__, __LINE__, event );
 #endif
+	
+	if(mouseDown == NO)
+		return;
+	mouseDown = NO;
     
     locationInWindow = [event locationInWindow];
     locationInTextView = [self convertPoint: locationInWindow fromView: nil];
