@@ -739,7 +739,7 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
 
 
 // Returns an entry from the addressbook
-- (NSDictionary *)addressBookEntry: (int) entryIndex
+- (NSMutableDictionary *)addressBookEntry: (int) entryIndex
 {
     if((entryIndex < 0) || (entryIndex >= [[self addressBook] count]))
         return (nil);

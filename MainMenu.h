@@ -104,7 +104,7 @@
 - (NSArray *)addressBookNames;
 - (NSDictionary *)newDefaultAddressBookEntry;
 - (NSMutableDictionary *) defaultAddressBookEntry;
-- (NSDictionary *)addressBookEntry: (int) entryIndex;
+- (NSMutableDictionary *)addressBookEntry: (int) entryIndex;
 - (void) addAddressBookEntry: (NSDictionary *) entry;
 - (void) replaceAddressBookEntry:(NSDictionary *) old with:(NSDictionary *)new;
 
