@@ -1890,7 +1890,9 @@ static BOOL PLAYBELL = YES;
 #if DEBUG_USE_BUFFER
     //NSLog(@"SCROLL-DOWN[%d-%d]",SCROLL_TOP,SCROLL_BOTTOM);
     idx=[self getIndexAtX:0 Y:SCROLL_TOP withPadding:YES];
-    [BUFFER insertAttributedString:[self defaultAttrString:@"\n"] atIndex:idx];
+    if(newLineString == nil)
+	newLineString = [[self attrString:@"\n" ascii:YES] retain];
+    [BUFFER insertAttributedString: newLineString atIndex:idx];
 #endif
 
 #if DEBUG_USE_ARRAY
