@@ -1520,7 +1520,6 @@ static BOOL PLAYBELL = YES;
 	    [STORAGE setAttributes:dic range:NSMakeRange(cursorIndex,1)];
 	}
 	[STORAGE endEditing];
-	[self removeOverLine];
 	[self removeScreenLock];
 	[[SESSION TEXTVIEW] scrollEnd];
 
