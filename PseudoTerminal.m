@@ -1348,7 +1348,7 @@ static NSDictionary *deadStateAttribute;
             [addressbookPopup addItemWithTitle: NSLocalizedStringFromTable(@"Address Book",@"iTerm",@"Toolbar Item:Address Book")];
             [addressbookPopup addItemsWithTitles: [MAINMENU addressBookNames]];
             [[addressbookPopup menu] addItem: [NSMenuItem separatorItem]];
-            [addressbookPopup addItemWithTitle: @"Edit Address Book"];
+            [addressbookPopup addItemWithTitle: NSLocalizedStringFromTable(@"Open Address Book",@"iTerm",@"Toolbar Item:Address Book")];
             
             break;
         }
