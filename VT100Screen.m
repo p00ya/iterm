@@ -187,7 +187,6 @@ static BOOL PLAYBELL = YES;
     screenLines = [[NSMutableArray alloc] init];
 
     minIndex=0;
-    
     return self;
 }
 

@@ -1136,9 +1136,9 @@ static VT100TCC decode_string(unsigned char *datap,
     ENCODING = NSASCIIStringEncoding;
     STREAM   = [[NSMutableData alloc] init];
     
-    colorTable[0]  = [[NSColor colorWithCalibratedRed:0.2f
-                                                   green:0.2f
-                                                    blue:0.2f
+    colorTable[0]  = [[NSColor colorWithCalibratedRed:0.0f
+                                                   green:0.0f
+                                                    blue:0.0f
                                                    alpha:1.0f]
         retain];
     colorTable[1]  = [[NSColor colorWithCalibratedRed:0.8f
