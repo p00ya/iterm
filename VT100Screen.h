@@ -156,6 +156,7 @@
 - (void) forceUpdateScreen;
 - (void) renewBuffer;
 - (int) numberOfLines;
+
 - (void) setScreenAttributes;
 - (void) setScreenLock;
 - (void) removeScreenLock;
@@ -170,7 +171,6 @@
 - (void) clearTabStop;
 
 - (NSString *)translate: (NSString *)s;
-
 #if USE_CUSTOM_DRAWING
 - (NSMutableAttributedString *)stringAtLine: (int) n;
 - (NSArray *) screenLines;
