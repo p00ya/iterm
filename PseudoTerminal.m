@@ -141,6 +141,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [TABVIEW setAutoresizingMask: NSViewWidthSizable|NSViewHeightSizable];
     [TABVIEW setAllowsTruncatedLabels: NO];
     [TABVIEW setControlSize: NSSmallControlSize];
+    [TABVIEW setAutoresizesSubviews: YES];
+
 
     WIDTH = HEIGHT = 0;
     

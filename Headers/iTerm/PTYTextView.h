@@ -224,6 +224,7 @@
 
 - (id)init;
 - (id)initWithFrame: (NSRect) aRect;
+- (id)initWithFrame: (NSRect) aRect textContainer: (NSTextContainer *) textContainer;
 - (void)dealloc;
 - (BOOL)shouldDrawInsertionPoint;
 - (void)drawRect:(NSRect)rect;
