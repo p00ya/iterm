@@ -73,7 +73,6 @@ typedef struct
 	
     BOOL resized;
     BOOL CURSOR;
-    BOOL forceUpdate;
 	
     // geometry
 	float lineHeight;
