@@ -302,7 +302,11 @@ static NSDictionary *newOutputStateAttribute;
         sessionIndex = [ptyList count] - 1;
     
     aSession = [ptyList objectAtIndex: sessionIndex];
-    [SCROLLVIEW setBackgroundColor: [[aSession TERMINAL] defaultBGColor]];
+    if(([SCROLLVIEW backgroundColor] != [[aSession TERMINAL] defaultBGColor]) || 
+        ([[SCROLLVIEW backgroundColor] alphaComponent] != [[[aSession TERMINAL] defaultBGColor] alphaComponent]))
+    {
+        [SCROLLVIEW setBackgroundColor: [[aSession TERMINAL] defaultBGColor]];
+    }
     [SCROLLVIEW setDocumentView: [aSession TEXTVIEW]];
     TEXTVIEW = [aSession TEXTVIEW];
     SHELL = [aSession SHELL];
