@@ -212,6 +212,9 @@
     // data source
     id dataSource;
     int numberOfLines;
+
+    // last search location
+    unsigned int lastSearchLocation;
 }
 
 - (id)init;
@@ -277,7 +280,9 @@
 - (IBAction) findPrevious: (id) sender;
 - (IBAction) findWithSelection: (id) sender;
 - (IBAction) jumpToSelection: (id) sender;
+- (void) findSubString: (NSString *) subString forwardDirection: (BOOL) direction ignoringCase: (BOOL) caseCheck;
 - (void) setSearchString: (NSString *) aString;
+- (void) setIgnoreCase: (BOOL) flag;
 @end
 
 
