@@ -41,9 +41,13 @@
     IBOutlet id adTermType;
     IBOutlet id adDir;
     IBOutlet id adNewWindow;
+    IBOutlet id adAI;
+    IBOutlet id adAICode;
+    IBOutlet NSTextField *adNATextExample;
     
-    NSFont* aeFont;
-
+    NSFont *aeFont, *aeNAFont;
+    BOOL changingNA;
+    
     // preference window
     IBOutlet id PREF_PANEL;
 
@@ -87,6 +91,7 @@
 - (IBAction)adEditBackground:(id)sender;
 - (IBAction)adEditCancel:(id)sender;
 - (IBAction)adEditFont:(id)sender;
+- (IBAction)adEditNAFont:(id)sender;
 - (IBAction)adEditForeground:(id)sender;
 - (IBAction)adEditOK:(id)sender;
 - (void)changeFont:(id)fontManager;

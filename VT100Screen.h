@@ -26,7 +26,7 @@
     BOOL CURSOR_IN_MIDDLE;
 
     NSTextStorage *STORAGE;
-    NSFont *FONT;
+    NSFont *FONT, *NAFONT;
     NSSize FONT_SIZE;
     VT100Terminal *TERMINAL;
     PTYTask *SHELL;
@@ -69,8 +69,9 @@
 - (NSTextStorage *)textStorage;
 - (void)beginEditing;
 - (void)endEditing;
-- (void)setFont:(NSFont *)font;
+- (void)setFont:(NSFont *)font nafont:(NSFont *)nafont;
 - (NSFont *)font;
+- (NSFont *)nafont;
 - (void)setLineLimit:(unsigned int)maxline;
 
 // edit screen buffer
