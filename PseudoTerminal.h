@@ -160,6 +160,7 @@
 @interface PseudoTerminal (Private)
 
 - (void) _addressbookPopupSelectionDidChange: (id) sender;
+- (void) _buildAddressBookMenu: (NSPopUpButton *) aPopUpButton;
 - (void) _reloadAddressBookMenu: (NSNotification *) aNotification;
 - (void) _sessionPopupSelectionDidChange: (id) sender;
 
