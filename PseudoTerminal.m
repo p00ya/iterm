@@ -145,7 +145,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 // Do not use both initViewWithFrame and initWindow
 - (void)initWindow
 {
-    if([self windowInited])
+    if(TABVIEW != nil)
 	return;
 
     _toolbarController = [[PTToolbarController alloc] initWithPseudoTerminal:self];
