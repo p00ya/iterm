@@ -1191,7 +1191,9 @@ static SInt32 systemVersion;
         if([[PreferencePanel sharedInstance] copySelection])
             [self copy: self];
         // handle command click on URL
-        if(([event modifierFlags] & NSCommandKeyMask) && [[PreferencePanel sharedInstance] cmdSelection])
+        if(([event modifierFlags] & NSCommandKeyMask) && [[PreferencePanel sharedInstance] cmdSelection] &&
+		   [mouseDownEvent locationInWindow].x == [event locationInWindow].x &&
+		   [mouseDownEvent locationInWindow].y == [event locationInWindow].y)
         {
             [self _openURL: [self selectedText]];
         }
