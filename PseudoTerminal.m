@@ -1536,10 +1536,7 @@ static NSString *ConfigToolbarItem = @"Config";
     [term addSession: aSession];
 
     // remove from our window
-    [ptyListLock lock];
     [TABVIEW removeTabViewItem: aTabViewItem];
-    [ptyList removeObject: aSession];
-    [ptyListLock unlock];
 
     if ([TABVIEW numberOfTabViewItems] == 1)
     {
