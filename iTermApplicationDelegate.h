@@ -48,6 +48,7 @@
     IBOutlet NSMenuItem *closeTab;
     IBOutlet NSMenuItem *closeWindow;
     IBOutlet NSMenuItem *sendInputToAllSessions;
+	IBOutlet NSMenuItem *remapDeleteKey;
 }
 
 // NSApplication Delegate methods
@@ -75,7 +76,7 @@
 - (void) reloadMenus: (NSNotification *) aNotification;
 - (void) buildSessionSubmenu: (NSNotification *) aNotification;
 - (void) buildAddressBookMenu: (NSNotification *) aNotification;
-- (void) resetLogMenu: (NSNotification *) aNotification;
+- (void) reloadSessionMenus: (NSNotification *) aNotification;
 - (void) nonTerminalWindowBecameKey: (NSNotification *) aNotification;
 
 // font control

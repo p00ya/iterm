@@ -138,7 +138,7 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
                                                object: nil];
 
     [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(resetLogMenu:)
+                                             selector: @selector(reloadSessionMenus:)
                                                  name: @"iTermSessionDidBecomeActive"
                                                object: nil];    
     
@@ -384,7 +384,7 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
     
 }
 
-- (void) resetLogMenu: (NSNotification *) aNotification
+- (void) reloadSessionMenus: (NSNotification *) aNotification
 {
     PTYSession *aSession = [aNotification object];
 
@@ -393,6 +393,7 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
 
     [logStart setEnabled: ![aSession logging]];
     [logStop setEnabled: [aSession logging]];
+	[remapDeleteKey setState: [aSession remapDeleteKey]];
 }
 
 @end
