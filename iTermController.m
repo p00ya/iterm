@@ -385,13 +385,13 @@ static BOOL usingAutoLaunchScript = NO;
     if(theTerm == nil)
     {
         term = [[PseudoTerminal alloc] init];
-	[term initWindow];
-	[self addInTerminals: term];
-	[term release];
-
-	[term setColumns: [[entry objectForKey:@"Col"]intValue]];
-	[term setRows: [[entry objectForKey:@"Row"]intValue]];
-	[term setAllFont: [entry objectForKey:@"Font"] nafont: [entry objectForKey:@"NAFont"]];
+		[term initWindow];
+		[self addInTerminals: term];
+		[term release];
+		
+		[term setColumns: [[entry objectForKey:@"Col"]intValue]];
+		[term setRows: [[entry objectForKey:@"Row"]intValue]];
+		[term setFont: [entry objectForKey:@"Font"] nafont: [entry objectForKey:@"NAFont"]];
     }
     else
         term = theTerm;

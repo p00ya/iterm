@@ -43,12 +43,13 @@
     
     /////////////////////////////////////////////////////////////////////////
     int WIDTH,HEIGHT;
+	int charWidth, charHeight;
     NSFont *FONT, *NAFONT;
     float alpha;
     BOOL tabViewDragOperationInProgress;
     BOOL resizeInProgress;
     BOOL windowInited;
-    BOOL sendInputToAllSessions;
+	BOOL sendInputToAllSessions;
 }
 
 - (id)init;
@@ -83,13 +84,15 @@
 - (void)setWindowTitle;
 - (void)setWindowTitle: (NSString *)title;
 - (void)setFont:(NSFont *)font nafont:(NSFont *)nafont;
-- (void)setAllFont:(NSFont *)font nafont:(NSFont *)nafont;
-- (void) changeFontSize: (BOOL) increase;
-- (float) largerSizeForSize: (float) aSize;
-- (float) smallerSizeForSize: (float) aSize;
+- (NSFont *) font;
+- (NSFont *) nafont;
 - (void)setWidth:(int)width height:(int)height;
 - (int)width;
 - (int)height;
+- (void)setCharWidth:(int)width height:(int)height;
+- (void)setCharSizeUsingFont: (NSFont *)font;
+- (int)charWidth;
+- (int)charHeight;
 
 - (ITSessionMgr*)sessionMgr;
 
