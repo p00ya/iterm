@@ -165,8 +165,6 @@ static BOOL editingBookmark = NO;
     defaultPromptOnClose = ([promptOnClose state] == NSOnState);
     defaultFocusFollowsMouse = ([focusFollowsMouse state] == NSOnState);
 
-	[self savePreferences];
-
     [[self window] performClose: self];
 }
 
