@@ -62,6 +62,9 @@ typedef struct
 
     // anti-alias flag
     BOOL antiAlias;
+	
+	// option to not render in bold
+	BOOL disableBold;
 
 	// NSTextInput support
     BOOL IM_INPUT_INSERT;
@@ -151,6 +154,8 @@ typedef struct
 - (void) setFont:(NSFont*)aFont nafont:(NSFont*)naFont;
 - (BOOL) antiAlias;
 - (void) setAntiAlias: (BOOL) antiAliasFlag;
+- (BOOL) disableBold;
+- (void) setDisableBold: (BOOL) boldFlag;
 - (BOOL) blinkingCursor;
 - (void) setBlinkingCursor: (BOOL) bFlag;
 

@@ -1475,6 +1475,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		displayProfile = [displayProfileMgr defaultProfileName];	
 	
 	[displayProfileMgr setTransparency: [current transparency] forProfile: displayProfile];
+	[displayProfileMgr setDisableBold: [current disableBold] forProfile: displayProfile];
 	[displayProfileMgr setBackgroundImage: [current backgroundImagePath] forProfile: displayProfile];
 	[displayProfileMgr setWindowColumns: [self columns] forProfile: displayProfile];
 	[displayProfileMgr setWindowRows: [self rows] forProfile: displayProfile];
