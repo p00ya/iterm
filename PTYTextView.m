@@ -986,8 +986,9 @@
 				tmpX = [dataSource width] - 1;
 			}
 		}
-		if(tmpX < x)
+		if(tmpX != x)
 			tmpX++;
+		
 		if(tmpX < 0)
 			tmpX = 0;
 		if(tmpY < 0)
@@ -1026,8 +1027,9 @@
 				tmpX = 0;
 			}
 		}
-		if(tmpX > x)
+		if(tmpX != x)
 			tmpX--;
+		
 		if(tmpX < 0)
 		{
 			tmpX = [dataSource width] - 1;
@@ -1249,7 +1251,15 @@
 		str = nil;
 	}
 	else
+	{
+		// strip last carriage return if there is one
+		if(temp[last] == '\n')
+		{
+			temp[last] = 0;
+			last--;
+		}
 		str = [NSString stringWithCharacters:temp length:last];
+	}
 	
 	free(temp);
 	
