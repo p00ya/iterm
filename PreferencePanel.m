@@ -47,7 +47,7 @@ static NSFont* FONT;
 
 static int   COL   = 80;
 static int   ROW   = 25;
-static unsigned int  SCROLLBACK = 100000;
+static unsigned int  SCROLLBACK = 1000;
 
 static NSString* TERM    =@"xterm";
 static NSString* SHELL   =@"/bin/bash --login";
