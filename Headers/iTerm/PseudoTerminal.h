@@ -83,6 +83,9 @@
 - (void)setWindowTitle;
 - (void)setWindowTitle: (NSString *)title;
 - (void)setFont:(NSFont *)font nafont:(NSFont *)nafont;
+- (void) changeFontSize: (BOOL) increase;
+- (float) largerSizeForSize: (float) aSize;
+- (float) smallerSizeForSize: (float) aSize;
 - (NSFont *) font;
 - (NSFont *) nafont;
 - (void)setWidth:(int)width height:(int)height;
