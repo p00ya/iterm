@@ -29,6 +29,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+@interface PTYScroller : NSScroller
+{
+    BOOL userScroll;
+}
+
+- (id)init;
+- (void)trackScrollButtons:(NSEvent *)theEvent;
+- (void)trackKnob:(NSEvent *)theEvent;
+- (BOOL)userScroll;
+- (void)resetUserScroll;
+
+@end
+
 @interface PTYScrollView : NSScrollView
 {
 }

@@ -34,6 +34,40 @@
 #import <iTerm/PTYScrollView.h>
 #import <iTerm/PTYTextView.h>
 
+@implementation PTYScroller
+
+- (id)init
+{
+    userScroll=NO;
+    return [super init];
+}
+
+- (void)trackScrollButtons:(NSEvent *)theEvent
+{
+//    NSLog(@"scrollbutton");
+    userScroll=YES;
+    [super trackScrollButtons:theEvent];
+}
+
+- (void)trackKnob:(NSEvent *)theEvent
+{
+//    NSLog(@"trackKnob");
+    userScroll=YES;
+    [super trackKnob:theEvent];
+}
+
+- (BOOL)userScroll
+{
+    return userScroll;
+}
+
+- (void)resetUserScroll
+{
+    userScroll=NO;
+}
+
+@end
+
 @implementation PTYScrollView
 
 - (void) dealloc
@@ -58,6 +92,10 @@
 
     NSParameterAssert([self contentView] != nil);
 
+    PTYScroller *aScroller;
+
+    aScroller=[[PTYScroller alloc] init];
+    [self setVerticalScroller: aScroller];
     return self;
 }
 
