@@ -109,7 +109,7 @@
 - (void)startProgram:(NSString *)program
                   arguments:(NSArray *)prog_argv
                 environment:(NSDictionary *)prog_env;
-- (void)setWindowSize;
+- (void)setWindowSize: (BOOL) resizeContentFrames;
 - (void)setWindowTitle;
 - (void)setWindowTitle: (NSString *)title;
 - (void)setAllFont:(NSFont *)font nafont:(NSFont *)nafont;

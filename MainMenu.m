@@ -187,7 +187,7 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
     
     
     if (newWindow) {
-        [term setWindowSize];
+        [term setWindowSize: YES];
     };
     [term setCurrentSessionName:[entry objectForKey:@"Name"]];
     [[term currentSession] setAddressBookEntry:entry];    
