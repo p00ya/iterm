@@ -102,7 +102,7 @@ typedef struct
 	CharCache	charImages[CACHESIZE];
 }
 
-- (id)init;
+- (id)initWithFrame: (NSRect) aRect;
 - (void)dealloc;
 - (BOOL)isFlipped;
 - (BOOL)isOpaque;
@@ -159,6 +159,7 @@ typedef struct
 - (void) setCharWidth: (float) width;
 
 - (void) refresh;
+- (void) setForceUpdate: (BOOL) flag;
 - (void) showCursor;
 - (void) hideCursor;
 
