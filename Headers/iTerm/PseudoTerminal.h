@@ -47,7 +47,6 @@
     NSFont *FONT, *NAFONT;
     float alpha;
     BOOL tabViewDragOperationInProgress;
-    BOOL resizeInProgress;
     BOOL windowInited;
 	BOOL sendInputToAllSessions;
 }
