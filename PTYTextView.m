@@ -1795,6 +1795,7 @@
         [delegate paste:sender];
     else
         [super paste:sender];
+    [self scrollEnd];
 }
 
 - (void)pasteSelection:(id)sender;
@@ -1807,6 +1808,7 @@
     
     if ([delegate respondsToSelector:@selector(pasteString:)])
         [delegate pasteString:aString];
+    [self scrollEnd];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)item
