@@ -1632,17 +1632,20 @@
     // Hide the cursor
     [NSCursor setHiddenUntilMouseMoves: YES];    
 
-    // Check for dead keys
-    if (deadkey) {
-        [self interpretKeyEvents:[NSArray arrayWithObject:event]];
-        deadkey=[self hasMarkedText];
-	return;
+    // Check for dead keys if OPTION key is used as normal
+    if ([[delegate preference] option]==0) {
+        if (deadkey) {
+            [self interpretKeyEvents:[NSArray arrayWithObject:event]];
+            deadkey=[self hasMarkedText];
+            return;
+        }
+        else if ([[event characters] length]<1) {
+            deadkey=YES;
+            [self interpretKeyEvents:[NSArray arrayWithObject:event]];
+            return;
+        }
     }
-    else if ([[event characters] length]<1) {
-        deadkey=YES;
-	[self interpretKeyEvents:[NSArray arrayWithObject:event]];
-	return;
-    }    
+    else deadkey=NO;
     
     if (IMEnable) {
 	BOOL prev = [self hasMarkedText];
