@@ -1425,6 +1425,8 @@ static BOOL PLAYBELL = YES;
     NSLog(@"%s(%d):-[VT100Screen blink]", __FILE__, __LINE__);
 #endif
 	int i;
+	
+	return;
 		
 	for (i=0; i<WIDTH*HEIGHT; i++) {
 		if (dirty[i]) break;
