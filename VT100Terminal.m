@@ -1423,7 +1423,7 @@ static VT100TCC decode_string(unsigned char *datap,
 	    forKey:NSUnderlineStyleAttributeName];
     [dic setObject:[NSNumber numberWithInt:blink]
                    forKey:NSBlinkAttributeName];
-    if(bold)
+    if(bold && [[NSFontManager  sharedFontManager] fontNamed: [[SCREEN font] fontName] hasTraits: NSBoldFontMask])
     {
         aFont = [[NSFontManager sharedFontManager] convertFont: [SCREEN font] toHaveTrait: NSBoldFontMask];
     }
