@@ -319,7 +319,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		NSParameterAssert(aTabViewItem != nil);
 		[aTabViewItem setLabel: [aSession name]];
 		[aTabViewItem setView: [aSession view]];
-		[[aSession SCROLLVIEW] setVerticalPageScroll: 0.0];
+		[[aSession SCROLLVIEW] setLineScroll: charHeight];
+        [[aSession SCROLLVIEW] setPageScroll: HEIGHT*charHeight/2];
 		[TABVIEW insertTabViewItem: aTabViewItem atIndex: index];
 		
         [aTabViewItem release];
@@ -657,7 +658,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     for (i = 0; i < [_sessionMgr numberOfSessions]; i++)
     {
         [[[_sessionMgr sessionAtIndex: i] SCROLLVIEW] setLineScroll: charHeight];
-        [[[_sessionMgr sessionAtIndex: i] SCROLLVIEW] setVerticalLineScroll: charHeight];
+        [[[_sessionMgr sessionAtIndex: i] SCROLLVIEW] setPageScroll: HEIGHT*charHeight/2];
 		if(resizeContentFrames)
 		{
 			[[[_sessionMgr sessionAtIndex: i] view] setFrameSize: size];

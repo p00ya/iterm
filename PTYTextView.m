@@ -491,7 +491,7 @@
 -(void) scrollPageUp: (id) sender
 {
     NSRect scrollRect;
-    
+	
     scrollRect= [self visibleRect];
     scrollRect.origin.y-=[[self enclosingScrollView] verticalPageScroll];
 	//forceUpdate = YES;
