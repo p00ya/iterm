@@ -965,6 +965,7 @@ static NSDictionary *deadStateAttribute;
     [itemIdentifiers addObject: CloseToolbarItem];
     [itemIdentifiers addObject: NSToolbarFlexibleSpaceItemIdentifier];
     [itemIdentifiers addObject: ShortcutPopUpItem];
+    [itemIdentifiers addObject: NSToolbarFlexibleSpaceItemIdentifier];
 
     return itemIdentifiers;
 }
