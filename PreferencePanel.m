@@ -41,8 +41,8 @@ static NSColor *xtermSelection;
 static NSColor *xtermBold;
 static NSColor* xtermColorTable[2][8];
 
-static NSString *DEFAULT_FONTNAME = @"Osaka-Mono";
-static float     DEFAULT_FONTSIZE = 14;
+static NSString *DEFAULT_FONTNAME = @"FreeMonoBold";
+static float     DEFAULT_FONTSIZE = 13;
 static NSFont* FONT;
 
 static int   COL   = 80;
