@@ -356,7 +356,6 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
     NSMenu *newMenu;
     PseudoTerminal *frontTerminal = [[iTermController sharedInstance] currentTerminal];
 
-    
     // clear whatever menus we already have
     [newTab setSubmenu: nil];
     [newWindow setSubmenu: nil];
