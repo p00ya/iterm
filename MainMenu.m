@@ -566,7 +566,7 @@ static BOOL newWindow=YES;
 
 
     
-    
+    [[AUTHORS textStorage] deleteCharactersInRange: NSMakeRange(0, [[AUTHORS textStorage] length])];
     [[AUTHORS textStorage] appendAttributedString: author1];
     [[AUTHORS textStorage] appendAttributedString: tmpAttrString];
     [[AUTHORS textStorage] appendAttributedString: author2];
