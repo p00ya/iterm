@@ -573,7 +573,7 @@ NSString *terminalsKey = @"terminals";
 				{
 					modifierMask = NSCommandKeyMask | NSControlKeyMask;
 					if(aTarget == nil)
-						modifierMask |= NSShiftKeyMask;
+						modifierMask |= NSAlternateKeyMask;
 					
 					shortcut=[dataDict objectForKey: KEY_SHORTCUT];
 					shortcut = [shortcut lowercaseString];
