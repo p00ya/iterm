@@ -56,11 +56,11 @@
     // dead key support
     NSEvent *deadKeyEvent;
     BOOL deadkey;
-
+    int	cursorIndex;
 }
 
 - (id)init;
-- (void) dealloc;
+- (void)dealloc;
 - (BOOL)shouldDrawInsertionPoint;
 - (void)drawRect:(NSRect)rect;
 - (void)keyDown:(NSEvent *)event;
@@ -78,6 +78,7 @@
 - (NSMenu *)menuForEvent:(NSEvent *)theEvent;
 - (void) browse:(id)sender;
 - (void) mail:(id)sender;
+- (void) setCursorIndex:(int)idx;
 
 
 // get/set methods
