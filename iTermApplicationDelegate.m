@@ -310,7 +310,12 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
 	[sendInputToAllSessions setState: NSOnState];
     else
 	[sendInputToAllSessions setState: NSOffState];
-    
+
+	if([frontTerminal fontSizeFollowWindowResize] == YES)
+		[fontSizeFollowWindowResize setState: NSOnState];
+    else
+		[fontSizeFollowWindowResize setState: NSOffState];
+	
 }
 
 - (void) nonTerminalWindowBecameKey: (NSNotification *) aNotification
