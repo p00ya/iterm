@@ -265,7 +265,7 @@ static NSString *ConfigToolbarItem = @"Config";
     [self setCurrentSessionName: nil];
 
     if ([TABVIEW numberOfTabViewItems]>1||![pref hideTab]) {
-        [TABVIEW setTabViewType: NSTopTabsBezelBorder];
+        [TABVIEW setTabViewType: NSLeftTabsBezelBorder];
     }
     else [TABVIEW setTabViewType: NSNoTabsBezelBorder];
 
