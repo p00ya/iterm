@@ -85,7 +85,10 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
 
 - (BOOL)applicationOpenUntitledFile:(NSApplication *)app
 {
-    [self newWindow:nil];
+    if ([PREF_PANEL openAddressBook]) {
+        [self showABWindow:nil];
+    }
+    else [self newWindow:nil];
     
     return YES;
 }
