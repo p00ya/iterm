@@ -1086,7 +1086,7 @@ static NSString *ConfigToolbarItem = @"Config";
     SHELL = [aSession SHELL];
     TERMINAL = [aSession TERMINAL];
     SCREEN = [aSession SCREEN];
-    if (currentPtySession) [currentPtySession resetStatus];
+    [aSession resetStatus];
     currentSessionIndex = [TABVIEW indexOfTabViewItem: tabViewItem];
     currentPtySession = aSession;
     [self setWindowTitle];
