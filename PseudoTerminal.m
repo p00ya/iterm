@@ -1098,26 +1098,11 @@ static NSString *ConfigToolbarItem = @"Config";
             ([[currentPtySession TERMINAL] defaultBGColor] != [CONFIG_BACKGROUND color]))
         {
             NSColor *bgColor;
-/*            int i;
-            PTYSession *aSession; */
                 
             // set the background color for the scrollview with the appropriate transparency
             bgColor = [[CONFIG_BACKGROUND color] colorWithAlphaComponent: (1-[CONFIG_TRANSPARENCY intValue]/100.0)];
             [currentPtySession setFGColor:  [CONFIG_FOREGROUND color]];
             [currentPtySession setBGColor:  bgColor];
-            [[currentPtySession SCROLLVIEW] setBackgroundColor: [[currentPtySession TERMINAL] defaultBGColor]];
-            
-/*            // Change the transparency for all the sessions.
-            if([pref transparency] != (100-[[TERMINAL defaultBGColor] alphaComponent]*100))
-            {
-                for(i = 0; i < [ptyList count]; i++)
-                {
-                    aSession = [ptyList objectAtIndex: i];
-                    [aSession setBackgroundAlpha: (1-[CONFIG_TRANSPARENCY intValue]/100.0)];
-                }
-            } */
-            [[currentPtySession SCROLLVIEW] setNeedsDisplay: YES];
-            
         }
 
         [[[self currentSession] TEXTVIEW] moveLastLine];

@@ -159,6 +159,7 @@
 - (void) renewBuffer;
 - (int) numberOfLines;
 - (NSAttributedString *)stringAtLine: (int) n;
+- (void) setScreenAttributes;
 
 - (NSAttributedString *)attrString:(NSString *)str ascii:(BOOL)asc;
 - (NSAttributedString *)defaultAttrString:(NSString *)str;
