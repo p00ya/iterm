@@ -49,6 +49,20 @@
     return NO;
 }
 
+- (BOOL) antiAlias
+{
+    return (antiAlias);
+}
+
+- (void) setAntiAlias: (BOOL) antiAliasFlag
+{
+#if 0 // DEBUG_METHOD_TRACE
+    NSLog(@"%s(%d):-[PTYTextView setAntiAlias: %d]",
+	  __FILE__, __LINE__, antiAliasFlag);
+#endif
+    antiAlias = antiAliasFlag;
+}
+
 - (void)drawRect:(NSRect)rect
 {
 
@@ -57,6 +71,10 @@
 	  __FILE__, __LINE__,
 	  rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 #endif
+
+    // set the antialias flag
+    [[NSGraphicsContext currentContext] setShouldAntialias: antiAlias];
+
     [super drawRect:rect];
 }
 

@@ -40,6 +40,7 @@
     IBOutlet id CONFIG_TRANSPARENCY;
     IBOutlet id CONFIG_TRANS2;
     IBOutlet id CONFIG_NAME;
+    IBOutlet id CONFIG_ANTIALIAS;
     
     // anti-idle
     IBOutlet id AI_PANEL;

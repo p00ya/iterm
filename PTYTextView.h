@@ -30,6 +30,9 @@
     // Fortunately, the draggingEntered and draggingUpdated methods
     // seem to return a real status, based on which we can set this flag.
     BOOL bExtendedDragNDrop;
+    
+    // anti-alias flag
+    BOOL antiAlias;
 
 }
 
@@ -50,6 +53,10 @@
 - (NSMenu *)menuForEvent:(NSEvent *)theEvent;
 - (void) browse:(id)sender;
 - (void) mail:(id)sender;
+
+// get/set methods
+- (BOOL) antiAlias;
+- (void) setAntiAlias: (BOOL) antiAliasFlag;
 
 //
 // Drag and Drop methods for our text view
