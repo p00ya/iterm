@@ -468,6 +468,13 @@ static BOOL PLAYBELL = YES;
     NSMutableAttributedString *aLine;
 #endif
 
+#if DEBUG_USE_BUFFER
+    if([BUFFER length] > 0)
+    {
+	[BUFFER deleteCharactersInRange: NSMakeRange(0, [BUFFER length])];
+    }
+#endif
+
     [TERMINAL initDefaultCharacterAttributeDictionary];
     //STORAGE = [[NSTextStorage alloc] init];
 
