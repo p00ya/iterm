@@ -354,7 +354,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	}
 
 	[[self window] makeKeyAndOrderFront: self];
-	
+	[MAINMENU setFrontPseudoTerminal: self];
     }
 }
 
@@ -392,7 +392,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
                 [self selectSessionAtIndex: currentSessionIndex];
             }
             else if (i<currentSessionIndex) currentSessionIndex--;
-            
+
+	    [[self mainMenu] buildSessionSubmenu];
                         
             break;
         }
@@ -880,6 +881,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 
     // update the cursor
     [[currentPtySession SCREEN] showCursor];
+
+    [[self mainMenu] setFrontPseudoTerminal: nil];
 
 }
 
@@ -1616,6 +1619,11 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 - (IBAction)closeWindow:(id)sender
 {
     [[self window] performClose:sender];
+}
+
+- (MainMenu *) mainMenu;
+{
+    return (MAINMENU);
 }
 
 - (void) setMainMenu:(id) sender

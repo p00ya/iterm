@@ -129,6 +129,7 @@
 
 
 // MainMenu
+- (MainMenu *) mainMenu;
 - (void)setMainMenu:(id) sender;
 - (void)clearBuffer:(id)sender;
 - (void)clearScrollbackBuffer:(id)sender;

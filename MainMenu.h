@@ -42,6 +42,10 @@
     // about window
     IBOutlet id ABOUT;
     IBOutlet NSTextView *AUTHORS;
+
+    // Menu items
+    IBOutlet NSMenuItem *selectTab;
+    
     // address book data
     NSMutableArray *addressBook;
 
@@ -75,6 +79,7 @@
 - (void) saveAddressBook;
 - (void) setFrontPseudoTerminal: (PseudoTerminal *) thePseudoTerminal;
 - (PseudoTerminal *) frontPseudoTerminal;
+- (void) buildSessionSubmenu;
 - (void) terminalWillClose: (PseudoTerminal *) theTerminalWindow;
 - (NSStringEncoding const*) encodingList;
 - (NSArray *)addressBookNames;
@@ -120,5 +125,6 @@
 
 - (void) _executeABMenuCommandInNewTab: (id) sender;
 - (void) _executeABMenuCommandInNewWindow: (id) sender;
+- (void) _selectSessionAtIndex: (id) sender;
 
 @end
