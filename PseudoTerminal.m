@@ -159,8 +159,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     termSize = [VT100Screen screenSizeInFrame: contentRect font: aFont1];
     [self setWidth: (int) termSize.width height: (int) termSize.height];
 
-    NSLog(@"WIDTH = %d; HEIGHT = %d", WIDTH, HEIGHT);
-
     return ([TABVIEW autorelease]);
 }
 
@@ -928,7 +926,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 - (void)windowDidResize:(NSNotification *)aNotification
 {
     NSRect frame;
-    NSSize termSize, vsize;
+    NSSize termSize;
     int i, w, h;
 
 
@@ -958,11 +956,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     w = (int)(termSize.width);
     h = (int)(termSize.height);
     
-    vsize = [VT100Screen requireSizeWithFont:[[currentPtySession SCREEN] tallerFont]
-                                       width:w
-                                      height:h];
-    vsize.width = [[currentPtySession SCROLLVIEW] frame].size.width;
-
     for(i=0;i<[ptyList count]; i++) {
         [[[ptyList objectAtIndex:i] SCREEN] resizeWidth:w height:h];
         [[[ptyList objectAtIndex:i] SHELL] setWidth:w  height:h];
