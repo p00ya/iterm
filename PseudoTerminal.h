@@ -112,6 +112,7 @@
 - (IBAction) nextSession:(id)sender;
 - (IBAction) saveSession:(id)sender;
 - (PTYSession *) currentSession;
+- (int) currentSessionIndex;
 - (NSString *) currentSessionName;
 - (void) setCurrentSessionName: (NSString *) theSessionName;
 

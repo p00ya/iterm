@@ -485,6 +485,10 @@ static NSString *ConfigToolbarItem = @"Config";
     return (currentPtySession);
 }
 
+- (int) currentSessionIndex
+{
+    return (currentSessionIndex);
+}
 
 - (void)dealloc
 {

@@ -94,6 +94,14 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
     return YES;
 }
 
+// sent when application is made visible after a hide operation. Should not really need to implement this,
+// but some users reported that keyboard input is blocked after a hide/unhide operation.
+- (void)applicationDidUnhide:(NSNotification *)aNotification
+{
+    // Make sure that the first responder stuff is set up OK.
+    [FRONT selectSession: [FRONT currentSessionIndex]];
+}
+
 
 // Creates the dock menu
 - (NSMenu *)applicationDockMenu:(NSApplication *)sender
