@@ -215,6 +215,9 @@
 
     // last search location
     unsigned int lastSearchLocation;
+
+    // print selection
+    BOOL printingSelection;
 }
 
 - (id)init;
@@ -268,6 +271,9 @@
 
 // Save method
 - (void) saveDocumentAs: (id) sender;
+
+// Print selection
+- (void) printSelection: (id) sender;
 
 @end
 
