@@ -234,6 +234,7 @@
     if(dataSource != nil)
     {
 	int numLines, i, lineOffset;
+        int y=[dataSource cursorY]-1+[dataSource topLines];
 	NSAttributedString *aLine;
 	NSRect aRect;
         float halfLine;
@@ -257,8 +258,30 @@
 	    if(aLine == nil)
 	    {
 		//NSLog(@"Got a nil line...");
+                ;
             }else {
-                [aLine drawInRect: aRect];
+                if (i+lineOffset==y) {
+                    // show the cursor in the line array
+                    NSMutableAttributedString *s=[[NSMutableAttributedString alloc] initWithAttributedString:aLine];
+                    NSMutableDictionary *dic;
+                    NSColor *fg, *bg;
+                    int idx;
+            
+                    idx=[dataSource getIndex:[dataSource cursorX]-1 y:[dataSource cursorY]-1];
+                    if(idx >= [aLine length])
+                        [s appendAttributedString:[dataSource defaultAttrString:@" "]];
+                    // reverse the video on the position where the cursor is supposed to be shown.
+                    dic=[NSMutableDictionary dictionaryWithDictionary: [s attributesAtIndex:idx effectiveRange:nil]];
+                    fg=[dic objectForKey:NSBackgroundColorAttributeName];
+                    bg=[dic objectForKey:NSForegroundColorAttributeName];
+                    //        NSLog(@"set fg=%@\nbg=%@",fg,bg);
+                    [dic setObject:bg forKey:NSBackgroundColorAttributeName];
+                    [dic setObject:fg forKey:NSForegroundColorAttributeName];
+                    [s setAttributes:dic range:NSMakeRange(idx,1)];
+                    [s drawInRect: aRect];
+                    [s release];
+                }
+                else [aLine drawInRect: aRect];
             }
             //NSLog(@"line %d[%@]: %f",i + lineOffset, [aLine string], aRect.origin.y);
             aRect.origin.y += lineHeight;

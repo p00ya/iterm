@@ -147,6 +147,7 @@
 - (void)blink;
 - (int) cursorX;
 - (int) cursorY;
+- (int) topLines;
 
 - (NSMutableAttributedString *) buffer;
 - (NSArray *) screenLines;

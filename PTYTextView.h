@@ -65,7 +65,6 @@
     // data source
     id dataSource;
     int numberOfLines;
-
 }
 
 - (id)init;
@@ -88,7 +87,6 @@
 - (void) browse:(id)sender;
 - (void) mail:(id)sender;
 - (void) setCursorIndex:(int)idx;
-
 
 // get/set methods
 - (BOOL) antiAlias;
