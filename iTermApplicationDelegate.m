@@ -367,16 +367,12 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
     [newWindow setSubmenu: nil];
 
     // new window
-    newMenu = [[NSMenu alloc] init];
-    [[iTermController sharedInstance] buildAddressBookMenu: newMenu target: nil withShortcuts: YES];
+    newMenu = [[iTermController sharedInstance] buildAddressBookMenuWithTarget: nil withShortcuts: YES];
     [newWindow setSubmenu: newMenu];
-    [newMenu release];
-
+ 
     // new tab
-    newMenu = [[NSMenu alloc] init];
-    [[iTermController sharedInstance] buildAddressBookMenu: newMenu target: frontTerminal withShortcuts: YES];
+    newMenu = [[iTermController sharedInstance] buildAddressBookMenuWithTarget: frontTerminal withShortcuts: YES];
     [newTab setSubmenu: newMenu];
-    [newMenu release];    
     
 }
 

@@ -524,6 +524,8 @@ static BOOL editingBookmark = NO;
 	{		
 		[[ITAddressBookMgr sharedInstance] addFolder: [bookmarkFolderName stringValue] toNode: parentNode];
 		[bookmarksView reloadData];
+		// Post a notification to all open terminals to reload their addressbooks into the shortcut menu
+		[[NSNotificationCenter defaultCenter] postNotificationName: @"iTermReloadAddressBook" object: nil userInfo: nil];    		
 	}
 	[addBookmarkFolderPanel close];
 }
@@ -536,6 +538,8 @@ static BOOL editingBookmark = NO;
 		
 		[[ITAddressBookMgr sharedInstance] deleteBookmarkNode: [bookmarksView itemAtRow: [bookmarksView selectedRow]]];
 		[bookmarksView reloadData];
+		// Post a notification to all open terminals to reload their addressbooks into the shortcut menu
+		[[NSNotificationCenter defaultCenter] postNotificationName: @"iTermReloadAddressBook" object: nil userInfo: nil];    		
 	}
 	[deleteBookmarkPanel close];
 }
@@ -662,6 +666,8 @@ static BOOL editingBookmark = NO;
     } 
 	
     [bookmarksView reloadData];
+	// Post a notification to all open terminals to reload their addressbooks into the shortcut menu
+	[[NSNotificationCenter defaultCenter] postNotificationName: @"iTermReloadAddressBook" object: nil userInfo: nil];    		
 }
 
 @end
