@@ -607,12 +607,12 @@ static NSDictionary *newOutputStateAttribute;
 
 - (IBAction)logStart:(id)sender
 {
-    [currentPtySession logStart];
+    if (![SHELL logging]) [currentPtySession logStart];
 }
 
 - (IBAction)logStop:(id)sender
 {
-    [currentPtySession logStop];
+    if ([SHELL logging]) [currentPtySession logStop];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)item
@@ -1138,6 +1138,7 @@ static NSDictionary *newOutputStateAttribute;
     }
     
     [ptyListLock unlock];
+    
     
 }
 
