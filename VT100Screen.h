@@ -56,7 +56,7 @@
     NSWindow *WINDOW;
     int charset[4], saveCharset[4];
     NSMutableAttributedString *BUFFER;
-    int updateIndex;
+    int updateIndex, minIndex;
 
     NSMutableArray *screenLines;
     int screenTop;
