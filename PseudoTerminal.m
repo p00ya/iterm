@@ -69,11 +69,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 @implementation PseudoTerminal
 
 
-- (void) newSession: (id) sender
-{
-    [MAINMENU executeABCommandAtIndex:0 inTerminal: self];
-}
-
 - (id) initWithWindowNibName: (NSString *) windowNibName
 {
     int i;
@@ -1900,7 +1895,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     }
     else if([session caseInsensitiveCompare: @"Default Session"] == NSOrderedSame)
     {
-	[self newSession: self];
+	[MAINMENU executeABCommandAtIndex: 0 inTerminal: self];
     }
     else
 	NSBeep();

@@ -89,8 +89,6 @@
     BOOL windowInited;
 }
 
-- (void) newSession: (id) sender;
-
 - (id)init;
 - (id) initWithWindowNibName: (NSString *) windowNibName;
 - (void)dealloc;
