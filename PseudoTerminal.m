@@ -222,6 +222,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     {
 		[self setColumns: [displayProfileMgr windowColumnsForProfile: displayProfile]];
 		[self setRows: [displayProfileMgr windowRowsForProfile: displayProfile]];
+		[self setAntiAlias: [displayProfileMgr windowAntiAliasForProfile: displayProfile]];
     }
     [aSession initScreen: [TABVIEW contentRect] width:WIDTH height:HEIGHT];
     if(FONT == nil) 
