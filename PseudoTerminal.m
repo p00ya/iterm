@@ -74,7 +74,7 @@ static NSString *ConfigToolbarItem = @"Config";
                 term:[pref terminalType]];
     [self startProgram:cmd arguments:arg];
     [self setCurrentSessionName:nil];
-
+    [currentPtySession setAutoClose: [pref autoclose]];
 }
 
 - (id)init

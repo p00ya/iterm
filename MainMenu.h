@@ -36,6 +36,7 @@
     IBOutlet id adNewWindow;
     IBOutlet id adAI;
     IBOutlet id adAICode;
+    IBOutlet id adClose;
     IBOutlet NSTextField *adNATextExample;
     
     NSFont *aeFont, *aeNAFont;
