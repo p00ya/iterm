@@ -1046,7 +1046,7 @@ static NSDictionary *deadStateAttribute;
         [toolbarItem setView: aPopUpButton];
         // Release the popup button since it is retained by the toolbar item.
         [aPopUpButton release];
-        
+
         [toolbarItem setMinSize:[aPopUpButton bounds].size];
         [toolbarItem setMaxSize:[aPopUpButton bounds].size];
         [toolbarItem setLabel: NSLocalizedStringFromTable(@"New",@"iTerm",@"Toolbar Item:New")];
