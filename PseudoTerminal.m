@@ -751,7 +751,7 @@ static NSString *ConfigToolbarItem = @"Config";
 	  __FILE__, __LINE__, proposedFrameSize.width, proposedFrameSize.height);
 #endif
 
-#if 0
+#if 1
 
     return (proposedFrameSize);
 
