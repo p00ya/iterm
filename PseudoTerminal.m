@@ -605,12 +605,12 @@ static NSDictionary *newOutputStateAttribute;
     [currentPtySession clearBuffer];
 }
 
-- (void)logStart:(id)sender
+- (IBAction)logStart:(id)sender
 {
     [currentPtySession logStart];
 }
 
-- (void)logStop:(id)sender
+- (IBAction)logStop:(id)sender
 {
     [currentPtySession logStop];
 }
