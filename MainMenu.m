@@ -684,6 +684,7 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
     //    NSLog(@"showABWindow: %d\n%@",[[self addressBook] count], [self addressBook]);
 
     abWindowController = [AddressBookWindowController singleInstance];
+    [abWindowController setITermController: self];
     [abWindowController setAddressBook: [self addressBook]];
     [abWindowController setPreferences: PREF_PANEL];
     [abWindowController run];
