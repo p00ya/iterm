@@ -766,6 +766,9 @@ static BOOL editingBookmark = NO;
     } 
 	
 	[bookmarksView reloadData];
+	
+	// Post a notification for all listeners that bookmarks have changed
+	[[NSNotificationCenter defaultCenter] postNotificationName: @"iTermReloadAddressBook" object: nil userInfo: nil];    		
 
 }
 
