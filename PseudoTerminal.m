@@ -908,7 +908,7 @@ static NSString *ConfigToolbarItem = @"Config";
 
                                        
     // Now calculate an appropriate terminal height for this in integers.
-    h = floor(textviewSize.height/[[currentPtySession SCREEN] characterSize].height) - 1;
+    h = floor(textviewSize.height/[[currentPtySession SCREEN] characterSize].height);
     //NSLog(@"h = %d", h);
     
     // Now do the reverse calculation
