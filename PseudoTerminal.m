@@ -302,6 +302,7 @@ static NSDictionary *newOutputStateAttribute;
         sessionIndex = [ptyList count] - 1;
     
     aSession = [ptyList objectAtIndex: sessionIndex];
+    [SCROLLVIEW setBackgroundColor: [[aSession TERMINAL] defaultBGColor]];
     [SCROLLVIEW setDocumentView: [aSession TEXTVIEW]];
     TEXTVIEW = [aSession TEXTVIEW];
     SHELL = [aSession SHELL];
@@ -811,8 +812,8 @@ static NSDictionary *newOutputStateAttribute;
         [CONFIG_ENCODING selectItemAtIndex:2];
     else if (ec==NSUTF8StringEncoding)
         [CONFIG_ENCODING selectItemAtIndex:0];
-    [CONFIG_TRANSPARENCY setIntValue:100-[WINDOW alphaValue]*100];
-    [CONFIG_TRANS2 setIntValue:100-[WINDOW alphaValue]*100];
+    [CONFIG_TRANSPARENCY setIntValue:100-[[TERMINAL defaultBGColor] alphaComponent]*100];
+    [CONFIG_TRANS2 setIntValue:100-[[TERMINAL defaultBGColor] alphaComponent]*100];
     [AI_ON setState:[[self currentSession] antiIdle]?NSOnState:NSOffState];
     [AI_CODE setIntValue:[[self currentSession] antiCode]];
     
@@ -898,15 +899,19 @@ static NSDictionary *newOutputStateAttribute;
             // set the background color for the scrollview with the appropriate transparency
             bgColor = [[CONFIG_BACKGROUND color] colorWithAlphaComponent: (1-[CONFIG_TRANSPARENCY intValue]/100.0)];
             [SCROLLVIEW setBackgroundColor: bgColor];
+            [currentPtySession setFGColor:  [CONFIG_FOREGROUND color]];
+            [currentPtySession setBGColor:  bgColor]; 
             
-            // Do the same for all the sessions.
-            for(i = 0; i < [ptyList count]; i++)
+            // Change the transparency for all the sessions.
+            if([pref transparency] != [CONFIG_TRANSPARENCY intValue])
             {
-                aSession = [ptyList objectAtIndex: i];
-                [aSession setFGColor:  [CONFIG_FOREGROUND color]];
-                [aSession setBGColor:  bgColor]; 
+                for(i = 0; i < [ptyList count]; i++)
+                {
+                    aSession = [ptyList objectAtIndex: i];
+                    [aSession setBackgroundAlpha: (1-[CONFIG_TRANSPARENCY intValue]/100.0)];
+                }
             }
-            [TEXTVIEW setNeedsDisplay: YES];
+            [SCROLLVIEW setNeedsDisplay: YES];
             
         }
         [SCREEN showCursor];
