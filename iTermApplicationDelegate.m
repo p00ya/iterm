@@ -255,11 +255,6 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
     // version number and mode
     NSDictionary *myDict = [[NSBundle bundleForClass:[self class]] infoDictionary];
     NSMutableString *versionString = [[NSMutableString alloc] initWithString: (NSString *)[myDict objectForKey:@"CFBundleVersion"]];
-#if USE_CUSTOM_DRAWING
-    [versionString appendString: @" (A)"];
-#else
-    [versionString appendString: @" (B)"];
-#endif
     
     [[AUTHORS textStorage] deleteCharactersInRange: NSMakeRange(0, [[AUTHORS textStorage] length])];
     [tmpAttrString initWithString: versionString];
