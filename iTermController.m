@@ -178,7 +178,7 @@ static BOOL usingAutoLaunchScript = NO;
     terminalWindows = [[NSMutableArray alloc] init];
 	
 	// read preferences
-	[[PreferencePanel sharedInstance] readPreferences];
+	[PreferencePanel sharedInstance];
     
     return (self);
 }
