@@ -271,7 +271,7 @@ static float versionNumber;
     return (defaultEnforceCharacterAlignment);
 }
 
-- (void) setMainMenu: (iTermController *) theParent
+- (void) setITermController: (iTermController *) theParent
 {
     iTerm = theParent;
 }

@@ -420,7 +420,7 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
 - (void) initPreferences
 {
     PREF_PANEL = [[PreferencePanel alloc] init];
-    [PREF_PANEL setMainMenu: self];
+    [PREF_PANEL setITermController: self];
 }
 
 // Utility
@@ -908,7 +908,7 @@ NSString *terminalsKey = @"terminals";
 {
     if([terminalWindows containsObject: object] == YES)
 	return;
-    [object setMainMenu: self];
+    [object setITermController: self];
     [object setPreference:PREF_PANEL];
     if([object windowInited] == NO)
     {
