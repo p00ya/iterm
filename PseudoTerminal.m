@@ -1406,7 +1406,7 @@ static NSString *ConfigToolbarItem = @"Config";
     localPoint = [TABVIEW convertPoint: windowPoint fromView: nil];
 
     // add tasks
-    aMenuItem = [[NSMenuItem alloc] initWithTitle:@"Close" action:@selector(closeTabContextualMenuAction:) keyEquivalent:@""];
+    aMenuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Close",@"iTerm",@"Toolbar Item: Close Session") action:@selector(closeTabContextualMenuAction:) keyEquivalent:@""];
     [aMenuItem setRepresentedObject: [[TABVIEW tabViewItemAtPoint:localPoint] identifier]];
     [theMenu addItem: aMenuItem];
     [aMenuItem release];
