@@ -672,6 +672,10 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
         addressBook=[[NSMutableArray array] retain];
     }
 //    NSLog(@ "initAddressBook: %d\n%@",[addressBook count], addressBook);
+    // Tell the addressbook table in the gui that number of rows have changed.
+    // Other the scrollview is not activated for large addressbooks.
+    // Cocoa bug?
+    [adTable noteNumberOfRowsChanged];
 
 }    
 
