@@ -958,6 +958,8 @@ static SInt32 systemVersion;
           __FILE__, __LINE__, event );
 #endif
     
+	keyIsARepeat = [event isARepeat];
+	
     // Hide the cursor
     [NSCursor setHiddenUntilMouseMoves: YES];   
 
@@ -983,6 +985,11 @@ static SInt32 systemVersion;
             [delegate keyDown:event];
         }
     }
+}
+
+- (BOOL) keyIsARepeat
+{
+	return (keyIsARepeat);
 }
 
 - (void) otherMouseDown: (NSEvent *) event

@@ -121,6 +121,8 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 	
 	// trackingRect tab
 	NSTrackingRectTag trackingRectTag;
+	
+	BOOL keyIsARepeat;
 }
 
 - (id)initWithFrame: (NSRect) aRect;
@@ -132,6 +134,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 - (BOOL)shouldDrawInsertionPoint;
 - (void)drawRect:(NSRect)rect;
 - (void)keyDown:(NSEvent *)event;
+- (BOOL) keyIsARepeat;
 - (void)mouseExited:(NSEvent *)event;
 - (void)mouseEntered:(NSEvent *)event;
 - (void)mouseDown:(NSEvent *)event;
