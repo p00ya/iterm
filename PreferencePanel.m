@@ -129,6 +129,7 @@ static float versionNumber;
 		[kbProfileSelector addItemWithTitle: aString];
 	
 	[self kbProfileChanged: nil];
+	[self tableViewSelectionDidChange: nil];
     
 	[[self window] setDelegate: self];
 	[self showWindow: self];
@@ -397,6 +398,14 @@ static float versionNumber;
 	}
 }
 
+// NSTableView delegate
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{
+	if([kbEntryTableView selectedRow] < 0)
+		[kbEntryDeleteButton setEnabled: NO];
+	else
+		[kbEntryDeleteButton setEnabled: YES];
+}
 
 
 // accessors for preferences
