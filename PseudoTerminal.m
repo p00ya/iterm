@@ -192,7 +192,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     {
 	// get the default entry
 	addressBookPreferences = [NSMutableDictionary dictionaryWithDictionary: [[ITAddressBookMgr sharedInstance] addressBookEntry: 0]];
-	[addressBookPreferences removeObjectForKey: @"UseBackgroundImage"];
 	[addressBookPreferences removeObjectForKey: @"BackgroundImagePath"];
 	[aSession setAddressBookEntry:addressBookPreferences];
 	[aSession setPreferencesFromAddressBookEntry: addressBookPreferences];
