@@ -45,6 +45,8 @@
     IBOutlet NSMenuItem *newWindow;
     IBOutlet NSMenuItem *logStart;
     IBOutlet NSMenuItem *logStop;
+    IBOutlet NSMenuItem *closeTab;
+    IBOutlet NSMenuItem *closeWindow;
 }
 
 // NSApplication Delegate methods
@@ -73,6 +75,7 @@
 - (void) buildSessionSubmenu: (NSNotification *) aNotification;
 - (void) buildAddressBookMenu: (NSNotification *) aNotification;
 - (void) resetLogMenu: (NSNotification *) aNotification;
+- (void) nonTerminalWindowBecameKey: (NSNotification *) aNotification;
 
 @end
 
