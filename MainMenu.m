@@ -581,7 +581,7 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
     if(theTerm == nil)
     {
         term = [[PseudoTerminal alloc] init];
-        [term setPreference:PREF_PANEL];
+	[term setPreference:PREF_PANEL];
 	[term setColumns: [[entry objectForKey:@"Col"]intValue]];
 	[term setRows: [[entry objectForKey:@"Row"]intValue]];
 	[term setAllFont: [entry objectForKey:@"Font"] nafont: [entry objectForKey:@"NAFont"]];
@@ -742,12 +742,13 @@ NSString *terminalsKey = @"terminals";
 
 -(void)insertInTerminals:(PseudoTerminal *)object atIndex:(unsigned)index
 {
-    // NSLog(@"iTerm: insertInTerminals 0x%x atIndex; %d", object, index);
+    if([terminalWindows containsObject: object] == YES)
+	return;
     [object setPreference:PREF_PANEL];
     [object initWindow:[PREF_PANEL col]
               height:[PREF_PANEL row]
                 font:[PREF_PANEL font]
-              nafont:[PREF_PANEL nafont]];    
+              nafont:[PREF_PANEL nafont]];
     [terminalWindows insertObject: object atIndex: index];
 }
 
