@@ -1,18 +1,19 @@
 ##
 ## $Id$
-## JTerminal Makefile
-## 2001 Copyright(C) Kiichi Kusama
+## iTerm Makefile
+## 2003 Copyright(C) Ujwal S. Sathyam
 ##
 
 PBXBUILD=pbxbuild
+XCODEBUILD="xcodebuild -project iTerm.xcode"  
 BUILDSTYLE=Development
-PROJECTNAME=JTerminal
+PROJECTNAME=iTerm
 
 all:
-	$(PBXBUILD) -buildstyle $(BUILDSTYLE)
+	./iTermBuild.sh -alltargets -buildstyle $(BUILDSTYLE)
 
 clean:
-	$(PBXBUILD) clean
+	./iTermBuild.sh -alltargets clean
 	rm -rf build
 	rm -f *~
 
