@@ -357,6 +357,18 @@ static NSString *ConfigToolbarItem = @"Config";
 	    [TABVIEW setDelegate: self];
 	}
 
+	if ([TABVIEW numberOfTabViewItems] == 1)
+	{
+	    if(![pref hideTab])
+		[TABVIEW setTabViewType: [pref tabViewType]];
+	    else
+	    {
+		[TABVIEW setTabViewType: NSNoTabsBezelBorder];
+		[self setWindowSize: NO];
+		[[currentPtySession TEXTVIEW] scrollRangeToVisible: NSMakeRange([[[currentPtySession TEXTVIEW] string] length] - 1, 1)];
+	    }
+	}	
+
 	[WINDOW makeKeyAndOrderFront: self];
 	
     }
