@@ -520,6 +520,9 @@
           __FILE__, __LINE__, event );
 #endif
 
+    // Hide the cursor
+    [NSCursor setHiddenUntilMouseMoves: YES];    
+
     // Check for dead keys
     if (deadkey) {
         [self interpretKeyEvents:[NSArray arrayWithObject:event]];
@@ -1333,6 +1336,7 @@
 
 }
 
+
 @end
 
 #else
@@ -1378,7 +1382,7 @@
     {
 	[dataSource release];
 	dataSource = nil;
-    }    
+    }
         
     [super dealloc];
 }
@@ -1572,6 +1576,10 @@
     NSLog(@"%s(%d):-[PTYTextView keyDown:%@]",
 	  __FILE__, __LINE__, event );
 #endif
+
+
+    // Hide the cursor
+    [NSCursor setHiddenUntilMouseMoves: YES];    
 
     // Check for dead keys
     if (deadkey) {
@@ -2379,6 +2387,7 @@ static BOOL ignoreCase = NO;
     [(NSData *)theContextInfo release];
     
 }
+
 
 @end
 
