@@ -344,7 +344,12 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		{
             [[aSession TEXTVIEW] scrollEnd];
 		}
-		
+		else if ([TABVIEW numberOfTabViewItems] == 2)
+		{
+			[self windowDidResize: nil];
+			[self setWindowSize: YES];
+		}
+			
 		if([self windowInited])
 			[[self window] makeKeyAndOrderFront: self];
 		[[iTermController sharedInstance] setCurrentTerminal: self];

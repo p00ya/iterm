@@ -718,14 +718,16 @@ static SInt32 systemVersion;
 			buf=[dataSource bufferLines]+lineIndex*WIDTH;
 			fg=[dataSource bufferFGColor]+lineIndex*WIDTH;
 			bg=[dataSource bufferBGColor]+lineIndex*WIDTH;
+			//NSLog(@"Buffer: %d",lineIndex);
 		}
 		else 
-		{ // not in buffer
+		{ // on screen
 			lineIndex=line-startScreenLineIndex;
 			buf=[dataSource screenLines]+lineIndex*WIDTH;
 			fg=[dataSource screenFGColor]+lineIndex*WIDTH;
 			bg=[dataSource screenBGColor]+lineIndex*WIDTH;
 			dirty=[dataSource dirty]+lineIndex*WIDTH;
+			//NSLog(@"Screen: %d",lineIndex);
 		}	
 		
 		//draw background and underline here
