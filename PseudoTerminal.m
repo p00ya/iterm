@@ -1323,6 +1323,11 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		[tabMenu release];
 		nextIndex++;
     }
+	
+	// Bookmarks
+	[theMenu insertItemWithTitle: 
+		NSLocalizedStringFromTableInBundle(@"Bookmarks",@"iTerm", [NSBundle bundleForClass: [self class]], @"Bookmarks") 
+						  action:@selector(toggleBookmarksView:) keyEquivalent:@"" atIndex: nextIndex++];
     
     // Separator
     [theMenu insertItem:[NSMenuItem separatorItem] atIndex: nextIndex];
