@@ -372,19 +372,6 @@ static NSString *ConfigToolbarItem = @"Config";
             break;
         }
     }
-
-    if ([TABVIEW numberOfTabViewItems] == 1)
-    {
-	if(![pref hideTab])
-	    [TABVIEW setTabViewType: [pref tabViewType]];
-	else
-	{
-	    [TABVIEW setTabViewType: NSNoTabsBezelBorder];
-	    [self setWindowSize: NO];
-	    [[currentPtySession TEXTVIEW] scrollRangeToVisible: NSMakeRange([[[currentPtySession TEXTVIEW] string] length] - 1, 1)];
-	}
-    }
-    
     
 }
 
@@ -1501,13 +1488,18 @@ static NSString *ConfigToolbarItem = @"Config";
 
     if ([TABVIEW numberOfTabViewItems] == 1)
     {
-	if(![pref hideTab])
-	    [TABVIEW setTabViewType: [pref tabViewType]];
+	if([pref hideTab])
+	{
+	    PTYSession *aSession = [[TABVIEW tabViewItemAtIndex: 0] identifier];
+	    [TABVIEW setTabViewType: NSNoTabsBezelBorder];
+	    [self setWindowSize: NO];
+	    [[aSession TEXTVIEW] scrollRangeToVisible: NSMakeRange([[[aSession TEXTVIEW] string] length] - 1, 1)];
+	}
 	else
 	{
-	    [TABVIEW setTabViewType: NSNoTabsBezelBorder];
+	    [self setWindowSize: NO];
 	}
-	[self setWindowSize: YES];
+
     }
     else if([TABVIEW numberOfTabViewItems] == 2)
     {
@@ -1597,22 +1589,6 @@ static NSString *ConfigToolbarItem = @"Config";
 
     // release the tabViewItem
     [aTabViewItem release];
-
-    
-#if 0
-    if ([TABVIEW numberOfTabViewItems] == 1)
-    {
-	if(![pref hideTab])
-	    [TABVIEW setTabViewType: [pref tabViewType]];
-	else
-	{
-	    [TABVIEW setTabViewType: NSNoTabsBezelBorder];
-	    [self setWindowSize: NO];
-	    [[currentPtySession TEXTVIEW] scrollRangeToVisible: NSMakeRange([[[currentPtySession TEXTVIEW] string] length] - 1, 1)];
-	}
-    }
-#endif
-    
 
 }
 
