@@ -141,6 +141,7 @@ static NSDictionary *deadStateAttribute;
     [[WINDOW contentView] addSubview: SCROLLVIEW];
     [SCROLLVIEW setAutoresizingMask: NSViewWidthSizable|NSViewHeightSizable];
     [SCROLLVIEW setLineScroll: ([VT100Screen fontSize: FONT].height)];
+    [SCROLLVIEW setPageScroll: (10*[VT100Screen fontSize: FONT].height)];
     [SCROLLVIEW release];
     
     
