@@ -13,6 +13,8 @@
 #import "PTYTask.h"
 #import "PTYSession.h"
 
+#define TABWINDOW	300
+
 @interface VT100Screen : NSObject
 {
     int WIDTH;
@@ -23,7 +25,7 @@
     int SAVE_CURSOR_Y;
     int SCROLL_TOP;
     int SCROLL_BOTTOM;
-    BOOL tabStop[300];
+    BOOL tabStop[TABWINDOW];
     BOOL CURSOR_IN_MIDDLE;
 
     NSTextStorage *STORAGE;

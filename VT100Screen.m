@@ -140,6 +140,11 @@ static BOOL PLAYBELL = YES;
     OLD_CURSOR_INDEX=-1;
     [self clearTabStop];
     
+    // set initial tabs
+    int i;
+    for(i = TABSIZE; i < TABWINDOW; i += TABSIZE)
+        tabStop[i] = YES;
+    
     return self;
 }
 
@@ -819,6 +824,7 @@ static BOOL PLAYBELL = YES;
 	[self setString:str width:1];
     }
 #else
+    CURSOR_X++; // ensure we go to the next tab in case we are already on one
     for(;!tabStop[CURSOR_X]&&CURSOR_X<WIDTH; CURSOR_X++);
 #endif
 }
