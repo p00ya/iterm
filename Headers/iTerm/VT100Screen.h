@@ -57,6 +57,7 @@
     PTYSession *SESSION;
     int charset[4], saveCharset[4];
     BOOL blinkShow;
+	BOOL PLAYBELL;
 
     
     BOOL blinkingCursor;
@@ -77,7 +78,6 @@
 	char *tempBuffer;
 }
 
-+ (void)setPlayBellFlag:(BOOL)flag;
 
 - (id)init;
 - (void)dealloc;
@@ -103,6 +103,7 @@
 
 - (BOOL) blinkingCursor;
 - (void) setBlinkingCursor: (BOOL) flag;
+- (void)setPlayBellFlag:(BOOL)flag;
 
 
 // edit screen buffer
