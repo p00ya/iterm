@@ -32,6 +32,10 @@
     NSLog(@"PTYTextView: -dealloc");
 #endif
     
+    if(cMenu != nil)
+        [cMenu release];
+    cMenu = nil;
+    
     [super dealloc];
 }
 
@@ -302,6 +306,7 @@
         [s1 appendString:@"\""];
     }
     system([s1 cString]);
+    [s1 release];
 }
 
 - (void) browse:(id)sender
@@ -320,6 +325,7 @@
         [s1 appendString:@"\""];
     }
     system([s1 cString]);
+    [s1 release];
 }
 
 @end
