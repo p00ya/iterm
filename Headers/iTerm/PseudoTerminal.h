@@ -43,7 +43,7 @@
     
     /////////////////////////////////////////////////////////////////////////
     int WIDTH,HEIGHT;
-	float charWidth; // float for smoother increases
+	int charWidth;
 	int charHeight;
 	float charHorizontalSpacingMultiplier, charVerticalSpacingMultiplier;
     NSFont *FONT, *NAFONT;
