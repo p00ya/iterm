@@ -203,6 +203,12 @@ static BOOL PLAYBELL = YES;
     NSLog(@"%s(%d):-[VT100Screen dealloc]", __FILE__, __LINE__);
 #endif
 
+
+    if([self screenIsLocked])
+	[self removeScreenLock];
+    [screenLock release];
+    screenLock = nil;
+    
     [FONT release];
 
     [display release];
