@@ -97,6 +97,7 @@
 - (IBAction) closeCurrentSession: (id) sender;
 - (IBAction) previousSession:(id)sender;
 - (IBAction) nextSession:(id)sender;
+- (IBAction) saveSession:(id)sender;
 - (PTYSession *) currentSession;
 - (NSString *) currentSessionName;
 - (void) setCurrentSessionName: (NSString *) theSessionName;

@@ -732,4 +732,10 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
     
 }
 
+- (void) addAddressBookEntry: (NSDictionary *) entry
+{
+    [addressBook addObject:entry];
+    [addressBook sortUsingFunction: addressBookComparator context: nil];
+    [adTable reloadData];
+}
 @end

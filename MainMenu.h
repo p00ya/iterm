@@ -98,6 +98,7 @@
 - (NSStringEncoding const*) encodingList;
 - (NSArray *)addressBookNames;
 - (NSDictionary *)addressBookEntry: (int) entryIndex;
+- (void) addAddressBookEntry: (NSDictionary *) entry;
 
 // Preference Panel
 - (IBAction)showPrefWindow:(id)sender;
