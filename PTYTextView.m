@@ -1562,6 +1562,30 @@
     else
 	[super drawRect: rect];
 
+#if 0  // to debug custom typesetting
+    static int i;
+    NSString *myString = [[self textStorage] string];
+    //if(i <= 0)
+	i = 0;
+
+    while (i < [myString length])
+    {
+	unichar myChar = [myString characterAtIndex: i];
+	NSLog(@"\nmyChar %d = '%c'", i, myChar);
+	NSLog(@"container width = %f", [[self textContainer] containerSize].width);
+	NSLog(@"textContainer inset = %f,%f", [self textContainerInset].width, [self textContainerInset].height);
+	//if(myChar == '\n')
+	{
+	    NSRange myRange = [[self layoutManager] glyphRangeForCharacterRange: NSMakeRange(i, 1) actualCharacterRange: nil];
+	    NSRange effectiveRange;
+	    NSLog(@"glyph range for char index %d = %d,%d", i, myRange.location, myRange.length);
+	    NSLogRect([[self layoutManager] lineFragmentRectForGlyphAtIndex: myRange.location effectiveRange: &effectiveRange]);
+	    NSLog(@"effective range = %d, %d", effectiveRange.location, effectiveRange.length);
+	}
+	i++;
+    }
+#endif 
+
 }
 
 
