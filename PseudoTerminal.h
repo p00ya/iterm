@@ -114,6 +114,10 @@
 
 // MainMenu
 - (void)setMainMenu:(id) sender;
+- (void)clearBuffer:(id)sender;
+- (void)logStart:(id)sender;
+- (void)logStop:(id)sender;
+- (BOOL)validateMenuItem:(NSMenuItem *)item;
 
 // PTYTextView
 - (void)keyDown:(NSEvent *)theEvent;

@@ -747,9 +747,9 @@ static BOOL PLAYBELL = YES;
 
 - (void)clearScreen
 {
-//#if DEBUG_METHOD_TRACE
+#if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[VT100Screen clearScreen]", __FILE__, __LINE__);
-//#endif
+#endif
     [self resizeWidth:WIDTH height:HEIGHT];
 }
 

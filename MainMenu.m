@@ -127,7 +127,7 @@ static BOOL newWindow=YES;
     }
     else if (r == NSRunStoppedResponse) {
         NSDictionary *env=[NSDictionary dictionaryWithObject:[QO_DIR stringValue] forKey:@"PWD"];
-        if (newWindow) {
+        if (newWindow||FRONT==nil) {
             term = [PseudoTerminal newTerminalWindow: self];
             [term setPreference:PREF_PANEL];
             [term initWindow:[PREF_PANEL col]
@@ -228,7 +228,7 @@ static BOOL newWindow=YES;
         else //([enc compare:@"Unicode"]==NSOrderedSame)
             encoding=NSUTF8StringEncoding;
 
-        if (newWindow) {
+        if (newWindow||FRONT==nil) {
             term = [PseudoTerminal newTerminalWindow: self];
             [term setPreference:PREF_PANEL];
             [term initWindow:[[entry objectForKey:@"Col"]intValue]
