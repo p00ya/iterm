@@ -690,7 +690,7 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
     
     // If we created a new window, set the size
     if (theTerm == nil) {
-        [term setWindowSize: YES];
+        [term setWindowSize: NO];
     };
     [term setCurrentSessionName:[entry objectForKey:@"Name"]];
     [aSession setAddressBookEntry:entry];
