@@ -762,7 +762,7 @@ static NSString *ConfigToolbarItem = @"Config";
     
     WIDTH = w;
     HEIGHT = h;
-    [self setWindowSize];
+    //[self setWindowSize];
 //    NSLog(@"%d,%d",WIDTH,HEIGHT);
 
 
