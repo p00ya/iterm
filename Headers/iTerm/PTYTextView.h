@@ -202,6 +202,7 @@ typedef struct
 - (void) scrollPageDown: (id) sender;
 - (void) scrollHome;
 - (void) scrollEnd;
+- (void) scrollToSelection;
 
     // Save method
 - (void) saveDocumentAs: (id) sender;
@@ -235,6 +236,12 @@ typedef struct
 
 - (unsigned int) _checkForSupportedDragTypes:(id <NSDraggingInfo>) sender;
 - (void) _savePanelDidEnd: (NSSavePanel *) theSavePanel returnCode: (int) theReturnCode contextInfo: (void *) theContextInfo;
+
+- (void)scrollToLine:(int)line;
+
+- (void)renderChar:(NSImage *)image withChar:(unichar) carac withColor:(NSColor*)color withFont:(NSFont*)aFont bold:(int)bold;
+- (NSImage *) getCharImage:(unichar) code color:(int)fg doubleWidth:(BOOL) dw;
+- (void) drawCharacter:(unichar)c fgColor:(int)fg AtX:(float)X Y:(float)Y doubleWidth:(BOOL) dw;
 
 @end
 
