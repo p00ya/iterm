@@ -47,6 +47,15 @@ static NSString* APPLICATION_SUPPORT_DIRECTORY = @"~/Library/Application Support
 static NSString *SUPPORT_DIRECTORY = @"~/Library/Application Support/iTerm";
 static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Scripts";
 
+// Comparator for sorting encodings
+static int _compareEncodingByLocalizedName(id a, id b, void *unused)
+{
+	NSString *sa = [NSString localizedNameOfStringEncoding: [a unsignedIntValue]];
+	NSString *sb = [NSString localizedNameOfStringEncoding: [b unsignedIntValue]];
+	return [sa caseInsensitiveCompare: sb];
+}
+
+
 @implementation iTermController
 
 + (iTermController*)sharedInstance;
@@ -233,6 +242,20 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
     if(theTerminalWindow)
         [self removeFromTerminalsAtIndex: [terminalWindows indexOfObject: theTerminalWindow]];
 }
+
+// Build sorted list of encodings
+- (NSArray *) sortedEncodingList
+{
+	NSStringEncoding const *p;
+	NSMutableArray *tmp = [NSMutableArray array];
+	
+	for (p = [NSString availableStringEncodings]; *p; ++p)
+		[tmp addObject:[NSNumber numberWithUnsignedInt:*p]];
+	[tmp sortUsingFunction: _compareEncodingByLocalizedName context:NULL];
+	
+	return (tmp);
+}
+
 
 
 // Build the bookmarks menu

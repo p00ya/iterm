@@ -55,6 +55,7 @@
 + (void) breakDown:(NSString *)cmdl cmdPath: (NSString **) cmd cmdArgs: (NSArray **) path;
 - (PseudoTerminal *) currentTerminal;
 - (void) terminalWillClose: (PseudoTerminal *) theTerminalWindow;
+- (NSArray *) sortedEncodingList;
 - (NSMenu *) buildAddressBookMenuWithTarget:(id)target withShortcuts: (BOOL) withShortcuts;
 - (void) launchBookmark: (NSDictionary *) bookmarkData inTerminal: (PseudoTerminal *) theTerm;
 - (PTYTextView *) frontTextView;
