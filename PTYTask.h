@@ -50,6 +50,7 @@
 
     NSString *LOG_PATH;
     NSFileHandle *LOG_HANDLE;
+    BOOL hasOutput;
 }
 
 - (id)init;
@@ -81,6 +82,8 @@
 - (BOOL)loggingStartWithPath:(NSString *)path;
 - (void)loggingStop;
 - (BOOL)logging;
+- (BOOL) hasOutput;
+- (void) setHasOutput: (BOOL) flag;
 
 - (NSString *)description;
 

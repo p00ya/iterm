@@ -236,6 +236,7 @@ static int writep(int fds, char *buf, size_t len)
 		newOutput = YES;
 	    }
 #endif
+	    [boss setHasOutput: YES];
 
 	    if (data != nil)
 		[rootProxy readTask:data];
@@ -286,6 +287,7 @@ static int writep(int fds, char *buf, size_t len)
     CONNECTION = nil;
     LOG_PATH = nil;
     LOG_HANDLE = nil;
+    hasOutput = NO;
 
     return self;
 }
@@ -396,6 +398,17 @@ static int writep(int fds, char *buf, size_t len)
             	             toTarget:[PTYTask class]
 	                   withObject:self];
 }
+
+- (BOOL) hasOutput
+{
+    return (hasOutput);
+}
+
+- (void) setHasOutput: (BOOL) flag
+{
+    hasOutput = flag;
+}
+
 
 - (void)setDelegate:(id)object
 {
