@@ -652,7 +652,7 @@ static SInt32 systemVersion;
 	BOOL need_draw;
 	int bgstart, ulstart;
     float curX, curY;
-	unsigned int bgcode, fgcode, c;
+	unsigned int bgcode, fgcode;
 	int y1, x1;
 	BOOL double_width;
 	BOOL reversed = [[dataSource terminal] screenMode]; 
