@@ -252,6 +252,8 @@ static NSString *ConfigToolbarItem = @"Config";
     currentPtySession = aSession;
     [TABVIEW selectTabViewItem: aTabViewItem];
     [self setCurrentSessionName: nil];
+    
+    [WINDOW makeKeyAndOrderFront:self];
         
 }
 
