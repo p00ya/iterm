@@ -114,6 +114,7 @@
 - (void)setAllFont:(NSFont *)font nafont:(NSFont *)nafont;
 - (void)setFont:(NSFont *)font nafont:(NSFont *)nafont;
 
+
 // MainMenu
 - (void)setMainMenu:(id) sender;
 - (void)clearBuffer:(id)sender;
