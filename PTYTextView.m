@@ -960,10 +960,18 @@
                     if ([delegate respondsToSelector:@selector(pasteString:)])
                         [delegate pasteString: aString];
                 }
-                    // Check for file names
-                    propertyList = [pb propertyListForType: NSFilenamesPboardType];
+		    
+		// Check for file names
+		propertyList = [pb propertyListForType: NSFilenamesPboardType];
                 for(i = 0; i < [propertyList count]; i++)
                 {
+
+		    // Ignore text clippings
+		    if ([[(NSString*)[propertyList objectAtIndex: i] pathExtension] isEqualToString:@"textClipping"])
+		    {
+			continue;
+		    }
+		    
                     // Just paste the file names into the shell after escaping special characters.
                     if ([delegate respondsToSelector:@selector(pasteString:)])
                     {
@@ -1977,6 +1985,13 @@
                 propertyList = [pb propertyListForType: NSFilenamesPboardType];
                 for(i = 0; i < [propertyList count]; i++)
                 {
+
+		    // Ignore text clippings
+		    if ([[(NSString*)[propertyList objectAtIndex: i] pathExtension] isEqualToString:@"textClipping"])
+		    {
+			continue;
+		    }		    
+		    
                     // Just paste the file names into the shell after escaping special characters.
                     if ([delegate respondsToSelector:@selector(pasteString:)])
                     {
