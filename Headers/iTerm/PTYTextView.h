@@ -212,9 +212,6 @@
     id dataSource;
     int numberOfLines;
 
-    // print selection
-    BOOL printingSelection;
-
     // for the typesetter
     NSFont *font;
     
