@@ -123,7 +123,7 @@ static float versionNumber;
 - (IBAction)cancel:(id)sender
 {
     [self readPreferences];
-	[[self window] close];
+	[[self window] performClose: self];
 }
 
 - (IBAction)ok:(id)sender
@@ -146,7 +146,7 @@ static float versionNumber;
 	[prefs setObject: [[iTermKeyBindingMgr singleInstance] profiles] forKey: @"KeyBindings"];
 	[prefs setObject: [[iTermDisplayProfileMgr singleInstance] profiles] forKey: @"Displays"];
 
-    [[self window] close];
+    [[self window] performClose: self];
 }
 
 // NSWindow delegate
@@ -162,6 +162,10 @@ static float versionNumber;
     [[NSNotificationCenter defaultCenter] postNotificationName: @"nonTerminalWindowBecameKey" object: nil userInfo: nil];        
 }
 
+- (void)windowWillClose:(NSNotification *)aNotification
+{
+	[profilesWindow performClose: self];
+}
 
 
 // accessors for preferences
