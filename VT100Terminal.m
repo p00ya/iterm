@@ -32,6 +32,7 @@
 #import "VT100Screen.h"
 #import "NSStringITerm.h"
 
+#define DEBUG_ALLOC	0
 
 /*
   Traditional Chinese (Big5)
@@ -1153,7 +1154,11 @@ static VT100TCC decode_string(unsigned char *datap,
 
 - (id)init
 {
-   
+
+#if DEBUG_ALLOC
+    NSLog(@"%s(%d):-[VT100Terminal init 0x%x]", __FILE__, __LINE__, self);
+#endif
+    
     if ([super init] == nil)
 	return nil;
 
@@ -1200,6 +1205,10 @@ static VT100TCC decode_string(unsigned char *datap,
 
 - (void)dealloc
 {
+#if DEBUG_ALLOC
+    NSLog(@"%s(%d):-[VT100Terminal dealloc 0x%x]", __FILE__, __LINE__, self);
+#endif
+    
     int i;
     
     if(STREAM != nil)
