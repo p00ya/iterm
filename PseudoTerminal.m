@@ -291,6 +291,7 @@ static int windowCount = 0;
     if (sessionIndex<0||sessionIndex >= [ptyList count]) return;
 
     aSession = [ptyList objectAtIndex: sessionIndex];
+    [self selectSession: aSession];
 
 }
 
