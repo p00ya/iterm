@@ -207,8 +207,8 @@ static NSString *ConfigToolbarItem = @"Config";
     [[aSession SCREEN]  setFont:FONT nafont:NAFONT];
     
     // set the srolling
-    [[aSession SCROLLVIEW] setLineScroll: [[aSession SCREEN] characterSize].height];
     [[aSession SCROLLVIEW] setVerticalLineScroll: [[aSession SCREEN] characterSize].height];
+    [[aSession SCROLLVIEW] setVerticalPageScroll: [[aSession TEXTVIEW] frame].size.height];
     
     // Set the bell option
     [VT100Screen setPlayBellFlag: ![pref silenceBell]];
