@@ -992,7 +992,7 @@
 		while(tmpX >= 0)
 		{
 			aString = [self contentFromX:tmpX Y:tmpY ToX:tmpX Y:tmpY];
-			if([aString length] == 0 || [aString rangeOfCharacterFromSet: [NSCharacterSet whitespaceCharacterSet]].length > 0)
+			if([aString length] == 0 || [aString rangeOfCharacterFromSet: [NSCharacterSet letterCharacterSet]].length == 0)
 				break;
 			tmpX--;
 			if(tmpX < 0 && tmpY > 0)
