@@ -229,7 +229,7 @@ typedef struct {
 
     BOOL strictAnsiMode;
 
-    NSMutableDictionary *defaultCharacterAttributeDictionary;
+    NSMutableDictionary *defaultCharacterAttributeDictionary[2];
     unsigned int streamOffset;
 }
 
@@ -301,8 +301,8 @@ typedef struct {
 - (NSData *)reportDeviceAttribute;
 
 - (unsigned int)characterAttribute;
-- (NSMutableDictionary *)characterAttributeDictionary;
-- (NSMutableDictionary *)defaultCharacterAttributeDictionary;
+- (NSMutableDictionary *)characterAttributeDictionary: (BOOL) asc;
+- (NSMutableDictionary *)defaultCharacterAttributeDictionary:  (BOOL) asc;
 - (void) initDefaultCharacterAttributeDictionary;
 
 - (void)_setMode:(VT100TCC)token;
