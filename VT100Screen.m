@@ -777,7 +777,7 @@ static BOOL PLAYBELL = YES;
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[VT100Screen clearBuffer]",  __FILE__, __LINE__ );
 #endif
-    NSAttributedString *aLine;
+    NSMutableAttributedString *aLine;
     int idx, idx2;
     int cursor_x = CURSOR_X;
 
@@ -791,14 +791,21 @@ static BOOL PLAYBELL = YES;
 	    idx2 = [self getIndexAtX: 0 Y: CURSOR_Y+1 withPadding: YES];
 	if(idx2 > idx)
 	{
-	    aLine = [BUFFER attributedSubstringFromRange: NSMakeRange(idx, idx2-idx)];
-	    [aLine retain];
+	    aLine = [[NSMutableAttributedString alloc] initWithAttributedString: [BUFFER attributedSubstringFromRange: NSMakeRange(idx, idx2-idx)]];
 	}
 	else
 	{
 	    aLine = nil;
 	    NSLog(@"VT100Screen: clearBuffer: could not get last line!; idx = %d; idx2 = %d; CURSOR_Y = %d", idx, idx2, CURSOR_Y);
 	}
+
+	// append a new line if we are at the end of the buffer
+	if(idx2 == [BUFFER length] - 1)
+	{
+            [aLine appendAttributedString:[self attrString:@"\n"  ascii:YES]];
+	}
+
+	// clear everything
     #if DEBUG_USE_BUFFER
 	[STORAGE deleteCharactersInRange:NSMakeRange(0, [STORAGE length])];
 	[BUFFER deleteCharactersInRange:NSMakeRange(0, [BUFFER length])];
@@ -819,6 +826,10 @@ static BOOL PLAYBELL = YES;
 	    [aLine release];
 	    CURSOR_X = cursor_x;
 	}
+
+	// reset top line
+	TOP_LINE = 0;
+	
     NS_HANDLER
 	NSLog(@"VT100Screen: clearBuffer: Exception: %@", localException);
     NS_ENDHANDLER
