@@ -75,8 +75,8 @@ static NSDictionary *deadStateAttribute;
     [MainMenu breakDown:[pref shell] cmdPath:&cmd cmdArgs:&arg];
 
     [self initSession:nil
-     foregroundColor:[pref foreground]
-     backgroundColor:[[pref background] colorWithAlphaComponent: (1.0-[pref transparency]/100.0)]
+     foregroundColor:[TERMINAL defaultFGColor]
+     backgroundColor:[[TERMINAL defaultBGColor] colorWithAlphaComponent: [[TERMINAL defaultBGColor] alphaComponent]]
             encoding:[pref encoding]
                 term:[pref terminalType]];
     [self startProgram:cmd arguments:arg];
