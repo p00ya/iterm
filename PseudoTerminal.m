@@ -81,6 +81,9 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     if ((self = [super initWithWindowNibName: windowNibName]) == nil)
 	return nil;
 
+    // set our delegate
+    [self setMainMenu: [NSApp delegate]];
+    
     // setup our toolbar
     [[self window] setToolbar:[self setupToolbar]];
 
@@ -1918,6 +1921,12 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     NSImage *image;
     NSMenu *aMenu;
     id newwinItem;
+
+#if DEBUG_METHOD_TRACE
+    NSLog(@"%s(%d):-[PseudoTerminal _buildToolbarItemPopUpMenu]",
+          __FILE__, __LINE__);
+#endif
+    
 
     if (toolbarItem == nil)
 	return;
