@@ -83,6 +83,7 @@
     BOOL newwin;
     PreferencePanel *pref;
     BOOL tabViewDragOperationInProgress;
+    BOOL resizeInProgress;
 }
 
 + (PseudoTerminal *)newTerminalWindow: sender;
