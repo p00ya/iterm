@@ -493,7 +493,7 @@ static BOOL editingBookmark = NO;
 	if([bookmarksView isExpandable: parentNode] == NO)
 		parentNode = [parentNode nodeParent];
 	
-	if(returnCode == NSOKButton)
+	if(returnCode == NSOKButton && [[bookmarkFolderName stringValue] length] > 0)
 	{		
 		[[ITAddressBookMgr sharedInstance] addFolder: [bookmarkFolderName stringValue] toNode: parentNode];
 		[bookmarksView reloadData];
@@ -529,16 +529,19 @@ static BOOL editingBookmark = NO;
 		if([[bookmarkName stringValue] length] <= 0)
 		{
 			NSBeep();
+			[editBookmarkPanel close];
 			return;
 		}
 		if([[bookmarkCommand stringValue] length] <= 0)
 		{
 			NSBeep();
+			[editBookmarkPanel close];
 			return;
 		}
 		if([[bookmarkWorkingDirectory stringValue] length] <= 0)
 		{
 			NSBeep();
+			[editBookmarkPanel close];
 			return;
 		}
 		
