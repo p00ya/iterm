@@ -550,7 +550,7 @@ static NSString *ConfigToolbarItem = @"Config";
 
     thisWindow = [SCROLLVIEW window];
     winSize = size;
-    winSize.height = size.height + 28;
+    winSize.height = size.height + 32;
     [thisWindow setContentSize:winSize];
 }
 
@@ -745,7 +745,7 @@ static NSString *ConfigToolbarItem = @"Config";
     
     // Calculate scrollview size
     scrollviewSize = contentSize;
-    scrollviewSize.height = contentSize.height - 28; // account for tabview
+    scrollviewSize.height = contentSize.height - 32; // account for tabview
     //NSLog(@"scrollview size: width = %f; height = %f", scrollviewSize.width, scrollviewSize.height);
 
     
@@ -819,7 +819,7 @@ static NSString *ConfigToolbarItem = @"Config";
         [[[ptyList objectAtIndex:i] SCREEN] resizeWidth:w height:h];
         [[[ptyList objectAtIndex:i] SCREEN] endEditing];
         [[[ptyList objectAtIndex:i] SHELL] setWidth:w  height:h];
-        [[[ptyList objectAtIndex:i] TEXTVIEW] setFrameSize:vsize];
+        //[[[ptyList objectAtIndex:i] TEXTVIEW] setFrameSize:vsize];
     }
     
     WIDTH = w;
