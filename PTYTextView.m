@@ -977,13 +977,7 @@
 	if (x<0) x=0;
     y = locationInTextView.y/lineHeight;
 	
-	if(locationInTextView.x < MARGIN)
-	{
-		// complete selection of previous line
-		x = [dataSource width] - 1;
-		y--;
-	}		
-    if (x>=[dataSource width]) x=[dataSource width] - 1;
+    if (x>=[dataSource width]) x= [dataSource width] - 1;
 	
 	// if we are holding the shift key down, we are extending selection
 	if (startX > -1 && ([event modifierFlags] & NSShiftKeyMask))
