@@ -148,6 +148,7 @@
 - (NSAttributedString *)attrString:(NSString *)str ascii:(BOOL)asc;
 - (NSAttributedString *)defaultAttrString:(NSString *)str;
 - (int) getIndex:(int)x y:(int)y;
+- (int) getTVIndex:(int)x y:(int)y;
 - (BOOL) isDoubleWidthCharacter:(unichar)code;
 
 - (void) clearTabStop;

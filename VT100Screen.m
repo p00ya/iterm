@@ -395,9 +395,9 @@ static BOOL PLAYBELL = YES;
     NAFONT = [nafont copy];
     FONT_SIZE = [VT100Screen fontSize:FONT];
 
-    [STORAGE addAttribute:NSFontAttributeName
-                    value:FONT
-                    range:NSMakeRange(0, [STORAGE length])];
+    [BUFFER addAttribute:NSFontAttributeName
+                   value:FONT
+                   range:NSMakeRange(0, [BUFFER length])];
 }
 
 - (NSFont *)font
@@ -650,6 +650,16 @@ static BOOL PLAYBELL = YES;
 //    NSLog(@"index:%d[%d] (CURSOR_IN_MIDDLE:%d)",idx,[s length],CURSOR_IN_MIDDLE);
     
     return idx;
+}
+
+- (int) getTVIndex:(int)x y:(int)y
+{
+
+#if DEBUG_METHOD_TRACE
+    NSLog(@"%s(%d):-[VT100Screen getTVIndex]:(%d,%d)",  __FILE__, __LINE__ , x, y );
+#endif
+
+    return [self getIndex:x y:y]+updateIndex;
 }
 
 - (void)setASCIIString:(NSString *)string

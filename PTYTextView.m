@@ -721,7 +721,7 @@
     [cursor setOnMouseEntered:YES];
 }
 
-- (void) setCursorIndex:(int)idx
+- (void) setCursorIndex:(int) idx
 {
     cursorIndex=idx;
 }
