@@ -342,6 +342,9 @@ static int writep(int fds, char *buf, size_t len)
 	}
 	argv[max + 1] = NULL;
 
+	// set the PATH to something sensible since the inherited path seems to have the user's home directory.
+	setenv("PATH", "/usr/bin:/bin:/usr/sbin:/sbin", 1);
+	
 	if (env != nil ) {
 	    NSArray *keys = [env allKeys];
 	    int i, max = [keys count];
