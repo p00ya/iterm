@@ -138,6 +138,9 @@ typedef struct {
 #define VT100CHARATTR_BLINK    5
 #define VT100CHARATTR_REVERSE  7
 
+// xterm additions
+#define VT100CHARATTR_POSITIVE  27
+
 #define VT100CHARATTR_BOLDMASK    (1)
 #define VT100CHARATTR_UNDERMASK   (1<<1)
 #define VT100CHARATTR_BLINKMASK   (1<<2)

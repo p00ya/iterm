@@ -1774,6 +1774,9 @@ static VT100TCC decode_string(unsigned char *datap,
                 case VT100CHARATTR_REVERSE:
                     CHARATTR |= VT100CHARATTR_REVERSEMASK;
                     break;
+		case VT100CHARATTR_POSITIVE:
+		    CHARATTR &= ~VT100CHARATTR_REVERSEMASK;
+		    break;
 
 		case VT100CHARATTR_FG_BLACK:
                     FG_COLORCODE = COLORCODE_BLACK;
