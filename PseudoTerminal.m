@@ -173,7 +173,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 - (void)setupSession: (PTYSession *) aSession
 		       title: (NSString *)title
 {
-    NSMutableDictionary *addressBookPreferences, *tempPrefs;
+    NSMutableDictionary *addressBookPreferences;
+    NSDictionary *tempPrefs;
     
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PseudoTerminal setupSession]",
