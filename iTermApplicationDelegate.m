@@ -377,7 +377,7 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
 - (void) setCurrentTerminal: (PseudoTerminal *) aTerminal
 {
     //NSLog(@"iTermApplicationDelegate: setCurrentTerminal '0x%x'", aTerminal);
-    return [[iTermController sharedInstance] setCurrentTerminal: aTerminal];
+    [[iTermController sharedInstance] setCurrentTerminal: aTerminal];
 }
 
 
