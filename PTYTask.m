@@ -554,7 +554,7 @@ static int writep(int fds, char *buf, size_t len)
 - (int)wait
 {
     if (PID >= 0) 
-		waitpid(PID, &STATUS, 0);
+		waitpid(PID, &STATUS, WNOHANG);
 
     return STATUS;
 }
@@ -573,13 +573,14 @@ static int writep(int fds, char *buf, size_t len)
 
 - (void)stop
 {
-    [self sendSignal:SIGHUP];
+    [self sendSignal:SIGKILL];
+	usleep(10000);
     [self wait];
 }
 
 - (void)stopNoWait
 {
-    [self sendSignal:SIGHUP];
+    [self sendSignal:SIGKILL];
 }
 
 - (int)status

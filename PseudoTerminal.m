@@ -1071,7 +1071,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     for (i = 0; i < sessionCount; i++)
     {
         if ([[_sessionMgr sessionAtIndex: i] exited]==NO)
-            [[[_sessionMgr sessionAtIndex: i] SHELL] stopNoWait];
+            [[[_sessionMgr sessionAtIndex: i] SHELL] stop];
     }
 	
     [self releaseObjects];
