@@ -171,6 +171,7 @@
     [defaultFGColor release];
     [color retain];
     defaultFGColor=color;
+	[self resetCharCache];
 	[self setNeedsDisplay: YES];
 	// reset our default character attributes    
 }
@@ -190,6 +191,7 @@
     [defaultBoldColor release];
     [color retain];
     defaultBoldColor=color;
+	[self resetCharCache];
 	[self setNeedsDisplay: YES];
 }
 
