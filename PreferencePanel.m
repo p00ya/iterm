@@ -407,7 +407,8 @@ static float versionNumber;
 				[[iTermKeyBindingMgr singleInstance] addEntryForKeyCode: hexCode 
 															  modifiers: modifiers 
 																 action: [kbEntryAction indexOfSelectedItem] 
-																   text: [kbEntryText stringValue]];
+																   text: [kbEntryText stringValue]
+																profile: [kbProfileSelector titleOfSelectedItem]];
 			}
 		}
 		else
@@ -415,7 +416,8 @@ static float versionNumber;
 			[[iTermKeyBindingMgr singleInstance] addEntryForKey: [kbEntryKey indexOfSelectedItem] 
 													  modifiers: modifiers 
 														 action: [kbEntryAction indexOfSelectedItem] 
-														   text: [kbEntryText stringValue]];			
+														   text: [kbEntryText stringValue]
+														profile: [kbProfileSelector titleOfSelectedItem]];			
 		}
 		[kbEntryTableView reloadData];
 	}
