@@ -40,6 +40,9 @@ static BOOL newWindow=YES;
     terminalWindows = [[NSMutableArray alloc] init];
 //  [self showQOWindow:self];
 
+    // set the TERM_PROGRAM environment variable
+    putenv("TERM_PROGRAM=iTerm.app");
+
 }
 
 - (BOOL) applicationShouldTerminate: (NSNotification *) theNotification
