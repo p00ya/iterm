@@ -310,6 +310,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	NSParameterAssert(aTabViewItem != nil);
 	[aTabViewItem setLabel: [aSession name]];
 	[aTabViewItem setView: [aSession SCROLLVIEW]];
+	[[aSession SCROLLVIEW] release];
 	[[aSession SCROLLVIEW] setVerticalPageScroll: 0.0];
 	[TABVIEW insertTabViewItem: aTabViewItem atIndex: index];
 
