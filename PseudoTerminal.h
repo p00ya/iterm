@@ -73,6 +73,7 @@
     int currentSessionIndex;
     PTYSession *currentPtySession;
     NSLock *ptyListLock;
+    unsigned int windowNumber;
     
     /////////////////////////////////////////////////////////////////////////
     int WIDTH,HEIGHT;
