@@ -427,6 +427,7 @@ static BOOL editingBookmark = NO;
 	[bookmarkDisplayProfile selectItemWithTitle: displayProfile];
 	
 	shortcut = [[ITAddressBookMgr sharedInstance] objectForKey: KEY_SHORTCUT inItem: selectedItem];
+	shortcut = [shortcut uppercaseString];
 	if([shortcut length] < 0)
 		shortcut = @"";
 	[bookmarkShortcut selectItemWithTitle: shortcut];
