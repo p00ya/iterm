@@ -1544,7 +1544,6 @@ static BOOL PLAYBELL = YES;
 	// update TOP_LINE
 	TOP_LINE += HEIGHT;
 	
-	return;
     }
     else
 	clearingBuffer = NO;
