@@ -275,7 +275,7 @@ static int writep(int fds, char *buf, size_t len)
 	    }
 	}
         chdir([[[env objectForKey:@"PWD"] stringByExpandingTildeInPath] cString]);
-	sts = execvp(path, argv);
+	sts = execvp(path, (char * const *) argv);
 
 	/*
 	  exec error

@@ -101,7 +101,7 @@
 - (PseudoTerminal *) frontPseudoTerminal;
 - (void) addTerminalWindow: (PseudoTerminal *) theTerminalWindow;
 - (void) removeTerminalWindow: (PseudoTerminal *) theTerminalWindow;
-- (NSStringEncoding*) encodingList;
+- (NSStringEncoding const*) encodingList;
 
 // Preference Panel
 - (IBAction)showPrefWindow:(id)sender;
