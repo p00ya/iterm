@@ -66,7 +66,6 @@
     NSLock *screenLock;
     BOOL screenIsLocked;
     BOOL blinkingCursor;
-    BOOL showBlinkingCursor;
 
     NSView *display;
 }
