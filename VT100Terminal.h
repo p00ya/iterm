@@ -264,10 +264,10 @@ typedef enum {
 - (void) toggleNumLock;
 - (BOOL) numLock;
 
-- (NSData *)keyArrowUp;
-- (NSData *)keyArrowDown;
-- (NSData *)keyArrowLeft;
-- (NSData *)keyArrowRight;
+- (NSData *)keyArrowUp:(unsigned int)modflag;
+- (NSData *)keyArrowDown:(unsigned int)modflag;
+- (NSData *)keyArrowLeft:(unsigned int)modflag;
+- (NSData *)keyArrowRight:(unsigned int)modflag;
 - (NSData *)keyInsert;
 - (NSData *)keyHome;
 - (NSData *)keyDelete;
