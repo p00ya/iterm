@@ -48,7 +48,6 @@
     IBOutlet NSMenuItem *closeTab;
     IBOutlet NSMenuItem *closeWindow;
     IBOutlet NSMenuItem *sendInputToAllSessions;
-	IBOutlet NSMenuItem *remapDeleteKey;
 }
 
 // NSApplication Delegate methods

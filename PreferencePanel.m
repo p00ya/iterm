@@ -171,8 +171,13 @@ static BOOL editingBookmark = NO;
 	}
 	else
 	{
-		[bookmarkDeleteButton setEnabled: YES];
 		selectedItem = [bookmarksView itemAtRow: selectedRow];
+		
+		if([[ITAddressBookMgr sharedInstance] mayDeleteBookmarkNode: selectedItem])
+			[bookmarkDeleteButton setEnabled: YES];
+		else
+			[bookmarkDeleteButton setEnabled: NO];
+		
 		if([[ITAddressBookMgr sharedInstance] isExpandable: selectedItem])
 			[bookmarkEditButton setEnabled: NO];
 		else

@@ -389,7 +389,6 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
 
     [logStart setEnabled: ![aSession logging]];
     [logStop setEnabled: [aSession logging]];
-	[remapDeleteKey setState: [aSession remapDeleteKey]];
 }
 
 @end
