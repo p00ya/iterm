@@ -90,6 +90,9 @@ static NSString *ConfigToolbarItem = @"Config";
     ptyList = [[NSMutableArray alloc] init];
     ptyListLock = [[NSLock alloc] init];
 
+    // Read the preference on whether to open new sessions in new tabs or windows
+    newwin = [[NSUserDefaults standardUserDefaults] boolForKey:@"SESSION_IN_NEW_WINDOW"];
+
 #if DEBUG_ALLOC
     NSLog(@"%s(%d):-[PseudoTerminal init: 0x%x]", __FILE__, __LINE__, self);
 #endif
@@ -489,7 +492,6 @@ static NSString *ConfigToolbarItem = @"Config";
     [[NSNotificationCenter defaultCenter] removeObserver: self
         name: @"Reload AddressBook"
         object: nil];
-
     
 }
 
@@ -1746,6 +1748,8 @@ static NSString *ConfigToolbarItem = @"Config";
 {
     newwin = !newwin;
     [self _reloadAddressBookMenu: nil];
+    // Save our latest preference on where to open new sessions
+    [[NSUserDefaults standardUserDefaults] setBool: newwin forKey:@"SESSION_IN_NEW_WINDOW"];    
 }
 
 
