@@ -743,7 +743,7 @@ static BOOL PLAYBELL = YES;
     {
 	int anIndex = [self getIndex: CURSOR_X y: CURSOR_Y] - 2;
 
-	if(anIndex < [[STORAGE string] length])
+	if(anIndex < [[STORAGE string] length] && anIndex >= 0)
 	{
 	    if([[STORAGE string] characterAtIndex: anIndex] == VT100CC_LF)
 		[STORAGE addAttribute: @"VT100LineWrap" value: @"YES" range: NSMakeRange(([self getIndex: CURSOR_X y: CURSOR_Y] - 2), 1)];
