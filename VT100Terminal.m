@@ -1151,9 +1151,9 @@ static VT100TCC decode_string(unsigned char *datap,
                                                     blue:0.0f
                                                    alpha:1.0f]
         retain];
-    colorTable[3] = [[NSColor colorWithCalibratedRed:0.0f
+    colorTable[3] = [[NSColor colorWithCalibratedRed:0.8f
                                                   green:0.8f
-                                                   blue:0.8f
+                                                   blue:0.0f
                                                   alpha:1.0f]
         retain];
     colorTable[4] = [[NSColor colorWithCalibratedRed:0.0f
