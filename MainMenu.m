@@ -850,10 +850,12 @@ NSString *terminalsKey = @"terminals";
     [object setPreference:PREF_PANEL];
     if([object windowInited] == NO)
     {
-	[object initWindow:[PREF_PANEL col]
-	     height:[PREF_PANEL row]
-	       font:[PREF_PANEL font]
-	     nafont:[PREF_PANEL nafont]];
+	NSDictionary *defaultSessionPreferences = [self defaultAddressBookEntry];
+
+	[object initWindow:[[defaultSessionPreferences objectForKey: @"Col"] intValue]
+	     height:[[defaultSessionPreferences objectForKey: @"Row"] intValue]
+	       font:[defaultSessionPreferences objectForKey: @"Font"]
+	     nafont:[defaultSessionPreferences objectForKey: @"NAFont"]];
     }
     [terminalWindows insertObject: object atIndex: index];
 }
