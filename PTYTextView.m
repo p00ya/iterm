@@ -2129,6 +2129,7 @@
     aPrintInfo = [NSPrintInfo sharedPrintInfo];
     [aPrintInfo setHorizontalPagination: NSFitPagination];
     [aPrintInfo setVerticalPagination: NSAutoPagination];
+    [aPrintInfo setVerticallyCentered: NO];
 
     // create a temporary view with the contents, change to black on white, and print it
     PTYTextView *tempView;
