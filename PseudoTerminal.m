@@ -1048,7 +1048,7 @@ static NSDictionary *deadStateAttribute;
 
 //    NSLog(@"Toolbar created");
 
-    return toolbar;
+    return [toolbar autorelease];
 }
 
 
