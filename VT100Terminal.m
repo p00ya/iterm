@@ -1714,7 +1714,6 @@ static VT100TCC decode_string(unsigned char *datap,
                 case 4:  SCROLL_MODE = mode; break;
                 case 5:
                     SCREEN_MODE = mode;
-                    //NSLog(@"Reversed: %s",mode?"YES":"NO");
                     if (mode) {
                         bg=[self defaultFGColor];
                         fg=[self defaultBGColor];
@@ -1803,7 +1802,6 @@ static VT100TCC decode_string(unsigned char *datap,
     fg = [self colorFromTable:FG_COLORCODE bold:bold];
     bg = [self colorFromTable:BG_COLORCODE bold:NO];
     if (alpha<0.99) bg=[bg colorWithAlphaComponent:alpha];
-    //NSLog(@"%d(%d)/%d:%@\n%@",FG_COLORCODE, bold, BG_COLORCODE,fg,bg);
 
     for(i=0;i<2;i++) {
         dic=characterAttributeDictionary[i];
@@ -1822,6 +1820,7 @@ static VT100TCC decode_string(unsigned char *datap,
         [dic setObject:[NSNumber numberWithInt:blink]
                 forKey:NSBlinkAttributeName];
     }
+
 }
 
 - (void)_setCharAttr:(VT100TCC)token
