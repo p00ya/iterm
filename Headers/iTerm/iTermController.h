@@ -43,12 +43,6 @@
 
 + (iTermController*)sharedInstance;
 
-// NSApplication Delegate methods
-- (BOOL) applicationShouldTerminate: (NSNotification *) theNotification;
-- (BOOL)applicationOpenUntitledFile:(NSApplication *)app;
-- (NSMenu *)applicationDockMenu:(NSApplication *)sender;
-- (void)applicationDidUnhide:(NSNotification *)aNotification;
-
 // actions are forwarded form application
 - (IBAction)newWindow:(id)sender;
 - (IBAction)newSession:(id)sender;
