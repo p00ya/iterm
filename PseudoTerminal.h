@@ -152,8 +152,7 @@
 // NSTabView
 - (void)tabView:(NSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem;
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(NSTabViewItem *)tabViewItem;
-- (NSMenu *)tabViewContextualMenu: (NSEvent *)theEvent;
-- (void) selectTabContextualMenuAction: (id) sender;
+- (void)tabViewContextualMenu: (NSEvent *)theEvent menu: (NSMenu *)theMenu;
 - (void) closeTabContextualMenuAction: (id) sender;
 
 
