@@ -165,12 +165,12 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
     [newWindowMenuItem release];
     
     // Create the addressbook submenus for new tabs and windows.
-    NSMenu *abMenu = [[NSMenu alloc] initWithTitle: @"Address Book Menu"];
+    NSMenu *abMenu = [[NSMenu alloc] initWithTitle: @"Bookmarks Menu"];
     [self buildAddressBookMenu: abMenu forTerminal: FRONT]; // target the top terminal window.
     [newTabMenuItem setSubmenu: abMenu];
     [abMenu release];
     
-    abMenu = [[NSMenu alloc] initWithTitle: @"Address Book Menu"];
+    abMenu = [[NSMenu alloc] initWithTitle: @"Bookmarks Menu"];
     [self buildAddressBookMenu: abMenu forTerminal: nil]; // target the top terminal window.
     [newWindowMenuItem setSubmenu: abMenu];
     [abMenu release];
