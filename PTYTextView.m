@@ -958,6 +958,7 @@ static SInt32 systemVersion;
     NSInputManager *imana = [NSInputManager currentInputManager];
     BOOL IMEnable = [imana wantsToInterpretAllKeystrokes];
     id delegate = [self delegate];
+	unsigned int modflag = [event modifierFlags];
     
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PTYTextView keyDown:%@]",
@@ -969,8 +970,10 @@ static SInt32 systemVersion;
     // Hide the cursor
     [NSCursor setHiddenUntilMouseMoves: YES];   
 	
-	// Check whether we have a custom mapping for this event
-	if([delegate hasKeyMappingForEvent: event])
+	// Check whether we have a custom mapping for this event or if numeric or function keys were pressed.
+	if([delegate hasKeyMappingForEvent: event] || 
+	   (modflag & NSNumericPadKeyMask) || 
+	   (modflag & NSFunctionKeyMask))
 	{
 		[delegate keyDown: event];
 		return;
