@@ -17,3 +17,10 @@ clean:
 	rm -rf build
 	rm -f *~
 
+Development:
+	./iTermBuild.sh -alltargets -buildstyle Development
+
+Deployment:
+	./iTermBuild.sh -alltargets -buildstyle Deployment
+
+
