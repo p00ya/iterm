@@ -61,6 +61,8 @@
 - (BOOL) performDragOperation: (id<NSDraggingInfo>) sender;
 - (void) concludeDragOperation: (id<NSDraggingInfo>) sender;
 
+// Save method
+- (void) saveDocumentAs: (id) sender;
 
 @end
 
@@ -70,6 +72,7 @@
 @interface PTYTextView (Private)
 
 - (unsigned int) _checkForSupportedDragTypes:(id <NSDraggingInfo>) sender;
+- (void) _savePanelDidEnd: (NSSavePanel *) theSavePanel returnCode: (int) theReturnCode contextInfo: (void *) theContextInfo;
 
 @end
 
