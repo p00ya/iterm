@@ -373,7 +373,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     if((ptyList == nil) || ([ptyList containsObject: aSession] == NO))
         return;
     
-    if(n == 1)
+    if(n == 1 && [self windowInited])
     {
         [[self window] close];
         return;
