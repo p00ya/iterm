@@ -1591,7 +1591,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     if((theEvent == nil) || (theMenu == nil))
 	return;
 
-    windowPoint = [[self window] convertScreenToBase: [NSEvent mouseLocation]];
+    windowPoint = [[TABVIEW window] convertScreenToBase: [NSEvent mouseLocation]];
     localPoint = [TABVIEW convertPoint: windowPoint fromView: nil];
 
     if([TABVIEW tabViewItemAtPoint:localPoint] == nil)
