@@ -150,6 +150,7 @@ typedef struct {
 #define VT100CHARATTR_UNDERMASK   (1<<1)
 #define VT100CHARATTR_BLINKMASK   (1<<2)
 #define VT100CHARATTR_REVERSEMASK (1<<3)
+#define VT100CHARATTR_COLORMASK	  (1<<4)
 
 typedef enum {
     COLORCODE_BLACK=0,

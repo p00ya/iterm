@@ -2101,7 +2101,7 @@ static BOOL PLAYBELL = YES;
                    attributes:[TERMINAL characterAttributeDictionary:asc]];
     
     [attr autorelease];
-
+    
     return attr;
 }
 
