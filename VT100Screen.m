@@ -248,7 +248,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 		}
 	}
 	else { //new screen smaller, so only copy the bottom part
-		for(i=HEIGHT-height;i<height;i++) {
+		for(i=HEIGHT-height;i<HEIGHT;i++) {
 			memcpy(sl+width*(i-HEIGHT+height), screenLines+WIDTH*i, sw*sizeof(unichar));
 			memcpy(sfg+width*(i-HEIGHT+height), screenFGColor+WIDTH*i, sw*sizeof(char));
 			memcpy(sbg+width*(i-HEIGHT+height), screenBGColor+WIDTH*i, sw*sizeof(char));
