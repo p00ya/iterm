@@ -94,6 +94,7 @@ static NSString *ConfigToolbarItem = @"Config";
 {
     NSString *cmd;
     NSArray *arg;
+    int i;
 
     [MainMenu breakDown:[pref shell] cmdPath:&cmd cmdArgs:&arg];
 
@@ -107,6 +108,11 @@ static NSString *ConfigToolbarItem = @"Config";
     [self setCurrentSessionName:nil];
     [currentPtySession setAutoClose: [pref autoclose]];
     [currentPtySession setDoubleWidth:[pref doubleWidth]];
+    for(i=0;i<8;i++) {
+        [currentPtySession setColorTable:i highLight:NO color:[pref colorFromTable:i highLight:NO]];
+        [currentPtySession setColorTable:i highLight:YES color:[pref colorFromTable:i highLight:YES]];
+    }
+    
 }
 
 - (id)init
