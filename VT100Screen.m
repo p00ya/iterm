@@ -2148,7 +2148,8 @@ static BOOL PLAYBELL = YES;
 	    idx = [BUFFER length] - 1;
 	if(idx2 < 0 || idx >= [BUFFER length])
 	{
-	    idx--; // include the last '\n' in the buffer
+	    if([[BUFFER string] characterAtIndex: idx] != '\n')
+		idx--; // include the last '\n' in the buffer
 	    idx2 = [BUFFER length];
 	}
 	//NSLog(@"idx = %d; idx2 = %d", idx, idx2);
