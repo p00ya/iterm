@@ -2231,7 +2231,7 @@
     else
         [super mouseDown: theEvent]; */
     
-    [self paste:nil];
+    [self pasteSelection:nil];
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent
