@@ -1,7 +1,7 @@
 // -*- mode:objc -*-
 // $Id$
 /*
- **  MainMenu.h
+ **  iTermController.h
  **
  **  Copyright (c) 2002, 2003
  **
@@ -33,7 +33,7 @@
 @class PreferencePanel;
 @class PTYTextView;
 
-@interface MainMenu : NSObject
+@interface iTermController : NSObject
 {
     
     // preference window
@@ -95,7 +95,7 @@
 
 @end
 
-@interface MainMenu (AddressBook)
+@interface iTermController (AddressBook)
 
 - (NSMutableArray *) addressBook;
 - (IBAction)showABWindow:(id)sender;
@@ -111,7 +111,7 @@
 @end
 
 // Scripting support
-@interface MainMenu (KeyValueCoding)
+@interface iTermController (KeyValueCoding)
 
 - (BOOL)application:(NSApplication *)sender delegateHandlesKey:(NSString *)key;
 
@@ -133,7 +133,7 @@
 
 
 // Private interface
-@interface MainMenu (Private)
+@interface iTermController (Private)
 
 - (void) _executeABMenuCommandInNewTab: (id) sender;
 - (void) _executeABMenuCommandInNewWindow: (id) sender;

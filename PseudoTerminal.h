@@ -30,7 +30,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import "PreferencePanel.h"
-#import "MainMenu.h"
+#import "iTermController.h"
 #import "PTYTask.h"
 #import "PTYTextView.h"
 #import "VT100Terminal.h"
@@ -41,8 +41,8 @@
 
 @interface PseudoTerminal : NSWindowController
 {
-    /// MainMenu reference
-    MainMenu *MAINMENU;
+    /// iTermController reference
+    iTermController *MAINMENU;
     
     /// tab view
     PTYTabView *TABVIEW;
@@ -126,8 +126,8 @@
 - (void)setAllFont:(NSFont *)font nafont:(NSFont *)nafont;
 
 
-// MainMenu
-- (MainMenu *) mainMenu;
+// iTermController
+- (iTermController *) mainMenu;
 - (void)setMainMenu:(id) sender;
 - (void)clearBuffer:(id)sender;
 - (void)clearScrollbackBuffer:(id)sender;

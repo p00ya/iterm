@@ -1623,7 +1623,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [[self window] performClose:sender];
 }
 
-- (MainMenu *) mainMenu;
+- (iTermController *) mainMenu;
 {
     return (MAINMENU);
 }
