@@ -279,8 +279,6 @@
         [cMenu addItemWithTitle:NSLocalizedStringFromTable(@"Clear Buffer",@"iTerm",@"Context menu")
                          action:@selector(clearBuffer:) keyEquivalent:@""];
         [cMenu addItem:[NSMenuItem separatorItem]];
-        [cMenu addItemWithTitle:NSLocalizedStringFromTable(@"Triggers...",@"iTerm",@"Context menu")
-                         action:@selector(showTriggerWindow:) keyEquivalent:@""];
         [cMenu addItemWithTitle:NSLocalizedStringFromTable(@"Configure...",@"iTerm",@"Context menu")
                          action:@selector(showConfigWindow:) keyEquivalent:@""];
     }

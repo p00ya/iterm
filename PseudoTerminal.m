@@ -918,7 +918,7 @@ static NSDictionary *newOutputStateAttribute;
     }
     else if ([itemIdent isEqual: QRToolbarItem]) {
         [toolbarItem setLabel: NSLocalizedStringFromTable(@"Quick Run",@"iTerm",@"Toolbar Item:New")];
-        [toolbarItem setToolTip: NSLocalizedStringFromTable(@"Run a command in a new window",@"iTerm",@"Toolbar Item Tip:Quick Run")];
+        [toolbarItem setToolTip: NSLocalizedStringFromTable(@"Run a command in a new session",@"iTerm",@"Toolbar Item Tip:Quick Run")];
         [toolbarItem setImage: [NSImage imageNamed: @"exec"]];
         [toolbarItem setTarget: MAINMENU];
         [toolbarItem setAction: @selector(showQOWindow:)];
