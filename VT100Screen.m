@@ -1311,7 +1311,7 @@ static BOOL PLAYBELL = YES;
 //    if ([TERMINAL characterAttribute]&VT100CHARATTR_BOLD)
 //        f=[[NSFontManager  sharedFontManager] convertFont:FONT toHaveTrait:NSBoldFontMask];
     
-    [dic setObject:FONT forKey:NSFontAttributeName];
+    //[dic setObject:FONT forKey:NSFontAttributeName];
 //    NSLog(@"attribute:%@",dic);
 
     return dic;
