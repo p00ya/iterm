@@ -31,6 +31,8 @@
 #import <iTerm/iTermController.h>
 #import <iTerm/ITAddressBookMgr.h>
 #import <iTerm/PreferencePanel.h>
+#import <iTerm/PseudoTerminal.h>
+#import <iTerm/PTYSession.h>
 #import <iTerm/FindPanelWindowController.h>
 
 @implementation iTermApplicationDelegate
@@ -79,12 +81,35 @@
 - (id)init
 {
     self = [super init];
+
+    // Add ourselves as an observer for notifications.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadMenus:)
+                                                 name:@"iTermWindowBecameKey"
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(buildAddressBookMenu:)
+                                                 name: @"iTermReloadAddressBook"
+                                               object: nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(buildSessionSubmenu:)
+                                                 name: @"iTermNumberOfSessionsDidChange"
+                                               object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(buildSessionSubmenu:)
+                                                 name: @"iTermNameOfSessionDidChange"
+                                               object: nil];    
     
     return self;
 }
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     [super dealloc];
 }
 
@@ -209,6 +234,78 @@
 {
     [NSApp stopModal];
 }
+
+// Notifications
+- (void) reloadMenus: (NSNotification *) aNotification
+{
+    PseudoTerminal *frontTerminal = [[iTermController sharedInstance] frontPseudoTerminal];
+    
+    [previousTerminal setAction: (frontTerminal?@selector(previousTerminal:):nil)];
+    [nextTerminal setAction: (frontTerminal?@selector(nextTerminal:):nil)];
+
+    [self buildSessionSubmenu: aNotification];
+    [self buildAddressBookMenu: aNotification];
+}
+
+- (void) buildSessionSubmenu: (NSNotification *) aNotification
+{
+    // build a submenu to select tabs
+    NSMenu *aMenu = [[NSMenu alloc] initWithTitle: @"SessionMenu"];
+    NSEnumerator *anEnumerator;
+    PTYSession *aSession;
+    int i;
+
+    // clear whatever menu we already have
+    [selectTab setSubmenu: nil];
+
+    anEnumerator = [[[[iTermController sharedInstance] frontPseudoTerminal] sessions] objectEnumerator];
+
+    i = 0;
+    while((aSession = [anEnumerator nextObject]) != nil)
+    {
+	NSMenuItem *aMenuItem;
+
+	i++;
+
+	if(i < 10)
+	{
+	    aMenuItem  = [[NSMenuItem alloc] initWithTitle: [aSession name] action: @selector(selectSessionAtIndexAction:) keyEquivalent: [NSString stringWithFormat: @"%d", i]];
+	    [aMenuItem setTag: i-1];
+
+	    [aMenu addItem: aMenuItem];
+	    [aMenuItem release];
+	}
+
+    }
+    [selectTab setSubmenu: aMenu];
+
+    [aMenu release];
+}
+
+- (void) buildAddressBookMenu : (NSNotification *) aNotification
+{
+    NSMenu *newMenu;
+    PseudoTerminal *frontTerminal = [[iTermController sharedInstance] frontPseudoTerminal];
+
+    
+    // clear whatever menus we already have
+    [newTab setSubmenu: nil];
+    [newWindow setSubmenu: nil];
+
+    // new window
+    newMenu = [[NSMenu alloc] init];
+    [[iTermController sharedInstance] buildAddressBookMenu: newMenu target: nil];
+    [newWindow setSubmenu: newMenu];
+    [newMenu release];
+
+    // new tab
+    newMenu = [[NSMenu alloc] init];
+    [[iTermController sharedInstance] buildAddressBookMenu: newMenu target: frontTerminal];
+    [newTab setSubmenu: newMenu];
+    [newMenu release];    
+    
+}
+
 
 @end
 

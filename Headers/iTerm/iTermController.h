@@ -34,14 +34,6 @@
 
 @interface iTermController : NSObject
 {
-    // about window
-    IBOutlet id ABOUT;
-    IBOutlet NSTextView *AUTHORS;
-
-    // Menu items
-    IBOutlet NSMenuItem *selectTab;
-    IBOutlet NSMenuItem *previousTerminal;
-    IBOutlet NSMenuItem *nextTerminal;
     
     // PseudoTerminal objects
     NSMutableArray *terminalWindows;
@@ -68,12 +60,10 @@
 + (void) breakDown:(NSString *)cmdl cmdPath: (NSString **) cmd cmdArgs: (NSArray **) path;
 - (void) setFrontPseudoTerminal: (PseudoTerminal *) thePseudoTerminal;
 - (PseudoTerminal *) frontPseudoTerminal;
-- (void) buildSessionSubmenu;
 - (void) terminalWillClose: (PseudoTerminal *) theTerminalWindow;
 - (NSStringEncoding const*) encodingList;
 - (void) buildAddressBookMenu:(NSMenu *)abMenu target:(id)target;
 - (void) executeABCommandAtIndex: (int) theIndex inTerminal: (PseudoTerminal *) theTerm;
-- (void) interpreteKey: (int) code newWindow:(BOOL) newWin;
 - (PTYTextView *) frontTextView;
 
 @end

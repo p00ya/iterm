@@ -360,8 +360,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
             // the above code removes the item and resets the currentSessionIndex
             [self selectSessionAtIndex:[_sessionMgr currentSessionIndex]];
 
-	    [[iTermController sharedInstance] buildSessionSubmenu];
-                        
+	    [[NSNotificationCenter defaultCenter] postNotificationName: @"iTermNumberOfSessionsDidChange" object: self userInfo: nil];
+	    
             break;
         }
     }

@@ -41,6 +41,8 @@
     IBOutlet NSMenuItem *selectTab;
     IBOutlet NSMenuItem *previousTerminal;
     IBOutlet NSMenuItem *nextTerminal;
+    IBOutlet NSMenuItem *newTab;
+    IBOutlet NSMenuItem *newWindow;
 }
 
 // NSApplication Delegate methods
@@ -63,6 +65,11 @@
     // navigation
 - (IBAction) previousTerminal: (id) sender;
 - (IBAction) nextTerminal: (id) sender;
+
+// Notifications
+- (void) reloadMenus: (NSNotification *) aNotification;
+- (void) buildSessionSubmenu: (NSNotification *) aNotification;
+- (void) buildAddressBookMenu : (NSNotification *) aNotification;
 
 @end
 
