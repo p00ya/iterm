@@ -47,6 +47,7 @@
     IBOutlet NSMenuItem *logStop;
     IBOutlet NSMenuItem *closeTab;
     IBOutlet NSMenuItem *closeWindow;
+    IBOutlet NSMenuItem *sendInputToAllSessions;
 }
 
 // NSApplication Delegate methods

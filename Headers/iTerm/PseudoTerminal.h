@@ -48,6 +48,7 @@
     BOOL tabViewDragOperationInProgress;
     BOOL resizeInProgress;
     BOOL windowInited;
+    BOOL sendInputToAllSessions;
 }
 
 - (id)init;
@@ -91,6 +92,12 @@
 - (int)height;
 
 - (ITSessionMgr*)sessionMgr;
+
+// controls which sessions see key events
+- (BOOL) sendInputToAllSessions;
+- (void) setSendInputToAllSessions: (BOOL) flag;
+- (IBAction) toggleInputToAllSessions: (id) sender;
+- (void) sendInputToAllSessions: (NSData *) data;
 
 // iTermController
 - (void)clearBuffer:(id)sender;

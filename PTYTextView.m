@@ -1541,6 +1541,7 @@
     
 }
 
+
 - (void)keyDown:(NSEvent *)event
 {
     NSInputManager *imana = [NSInputManager currentInputManager];
@@ -1604,6 +1605,7 @@
         else
             [super keyDown:event];
     }
+    
 }
 
 - (void)doCommandBySelector:(SEL)aSelector

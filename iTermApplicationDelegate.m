@@ -309,6 +309,12 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
     [closeWindow setKeyEquivalent: @"W"];
     [closeWindow setKeyEquivalentModifierMask: NSCommandKeyMask];
     
+    // set some menu item states
+    if([frontTerminal sendInputToAllSessions] == YES)
+	[sendInputToAllSessions setState: NSOnState];
+    else
+	[sendInputToAllSessions setState: NSOffState];
+    
 }
 
 - (void) nonTerminalWindowBecameKey: (NSNotification *) aNotification
