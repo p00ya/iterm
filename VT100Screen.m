@@ -1558,7 +1558,7 @@ static BOOL PLAYBELL = YES;
 	// update TOP_LINE
 	TOP_LINE += HEIGHT; 
         for(i=0;i<HEIGHT;i++) [BUFFER appendAttributedString:newLineString];
-        return;
+        //return;
 	
     }
 #endif
