@@ -191,6 +191,7 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
 
     abWindowController = [[AddressBookWindowController alloc] initWithWindowNibName: @"AddressBook"];
     [abWindowController setAddressBook: addressBook];
+    [abWindowController setPreferences: PREF_PANEL];
     [abWindowController run];    
 }
 
