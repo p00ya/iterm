@@ -317,6 +317,7 @@ static int windowCount = 0;
 	NSParameterAssert(aTabViewItem != nil);
 	[aTabViewItem setLabel: [aSession name]];
 	[aTabViewItem setView: [aSession SCROLLVIEW]];
+	[[aSession SCROLLVIEW] setVerticalPageScroll: 0.0];
 	[TABVIEW insertTabViewItem: aTabViewItem atIndex: index];
 	//currentSessionIndex = [ptyList count] - 1;
 	//currentPtySession = aSession;
