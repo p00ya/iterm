@@ -191,13 +191,14 @@
 - (void)insertText:(id)aString
 {
     id delegate = [self delegate];
-    NSTextStorage *storage = [self textStorage];
 
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PTYTextView insertText:%@]",
 	  __FILE__, __LINE__, aString);
 #endif
 #if 0
+    NSTextStorage *storage = [self textStorage];
+
     IM_INPUT_INSERT = YES;
 
     [storage beginEditing];
