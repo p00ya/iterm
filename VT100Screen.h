@@ -112,7 +112,7 @@
 - (void)insertBlank: (int)n;
 - (void)insertLines: (int)n;
 - (void)deleteLines: (int)n;
-
+- (void)trimLine: (int) y;
 - (void)showCursor;
 - (void)showCursor:(BOOL)show;
 - (void)blink;
@@ -122,7 +122,6 @@
 - (NSMutableDictionary *)characterAttributeDictionary;
 - (NSAttributedString *)attrStringFromChar:(unichar) c;
 - (NSAttributedString *)attrString:(NSString *)str;
-- (NSString *)fullLine;
 - (int) getIndex:(int)x y:(int)y;
 - (BOOL) isDoubleWidthCharacter:(unichar)code;
 
