@@ -93,6 +93,7 @@
 
 - (void) switchSession: (id) sender;
 - (void) selectSession: (int) sessionIndex;
+- (void) closeSession: (PTYSession*) aSession;
 - (IBAction) closeCurrentSession: (id) sender;
 - (IBAction) previousSession:(id)sender;
 - (IBAction) nextSession:(id)sender;
