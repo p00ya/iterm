@@ -101,6 +101,11 @@
     [[NSNotificationCenter defaultCenter] addObserver: self
                                              selector: @selector(buildSessionSubmenu:)
                                                  name: @"iTermNameOfSessionDidChange"
+                                               object: nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(resetLogMenu:)
+                                                 name: @"iTermSessionDidBecomeActive"
                                                object: nil];    
     
     return self;
@@ -306,6 +311,16 @@
     
 }
 
+- (void) resetLogMenu: (NSNotification *) aNotification
+{
+    PTYSession *aSession = [aNotification object];
+
+    if(aSession == nil)
+	return;
+
+    [logStart setEnabled: ![aSession logging]];
+    [logStop setEnabled: [aSession logging]];
+}
 
 @end
 

@@ -43,6 +43,8 @@
     IBOutlet NSMenuItem *nextTerminal;
     IBOutlet NSMenuItem *newTab;
     IBOutlet NSMenuItem *newWindow;
+    IBOutlet NSMenuItem *logStart;
+    IBOutlet NSMenuItem *logStop;
 }
 
 // NSApplication Delegate methods
@@ -69,7 +71,8 @@
 // Notifications
 - (void) reloadMenus: (NSNotification *) aNotification;
 - (void) buildSessionSubmenu: (NSNotification *) aNotification;
-- (void) buildAddressBookMenu : (NSNotification *) aNotification;
+- (void) buildAddressBookMenu: (NSNotification *) aNotification;
+- (void) resetLogMenu: (NSNotification *) aNotification;
 
 @end
 
