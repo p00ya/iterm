@@ -10,7 +10,7 @@
  **
  **  Project: iTerm
  **
- **  Description: NSScrollView subclass. Currently does not do anything special.
+ **  Description: NSScrollView subclass. Handles scroll detection and background images.
  **
  **  This program is free software; you can redistribute it and/or modify
  **  it under the terms of the GNU General Public License as published by
