@@ -859,10 +859,32 @@ static BOOL PLAYBELL = YES;
                 if ([[aLine string] characterAtIndex:[aLine length]-1]=='\n')
                     [aLine deleteCharactersInRange:NSMakeRange([aLine length]-1,1)];
 #else
-		[BUFFER addAttribute: @"VT100LineWrap" value: @"YES" range: NSMakeRange([self getIndexAtX:WIDTH-1 Y:CURSOR_Y withPadding:NO],1)];
+		//[BUFFER addAttribute: @"VT100LineWrap" value: @"YES" range: NSMakeRange([self getIndexAtX:WIDTH-1 Y:CURSOR_Y withPadding:NO],1)];
+		
 #endif
                 [self setNewLine];
                 CURSOR_X=0;
+#if DEBUG_USE_BUFFER
+		// mark the position
+		NSRange searchRange, aRange;
+
+		if(CURSOR_X >= WIDTH || CURSOR_Y >= HEIGHT)
+		{
+		    searchRange.location = [[BUFFER string] length] - 10;
+		}
+		else
+		{
+		    searchRange.location = [self getIndexAtX: CURSOR_X Y: CURSOR_Y withPadding: NO] - 10;
+		}
+		searchRange.length = 10;
+
+		aRange = [[BUFFER string] rangeOfString: @"\n" options: NSBackwardsSearch range: searchRange];
+
+		if(aRange.length > 0)
+		{
+		    [BUFFER addAttribute: @"VT100LineWrap" value: @"YES" range: aRange];
+		}		
+#endif
                 
             }
             else {
