@@ -43,6 +43,7 @@
 static NSString* APPLICATION_SUPPORT_DIRECTORY = @"~/Library/Application Support";
 static NSString* AUTO_LAUNCH_SCRIPT = @"~/Library/Application Support/iTerm/AutoLaunch.scpt";
 static NSString *SUPPORT_DIRECTORY = @"~/Library/Application Support/iTerm";
+static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Scripts";
 static NSStringEncoding const *encodingList=nil;
 
 static BOOL usingAutoLaunchScript = NO;
@@ -91,6 +92,7 @@ static BOOL usingAutoLaunchScript = NO;
 
 	autoLaunchScript = [[NSAppleScript alloc] initWithContentsOfURL: aURL error: &errorInfo];
 	[autoLaunchScript executeAndReturnError: &errorInfo];
+	[autoLaunchScript release];
 		
 	return (YES);
     }
@@ -430,6 +432,23 @@ static BOOL usingAutoLaunchScript = NO;
         [term setWindowSize: NO];
     
     [term setCurrentSessionName:[entry objectForKey:@"Name"]];
+}
+
+- (void) launchScript: (id) sender
+{
+    NSString *fullPath = [NSString stringWithFormat: @"%@/%@", [SCRIPT_DIRECTORY stringByExpandingTildeInPath], [sender title]];
+
+    NSAppleScript *script;
+    NSDictionary *errorInfo = [NSDictionary dictionary];
+    NSURL *aURL = [NSURL fileURLWithPath: fullPath];
+
+    // Make sure our script suite registry is loaded
+    [NSScriptSuiteRegistry sharedScriptSuiteRegistry];
+
+    script = [[NSAppleScript alloc] initWithContentsOfURL: aURL error: &errorInfo];
+    [script executeAndReturnError: &errorInfo];
+    [script release];
+    
 }
 
 - (PTYTextView *) frontTextView

@@ -419,6 +419,18 @@ static int writep(int fds, char *buf, size_t len)
 - (void) setHasOutput: (BOOL) flag
 {
     hasOutput = flag;
+    if([self firstOutput] == NO)
+	[self setFirstOutput: flag];
+}
+
+- (BOOL) firstOutput
+{
+    return (firstOutput);
+}
+
+- (void) setFirstOutput: (BOOL) flag
+{
+    firstOutput = flag;
 }
 
 
