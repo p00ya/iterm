@@ -59,13 +59,8 @@
     NSLock *ptyListLock;
     
     /////////////////////////////////////////////////////////////////////////
-    PTYTask *SHELL;
-    VT100Terminal *TERMINAL;
-    NSString *TERM_VALUE;
-    VT100Screen   *SCREEN;
     int WIDTH,HEIGHT;
     NSFont *FONT, *NAFONT;
-    PTYTextView *TEXTVIEW;
     BOOL pending;
     float alpha;
     NSFont *configFont, *configNAFont;
