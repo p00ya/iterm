@@ -962,7 +962,8 @@
 				tmpX = [dataSource width] - 1;
 			}
 		}
-		tmpX++;
+		if(tmpX < x)
+			tmpX++;
 		if(tmpX < 0)
 			tmpX = 0;
 		if(tmpY < 0)
@@ -976,6 +977,11 @@
 			tmpY = [dataSource numberOfLines] - 1;		
 		startX = tmpX;
 		startY = tmpY;
+		// if we are on a blank, deselect.
+		aString = [self contentFromX:startX Y:startY ToX:startX Y:startY];
+		if([aString length] == 0 || [aString rangeOfCharacterFromSet: [NSCharacterSet letterCharacterSet]].length == 0)
+			startX = -1;
+		
 		
 		// find the end of the word
 		tmpX = x;
@@ -992,7 +998,8 @@
 				tmpX = 0;
 			}
 		}
-		tmpX--;
+		if(tmpX > x)
+			tmpX--;
 		if(tmpX < 0)
 		{
 			tmpX = [dataSource width] - 1;
@@ -1006,7 +1013,6 @@
 			tmpY = [dataSource numberOfLines] - 1;
 		endX = tmpX;
 		endY = tmpY;
-				
 	}
 	else if ([event clickCount] >= 3)
 	{
