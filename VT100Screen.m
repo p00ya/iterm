@@ -952,8 +952,8 @@ static BOOL PLAYBELL = YES;
     case 2:
         x1 = 0;
         y1 = 0;
-        x2 = WIDTH;
-        y2 = HEIGHT - 1;
+        x2 = 0;
+        y2 = HEIGHT;
 	
         break;
 
@@ -961,8 +961,8 @@ static BOOL PLAYBELL = YES;
     default:
         x1 = CURSOR_X;
         y1 = CURSOR_Y;
-        x2 = WIDTH - 1;
-        y2 = HEIGHT - 1;
+        x2 = 0;
+        y2 = HEIGHT;
         break;
     }
 	
@@ -973,16 +973,20 @@ static BOOL PLAYBELL = YES;
 	idx2=y2*WIDTH+x2;
 	
 	// If we are the top of the screen, move the contents to the scollback buffer
-	if(y1 == 0 && bufferLines)
+	if(y1 == 0 && x1 == 0 && y2 > y1 && bufferLines)
 	{
-		memcpy(bufferLines+lastBufferLineIndex*WIDTH, screenLines+idx1, (idx2-idx1)*sizeof(unichar));
-		memcpy(bufferFGColor+lastBufferLineIndex*WIDTH, screenFGColor+idx1, (idx2-idx1)*sizeof(char));
-		memcpy(bufferBGColor+lastBufferLineIndex*WIDTH, screenBGColor+idx1, (idx2-idx1)*sizeof(char));
-		lastBufferLineIndex += (idx2-idx1)/WIDTH;
-		if (lastBufferLineIndex>scrollbackLines) {
-			lastBufferLineIndex=0;
-			bufferWrapped=1;
-		}		
+		int i;
+		
+		for(i = y1; i < y2; i++) {
+			memcpy(bufferLines+lastBufferLineIndex*WIDTH, screenLines+i*WIDTH, WIDTH*sizeof(unichar));
+			memcpy(bufferFGColor+lastBufferLineIndex*WIDTH, screenFGColor+i*WIDTH, WIDTH*sizeof(char));
+			memcpy(bufferBGColor+lastBufferLineIndex*WIDTH, screenBGColor+i*WIDTH, WIDTH*sizeof(char));
+			lastBufferLineIndex++;
+			if (lastBufferLineIndex>scrollbackLines) {
+				lastBufferLineIndex=0;
+				bufferWrapped=1;
+			}		
+		}
 	}
 	
 	memset(screenLines+idx1,0,(idx2-idx1)*sizeof(unichar));
