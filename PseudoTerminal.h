@@ -120,7 +120,6 @@
 - (BOOL)validateMenuItem:(NSMenuItem *)item;
 
 // PTYTextView
-- (void)keyDown:(NSEvent *)theEvent;
 - (void)changeFont:(NSFont *)font;
 
 // NSWindow
