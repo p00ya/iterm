@@ -77,7 +77,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	return nil;
 
     // set our delegate
-    [self setMainMenu: [NSApp delegate]];
+    //[self setMainMenu: [NSApp delegate]];
     
     // setup our toolbar
     [[self window] setToolbar:[self setupToolbar]];
@@ -1884,7 +1884,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 
     NSScriptObjectSpecifier *containerRef;
 
-    NSArray *terminals = [[NSApp delegate] terminals];
+    NSArray *terminals = [[self mainMenu] terminals];
     index = [terminals indexOfObjectIdenticalTo:self];
     if (index != NSNotFound) {
 	containerRef     = [NSApp objectSpecifier];
