@@ -655,7 +655,13 @@ static BOOL PLAYBELL = YES;
     case ANSICSI_CHA:
         [self cursorToX: token.u.csi.p[0]];
 	break;
-
+    case ANSICSI_VPA:
+        [self cursorToX: CURSOR_X Y: token.u.csi.p[0]];
+        break;
+    case ANSICSI_VPR:
+        [self cursorToX: CURSOR_X Y: token.u.csi.p[0]+CURSOR_Y];
+        break;
+        
     case STRICT_ANSI_MODE:
 	[TERMINAL setStrictAnsiMode: ![TERMINAL strictAnsiMode]];
 	break;

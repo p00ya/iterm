@@ -903,7 +903,7 @@ static NSString *ConfigToolbarItem = @"Config";
     // Finally calculate the window frame size
     winSize = [NSWindow frameRectForContentRect: NSMakeRect(0, 0, contentSize.width, contentSize.height) styleMask: [WINDOW styleMask]].size;
     //NSLog(@"window size: width = %f; height = %f", winSize.width, winSize.height);
-        
+
     return (winSize);
     
 #endif
