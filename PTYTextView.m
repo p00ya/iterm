@@ -962,6 +962,13 @@ static SInt32 systemVersion;
 	
     // Hide the cursor
     [NSCursor setHiddenUntilMouseMoves: YES];   
+	
+	// Check whether we have a custom mapping for this event
+	if([delegate hasKeyMappingForEvent: event])
+	{
+		[delegate keyDown: event];
+		return;
+	}
 
     IM_INPUT_INSERT = NO;
     if (IMEnable) {
