@@ -2545,7 +2545,7 @@ static BOOL PLAYBELL = YES;
     //NSLog(@"updating: %d, %d, %d, %d",updateIndex,minIndex,[STORAGE length],[BUFFER length]);
 
     [STORAGE beginEditing];
-    if(updateIndex < [STORAGE length])
+    if((updateIndex+minIndex) < [STORAGE length])
     {
 	[STORAGE replaceCharactersInRange:NSMakeRange(updateIndex+minIndex,slen-updateIndex-minIndex)
 		     withAttributedString:[BUFFER attributedSubstringFromRange:NSMakeRange(minIndex,len-minIndex)]];
