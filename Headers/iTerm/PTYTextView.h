@@ -63,9 +63,6 @@ typedef struct
     // anti-alias flag
     BOOL antiAlias;
 
-    // dead key support
-    BOOL deadkey;
-	
 	// NSTextInput support
     BOOL IM_INPUT_INSERT;
     NSRange IM_INPUT_SELRANGE;
