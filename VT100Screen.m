@@ -503,10 +503,15 @@ static BOOL PLAYBELL = YES;
 
 - (NSFont *) tallerFont
 {
+#if DEBUG_USE_ARRAY
+
     float a=[VT100Screen fontSize:FONT].height;
     float b=[VT100Screen fontSize:NAFONT].height;
 
     return (a>b)?FONT:NAFONT;
+#else
+    return FONT;
+#endif
 }
 
 - (void)setLineLimit:(unsigned int)maxline
