@@ -647,7 +647,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     }
     [TABVIEW setFrame: tabviewRect];
 	
-    vsize.width = charWidth * WIDTH;
+    vsize.width = charWidth * WIDTH + MARGIN * 2;
 	vsize.height = charHeight * HEIGHT;
    // NSLog(@"width=%d,height=%d",[[[_sessionMgr currentSession] SCREEN] width],[[[_sessionMgr currentSession] SCREEN] height]);
     size = [PTYScrollView frameSizeForContentSize:vsize

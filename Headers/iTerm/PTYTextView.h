@@ -31,6 +31,9 @@
 #import <Cocoa/Cocoa.h>
 #import <iTerm/iTerm.h>
 
+#define MARGIN  6
+
+
 @class VT100Screen;
 
 typedef struct 
@@ -162,6 +165,7 @@ typedef struct
 - (void) setColorTable:(int) index highLight:(BOOL)hili color:(NSColor *) c;
 - (void) setSelectionColor: (NSColor *) aColor;
 - (void)setCursorColor:(NSColor*) color;
+- (void) forceUpdate;
 
 
 - (NSDictionary*) markedTextAttributes;

@@ -1495,6 +1495,7 @@ static BOOL PLAYBELL = YES;
 - (void)setDirty
 {
 	memset(dirty,1,WIDTH*HEIGHT*sizeof(char));
+	[display forceUpdate];
 }
 
 @end
