@@ -248,12 +248,18 @@ static BOOL newWindow=YES;
         [[term currentSession] startProgram:cmd arguments:arg environment:env];
         enc=[entry objectForKey:@"Encoding"];
         if ([enc compare:@"Unicode"]==NSOrderedSame)
-            [[term currentSession] setEncodingUTF8:sender];
+            [[term currentSession] setEncoding:NSUTF8StringEncoding];
         else if ([enc compare:@"Chinese (GB)"]==NSOrderedSame) 
-            [[term currentSession] setEncodingEUCCN:sender];
+            [[term currentSession] setEncoding:NSStringEUCCNEncoding];
         else if ([enc compare:@"Chinese (Big 5)"]==NSOrderedSame)
-            [[term currentSession] setEncodingBIG5:sender];
-       
+            [[term currentSession] setEncoding:NSStringBig5Encoding];
+        else if ([enc compare:@"Japanese (EUC-JP)"]==NSOrderedSame)
+            [[term currentSession] setEncoding:NSJapaneseEUCStringEncoding];
+        else if ([enc compare:@"Japanese (Shift_JIS)"]==NSOrderedSame)
+            [[term currentSession] setEncoding:NSShiftJISStringEncoding];
+        else if ([enc compare:@"Korea (EUC_KR)"]==NSOrderedSame)
+            [[term currentSession] setEncoding:NSEUCKRStringEncoding];
+        
         [[term currentSession] setFGColor:[entry objectForKey:@"Foreground"]];
         [[term currentSession] setBGColor:[entry objectForKey:@"Background"]];
         if (newWindow) {

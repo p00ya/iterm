@@ -18,11 +18,15 @@
 {
     NSStringEUCCNEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingEUC_CN);
     NSStringBig5Encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingBig5);
+    NSEUCKRStringEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingEUC_KR);
 
+    
     if (NSStringEUCCNEncoding == kCFStringEncodingInvalidId)
 	NSLog(@"Not Supported: NSStringEUCCNEncoding");
     if (NSStringBig5Encoding == kCFStringEncodingInvalidId)
 	NSLog(@"Not Supported: NSStringBig5Encoding");
+    if (NSEUCKRStringEncoding == kCFStringEncodingInvalidId)
+        NSLog(@"Not Support: NSEUCKRStringEncoding");
 	
 }
 

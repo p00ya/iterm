@@ -17,6 +17,7 @@
 
 EXTERN NSStringEncoding  NSStringEUCCNEncoding;
 EXTERN NSStringEncoding  NSStringBig5Encoding;
+EXTERN NSStringEncoding  NSEUCKRStringEncoding;
 
 @interface NSString (iTerm)
 
