@@ -2128,6 +2128,10 @@ static NSString *searchString = nil;
 #endif
 
     findWindowController = [FindPanelWindowController singleInstance];
+    if([searchString length] > 0)
+    {
+	[findWindowController setSearchString: searchString];
+    }
     [findWindowController showWindow: self];
 }
 
@@ -2153,6 +2157,7 @@ static NSString *searchString = nil;
 
 - (void) setSearchString: (NSString *) aString
 {
+    NSLog(@"setting search string to %@", aString);
     if(searchString != nil)
     {
 	[searchString release];
