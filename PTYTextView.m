@@ -1769,10 +1769,10 @@
     
     // Further process the string
     aString = [aMutableAttributedString string];
-    if((aString == nil) || ([aString length] == 0))
-        return nil;
-    if([aString length] > 1) // Cocoa bug?
-        aString = [aString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    //if((aString == nil) || ([aString length] == 0))
+    //    return nil;
+    //if([aString length] > 1) // Cocoa bug?
+    //    aString = [aString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     return aString;
 }
