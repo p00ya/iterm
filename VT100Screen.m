@@ -32,8 +32,8 @@
 #define DEBUG_ALLOC           0
 #define DEBUG_METHOD_TRACE    0
 
-#define DEBUG_USE_BUFFER	1
-#define DEBUG_USE_ARRAY		0
+#define DEBUG_USE_BUFFER	0
+#define DEBUG_USE_ARRAY		1
 
 #import "VT100Screen.h"
 #import "NSStringITerm.h"
@@ -745,6 +745,7 @@ static BOOL PLAYBELL = YES;
 //        NSLog(@"%d blanks inserted",x);
         [BUFFER insertAttributedString:[self defaultAttrString:[NSString stringWithCharacters:spaces length:x]] atIndex:idx];
         idx+=x;
+        if (idx<minIndex) minIndex=idx;
     }
 
     if (x<0) {
