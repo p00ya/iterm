@@ -76,6 +76,8 @@
 	int		bufferWrapped, lastBufferLineIndex;
 	
 	char *tempBuffer;
+	
+	NSLock *screenLock;
 }
 
 
@@ -105,6 +107,9 @@
 - (void) setBlinkingCursor: (BOOL) flag;
 - (void)setPlayBellFlag:(BOOL)flag;
 
+// lock
+- (void) acquireLock;
+- (void) releaseLock;
 
 // edit screen buffer
 - (void)putToken:(VT100TCC)token;
