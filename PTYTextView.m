@@ -1253,8 +1253,8 @@
 	}
 	else
 	{
-		// strip trailing carriage return if there is one
-		if(temp[last-1] == '\n')
+		// strip trailing carriage return if there is one unless we selected the whole line
+		if(temp[last-1] == '\n' && endX != ([dataSource width] - 1))
 		{
 			temp[last-1] = 0;
 			last--;
