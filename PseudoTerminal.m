@@ -1392,6 +1392,53 @@ static NSString *ConfigToolbarItem = @"Config";
     [currentPtySession setLabelAttribute];
 }
 
+- (NSMenu *)tabViewContextualMenu: (NSEvent *)theEvent
+{
+    int i;
+    NSMenuItem *aMenuItem, *tabViewItemName;
+    NSMenu *cMenu;
+
+    cMenu = [[[NSMenu alloc] initWithTitle:@""] autorelease];
+
+    for (i = 0; i < [TABVIEW numberOfTabViewItems]; i++)
+    {
+        tabViewItemName = [[NSMenuItem alloc] initWithTitle:[[TABVIEW tabViewItemAtIndex: i] label]
+										  action:nil keyEquivalent:@""];
+	[cMenu addItem: tabViewItemName];
+
+	// build the submenu
+	NSMenu *tabViewSubmenu = [[[NSMenu alloc] initWithTitle: @""] autorelease];
+	aMenuItem = [[NSMenuItem alloc] initWithTitle:@"Select" action:@selector(selectTabContextualMenuAction:) keyEquivalent:@""];
+        [aMenuItem setRepresentedObject: [[TABVIEW tabViewItemAtIndex: i] identifier]];
+	[tabViewSubmenu addItem: aMenuItem];
+	[aMenuItem release];
+	aMenuItem = [[NSMenuItem alloc] initWithTitle:@"Close" action:@selector(closeTabContextualMenuAction:) keyEquivalent:@""];
+        [aMenuItem setRepresentedObject: [[TABVIEW tabViewItemAtIndex: i] identifier]];
+	[tabViewSubmenu addItem: aMenuItem];
+	[aMenuItem release];
+	
+	// add the submenu
+	[tabViewItemName setSubmenu: tabViewSubmenu];
+	[tabViewItemName release];
+	
+    }
+    return (cMenu);
+
+}
+
+// selects a tab from the contextual menu
+- (void) selectTabContextualMenuAction: (id) sender
+{
+    [TABVIEW selectTabViewItemWithIdentifier: [sender representedObject]];
+}
+
+// closes a tab
+- (void) closeTabContextualMenuAction: (id) sender
+{
+    [self closeSession: [sender representedObject]];
+}
+
+
 - (NSWindow *) window;
 {
     return WINDOW;
