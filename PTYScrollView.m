@@ -47,8 +47,6 @@
 
 - (id)initWithFrame:(NSRect)frame
 {
-    //PTYTextView *textview;
-
 #if DEBUG_ALLOC
     NSLog(@"%s(%d):-[PTYScrollView initWithFrame:%d,%d,%d,%d]",
 	  __FILE__, __LINE__, 
@@ -60,8 +58,6 @@
 
     [self setHasVerticalScroller:YES];
 
-
-    //NSParameterAssert(textview != nil);
     NSParameterAssert([self contentView] != nil);
 
     return self;

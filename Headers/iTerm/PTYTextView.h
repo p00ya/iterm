@@ -212,9 +212,6 @@
     id dataSource;
     int numberOfLines;
 
-    // last search location
-    unsigned int lastSearchLocation;
-
     // print selection
     BOOL printingSelection;
 
@@ -288,21 +285,6 @@
 - (void) printSelection: (id) sender;
 
 @end
-
-//
-// find functionality
-//
-@interface PTYTextView (Find)
-- (IBAction) showFindPanel: (id) sender;
-- (IBAction) findNext: (id) sender;
-- (IBAction) findPrevious: (id) sender;
-- (IBAction) findWithSelection: (id) sender;
-- (IBAction) jumpToSelection: (id) sender;
-- (void) findSubString: (NSString *) subString forwardDirection: (BOOL) direction ignoringCase: (BOOL) caseCheck;
-- (void) setSearchString: (NSString *) aString;
-- (void) setIgnoreCase: (BOOL) flag;
-@end
-
 
 //
 // private methods
