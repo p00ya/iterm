@@ -2232,6 +2232,11 @@
     [self paste:nil];
 }
 
+- (void)mouseEntered:(NSEvent *)theEvent
+{
+    // no-op. Overridden to prevent I-beam cursor from activating.
+}
+
 - (void) setCursorIndex:(int) idx
 {
     cursorIndex=idx;

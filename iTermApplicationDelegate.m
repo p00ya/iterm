@@ -194,6 +194,18 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
     return [[iTermController sharedInstance] applicationDockMenu:sender];
 }
 
+// font control
+- (IBAction) biggerFont: (id) sender
+{
+    [[[iTermController sharedInstance] currentTerminal] changeFontSize: YES];
+}
+
+- (IBAction) smallerFont: (id) sender
+{
+    [[[iTermController sharedInstance] currentTerminal] changeFontSize: NO];
+}
+
+
 /// About window
 
 - (IBAction)showAbout:(id)sender

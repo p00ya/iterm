@@ -77,6 +77,10 @@
 - (void) resetLogMenu: (NSNotification *) aNotification;
 - (void) nonTerminalWindowBecameKey: (NSNotification *) aNotification;
 
+// font control
+- (IBAction) biggerFont: (id) sender;
+- (IBAction) smallerFont: (id) sender;
+
 @end
 
 // Scripting support
