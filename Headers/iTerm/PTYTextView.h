@@ -37,7 +37,7 @@
 
 typedef struct 
 {
-	unichar code;
+	int code;
 	unsigned int color;
 	NSImage *image;
 	int count;
@@ -273,6 +273,7 @@ typedef struct
 - (void) _drawCharacter:(unichar)c fgColor:(int)fg AtX:(float)X Y:(float)Y doubleWidth:(BOOL) dw;
 - (BOOL) _isBlankLine: (int) y;
 - (void) _openURL: (NSString *) aURLString;
+- (void) _clearCacheForColor:(int)colorIndex;
 
 @end
 

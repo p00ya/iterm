@@ -213,10 +213,10 @@ typedef enum {
 // for foreground colors
 #define DEFAULT_FG_COLOR_CODE	0x10
 #define BOLD_MASK 0x20
-#define BLINK_MASK 0x40
-#define UNDER_MASK 0x80
-#define SELECTED_TEXT   0x100
-#define CURSOR_TEXT		0x200
+#define SELECTED_TEXT   0x40
+#define CURSOR_TEXT		0x80
+#define BLINK_MASK 0x100
+#define UNDER_MASK 0x200
 
 // for background colors
 #define DEFAULT_BG_COLOR_CODE	0x11
