@@ -55,8 +55,6 @@
 - (void) browse:(id)sender;
 - (void) mail:(id)sender;
 
-// NSView
-- (NSRect)adjustScroll:(NSRect)proposedVisibleRect;
 
 // get/set methods
 - (BOOL) antiAlias;
