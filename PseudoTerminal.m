@@ -117,7 +117,6 @@ static NSDictionary *newOutputStateAttribute;
     NSColor *bgColor;
     NSRect scrollViewFrame, aRect;
     NSScrollView *aScrollView;
-    NSSize size, vsize, winSize;
 
     if (!font)
         font = [[[pref font] copy] retain];
