@@ -1370,10 +1370,10 @@ static BOOL PLAYBELL = YES;
 
 #if DEBUG_USE_BUFFER
     NSMutableDictionary *dic;
-
+    
     // Show cursor at new position by reversing foreground/background colors
     if (CURSOR_X >= 0 && CURSOR_X < WIDTH &&
-        CURSOR_Y >= 0 && CURSOR_Y < HEIGHT)
+        CURSOR_Y >= 0 && CURSOR_Y < HEIGHT && !updateIndex)
     {
 	int idx;
         idx = [self getTVIndex:CURSOR_X y:CURSOR_Y];
