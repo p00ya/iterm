@@ -2438,5 +2438,10 @@ static BOOL PLAYBELL = YES;
     if (screenLock) screenLock--;
 }
 
+- (int) screenLock
+{
+    return screenLock;
+}
+
 @end
 

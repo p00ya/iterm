@@ -163,6 +163,7 @@
 - (void) setScreenAttributes;
 - (void) setScreenLock;
 - (void) removeScreenLock;
+- (int) screenLock;
 
 - (NSAttributedString *)attrString:(NSString *)str ascii:(BOOL)asc;
 - (NSAttributedString *)defaultAttrString:(NSString *)str;
