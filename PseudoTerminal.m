@@ -54,6 +54,7 @@ static NSString *ConfigToolbarItem = @"Config";
 + (PseudoTerminal *)newTerminalWindow: (id) sender
 {
     PseudoTerminal *term;
+    static int windowCount = 0;
 
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PseudoTerminal newTerminal]", __FILE__, __LINE__);
@@ -65,8 +66,10 @@ static NSString *ConfigToolbarItem = @"Config";
     if ([NSBundle loadNibNamed:NIB_PATH owner:term] == NO)
 	return nil;
     // save up to 10 window positions
-    if([[NSApp windows] count] < 11)
-	[[term window] setFrameAutosaveName: [NSString stringWithFormat: @"iTerm Window %d", [[NSApp windows] count]]];
+    if(windowCount++ < 11)
+    {
+	[[term window] setFrameAutosaveName: [NSString stringWithFormat: @"iTerm Window %d", windowCount]];
+    }
     [[term window] setToolbar:[term setupToolbar]];
     #if 0
     if (lastwindow) {
