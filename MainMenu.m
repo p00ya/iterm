@@ -61,6 +61,19 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
           __FILE__, __LINE__);
 #endif
 
+    // Check the system version for minimum requirements.
+    SInt32 gSystemVersion;    
+    Gestalt(gestaltSystemVersion, &gSystemVersion);
+    if(gSystemVersion < 0x1020)
+    {
+	NSRunAlertPanel(NSLocalizedStringFromTableInBundle(@"Sorry",@"iTerm", [NSBundle bundleForClass: [self class]], @"Sorry"),
+		 NSLocalizedStringFromTableInBundle(@"Minimum_OS", @"iTerm", [NSBundle bundleForClass: [self class]], @"OS Version"),
+		NSLocalizedStringFromTableInBundle(@"Quit",@"iTerm", [NSBundle bundleForClass: [self class]], @"Quit"),
+		 nil, nil);
+	[NSApp terminate: self];
+    }
+
+
     // set the TERM_PROGRAM environment variable
     putenv("TERM_PROGRAM=iTerm.app");
 }
