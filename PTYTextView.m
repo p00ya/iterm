@@ -277,13 +277,29 @@
 {
     NSPasteboard *pboard = [NSPasteboard generalPasteboard];
     NSString *aString;
+    NSMutableAttributedString *aMutableAttributedString;
+    int i = 0;
 
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PTYTextView copy:%@]", __FILE__, __LINE__, sender );
 #endif
 
-    // Get selected string and trim it.
-    aString = [[self string] substringWithRange: [self selectedRange]];
+    aMutableAttributedString = [[NSMutableAttributedString alloc] initWithAttributedString: [[self textStorage] attributedSubstringFromRange: [self selectedRange]]];
+    [aMutableAttributedString autorelease];
+
+    if((aMutableAttributedString == nil) || ([aMutableAttributedString length] == 0))
+	return;
+
+    // remove linewraps
+    while (i < [aMutableAttributedString length])
+    {
+	if([aMutableAttributedString attribute: @"VT100LineWrap" atIndex: i effectiveRange: nil])
+	    [aMutableAttributedString deleteCharactersInRange: NSMakeRange(i, 1)];
+	i++;
+    }
+
+    // Further process the string
+    aString = [aMutableAttributedString string];
     if((aString == nil) || ([aString length] == 0))
 	return;
     aString = [aString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
