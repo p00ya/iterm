@@ -252,7 +252,7 @@ static NSString *ConfigToolbarItem = @"Config";
     [TABVIEW selectTabViewItem: aTabViewItem];
     [self setCurrentSessionName: nil];
 
-    if ([TABVIEW numberOfTabViewItems]>1) {
+    if ([TABVIEW numberOfTabViewItems]>1||![pref hideTab]) {
         [TABVIEW setTabViewType: NSTopTabsBezelBorder];
     }
     else [TABVIEW setTabViewType: NSNoTabsBezelBorder];
@@ -338,7 +338,7 @@ static NSString *ConfigToolbarItem = @"Config";
         }
     }
 
-    if ([TABVIEW numberOfTabViewItems]>1) [TABVIEW setTabViewType: NSTopTabsBezelBorder];
+    if ([TABVIEW numberOfTabViewItems]>1||![pref hideTab]) [TABVIEW setTabViewType: NSTopTabsBezelBorder];
     else {
         [TABVIEW setTabViewType: NSNoTabsBezelBorder];
         [self setWindowSize];
