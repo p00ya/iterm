@@ -156,7 +156,7 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
 
     // activate our fonts
     // Get the main bundle object
-    NSBundle *appBundle = [NSBundle mainBundle];
+    NSBundle *appBundle = [NSBundle bundleForClass: [self class]];
     // Ask for the path to the resources
     NSString *fontsPath = [appBundle pathForResource: @"Fonts" ofType: nil inDirectory: nil];
 
