@@ -45,11 +45,20 @@
 
 @interface PTYScrollView : NSScrollView
 {
+	NSImage *backgroundImage;
+	float transparency;
 }
 
 - (void) dealloc;
 - (id)initWithFrame:(NSRect)frame;
 - (void)scrollWheel:(NSEvent *)theEvent;
 - (void)detectUserScroll;
+
+// background image
+- (NSImage *) backgroundImage;
+- (void) setBackgroundImage: (NSImage *) anImage;
+- (void) drawBackgroundImageRect: (NSRect) rect;
+- (float) transparency;
+- (void) setTransparency: (float) theTransparency;
 
 @end

@@ -158,9 +158,9 @@ typedef struct
 - (void) showCursor;
 - (void) hideCursor;
 
-    //
-    // Drag and Drop methods for our text view
-    //
+//
+// Drag and Drop methods for our text view
+//
 - (unsigned int) draggingEntered: (id<NSDraggingInfo>) sender;
 - (unsigned int) draggingUpdated: (id<NSDraggingInfo>) sender;
 - (void) draggingExited: (id<NSDraggingInfo>) sender;
