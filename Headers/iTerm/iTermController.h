@@ -62,7 +62,7 @@
 - (PseudoTerminal *) frontPseudoTerminal;
 - (void) terminalWillClose: (PseudoTerminal *) theTerminalWindow;
 - (NSStringEncoding const*) encodingList;
-- (void) buildAddressBookMenu:(NSMenu *)abMenu target:(id)target;
+- (void) buildAddressBookMenu:(NSMenu *)abMenu target:(id)target withShortcuts: (BOOL) withShortcuts;
 - (void) executeABCommandAtIndex: (int) theIndex inTerminal: (PseudoTerminal *) theTerm;
 - (PTYTextView *) frontTextView;
 

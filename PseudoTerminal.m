@@ -1003,7 +1003,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 
     // Build the bookmarks menu
     NSMenu *abMenu = [[NSMenu alloc] initWithTitle: @"Bookmarks"];
-    [[iTermController sharedInstance] buildAddressBookMenu: abMenu target: (newWin?nil:self)];
+    [[iTermController sharedInstance] buildAddressBookMenu: abMenu target: (newWin?nil:self) withShortcuts: NO];
 
     [theMenu setSubmenu: abMenu forItem: [theMenu itemAtIndex: 0]];
     [abMenu release];
