@@ -205,6 +205,7 @@ typedef struct
 - (void) scrollHome;
 - (void) scrollEnd;
 - (void) scrollToSelection;
+- (void) adjustSelection: (int) lines;
 
     // Save method
 - (void) saveDocumentAs: (id) sender;
