@@ -500,8 +500,9 @@ static BOOL PLAYBELL = YES;
         CURSOR_Y--;
         if (CURSOR_Y<0) {
             CURSOR_Y=0;
-            [self scrollDown];
+            //[self scrollDown];
         }
+	    [self scrollDown];  // FIXME
             break;
     case VT100CSI_RIS: break;
     case VT100CSI_RM: break;
