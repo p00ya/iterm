@@ -1333,6 +1333,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		[currentABEntry setObject: [[_sessionMgr currentSession] foregroundColor] forKey: @"Foreground"];
 		[currentABEntry setObject: [[_sessionMgr currentSession] backgroundColor] forKey: @"Background"];
 		[currentABEntry setObject: [[_sessionMgr currentSession] boldColor] forKey: @"BoldColor"];
+		[currentABEntry setObject: [[_sessionMgr currentSession] cursorColor] forKey: @"CursorColor"];
 		[currentABEntry setObject: [[_sessionMgr currentSession] selectionColor] forKey: @"SelectionColor"];
 		[currentABEntry setObject: [NSString stringWithInt:WIDTH] forKey: @"Col"];
 		[currentABEntry setObject: [NSString stringWithInt:HEIGHT] forKey: @"Row"];
@@ -1364,6 +1365,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 			[[_sessionMgr currentSession] foregroundColor],@"Foreground",
 			[[_sessionMgr currentSession] backgroundColor],@"Background",
 			[[_sessionMgr currentSession] boldColor],@"BoldColor",
+			[[_sessionMgr currentSession] cursorColor],@"CursorColor",
 			[[_sessionMgr currentSession] selectionColor],@"SelectionColor",
 			[NSString stringWithInt:WIDTH],@"Col",
 			[NSString stringWithInt:HEIGHT],@"Row",
