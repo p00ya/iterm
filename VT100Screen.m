@@ -607,7 +607,7 @@ static BOOL PLAYBELL = YES;
     int idx=len-1;
 
     if (x>=WIDTH||y>=HEIGHT||x<0||y<0) {
-        NSLog(@"getIndex: out of bound");
+        NSLog(@"getIndex: out of bound: x = %d; y = %d", x, y);
         return -1;
     }
     for(;y<HEIGHT&&idx>=0;idx--) {
