@@ -2240,7 +2240,7 @@
     
     // check for focus follows mouse
     if([[PreferencePanel sharedInstance] focusFollowsMouse] == YES)
-	[[self window] makeKeyAndOrderFront: self];
+	[[self window] makeKeyWindow];
 }
 
 - (void) setCursorIndex:(int) idx
