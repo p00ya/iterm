@@ -577,6 +577,7 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
     {
 	NSMenuItem *abMenuItem = [[NSMenuItem alloc] initWithTitle: abEntry action: abCommandSelector keyEquivalent:@""];
 	[abMenuItem setTag: i++];
+	[abMenuItem setTarget: self];
         [abMenuItem setRepresentedObject: sender]; // so that we know where this menu item is going to be executed
 	[abMenu addItem: abMenuItem];
 	[abMenuItem release];
