@@ -1663,6 +1663,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
                         nil,nil);
     }
     [currentPtySession setAddressBookEntry: new];
+    [new release];
     [MAINMENU saveAddressBook];
 }
 
