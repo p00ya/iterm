@@ -305,7 +305,7 @@ static BOOL PLAYBELL = YES;
         }
         else {
             TOP_LINE+=HEIGHT-height;
-            NSLog(@"topline += %d-->%d",HEIGHT-height,TOP_LINE);
+            // NSLog(@"topline += %d-->%d",HEIGHT-height,TOP_LINE);
             CURSOR_Y-=HEIGHT-height;
             if (CURSOR_Y<0) CURSOR_Y=0;
             SAVE_CURSOR_Y-=HEIGHT-height;
