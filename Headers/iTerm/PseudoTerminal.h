@@ -52,6 +52,8 @@
     BOOL tabViewDragOperationInProgress;
     BOOL windowInited;
 	BOOL sendInputToAllSessions;
+	
+	BOOL EXIT;
 }
 
 - (id)init;
@@ -176,6 +178,14 @@
 
 @end
 
+@interface PseudoTerminal (Private)
+
+- (void) _commonInit;
+- (void) _updateDisplayThread: (void *) incoming;
+
+@end
+
+
 @interface PseudoTerminal (ScriptingSupport)
 
 // Object specifier
@@ -185,9 +195,5 @@
 
 -(void)handleLaunchScriptCommand: (NSScriptCommand *)command;
 
-@end
-
-@interface PseudoTerminal (Private)
-- (void) _toggleNewWindowState: (id) sender;
 @end
 
