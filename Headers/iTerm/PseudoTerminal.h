@@ -96,6 +96,8 @@
 - (void)setCharSizeUsingFont: (NSFont *)font;
 - (int)charWidth;
 - (int)charHeight;
+- (float) charSpacingVertical;
+- (float) charSpacingHorizontal;
 
 - (ITSessionMgr*)sessionMgr;
 
