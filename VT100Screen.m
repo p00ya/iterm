@@ -255,7 +255,7 @@ static BOOL PLAYBELL = YES;
 				memcpy(bufferFGColor+lastBufferLineIndex*width, screenFGColor+WIDTH*i, sw*sizeof(char));
 				memcpy(bufferBGColor+lastBufferLineIndex*width, screenBGColor+WIDTH*i, sw*sizeof(char));
 				
-				if (++lastBufferLineIndex>scrollbackLines) {
+				if (++lastBufferLineIndex>=scrollbackLines) {
 					lastBufferLineIndex=0;
 					bufferWrapped=1;
 				}
@@ -863,7 +863,7 @@ static BOOL PLAYBELL = YES;
 			memcpy(bufferFGColor+lastBufferLineIndex*WIDTH, screenFGColor, WIDTH*sizeof(char));
 			memcpy(bufferBGColor+lastBufferLineIndex*WIDTH, screenBGColor, WIDTH*sizeof(char));
 			lastBufferLineIndex++;
-			if (lastBufferLineIndex>scrollbackLines) {
+			if (lastBufferLineIndex>=scrollbackLines) {
 				lastBufferLineIndex=0;
 				bufferWrapped=1;
 			}
@@ -992,7 +992,7 @@ static BOOL PLAYBELL = YES;
 			memcpy(bufferFGColor+lastBufferLineIndex*WIDTH, screenFGColor+i*WIDTH, WIDTH*sizeof(char));
 			memcpy(bufferBGColor+lastBufferLineIndex*WIDTH, screenBGColor+i*WIDTH, WIDTH*sizeof(char));
 			lastBufferLineIndex++;
-			if (lastBufferLineIndex>scrollbackLines) {
+			if (lastBufferLineIndex>=scrollbackLines) {
 				lastBufferLineIndex=0;
 				bufferWrapped=1;
 			}		
@@ -1237,7 +1237,7 @@ static BOOL PLAYBELL = YES;
 		memcpy(bufferBGColor+lastBufferLineIndex*WIDTH,screenBGColor+SCROLL_TOP*WIDTH,WIDTH*sizeof(char));
 		// this causes a scroll in the view, so we have force a refresh
 		memset(dirty,1,HEIGHT*WIDTH*sizeof(char));
-		if (++lastBufferLineIndex>scrollbackLines) {
+		if (++lastBufferLineIndex>=scrollbackLines) {
 			lastBufferLineIndex=0;
 			bufferWrapped=1;
 		}
