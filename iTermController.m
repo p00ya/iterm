@@ -467,6 +467,9 @@ NSString *terminalsKey = @"terminals";
 - (void) setCurrentTerminal: (PseudoTerminal *) thePseudoTerminal
 {
     FRONT = thePseudoTerminal;
+	
+	if(thePseudoTerminal == nil)
+		return;
 
     // make sure this window is the key window
     if([[thePseudoTerminal window] isKeyWindow] == NO)
