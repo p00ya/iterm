@@ -206,6 +206,9 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     // Set the bell option
     [VT100Screen setPlayBellFlag: ![pref silenceBell]];
 
+    // Set the blinking cursor option
+    [[aSession SCREEN] setBlinkingCursor: [pref blinkingCursor]];
+
     // assign terminal and task objects
     [[aSession SCREEN] setTerminal:[aSession TERMINAL]];
     [[aSession SCREEN] setShellTask:[aSession SHELL]];

@@ -64,6 +64,8 @@
     unsigned int  scrollbackLines;
     int OLD_CURSOR_INDEX;
     int screenLock;
+    BOOL blinkingCursor;
+    BOOL showBlinkingCursor;
 
     NSView *display;
 }
@@ -105,6 +107,10 @@
 
 - (NSView *) display;
 - (void) setDisplay: (NSView *) aDisplay;
+
+- (BOOL) blinkingCursor;
+- (void) setBlinkingCursor: (BOOL) flag;
+
 
 // edit screen buffer
 - (void)putToken:(VT100TCC)token;
