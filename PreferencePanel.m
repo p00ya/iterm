@@ -70,7 +70,10 @@ static int TRANSPARENCY  =10;
 #endif
     if ((self = [super init]) == nil)
         return nil;
-        
+
+    if ([NSBundle loadNibNamed:@"PreferencePanel" owner:self] == NO)
+	return nil;
+    
     // Get the user's default shell
     if((thisUser = getenv("USER")) != NULL)
         SHELL = [[NSString stringWithFormat: @"login -fp %s", thisUser] retain];
@@ -78,7 +81,6 @@ static int TRANSPARENCY  =10;
         SHELL = [[NSString stringWithCString: userShell] retain];
         
     [self readPreferences];
-
                  
     return self;
 }
