@@ -871,6 +871,7 @@ NSString *terminalsKey = @"terminals";
 {
     if([terminalWindows containsObject: object] == YES)
 	return;
+    [object setMainMenu: self];
     [object setPreference:PREF_PANEL];
     if([object windowInited] == NO)
     {

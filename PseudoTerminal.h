@@ -73,7 +73,6 @@
     int currentSessionIndex;
     PTYSession *currentPtySession;
     NSLock *ptyListLock;
-    unsigned int windowNumber;
     
     /////////////////////////////////////////////////////////////////////////
     int WIDTH,HEIGHT;
@@ -92,6 +91,7 @@
 - (void) newSession: (id) sender;
 
 - (id)init;
+- (id) initWithWindowNibName: (NSString *) windowNibName;
 - (void)dealloc;
 - (void)releaseObjects;
 
@@ -146,7 +146,6 @@
 - (void)windowDidResignMain:(NSNotification *)aNotification;
 - (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)proposedFrameSize;
 - (void)windowDidResize:(NSNotification *)aNotification;
-- (NSWindow *) window;
 
 // Toolbar
 - (NSToolbar*) setupToolbar;
