@@ -580,7 +580,6 @@ static NSString *ConfigToolbarItem = @"Config";
 
     for (i = 0; i < [TABVIEW numberOfTabViewItems]; i++)
     {
-        [[[TABVIEW tabViewItemAtIndex: i] view] setFrameSize:size];
         [(PTYScrollView *)[[TABVIEW tabViewItemAtIndex: i] view] setLineScroll: ([VT100Screen fontSize: FONT].height)];
         [[(PTYScrollView *)[[TABVIEW tabViewItemAtIndex: i] view] documentView] setFrameSize:vsize];
     }
