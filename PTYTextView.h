@@ -269,6 +269,19 @@
 @end
 
 //
+// find functionality
+//
+@interface PTYTextView (Find)
+- (IBAction) showFindPanel: (id) sender;
+- (IBAction) findNext: (id) sender;
+- (IBAction) findPrevious: (id) sender;
+- (IBAction) findWithSelection: (id) sender;
+- (IBAction) jumpToSelection: (id) sender;
+- (void) setSearchString: (NSString *) aString;
+@end
+
+
+//
 // private methods
 //
 @interface PTYTextView (Private)

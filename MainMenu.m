@@ -35,6 +35,7 @@
 #import "MainMenu.h"
 #import "PreferencePanel.h"
 #import "PseudoTerminal.h"
+#import "PTYSession.h"
 #import "NSStringITerm.h"
 #import "AddressBookWindowController.h"
 
@@ -808,6 +809,10 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
             
 }
 
+- (PTYTextView *) frontTextView
+{
+    return ([[FRONT currentSession] TEXTVIEW]);
+}
 
 @end
 
