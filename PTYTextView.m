@@ -31,6 +31,7 @@
 #define DEBUG_METHOD_TRACE    0
 #define GREED_KEYDOWN         1
 
+#import "iTerm.h"
 #import "PTYTextView.h"
 #import "PTYSession.h"
 
@@ -231,6 +232,7 @@
     [super drawRect: rect];
 
     // if we have a data source, ask it to supply the text
+#if USE_CUSTOM_DRAWING
     if(dataSource != nil)
     {
 	int numLines, i, lineOffset;
@@ -286,6 +288,7 @@
             aRect.origin.y += lineHeight;
 	}
     }
+#endif
 }
 
 

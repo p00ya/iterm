@@ -232,8 +232,8 @@ static NSString *ConfigToolbarItem = @"Config";
     // assign terminal and task objects
     [[aSession SCREEN] setTerminal:[aSession TERMINAL]];
     [[aSession SCREEN] setShellTask:[aSession SHELL]];
-#if USE_CUSTOM_DRAWING
     [[aSession TEXTVIEW] setDataSource: [aSession SCREEN]];
+#if USE_CUSTOM_DRAWING
     [[aSession SCREEN] setDisplay:[aSession TEXTVIEW]];
     [[aSession TEXTVIEW] setLineHeight: [VT100Screen fontSize:[[aSession SCREEN] tallerFont]].height];
     [[aSession TEXTVIEW] setLineWidth: WIDTH * [VT100Screen fontSize: FONT].width];
