@@ -1373,13 +1373,13 @@ static VT100TCC decode_string(unsigned char *datap,
     char str[256];
     size_t len;
 
-    if (no < 10)
-    {
+    if (no < 7) {
 	sprintf(str, KEY_FUNCTION_FORMAT, no + 10);
     }
-    else
+    else if (no < 11)
 	sprintf(str, KEY_FUNCTION_FORMAT, no + 11);
-	
+    else
+        sprintf(str, KEY_FUNCTION_FORMAT, no + 12);
 
     len = strlen(str);
     return [NSData dataWithBytes:str length:len];
