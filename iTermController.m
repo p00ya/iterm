@@ -354,6 +354,7 @@ static BOOL usingAutoLaunchScript = NO;
     NSDictionary *aDict;
 	NSString *displayProfile, *terminalProfile;
 	iTermDisplayProfileMgr *displayProfileMgr;
+	NSString *pwd;
 	
 	aDict = bookmarkData;
 	if(aDict == nil)
@@ -401,7 +402,10 @@ static BOOL usingAutoLaunchScript = NO;
 	
 	[[aSession SCREEN] setScrollback:[[iTermTerminalProfileMgr singleInstance] scrollbackLinesForProfile: terminalProfile]];
     
-    NSDictionary *env=[NSDictionary dictionaryWithObject:[aDict objectForKey: KEY_WORKING_DIRECTORY] forKey:@"PWD"];
+	pwd = [aDict objectForKey: KEY_WORKING_DIRECTORY];
+	if([pwd length] <= 0)
+		pwd = NSHomeDirectory();
+    NSDictionary *env=[NSDictionary dictionaryWithObject: pwd forKey:@"PWD"];
     
     // Start the command        
     [term startProgram:cmd arguments:arg environment:env];
