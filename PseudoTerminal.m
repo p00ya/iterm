@@ -961,6 +961,10 @@ static NSString *ConfigToolbarItem = @"Config";
     WIDTH = w;
     HEIGHT = h;
 
+    // Display the new size in the window title.
+    NSString *aTitle = [NSString stringWithFormat:@"%@ (%d,%d)", [currentPtySession name], WIDTH, HEIGHT];
+    [self setWindowTitle: aTitle];
+
     //NSLog(@"Didresize: w = %d, h = %d; frame.size.width = %f, frame.size.height = %f",WIDTH,HEIGHT, [WINDOW frame].size.width, [WINDOW frame].size.height);
 
 
