@@ -817,7 +817,10 @@ static NSString *ConfigToolbarItem = @"Config";
 	  __FILE__, __LINE__, aNotification);
 #endif
 
-    [MAINMENU setFrontPseudoTerminal: self];    
+    [MAINMENU setFrontPseudoTerminal: self];
+
+    // update the cursor
+    [[currentPtySession SCREEN] showCursor];
 }
 
 - (void) windowDidResignKey: (NSNotification *)aNotification
@@ -828,6 +831,9 @@ static NSString *ConfigToolbarItem = @"Config";
 #endif
 
     [self windowDidResignMain: aNotification];
+
+    // update the cursor
+    [[currentPtySession SCREEN] showCursor];
 
 }
 
