@@ -1765,19 +1765,27 @@ static VT100TCC decode_string(unsigned char *datap,
                 case VT100CHARATTR_BOLD: 
                     CHARATTR |= VT100CHARATTR_BOLDMASK;
                     break;
+		case VT100CHARATTR_NORMAL:
+		    CHARATTR &= ~VT100CHARATTR_BOLDMASK;
+		    break;
                 case VT100CHARATTR_UNDER:
                     CHARATTR |= VT100CHARATTR_UNDERMASK;
                     break;
+		case VT100CHARATTR_NOT_UNDER:
+		    CHARATTR &= ~VT100CHARATTR_UNDERMASK;
+		    break;
                 case VT100CHARATTR_BLINK:
                     CHARATTR |= VT100CHARATTR_BLINKMASK;
                     break;
+		case VT100CHARATTR_STEADY:
+		    CHARATTR &= ~VT100CHARATTR_BLINKMASK;
+		    break;
                 case VT100CHARATTR_REVERSE:
                     CHARATTR |= VT100CHARATTR_REVERSEMASK;
                     break;
 		case VT100CHARATTR_POSITIVE:
 		    CHARATTR &= ~VT100CHARATTR_REVERSEMASK;
 		    break;
-
 		case VT100CHARATTR_FG_BLACK:
                     FG_COLORCODE = COLORCODE_BLACK;
                     break;
