@@ -210,11 +210,15 @@ typedef enum {
 #define VT100CHARATTR_BG_HI_WHITE     (VT100CHARATTR_BG_HI_BASE + COLORCODE_WHITE)
 
 
+// for foreground colors
 #define DEFAULT_FG_COLOR_CODE	0x10
-#define DEFAULT_BG_COLOR_CODE	0x11
 #define BOLD_MASK 0x20
 #define BLINK_MASK 0x40
 #define UNDER_MASK 0x80
+
+// for background colors
+#define DEFAULT_BG_COLOR_CODE	0x11
+#define SELECTION_MASK 0x20
 
 @interface VT100Terminal : NSObject
 {

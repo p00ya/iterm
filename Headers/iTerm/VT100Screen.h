@@ -34,6 +34,7 @@
 
 @class PTYTask;
 @class PTYSession;
+@class PTYTextView;
 
 #define TABWINDOW	300
 
@@ -59,7 +60,7 @@
 
     
     BOOL blinkingCursor;
-    NSView *display;
+    PTYTextView *display;
 	
 	unichar *screenLines;
 	char	*screenBGColor;
@@ -97,8 +98,8 @@
 - (PTYSession *) session;
 - (void)setSession:(PTYSession *)session;
 
-- (NSView *) display;
-- (void) setDisplay: (NSView *) aDisplay;
+- (PTYTextView *) display;
+- (void) setDisplay: (PTYTextView *) aDisplay;
 
 - (BOOL) blinkingCursor;
 - (void) setBlinkingCursor: (BOOL) flag;
