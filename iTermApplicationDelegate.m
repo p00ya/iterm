@@ -92,6 +92,7 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	[self buildAddressBookMenu:nil];
 }
 
 - (BOOL) applicationShouldTerminate: (NSNotification *) theNotification
