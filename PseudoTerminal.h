@@ -71,7 +71,6 @@
     NSFont *configFont, *configNAFont;
     BOOL changingNA;
     BOOL newwin;
-    id newwinItem;
     PreferencePanel *pref;
 }
 
@@ -173,9 +172,10 @@
 
 @interface PseudoTerminal (Private)
 
-- (void) _addressbookPopupSelectionDidChange: (id) sender;
-- (void) _buildAddressBookMenu: (NSPopUpButton *) aPopUpButton;
+- (void) _buildAddressBookMenu: (NSMenu *) abMenu newWindow: (BOOL) newWinFlag;
+- (void) _buildToolbarItemPopUpMenu: (NSToolbarItem *) toolbarItem;
 - (void) _reloadAddressBookMenu: (NSNotification *) aNotification;
+- (void) _toggleNewWindowState: (id) sender;
 - (void) _executeABMenuCommandInNewTab: (id) sender;
 - (void) _executeABMenuCommandInNewWindow: (id) sender;
 - (void) _executeABMenuCommand: (int) commandIndex newWindow: (BOOL) theFlag;
