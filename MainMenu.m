@@ -166,7 +166,6 @@ static BOOL newWindow=YES;
     NSDictionary *env=[NSDictionary dictionaryWithObject:([entry objectForKey:@"Directory"]?[entry objectForKey:@"Directory"]:@"~")  forKey:@"PWD"];
         
     [term startProgram:cmd arguments:arg environment:env];
-    encoding=[[entry objectForKey:@"Encoding"] unsignedIntValue];
     [[term currentSession] setEncoding:encoding];
     [[term currentSession] setAntiCode:[[entry objectForKey:@"AICode"] intValue]];
     [[term currentSession] setAntiIdle:[[entry objectForKey:@"AntiIdle"] boolValue]];
