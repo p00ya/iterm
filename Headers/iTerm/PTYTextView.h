@@ -33,7 +33,6 @@
 
 #define MARGIN  5
 
-
 @class VT100Screen;
 
 typedef struct 
@@ -91,6 +90,8 @@ typedef struct
     NSColor* defaultBoldColor;
 	NSColor* defaultCursorColor;
 	NSColor* selectionColor;
+	NSColor* selectedTextColor;
+	NSColor* cursorTextColor;
 	
 	// transparency
 	float transparency;
@@ -159,12 +160,16 @@ typedef struct
 - (NSColor *) colorForCode:(int) index;
 - (NSColor *) selectionColor;
 - (NSColor *) defaultCursorColor;
+- (NSColor *) selectedTextColor;
+- (NSColor *) cursorTextColor;
 - (void) setFGColor:(NSColor*)color;
 - (void) setBGColor:(NSColor*)color;
 - (void) setBoldColor:(NSColor*)color;
 - (void) setColorTable:(int) index highLight:(BOOL)hili color:(NSColor *) c;
 - (void) setSelectionColor: (NSColor *) aColor;
 - (void)setCursorColor:(NSColor*) color;
+- (void) setSelectedTextColor: (NSColor *) aColor;
+- (void) setCursorTextColor:(NSColor*) color;
 - (void) forceUpdate;
 
 
