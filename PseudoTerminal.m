@@ -1475,6 +1475,8 @@ static NSString *ConfigToolbarItem = @"Config";
 #endif    
     
     anEntry = [MAINMENU addressBookEntry: commandIndex];
+    if(anEntry == nil)
+	return;
 
     if (theFlag) {
 	term = [PseudoTerminal newTerminalWindow: MAINMENU];
@@ -1498,6 +1500,10 @@ static NSString *ConfigToolbarItem = @"Config";
     [MainMenu breakDown:[anEntry objectForKey:@"Command"] cmdPath:&cmd cmdArgs:&arg];
     [term startProgram:cmd arguments:arg environment:env];
     [term setCurrentSessionName:[anEntry objectForKey:@"Name"]];
+    [[term currentSession] setEncoding:[[anEntry objectForKey:@"Encoding"] unsignedIntValue]];
+    [[term currentSession] setAntiCode:[[anEntry objectForKey:@"AICode"] intValue]];
+    [[term currentSession] setAntiIdle:[[anEntry objectForKey:@"AntiIdle"] boolValue]];
+    [[term currentSession] setAutoClose:[[anEntry objectForKey:@"AutoClose"] intValue]];
     
 }
 
