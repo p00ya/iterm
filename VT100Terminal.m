@@ -107,6 +107,7 @@ static NSString *NSBlinkAttributeName=@"NSBlinkAttributeName";
 #define ALT_KP_8		"\033Ox"
 #define ALT_KP_9		"\033Oy"
 #define ALT_KP_MINUS		"\033Om"
+#define ALT_KP_PLUS		"\033Ol"
 #define ALT_KP_PERIOD		"\033On"
 #define ALT_KP_ENTER		"\033OM"
 
@@ -1599,6 +1600,9 @@ static VT100TCC decode_string(unsigned char *datap,
 	case '-':
 	    theData = [NSData dataWithBytes:ALT_KP_MINUS length:conststr_sizeof(ALT_KP_MINUS)];
 	    break;
+	case '+':
+	    theData = [NSData dataWithBytes:ALT_KP_PLUS length:conststr_sizeof(ALT_KP_PLUS)];
+	    break;	    
 	case '.':
 	    theData = [NSData dataWithBytes:ALT_KP_PERIOD length:conststr_sizeof(ALT_KP_PERIOD)];
 	    break;	    
