@@ -51,10 +51,12 @@ static int TRANSPARENCY  =10;
 
 + (void)initialize
 {
-//    BACKGROUND  = [[NSColor textBackgroundColor] retain];
-//    FOREGROUND  = [[NSColor textColor] retain];
     BACKGROUND = [NSColor blackColor];
-    FOREGROUND = [NSColor whiteColor];
+    FOREGROUND = [[NSColor colorWithCalibratedRed:0.8f
+                                            green:0.8f
+                                             blue:0.8f
+                                            alpha:1.0f]
+        retain];
     SELECTION = [NSColor selectedTextBackgroundColor];
     FONT = [[NSFont fontWithName:DEFAULT_FONTNAME
 			    size:DEFAULT_FONTSIZE] retain];
