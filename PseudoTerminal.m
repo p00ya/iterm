@@ -74,7 +74,6 @@ static int windowCount = 0;
     [MainMenu breakDown:[pref shell] cmdPath:&cmd cmdArgs:&arg];
 
     aSession = [[PTYSession alloc] init];
-    [self setupSession:aSession title: nil];
     // Add this session to our list and make it current
     [self addInSessions: aSession];
     [aSession release];
