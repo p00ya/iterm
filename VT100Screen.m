@@ -1485,7 +1485,6 @@ static BOOL PLAYBELL = YES;
         x2 = WIDTH - 1;
         y2 = HEIGHT - 1;
 
-#if 0
 	// move the current screen into the scrollback buffer
 	if(clearingBuffer == NO)
 	{
@@ -1495,16 +1494,22 @@ static BOOL PLAYBELL = YES;
 	    if(newLineString == nil)
 		newLineString = [[self attrString:@"\n" ascii:YES] retain];
 	    [STORAGE appendAttributedString:newLineString];
-	    //[BUFFER appendAttributedString:newLineString];
-	    //[STORAGE appendAttributedString: BUFFER];
 	    updateIndex = [STORAGE length];
+	    // turn off the cursor
+	    if(cursorIndex < [STORAGE length])
+	    {
+		NSMutableDictionary *dic;
+		dic =  [NSMutableDictionary dictionaryWithDictionary: [STORAGE attributesAtIndex:cursorIndex effectiveRange:nil]];
+		[dic setObject:[TERMINAL defaultBGColor] forKey:NSBackgroundColorAttributeName];
+		[dic setObject:[TERMINAL defaultFGColor] forKey:NSForegroundColorAttributeName];
+		[STORAGE setAttributes:dic range:NSMakeRange(cursorIndex,1)];
+	    }
 	    [STORAGE endEditing];
 	    [self removeScreenLock];
 	    [[SESSION TEXTVIEW] scrollEnd];
 	}
 	else
 	    clearingBuffer = NO;
-#endif
 	
         break;
 
@@ -2526,7 +2531,8 @@ static BOOL PLAYBELL = YES;
     [self renewBuffer];
     [self removeOverLine];
     //NSLog(@"renewed: %d, %d, %d, %d",updateIndex,minIndex,[STORAGE length],[BUFFER length]);
-    [[SESSION TEXTVIEW] setCursorIndex:[self getTVIndex:CURSOR_X y:CURSOR_Y]];
+    cursorIndex = [self getTVIndex:CURSOR_X y:CURSOR_Y];
+    [[SESSION TEXTVIEW] setCursorIndex: cursorIndex];
     //NSLog(@"showCursor");
     [self showCursor];
     //NSLog(@"shown");
