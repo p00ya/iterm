@@ -1956,13 +1956,30 @@ static VT100TCC decode_string(unsigned char *datap,
     NSColor *color;
 
     if (index==DEFAULT_FG_COLOR_CODE)
+    {
         color=(SCREEN_MODE?defaultBGColor:defaultFGColor);
+	if(b)
+	{
+	    NSColor *otherColor = (SCREEN_MODE?defaultFGColor:defaultBGColor);
+	    color = [color blendedColorWithFraction: 0.2 ofColor: otherColor];
+	}
+    }
     else if (index==DEFAULT_BG_COLOR_CODE)
-        color=(SCREEN_MODE?defaultFGColor:defaultBGColor);
+    {
+	color=(SCREEN_MODE?defaultFGColor:defaultBGColor);
+	if(b)
+	{
+	    NSColor *otherColor = (SCREEN_MODE?defaultBGColor:defaultFGColor);
+	    color = [color blendedColorWithFraction: 0.2 ofColor: otherColor];
+	}	
+    }
     else
+    {
         color=colorTable[b?1:0][index];
+    }
 
     return color;
+    
 }
 
 @end
