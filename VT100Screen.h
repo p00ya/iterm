@@ -44,6 +44,7 @@
 + (NSSize)requireSizeWithFont:(NSFont *)font;
 + (NSSize)screenSizeInFrame:(NSRect)frame  font:(NSFont *)font;
 + (void)setPlayBellFlag:(BOOL)flag;
++ (NSSize) fontSize:(NSFont *)font;
 
 - (id)init;
 - (void)dealloc;
