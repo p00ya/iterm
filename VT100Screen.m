@@ -2218,7 +2218,7 @@ static BOOL PLAYBELL = YES;
     if(charset[[TERMINAL charset]])
     {
 	//[attr addAttribute: NSFontAttributeName value: [NSFont fontWithName:@"FreeMonoBold" size:[[self font] pointSize]] range: NSMakeRange(0, [attr length])];
-	[attr addAttribute: @"VT100GraphicalCharacter" value: @"YES" range: NSMakeRange(0, [attr length])];
+	[attr addAttribute: @"VT100GraphicalCharacter" value: [NSNumber numberWithInt:1] range: NSMakeRange(0, [attr length])];
     }
     
     [attr autorelease];
