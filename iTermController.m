@@ -72,6 +72,9 @@ static BOOL usingAutoLaunchScript = NO;
     if(([terminalWindows count] > 0) && [[PreferencePanel sharedInstance] promptOnClose] && ![[terminalWindows objectAtIndex: 0] showCloseWindow])
 	return (NO);
     
+	// save preferences
+	[[PreferencePanel sharedInstance] savePreferences];
+	
     return (YES);
 }
 
