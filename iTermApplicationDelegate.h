@@ -64,7 +64,6 @@
 - (IBAction)showAbout:(id)sender;
 - (IBAction)aboutOK:(id)sender;
 
-- (IBAction)showABWindow:(id)sender;
 - (IBAction)showPrefWindow:(id)sender;
 
     // navigation

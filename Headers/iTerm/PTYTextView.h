@@ -111,6 +111,7 @@ typedef struct
 	CharCache	charImages[CACHESIZE];
 	
 	// blinking cursor
+	BOOL blinkingCursor;
 	BOOL showCursor;
 	BOOL blinkShow;
 	
@@ -152,6 +153,8 @@ typedef struct
 - (void) setFont:(NSFont*)aFont nafont:(NSFont*)naFont;
 - (BOOL) antiAlias;
 - (void) setAntiAlias: (BOOL) antiAliasFlag;
+- (BOOL) blinkingCursor;
+- (void) setBlinkingCursor: (BOOL) bFlag;
 
 //color stuff
 - (NSColor *) defaultFGColor;

@@ -66,7 +66,6 @@
 - (IBAction) closeCurrentSession: (id) sender;
 - (IBAction) previousSession:(id)sender;
 - (IBAction) nextSession:(id)sender;
-- (IBAction) saveSession:(id)sender;
 - (PTYSession *) currentSession;
 - (void) setCurrentSession: (PTYSession *) aSession;
 - (int) currentSessionIndex;

@@ -180,11 +180,6 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
     [[iTermController sharedInstance] nextTerminal:sender];
 }
 
-- (IBAction)showABWindow:(id)sender
-{
-    [[ITAddressBookMgr sharedInstance] showABWindow];
-}
-
 - (IBAction)showPrefWindow:(id)sender
 {
     [[PreferencePanel sharedInstance] run];

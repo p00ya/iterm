@@ -171,6 +171,17 @@
     antiAlias = antiAliasFlag;
 }
 
+- (BOOL) blinkingCursor
+{
+	return (blinkingCursor);
+}
+
+- (void) setBlinkingCursor: (BOOL) bFlag
+{
+	blinkingCursor = bFlag;
+}
+
+
 - (NSDictionary*) markedTextAttributes
 {
 #if DEBUG_METHOD_TRACE
@@ -790,7 +801,7 @@
 	x1=[dataSource cursorX]-1;
 	y1=[dataSource cursorY]-1;
 	//draw cursor
-	if([[PreferencePanel sharedInstance] blinkingCursor])
+	if([self blinkingCursor])
 		showCursor = !showCursor;
 	else
 		showCursor = YES;
