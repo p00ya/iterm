@@ -222,8 +222,13 @@ static BOOL editingBookmark = NO;
 // NSOutlineView delegate methods
 - (void) outlineViewSelectionDidChange: (NSNotification *) aNotification
 {
-	int selectedRow = [bookmarksView selectedRow];
+	int selectedRow;
 	id selectedItem;
+	
+	if([aNotification object] != bookmarksView)
+		return;
+	
+	selectedRow = [bookmarksView selectedRow];
 	
 	if(selectedRow == -1)
 	{
@@ -285,7 +290,7 @@ static BOOL editingBookmark = NO;
 
 - (id)outlineView:(NSOutlineView *)ov objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-    //NSLog(@"%s", __PRETTY_FUNCTION__);
+    //NSLog(@"%s: outlineView = 0x%x; item = %@", __PRETTY_FUNCTION__, ov, item);
 	// item should be a tree node witha dictionary data object
     return [[ITAddressBookMgr sharedInstance] objectForKey:[tableColumn identifier] inItem: item];
 }

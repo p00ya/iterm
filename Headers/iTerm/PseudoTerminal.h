@@ -35,6 +35,7 @@
 
 @interface PseudoTerminal : NSWindowController <PTYTabViewDelegateProtocol, PTYWindowDelegateProtocol>
 {
+	IBOutlet NSOutlineView *bookmarksView;
     /// tab view
     PTYTabView *TABVIEW;
     PTToolbarController* _toolbarController;
@@ -150,6 +151,8 @@
 - (IBAction) saveDisplayProfile: (id) sender;
 - (IBAction) saveTerminalProfile: (id) sender;
 
+// Bookmarks
+- (IBAction) toggleBookmarksView: (id) sender;
 
 @end
 

@@ -38,6 +38,9 @@
 
 
 @interface PTYWindow : NSWindow 
+{
+	IBOutlet NSDrawer *drawer;
+}
 
 - initWithContentRect:(NSRect)contentRect 
             styleMask:(unsigned int)aStyle 
@@ -45,4 +48,6 @@
 		defer:(BOOL)flag;
 
 - (void)toggleToolbarShown:(id)sender;
+
+- (NSDrawer *) drawer;
 @end

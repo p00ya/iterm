@@ -49,6 +49,7 @@
     IBOutlet NSMenuItem *closeWindow;
     IBOutlet NSMenuItem *sendInputToAllSessions;
 	IBOutlet NSMenuItem *fontSizeFollowWindowResize;
+	IBOutlet NSMenuItem *toggleBookmarksView;
 
 }
 

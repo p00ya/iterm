@@ -88,4 +88,9 @@
     
 }
 
+- (NSDrawer *) drawer
+{
+	return (drawer);
+}
+
 @end
