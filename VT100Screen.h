@@ -154,6 +154,7 @@
 - (NSArray *) screenLines;
 - (int) screenTop;
 - (void) updateScreen;
+- (void) forceUpdateScreen;
 - (void) renewBuffer;
 - (int) numberOfLines;
 - (NSAttributedString *)stringAtLine: (int) n;
