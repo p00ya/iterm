@@ -512,6 +512,7 @@ static int windowCount = 0;
     ptyListLock = nil;
    
     ptyList = nil;
+    WINDOW = nil;
 
         
     // Remove ourselves as an observer for notifications to reload the addressbook.
