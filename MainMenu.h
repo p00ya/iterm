@@ -36,6 +36,7 @@
    
     // address book window
     IBOutlet id AB_PANEL;
+    IBOutlet id openInNewWindow;
     IBOutlet NSTableView *adTable;
 
     // address entry window
