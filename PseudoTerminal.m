@@ -1123,8 +1123,10 @@ static NSString *ConfigToolbarItem = @"Config";
                 
             // set the background color for the scrollview with the appropriate transparency
             bgColor = [[CONFIG_BACKGROUND color] colorWithAlphaComponent: (1-[CONFIG_TRANSPARENCY intValue]/100.0)];
+            [[currentPtySession SCROLLVIEW] setBackgroundColor: bgColor];
             [currentPtySession setFGColor:  [CONFIG_FOREGROUND color]];
             [currentPtySession setBGColor:  bgColor];
+            [[currentPtySession TEXTVIEW] setNeedsDisplay:YES];
         }
 
         [[[self currentSession] TEXTVIEW] moveLastLine];
