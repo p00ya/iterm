@@ -1757,8 +1757,8 @@ static VT100TCC decode_string(unsigned char *datap,
                                         forKey:NSLigatureAttributeName];
     [characterAttributeDictionary[0] setObject:[NSNumber numberWithFloat:(0)]
                                         forKey:NSKernAttributeName];
-    [characterAttributeDictionary[0] setObject:[NSNumber numberWithInt:(1)]
-                                        forKey:@"NSCharWidthAttributeName"];
+    //[characterAttributeDictionary[0] setObject:[NSNumber numberWithInt:(1)]
+    //                                    forKey:@"NSCharWidthAttributeName"];
     [characterAttributeDictionary[0] setObject:pstyle
                                         forKey:NSParagraphStyleAttributeName];
     [characterAttributeDictionary[1] setObject:fg
