@@ -77,7 +77,9 @@
 
 
 // some xterm extension
-#define XTERMCC_TITLE	     86	      // Set window title
+#define XTERMCC_WIN_TITLE	     86	      // Set window title
+#define XTERMCC_ICON_TITLE	     91
+#define XTERMCC_WINICON_TITLE	     92
 #define XTERMCC_INSBLNK	     87       // Insert blank
 #define XTERMCC_INSLN	     88	      // Insert lines
 #define XTERMCC_DELCH	     89       // delete blank
