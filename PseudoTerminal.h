@@ -164,6 +164,7 @@
 
 // Preferences
 - (void)setPreference:(id)pref;
+- (id) preference;
 
 
 @end

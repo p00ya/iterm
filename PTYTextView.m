@@ -269,7 +269,7 @@
 
     // Get selected string and trim it.
     aString = [[self string] substringWithRange: [self selectedRange]];
-    if(aString == nil)
+    if((aString == nil) || ([aString length] == 0))
 	return;
     aString = [aString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
