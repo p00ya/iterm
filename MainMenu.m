@@ -283,8 +283,8 @@ static BOOL newWindow=YES;
         [adTransparency2 setIntValue:[[entry objectForKey:@"Transparency"] intValue]];
     }
     else {
-        [adTransparency setIntValue:0];
-        [adTransparency2 setIntValue:0];
+        [adTransparency setIntValue:[PREF_PANEL transparency]];
+        [adTransparency2 setIntValue:[PREF_PANEL transparency]];
     }
     if ([entry objectForKey:@"Directory"]) {
         [adDir setStringValue:[entry objectForKey:@"Directory"]];
