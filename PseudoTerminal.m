@@ -939,7 +939,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     }
     WIDTH=w;
     HEIGHT=h;
-    NSLog(@"resize window: %d,%d",WIDTH,HEIGHT);
 
     [self setWindowSize: YES];
 /*    for(i=0;i<[_sessionMgr numberOfSessions]; i++) {
