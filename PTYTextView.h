@@ -33,8 +33,6 @@
 #import "VT100Screen.h"
 #import "PTYSession.h"
 
-#define MAX_HEIGHT 300
-
 #if USE_CUSTOM_DRAWING
 @interface PTYTextView : NSView <NSTextInput>
 {
@@ -70,6 +68,7 @@
 
     NSDictionary *markedTextAttributes;
     NSDictionary *selectionTextAttributes;
+    NSAttributedString *markedText;
     NSColor *bgColor;
     NSFont *font;
     NSFont *nafont;
@@ -81,7 +80,6 @@
 
     //selection
     int startIndex, startY, endIndex, endY;
-    int displayLines[MAX_HEIGHT];
 }
 
 - (id)init;
