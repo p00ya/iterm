@@ -170,14 +170,16 @@ static int TRANSPARENCY  =10;
 {
     NSStringEncoding const *p=encodingList;
     int r;
-
+    
     // Load our bundle
     if ([NSBundle loadNibNamed:@"PreferencePanel" owner:self] == NO)
 	return;
     
     [prefPanel center];
-    [shell setStringValue:defaultShell];
-    [terminal setStringValue:defaultTerminal];
+    if(defaultShell != nil)
+	[shell setStringValue:defaultShell];
+    if(defaultTerminal != nil)
+	[terminal setStringValue:defaultTerminal];
     [encoding removeAllItems];
     r=0;
     while (*p) {
@@ -286,6 +288,8 @@ static int TRANSPARENCY  =10;
     [defaultBackground autorelease];
     [defaultForeground autorelease];
     [defaultSelectionColor autorelease];
+    [defaultShell autorelease];
+    [defaultTerminal autorelease];
     
     defaultBackground=[[background color] copy];
     defaultForeground=[[foreground color] copy];
