@@ -890,7 +890,7 @@
     if (x>=[dataSource width]) x=[dataSource width];
     endX=startX=x;
     endY=startY=y;
-    
+	    
     if([_delegate respondsToSelector: @selector(willHandleEvent:)] && [_delegate willHandleEvent: event])
         [_delegate handleEvent: event];
 	[self setNeedsDisplay: YES];
@@ -921,6 +921,20 @@
         y=startX; startX=endX; endX=y;
     }
     else if (startY==endY&&startX==endX) startX=-1;
+	
+	// Handle double and triple click
+	if([event clickCount] == 2)
+	{
+		// double-click; select word
+	}
+	else if ([event clickCount] >= 3)
+	{
+		// triple-click; select line
+		startX = 0;
+		endX = [dataSource width];
+		startY = endY = y;
+	}
+	
     
     if (startX!=-1&&_delegate) {
         if([[PreferencePanel sharedInstance] copySelection])
