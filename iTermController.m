@@ -143,7 +143,7 @@ static BOOL usingAutoLaunchScript = NO;
 // init
 - (id) init
 {
-#if DEBUG_METHOD_TRACE
+#if DEBUG_ALLOC
     NSLog(@"%s(%d):-[iTermController init]",
           __FILE__, __LINE__);
 #endif
@@ -183,7 +183,7 @@ static BOOL usingAutoLaunchScript = NO;
 
 - (void) dealloc
 {
-#if DEBUG_METHOD_TRACE
+#if DEBUG_ALLOC
     NSLog(@"%s(%d):-[iTermController dealloc]",
           __FILE__, __LINE__);
 #endif
