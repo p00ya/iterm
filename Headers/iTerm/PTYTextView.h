@@ -71,8 +71,8 @@ typedef struct
     NSDictionary *markedTextAttributes;
     NSAttributedString *markedText;
 	
-    BOOL resized;
     BOOL CURSOR;
+	BOOL forceUpdate;
 	
     // geometry
 	float lineHeight;
@@ -153,7 +153,6 @@ typedef struct
 - (void) setCharWidth: (float) width;
 
 - (void) refresh;
-- (BOOL) resized;
 - (void) showCursor;
 - (void) hideCursor;
 
@@ -197,7 +196,6 @@ typedef struct
 - (long)conversationIdentifier;
 - (NSRect)firstRectForCharacterRange:(NSRange)theRange;
 
-- (void)compactCache;
 - (void)resetCharCache;
 
 @end

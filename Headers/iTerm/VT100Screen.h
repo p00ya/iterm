@@ -73,8 +73,7 @@
 	
 	int		bufferWrapped, lastBufferLineIndex;
 	
-	unichar *tempBuffer;
-	unichar sc[300]; 
+	char *tempBuffer;
 }
 
 + (void)setPlayBellFlag:(BOOL)flag;
