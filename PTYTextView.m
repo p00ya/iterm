@@ -200,17 +200,14 @@
     NSLog(@"%s(%d):-[PTYTextView insertText:%@]",
 	  __FILE__, __LINE__, aString);
 #endif
-    if(!deadkey)
-    {
-	NSTextStorage *storage = [self textStorage];
+    NSTextStorage *storage = [self textStorage];
 
-	IM_INPUT_INSERT = YES;
+    IM_INPUT_INSERT = YES;
 
-	[storage beginEditing];
-	[storage deleteCharactersInRange:[self markedRange]];
-	[storage endEditing];
-	IM_INPUT_MARKEDRANGE = NSMakeRange(0, 0);
-    }
+    [storage beginEditing];
+    [storage deleteCharactersInRange:[self markedRange]];
+    [storage endEditing];
+    IM_INPUT_MARKEDRANGE = NSMakeRange(0, 0);
 
     if ([delegate respondsToSelector:@selector(insertText:)])
 	[delegate insertText:aString];
