@@ -807,8 +807,8 @@ static NSString *ConfigToolbarItem = @"Config";
     [CONFIG_NAEXAMPLE setStringValue:[NSString stringWithFormat:@"%@ %g", [configNAFont fontName], [configNAFont pointSize]]];
     [CONFIG_NAEXAMPLE setTextColor:[TERMINAL defaultFGColor]];
     [CONFIG_NAEXAMPLE setBackgroundColor:[TERMINAL defaultBGColor]];
-    [CONFIG_COL setIntValue:[SCREEN width]];
-    [CONFIG_ROW setIntValue:[SCREEN height]];
+    [CONFIG_COL setIntValue:WIDTH];
+    [CONFIG_ROW setIntValue:HEIGHT];
     [CONFIG_NAME setStringValue:[self currentSessionName]];
     [CONFIG_ENCODING removeAllItems];
     r=0;
@@ -881,7 +881,9 @@ static NSString *ConfigToolbarItem = @"Config";
             [self setAllFont:configFont nafont:configNAFont];
         }
 
-        [self resizeWindow:[CONFIG_COL intValue] height:[CONFIG_ROW intValue]];
+        // resiz the window if asked for
+        if((WIDTH != [CONFIG_COL intValue]) || (HEIGHT != [CONFIG_ROW intValue]))
+            [self resizeWindow:[CONFIG_COL intValue] height:[CONFIG_ROW intValue]];
         if(([pref transparency] != (100-[[TERMINAL defaultBGColor] alphaComponent]*100)) || 
             ([TERMINAL defaultFGColor] != [CONFIG_FOREGROUND color]) || 
             ([TERMINAL defaultBGColor] != [CONFIG_BACKGROUND color]))
