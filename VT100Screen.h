@@ -63,7 +63,8 @@
     unsigned int  TOP_LINE;
     unsigned int  scrollbackLines;
     int OLD_CURSOR_INDEX;
-    int screenLock;
+    NSLock *screenLock;
+    BOOL screenIsLocked;
     BOOL blinkingCursor;
     BOOL showBlinkingCursor;
 
@@ -165,7 +166,7 @@
 - (void) setScreenAttributes;
 - (void) setScreenLock;
 - (void) removeScreenLock;
-- (int) screenLock;
+- (BOOL) screenIsLocked;
 
 - (NSAttributedString *)attrString:(NSString *)str ascii:(BOOL)asc;
 - (NSAttributedString *)defaultAttrString:(NSString *)str;
