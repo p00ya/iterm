@@ -1544,10 +1544,13 @@ static NSString *ConfigToolbarItem = @"Config";
     if((theEvent == nil) || (theMenu == nil))
 	return;
 
-    [theMenu addItem: [NSMenuItem separatorItem]];
-
     windowPoint = [WINDOW convertScreenToBase: [NSEvent mouseLocation]];
     localPoint = [TABVIEW convertPoint: windowPoint fromView: nil];
+
+    if([TABVIEW tabViewItemAtPoint:localPoint] == nil)
+	return;
+
+    [theMenu addItem: [NSMenuItem separatorItem]];
 
     // add tasks
     aMenuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedStringFromTableInBundle(@"Close",@"iTerm", [NSBundle bundleForClass: [self class]], @"Close Session") action:@selector(closeTabContextualMenuAction:) keyEquivalent:@""];
