@@ -718,7 +718,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
         [[session TEXTVIEW]  setFont:font];
 #endif
         [[session SCREEN]  setFont:font nafont:nafont];
-		[[session SCREEN] forceUpdateScreen];
 	
     }
     [FONT autorelease];
