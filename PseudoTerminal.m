@@ -961,6 +961,7 @@ static NSDictionary *deadStateAttribute;
     [itemIdentifiers addObject: NSToolbarSeparatorItemIdentifier];
     [itemIdentifiers addObject: NSToolbarCustomizeToolbarItemIdentifier];
     [itemIdentifiers addObject: CloseToolbarItem];
+    [itemIdentifiers addObject: NSToolbarFlexibleSpaceItemIdentifier];
     [itemIdentifiers addObject: ABToolbarItem];
 
     return itemIdentifiers;
