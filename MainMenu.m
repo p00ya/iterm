@@ -268,15 +268,6 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
     return s;
 }
 
-// this message is called when the user double-clicks on a row in the table
-- (void)tableView:(NSTableView*)table  setObjectValue:(id)object
-                                       forTableColumn:(NSTableColumn*)col
-                                                  row:(int)rowIndex
-{
-    [self saveAddressBook];
-    [NSApp stopModal];
-}
-
 
 /// About window
 
