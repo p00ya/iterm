@@ -66,7 +66,7 @@ static NSString *ConfigToolbarItem = @"Config";
     if ([NSBundle loadNibNamed:NIB_PATH owner:term] == NO)
 	return nil;
     // save up to 10 window positions
-    if(windowCount++ < 11)
+    if(windowCount++ < 10)
     {
 	[[term window] setFrameAutosaveName: [NSString stringWithFormat: @"iTerm Window %d", windowCount]];
     }
