@@ -2143,11 +2143,14 @@ static BOOL PLAYBELL = YES;
     for(;n>0;n--) {
 #if DEBUG_USE_BUFFER
         idx=[self getIndexAtX:0 Y:CURSOR_Y withPadding:YES];
-	if(idx < 0)
-	    idx = [BUFFER length] - 1;
         idx2=[self getIndexAtX:0 Y:CURSOR_Y+1 withPadding:YES];
-	if(idx2 < 0)
+	if(idx < 0 || idx >= [BUFFER length])
+	    idx = [BUFFER length] - 1;
+	if(idx2 < 0 || idx >= [BUFFER length])
+	{
+	    idx--; // include the last '\n' in the buffer
 	    idx2 = [BUFFER length];
+	}
 	//NSLog(@"idx = %d; idx2 = %d", idx, idx2);
         aRange = NSMakeRange(idx, idx2-idx);
         if(aRange.length <= 0)
