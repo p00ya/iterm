@@ -821,6 +821,8 @@ static NSString *ConfigToolbarItem = @"Config";
 	  __FILE__, __LINE__, aNotification);
 #endif
 
+    [self selectSession: [self currentSessionIndex]];
+    
     [MAINMENU setFrontPseudoTerminal: self];
 
     // update the cursor
