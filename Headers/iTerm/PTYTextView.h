@@ -125,6 +125,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 	NSTrackingRectTag trackingRectTag;
 	
 	BOOL keyIsARepeat;
+	
 }
 
 - (id)initWithFrame: (NSRect) aRect;
