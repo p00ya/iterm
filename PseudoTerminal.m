@@ -882,8 +882,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     // update the cursor
     [[currentPtySession SCREEN] showCursor];
 
-    [[self mainMenu] setFrontPseudoTerminal: nil];
-
 }
 
 - (void)windowDidResignMain:(NSNotification *)aNotification

@@ -646,7 +646,9 @@ static NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDiction
 - (void) terminalWillClose: (PseudoTerminal *) theTerminalWindow
 {
     if(FRONT == theTerminalWindow)
-        FRONT = nil;
+    {
+	[self setFrontPseudoTerminal: nil];
+    }
     if(theTerminalWindow)
     {
         [terminalWindows removeObject: theTerminalWindow];
