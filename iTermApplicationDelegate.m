@@ -461,7 +461,7 @@ static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Script
 
 @implementation iTermApplicationDelegate (Find_Actions)
 
-- (IBAction) showFindPanel: (id) sender;
+- (IBAction) showFindPanel: (id) sender
 {
     [[FindPanelWindowController sharedInstance] showWindow:self];
 }
