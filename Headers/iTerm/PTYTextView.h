@@ -38,7 +38,7 @@
 typedef struct 
 {
 	unichar code;
-	unsigned char color;
+	unsigned int color;
 	NSImage *image;
 	int count;
 } CharCache;
