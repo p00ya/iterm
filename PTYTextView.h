@@ -31,6 +31,7 @@
 #import <Cocoa/Cocoa.h>
 #import "iTerm.h"
 #import "VT100Screen.h"
+#import "PTYSession.h"
 
 #if USE_CUSTOM_DRAWING
 @interface PTYTextView : NSView <NSTextInput>
@@ -63,7 +64,7 @@
     float lineWidth;
 
     NSDictionary *markedTextAttributes;
-    NSColor *selectionColor;
+    NSDictionary *selectionTextAttributes;
     NSColor *bgColor;
     NSFont *font;
     NSFont *nafont;
@@ -74,7 +75,7 @@
     id _delegate;
 
     //selection
-    int startIndex, endIndex;
+    int startIndex, startY, endIndex, endY;
     
 }
 
@@ -87,7 +88,6 @@
 - (void)mouseDown:(NSEvent *)event;
 - (void)mouseUp:(NSEvent *)event;
 - (void)mouseDragged:(NSEvent *)event;
-- (void)otherMouseDown:(NSEvent *)theEvent;
 - (void)copy: (id) sender;
 - (void)paste:(id)sender;
 - (BOOL)validateMenuItem:(NSMenuItem *)item;
