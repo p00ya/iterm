@@ -85,7 +85,7 @@
 - (void)setString:(NSString *)s;
 - (void)setStringToX:(int)x
                    Y:(int)y
-                     string:(NSString *)string;
+              string:(NSString *)string;
 - (void)setStringSpaceToX:(int)x Y:(int)y length:(int)len;
 - (void)setNewLine;
 - (void)deleteCharacters:(int)n;

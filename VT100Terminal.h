@@ -34,8 +34,9 @@
 #define VT100_WAIT        	1000
 #define VT100_NOTSUPPORT  	1001
 #define VT100_SKIP        	1002
-#define VT100_STRING      	1003       // ascii string
+#define VT100_STRING      	1003       // string
 #define VT100_UNKNOWNCHAR 	1004
+
 #define VT100CSI_DECSET		1005
 #define VT100CSI_DECRST		1006
 
