@@ -261,10 +261,18 @@ typedef struct
 
 - (void) _scrollToLine:(int)line;
 - (void) _selectFromX:(int)startx Y:(int)starty toX:(int)endx Y:(int)endy;
+- (NSString *) _getWordForX: (int) x 
+					y: (int) y 
+			   startX: (int *) startx 
+			   startY: (int *) starty 
+				 endX: (int *) endx 
+				 endY: (int *) endy;
 
 - (void) _renderChar:(NSImage *)image withChar:(unichar) carac withColor:(NSColor*)color withFont:(NSFont*)aFont bold:(int)bold;
 - (NSImage *) _getCharImage:(unichar) code color:(int)fg doubleWidth:(BOOL) dw;
 - (void) _drawCharacter:(unichar)c fgColor:(int)fg AtX:(float)X Y:(float)Y doubleWidth:(BOOL) dw;
+- (BOOL) _isBlankLine: (int) y;
+- (void) _openURL: (NSString *) aURLString;
 
 @end
 
