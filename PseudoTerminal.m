@@ -833,7 +833,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     {
         PTYSession* session = [_sessionMgr sessionAtIndex:i];
         [[session TEXTVIEW]  setFont:FONT nafont:NAFONT];
-		NSLog(@"char width = %f; height = %f", charWidth, charHeight);
 		[[session TEXTVIEW] setCharWidth: charWidth];
 		[[session TEXTVIEW] setLineHeight: charHeight];
 		[[self window] setResizeIncrements: NSMakeSize(charWidth, charHeight)];

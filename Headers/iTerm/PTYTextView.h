@@ -80,6 +80,7 @@ typedef struct
 	float lineHeight;
     float lineWidth;
 	float charWidth;
+	float charWidthWithoutSpacing, charHeightWithoutSpacing;
 	int numberOfLines;
     
     NSFont *font;
