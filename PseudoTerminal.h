@@ -103,7 +103,9 @@
 - (void)startProgram:(NSString *)program;
 - (void)startProgram:(NSString *)program
            arguments:(NSArray *)prog_argv;
-
+- (void)startProgram:(NSString *)program
+                  arguments:(NSArray *)prog_argv
+                environment:(NSDictionary *)prog_env;
 - (void)setWindowSize;
 - (void)setWindowTitle;
 - (void)setWindowTitle: (NSString *)title;

@@ -88,7 +88,6 @@
 - (IBAction)adEditForeground:(id)sender;
 - (IBAction)adEditOK:(id)sender;
 - (void)changeFont:(id)fontManager;
-- (NSPanel *)aePanel;
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 // About window
 - (IBAction)showAbout:(id)sender;
@@ -102,6 +101,7 @@
 - (PseudoTerminal *) frontPseudoTerminal;
 - (void) addTerminalWindow: (PseudoTerminal *) theTerminalWindow;
 - (void) removeTerminalWindow: (PseudoTerminal *) theTerminalWindow;
+- (NSStringEncoding*) encodingList;
 
 // Preference Panel
 - (IBAction)showPrefWindow:(id)sender;
