@@ -1364,32 +1364,22 @@ static NSString *PWD_ENVVALUE = @"~";
 
 - (float) transparency
 {
-    if([imageView image] != nil)
-    {
-	return ([imageView transparency]);
-    }
-    else
-    {
-	return (1 - [[TERMINAL defaultBGColor] alphaComponent]);
-    }
+    return (1 - [[TERMINAL defaultBGColor] alphaComponent]);
 }
 
 - (void)setTransparency:(float)transparency
 {
     NSColor *newcolor;
 
-    if([imageView image] != nil)
+    // set transparency of background image
+    [imageView setTransparency: transparency];
+
+    // set alpha channel of background color
+    newcolor = [[TERMINAL defaultBGColor] colorWithAlphaComponent:(1 - transparency)];
+    if (newcolor != nil && newcolor != [TERMINAL defaultBGColor])
     {
-	[imageView setTransparency: transparency];
-    }
-    else
-    {
-	newcolor = [[TERMINAL defaultBGColor] colorWithAlphaComponent:(1 - transparency)];
-	if (newcolor != nil && newcolor != [TERMINAL defaultBGColor])
-	{
-	    [self setBackgroundColor: newcolor];
-	    [TEXTVIEW setNeedsDisplay: YES];
-	}
+	[self setBackgroundColor: newcolor];
+	[TEXTVIEW setNeedsDisplay: YES];
     }
 }
 
