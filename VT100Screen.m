@@ -325,16 +325,6 @@ static BOOL PLAYBELL = YES;
     return HEIGHT;
 }
 
-- (NSWindow*) window
-{
-    return WINDOW;
-}
-
-- (void)setWindow:(NSWindow*)window
-{
-    WINDOW=window;
-}
-
 - (void)setSession:(PTYSession *)session
 {
     SESSION=session;
@@ -695,7 +685,7 @@ static BOOL PLAYBELL = YES;
         if (token.type==XTERMCC_WIN_TITLE||token.type==XTERMCC_WINICON_TITLE) 
         {
             if([[SESSION parent] currentSession] == SESSION)
-                [WINDOW setTitle:token.u.string];
+                [[[SESSION parent] window] setTitle:token.u.string];
             [SESSION setName: token.u.string];
         }
         if (token.type==XTERMCC_ICON_TITLE||token.type==XTERMCC_WINICON_TITLE) [SESSION setName:token.u.string];
@@ -1300,7 +1290,7 @@ static BOOL PLAYBELL = YES;
         }
         // reverse the video on the position where the cursor is supposed to be shown.
         dic=[NSMutableDictionary dictionaryWithDictionary: [STORAGE attributesAtIndex:idx effectiveRange:nil]];
-	if([[self window] isKeyWindow] == YES)
+	if([[[SESSION parent] window] isKeyWindow] == YES)
 	{
 	    [dic setObject:[TERMINAL defaultFGColor] forKey:NSBackgroundColorAttributeName];
 	    [dic setObject:[TERMINAL defaultBGColor] forKey:NSForegroundColorAttributeName];

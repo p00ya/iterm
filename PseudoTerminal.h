@@ -85,6 +85,7 @@
     PreferencePanel *pref;
     BOOL tabViewDragOperationInProgress;
     BOOL resizeInProgress;
+    BOOL windowInited;
 }
 
 - (void) newSession: (id) sender;
@@ -209,6 +210,9 @@
 -(void)insertInSessions:(PTYSession *)object;
 -(void)insertInSessions:(PTYSession *)object atIndex:(unsigned)index;
 -(void)removeFromSessionsAtIndex:(unsigned)index;
+
+- (BOOL)windowInited;
+- (void) setWindowInited: (BOOL) flag;
 
 // a class method to provide the keys for KVC:
 +(NSArray*)kvcKeys;

@@ -53,7 +53,7 @@
     VT100Terminal *TERMINAL;
     PTYTask *SHELL;
     PTYSession *SESSION;
-    NSWindow *WINDOW;
+    //NSWindow *WINDOW;
     int charset[4], saveCharset[4];
     NSMutableAttributedString *BUFFER;
     int updateIndex, minIndex;
@@ -92,8 +92,6 @@
 - (VT100Terminal *)terminal;
 - (void)setShellTask:(PTYTask *)shell;
 - (PTYTask *)shellTask;
-- (NSWindow *) window;
-- (void)setWindow:(NSWindow *)window;
 - (void)setSession:(PTYSession *)session;
 
 - (void)setTextStorage:(NSTextStorage *)storage;

@@ -750,10 +750,13 @@ NSString *terminalsKey = @"terminals";
     if([terminalWindows containsObject: object] == YES)
 	return;
     [object setPreference:PREF_PANEL];
-    [object initWindow:[PREF_PANEL col]
-              height:[PREF_PANEL row]
-                font:[PREF_PANEL font]
-              nafont:[PREF_PANEL nafont]];
+    if([object windowInited] == NO)
+    {
+	[object initWindow:[PREF_PANEL col]
+	     height:[PREF_PANEL row]
+	       font:[PREF_PANEL font]
+	     nafont:[PREF_PANEL nafont]];
+    }
     [terminalWindows insertObject: object atIndex: index];
 }
 
