@@ -125,7 +125,7 @@ static BOOL editingBookmark = NO;
 			    
 	[[self window] setDelegate: self]; // also forces window to load
 	
-	[tabPosition selectCellWithTag: defaultTabViewType];
+	[tabPosition selectItemAtIndex: defaultTabViewType];
     [selectionCopiesText setState:defaultCopySelection?NSOnState:NSOffState];
     [hideTab setState:defaultHideTab?NSOnState:NSOffState];
     [promptOnClose setState:defaultPromptOnClose?NSOnState:NSOffState];
@@ -145,7 +145,7 @@ static BOOL editingBookmark = NO;
 - (IBAction)ok:(id)sender
 {    
 
-    defaultTabViewType=[[tabPosition selectedCell] tag];
+    defaultTabViewType=[tabPosition indexOfSelectedItem];
     defaultCopySelection=([selectionCopiesText state]==NSOnState);
     defaultHideTab=([hideTab state]==NSOnState);
     defaultPromptOnClose = ([promptOnClose state] == NSOnState);
