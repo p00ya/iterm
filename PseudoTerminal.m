@@ -671,8 +671,7 @@ static int windowCount = 0;
     [thisWindow setContentSize:winSize];
 
     [thisWindow setFrameTopLeftPoint: topLeft];
-    
-    
+
 }
 
 
@@ -935,7 +934,9 @@ static int windowCount = 0;
 
     //NSLog(@"Didresize: w = %d, h = %d; frame.size.width = %f, frame.size.height = %f",WIDTH,HEIGHT, [WINDOW frame].size.width, [WINDOW frame].size.height);
 
-
+    
+    resizeInProgress = NO;
+    
 }
 
 
