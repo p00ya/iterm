@@ -803,9 +803,9 @@ static BOOL PLAYBELL = YES;
 				memset(dirty+screenIdx+CURSOR_X,1,WIDTH-CURSOR_X);
 			}
 		}
-		memcpy(screenLines+screenIdx+CURSOR_X,buffer+idx,j*sizeof(unichar));
-		memset(screenFGColor+screenIdx+CURSOR_X,[TERMINAL foregroundColorCode],j);
-		memset(screenBGColor+screenIdx+CURSOR_X,[TERMINAL backgroundColorCode],j);
+		memcpy(screenLines + screenIdx + CURSOR_X, buffer + idx, j * sizeof(unichar));
+		memset(screenFGColor + screenIdx + CURSOR_X, [TERMINAL foregroundColorCode], j);
+		memset(screenBGColor + screenIdx + CURSOR_X, [TERMINAL backgroundColorCode], j);
 		memset(dirty+screenIdx+CURSOR_X,1,j);
 		
 		CURSOR_X = newx;
