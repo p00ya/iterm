@@ -116,12 +116,7 @@ static int writep(int fds, char *buf, size_t len)
 	if (sts == 0) {
 	    NSLog(@"Write timeout!");
 	    break;
-	}
-	else if (FD_ISSET(fds, &efds)) {
-	    NSLog(@"Write error!");
-	    break;
-	}
-	
+	}	
 
 	if(wrtlen > 1024)
 	    chunk = 1024;
