@@ -1793,6 +1793,13 @@
 //        NSLog(@"selected range:%d",[self selectedRange].length);
 	return ([self selectedRange].length>0);
     }
+    else if ([item action] == @selector(printSelection:))
+    {
+	if([self selectedRange].length <= 0)
+	    return (NO);
+	else
+	    return (YES);
+    }
     else
         return [super validateMenuItem:item];
 }
@@ -1835,6 +1842,17 @@
 			action:@selector(paste:) keyEquivalent:@""];
     [cMenu addItemWithTitle:NSLocalizedStringFromTableInBundle(@"Save",@"iTerm", [NSBundle bundleForClass: [self class]], @"Context menu")
 			action:@selector(saveDocumentAs:) keyEquivalent:@""];
+
+    // Separator
+    [cMenu addItem:[NSMenuItem separatorItem]];
+
+    // Print
+    [cMenu addItemWithTitle:NSLocalizedStringFromTableInBundle(@"Print...",@"iTerm", [NSBundle bundleForClass: [self class]], @"Context menu")
+					  action:@selector(print:) keyEquivalent:@""];
+    [cMenu addItemWithTitle:NSLocalizedStringFromTableInBundle(@"Print Selection...",@"iTerm", [NSBundle bundleForClass: [self class]], @"Context menu")
+							action:@selector(printSelection:) keyEquivalent:@""];
+
+
 
     // Separator
     [cMenu addItem:[NSMenuItem separatorItem]];
