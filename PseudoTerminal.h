@@ -141,6 +141,9 @@
 - (NSArray *) toolbarDefaultItemIdentifiers: (NSToolbar *) toolbar;
 - (NSToolbarItem *) toolbar: (NSToolbar *)toolbar itemForItemIdentifier: (NSString *) itemIdent willBeInsertedIntoToolbar: (BOOL) willBeInserted;
 
+// Contextual menu
+- (void) menuForEvent:(NSEvent *)theEvent menu: (NSMenu *) theMenu;
+
 // Close Window
 - (BOOL)showCloseWindow;
 
@@ -170,6 +173,8 @@
 - (void) _addressbookPopupSelectionDidChange: (id) sender;
 - (void) _buildAddressBookMenu: (NSPopUpButton *) aPopUpButton;
 - (void) _reloadAddressBookMenu: (NSNotification *) aNotification;
+- (void) _executeABMenuCommand: (id) sender;
+- (void) _executeABMenuCommand: (int) commandIndex newWindow: (BOOL) theFlag;
 - (void) _sessionPopupSelectionDidChange: (id) sender;
 
 

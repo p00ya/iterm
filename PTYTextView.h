@@ -12,7 +12,6 @@
 
 @interface PTYTextView : NSTextView
 {
-    NSMenu *cMenu;
     
     BOOL IM_INPUT_INSERT;
     NSRange IM_INPUT_SELRANGE;
