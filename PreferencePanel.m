@@ -183,8 +183,8 @@ static BOOL editingBookmark = NO;
 
 - (IBAction)cancel:(id)sender
 {
-    [self readPreferences];
 	[[self window] performClose: self];
+	[self readPreferences];
 }
 
 - (IBAction)ok:(id)sender
