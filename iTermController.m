@@ -355,7 +355,7 @@ static BOOL usingAutoLaunchScript = NO;
     {
 	shortcut=([[abEntry objectForKey:@"Shortcut"] intValue]? [NSString stringWithFormat:@"%c",[[abEntry objectForKey:@"Shortcut"] intValue]]:@"");
 	shortcut = [shortcut lowercaseString];
-	mask = NSCommandKeyMask | NSAlternateKeyMask;
+	mask = NSCommandKeyMask | NSControlKeyMask;
 	if(target == nil)
 	    mask |= NSShiftKeyMask;	
 	if(isDefaultEntry(abEntry))
