@@ -1577,16 +1577,6 @@ static VT100TCC decode_string(unsigned char *datap,
     return (theData);
 }
 
-- (void) toggleNumLock
-{
-    numLock = !numLock;
-}
-
-- (BOOL) numLock
-{
-    return (numLock);
-}
-
 - (NSData *) keypadData: (unichar) unicode keystr: (NSString *) keystr
 {
     NSData *theData = nil;

@@ -283,9 +283,6 @@ typedef enum {
 - (VT100TCC)getNextToken;
 - (void)printToken: (VT100TCC) token;
 
-- (void)toggleNumLock;
-- (BOOL)numLock;
-
 - (NSData *)keyArrowUp:(unsigned int)modflag;
 - (NSData *)keyArrowDown:(unsigned int)modflag;
 - (NSData *)keyArrowLeft:(unsigned int)modflag;
