@@ -214,6 +214,11 @@ static float versionNumber;
     return (defaultSilenceBell);
 }
 
+- (void) setTabViewType: (NSTabViewType) type
+{
+    defaultTabViewType = type;
+}
+
 - (NSTabViewType) tabViewType
 {
     return (defaultTabViewType);
