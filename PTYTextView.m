@@ -410,7 +410,6 @@ static SInt32 systemVersion;
     [nafont release];
     [naFont retain];
     nafont=naFont;
-	[self setNeedsDisplay: YES];
     [self setMarkedTextAttributes:
         [NSDictionary dictionaryWithObjectsAndKeys:
             [NSColor yellowColor], NSBackgroundColorAttributeName,
@@ -419,6 +418,8 @@ static SInt32 systemVersion;
             [NSNumber numberWithInt:2],NSUnderlineStyleAttributeName,
             NULL]];
 	[self resetCharCache];
+	forceUpdate = YES;
+	[self setNeedsDisplay: YES];
 }
 
 - (void) resetCharCache
