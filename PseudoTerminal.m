@@ -31,7 +31,6 @@
 // Debug option
 #define DEBUG_ALLOC           0
 #define DEBUG_METHOD_TRACE    0
-#define DEBUG_KEYDOWNDUMP     0
 
 #import <iTerm/iTerm.h>
 #import <iTerm/PseudoTerminal.h>

@@ -52,7 +52,7 @@
 	{
 		modflag = [anEvent modifierFlags];
 		unmodkeystr = [anEvent charactersIgnoringModifiers];
-		unmodunicode = [unmodkeystr length]>0?[unmodkeystr characterAtIndex:0]:0;			
+		unmodunicode = [unmodkeystr length]>0?[unmodkeystr characterAtIndex:0]:0;	
 	}
 	
 	if([anEvent type] == NSKeyDown && (([anEvent modifierFlags] & NSCommandKeyMask) || (unmodunicode == NSHelpFunctionKey)))
