@@ -234,6 +234,8 @@ typedef struct {
 - (NSData *)keyPageUp;
 - (NSData *)keyPageDown;
 - (NSData *)keyFunction:(int)no;
+- (NSData *)keyPFn: (int) n;
+- (NSData *)keypadData: (unichar) unicode keystr: (NSString *) keystr;
 
 - (BOOL)lineMode;
 - (BOOL)cursorMode;
