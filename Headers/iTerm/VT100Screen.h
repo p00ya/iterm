@@ -70,7 +70,7 @@
     NSLock *screenLock;
     BOOL screenIsLocked;
     BOOL blinkingCursor;
-
+    NSMutableAttributedString *newLineString;
     NSView *display;
 
 }
