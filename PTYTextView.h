@@ -151,6 +151,7 @@
 
     // Save method
 - (void) saveDocumentAs: (id) sender;
+- (void) print:(id)sender;
 
     // NSTextInput
 - (void)insertText:(id)aString;
