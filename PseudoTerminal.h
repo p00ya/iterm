@@ -62,11 +62,8 @@
     IBOutlet id CONFIG_SELECTION;
     
     // anti-idle
-    IBOutlet id AI_PANEL;
     IBOutlet id AI_CODE;
     IBOutlet id AI_ON;
-    IBOutlet id WA_ON;
-    IBOutlet id OA_ON;
     char ai_code;
 
        
