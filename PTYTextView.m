@@ -1926,12 +1926,13 @@ static SInt32 systemVersion;
 	NSAttributedString  *crap;
 	NSDictionary *attrib;
 		
+	//NSLog(@"%@",NSStrokeWidthAttributeName);
 	if (systemVersion >= 0x00001030)
 	{
 		attrib=[NSDictionary dictionaryWithObjectsAndKeys:
 			aFont, NSFontAttributeName,
 			color, NSForegroundColorAttributeName,
-			[NSNumber numberWithFloat: (float)bold*(-0.1)], NSStrokeWidthAttributeName,
+			[NSNumber numberWithFloat: (float)bold*(-0.1)], @"NSStrokeWidth",
 			nil];
 	}
 	else
