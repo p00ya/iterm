@@ -1636,6 +1636,9 @@ static VT100TCC decode_string(unsigned char *datap,
 	case 0x03:
 	    theData = [NSData dataWithBytes:ALT_KP_ENTER length:conststr_sizeof(ALT_KP_ENTER)];
 	    break;
+	default:
+	    theData = [keystr dataUsingEncoding:NSUTF8StringEncoding];
+	    break;	    
     }
 
     return (theData);
