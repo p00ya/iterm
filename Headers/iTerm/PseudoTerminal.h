@@ -132,6 +132,11 @@
 - (void) closeTabContextualMenuAction: (id) sender;
 - (void) moveTabToNewWindowContextualMenuAction: (id) sender;
 
+// Profiles
+- (IBAction) saveDisplayProfile: (id) sender;
+- (IBAction) saveTerminalProfile: (id) sender;
+
+
 @end
 
 @interface PseudoTerminal (KeyValueCoding)
