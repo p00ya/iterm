@@ -33,8 +33,7 @@
 #define DEBUG_METHOD_TRACE    0
 #define DEBUG_KEYDOWNDUMP     0
 
-#define USE_CUSTOM_DRAWING	0
-
+#import "iTerm.h"
 #import "PseudoTerminal.h"
 #import "PTYScrollView.h"
 #import "NSStringITerm.h"
@@ -1502,6 +1501,7 @@ static NSString *ConfigToolbarItem = @"Config";
 	}
 	else
 	{
+	    [TABVIEW setTabViewType: [pref tabViewType]];
 	    [self setWindowSize: NO];
 	}
 

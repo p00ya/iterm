@@ -32,9 +32,7 @@
 #define DEBUG_ALLOC           0
 #define DEBUG_METHOD_TRACE    0
 
-#define DEBUG_USE_BUFFER	1
-#define DEBUG_USE_ARRAY		0
-
+#import "iTerm.h"
 #import "VT100Screen.h"
 #import "NSStringITerm.h"
 #import "PseudoTerminal.h"
