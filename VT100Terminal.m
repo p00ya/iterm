@@ -382,6 +382,12 @@ static VT100TCC decode_csi(unsigned char *datap,
                     SET_PARAM_DEFAULT(param,0,1);
                     break;
 
+		// ANSI
+		case 'G':
+		    result.type = ANSICSI_CHA;
+		    SET_PARAM_DEFAULT(param,0,1);
+		    break;
+
                 default:
                     result.type = VT100_NOTSUPPORT;
                     break;

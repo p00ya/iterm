@@ -100,6 +100,7 @@
 - (void)cursorRight:(int)n;
 - (void)cursorUp:(int)n;
 - (void)cursorDown:(int)n;
+- (void) cursorToX: (int) x;
 - (void)cursorToX:(int)x Y:(int)y; 
 - (void)saveCursorPosition;
 - (void)restoreCursorPosition;

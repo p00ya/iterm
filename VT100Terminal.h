@@ -90,6 +90,9 @@
 #define XTERMCC_DELCH	     89       // delete blank
 #define XTERMCC_DELLN	     90	      // delete lines
 
+// Some ansi stuff
+#define ANSICSI_CHA		3000	// Cursor Horizontal Absolute
+
 #define VT100CSIPARAM_MAX    16
 
 typedef struct {

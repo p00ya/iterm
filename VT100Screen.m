@@ -533,7 +533,12 @@ static BOOL PLAYBELL = YES;
             [STORAGE beginEditing];
         }
         break;
-        
+
+    // ANSI CSI
+    case ANSICSI_CHA:
+        [self cursorToX: token.u.csi.p[0]];
+	break;
+	
     // XTERM extensions
     case XTERMCC_WIN_TITLE:
     case XTERMCC_WINICON_TITLE:
@@ -1102,6 +1107,23 @@ static BOOL PLAYBELL = YES;
     [self getIndex:CURSOR_X y:CURSOR_Y];
 //    if (CURSOR_IN_MIDDLE) CURSOR_X--;
 */
+}
+
+- (void) cursorToX: (int) x
+{
+    int x_pos;
+    
+#if DEBUG_METHOD_TRACE
+    NSLog(@"%s(%d):-[VT100Screen cursorToX:%d]",
+	  __FILE__, __LINE__, x);
+#endif
+    x_pos = (x-1);
+
+    if (x >= 0 && x < WIDTH)
+	CURSOR_X = x_pos;
+    else
+	NSLog(@"cursorToX: out of bound:(%d)",x);
+	
 }
 
 - (void)cursorToX:(int)x Y:(int)y
