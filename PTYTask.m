@@ -42,7 +42,7 @@
 #import <sys/wait.h>
 #import <sys/time.h>
 
-#import "PTYTask.h"
+#import <iTerm/PTYTask.h>
 
 @implementation PTYTask
 

@@ -28,9 +28,10 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "VT100Terminal.h"
-#import "PTYTask.h"
-#import "PTYSession.h"
+#import <iTerm/VT100Terminal.h>
+
+@class PTYTask;
+@class PTYSession;
 
 #define TABWINDOW	300
 

@@ -31,11 +31,13 @@
 #define DEBUG_METHOD_TRACE    0
 #define GREED_KEYDOWN         1
 
-#import "iTerm.h"
-#import "PTYTextView.h"
-#import "PTYSession.h"
-#import "PseudoTerminal.h"
-#import "FindPanelWindowController.h"
+#import <iTerm/iTerm.h>
+#import <iTerm/PTYTextView.h>
+#import <iTerm/PTYSession.h>
+#import <iTerm/VT100Screen.h>
+#import <iTerm/PseudoTerminal.h>
+#import <iTerm/FindPanelWindowController.h>
+#import <iTerm/PreferencePanel.h>
 
 #if USE_CUSTOM_DRAWING
 @implementation PTYTextView

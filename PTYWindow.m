@@ -29,7 +29,7 @@
  */
 
 
-#import "PTYWindow.h"
+#import <iTerm/PTYWindow.h>
 
 #define DEBUG_METHOD_TRACE	0
 

@@ -31,8 +31,8 @@
 #define DEBUG_ALLOC           0
 #define DEBUG_METHOD_TRACE    0
 
-#import "PTYScrollView.h"
-#import "PTYTextView.h"
+#import <iTerm/PTYScrollView.h>
+#import <iTerm/PTYTextView.h>
 
 @implementation PTYScrollView
 

@@ -27,7 +27,7 @@
  */
 
 #define NSSTRINGJTERMINAL_CLASS_COMPILE
-#import "NSStringITerm.h"
+#import <iTerm/NSStringITerm.h>
 
 
 @implementation NSString (iTerm)

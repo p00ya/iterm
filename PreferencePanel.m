@@ -25,10 +25,10 @@
  **  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#import "PreferencePanel.h"
-#import "NSStringITerm.h"
-#import "AddressBookWindowController.h"
-#import "iTermController.h"
+#import <iTerm/PreferencePanel.h>
+#import <iTerm/NSStringITerm.h>
+#import <iTerm/AddressBookWindowController.h>
+#import <iTerm/iTermController.h>
 
 #define NIB_PATH  @"iTermController"
 

@@ -29,9 +29,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "iTerm.h"
-#import "VT100Screen.h"
-#import "PTYSession.h"
+#import <iTerm/iTerm.h>
 
 #if USE_CUSTOM_DRAWING
 @interface PTYTextView : NSView <NSTextInput>

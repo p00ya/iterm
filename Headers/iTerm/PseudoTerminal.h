@@ -29,15 +29,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "PreferencePanel.h"
-#import "iTermController.h"
-#import "PTYTask.h"
-#import "PTYTextView.h"
-#import "VT100Terminal.h"
-#import "VT100Screen.h"
-#import "PTYSession.h"
+@class PreferencePanel;
 
 @class PTYTabView;
+@class PTYSession;
+@class iTermController;
 
 @interface PseudoTerminal : NSWindowController
 {
