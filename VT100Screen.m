@@ -325,6 +325,7 @@ static BOOL PLAYBELL = YES;
             SCROLL_BOTTOM = HEIGHT - 1;
         }
     }
+    //[[SESSION TEXTVIEW] scrollEnd];
     
 }
 

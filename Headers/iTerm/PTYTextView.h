@@ -229,6 +229,7 @@
 - (void)drawRect:(NSRect)rect;
 - (void)keyDown:(NSEvent *)event;
 - (void)mouseDown:(NSEvent *)theEvent;
+- (void)otherMouseDown:(NSEvent *)theEvent;
 - (void)doCommandBySelector:(SEL)aSelector;
 - (void)insertText:(id)aString;
 - (void)setMarkedText:(id)aString selectedRange:(NSRange)selRange;
