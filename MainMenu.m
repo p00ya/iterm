@@ -408,16 +408,16 @@ static BOOL newWindow=YES;
 
 - (IBAction)adbOk:(id)sender
 {
-    if ([adTable selectedRow]!=-1) {
-        [self saveAddressBook];
-        
-        // Post a notification to all open terminals to reload their addressbooks into the shortcut menu
-        [[NSNotificationCenter defaultCenter]
-        postNotificationName: @"Reload AddressBook"
-        object: nil
-        userInfo: nil];
+    
+    // Save the address book.
+    [self saveAddressBook];
 
-    }
+    // Post a notification to all open terminals to reload their addressbooks into the shortcut menu
+    [[NSNotificationCenter defaultCenter]
+    postNotificationName: @"Reload AddressBook"
+    object: nil
+    userInfo: nil];
+
     [NSApp stopModal];
 
 }
