@@ -29,10 +29,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import <iTerm/PTYTabView.h>
+#import <iTerm/PTYWindow.h>
 
 @class ITSessionMgr, PTYSession, iTermController, PTToolbarController;
 
-@interface PseudoTerminal : NSWindowController <PTYTabViewDelegateProtocol>
+@interface PseudoTerminal : NSWindowController <PTYTabViewDelegateProtocol, PTYWindowDelegateProtocol>
 {
     /// tab view
     PTYTabView *TABVIEW;

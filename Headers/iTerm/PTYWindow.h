@@ -31,6 +31,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol PTYWindowDelegateProtocol
+- (void) windowWillToggleToolbarVisibility: (id) sender;
+- (void) windowDidToggleToolbarVisibility: (id) sender;
+@end
+
+
 @interface PTYWindow : NSWindow 
 
 - initWithContentRect:(NSRect)contentRect 
@@ -38,4 +44,5 @@
 	      backing:(NSBackingStoreType)bufferingType 
 		defer:(BOOL)flag;
 
+- (void)toggleToolbarShown:(id)sender;
 @end

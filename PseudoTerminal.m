@@ -765,6 +765,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     return result;
 }
 
+
+// NSWindow delegate methods
 - (void)windowDidDeminiaturize:(NSNotification *)aNotification
 {
 #if DEBUG_METHOD_TRACE
@@ -877,7 +879,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     // To prevent death by recursion
     if(resizeInProgress == YES)
     {
-	resizeInProgress = NO;
 	return;
     }
 
@@ -917,6 +918,20 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     //NSLog(@"Didresize: w = %d, h = %d; frame.size.width = %f, frame.size.height = %f",WIDTH,HEIGHT, [[self window] frame].size.width, [[self window] frame].size.height);
     resizeInProgress = NO;
 }
+
+// PTYWindowDelegateProtocol
+- (void) windowWillToggleToolbarVisibility: (id) sender
+{
+    // prevent any resizing by lying
+    resizeInProgress = YES;
+}
+
+- (void) windowDidToggleToolbarVisibility: (id) sender
+{
+    // allow resizing
+    resizeInProgress = NO;
+}
+
 
 // Close Window
 - (BOOL)showCloseWindow
