@@ -212,6 +212,12 @@ static BOOL usingAutoLaunchScript = NO;
     [self launchBookmark:[sender representedObject] inTerminal:nil];
 }
 
+// meant for action for menu items that have a submenu
+- (void) noAction: (id) sender
+{
+	
+}
+
 - (IBAction)newSession:(id)sender
 {
     [self launchBookmark:nil inTerminal: FRONT];
@@ -556,6 +562,8 @@ NSString *terminalsKey = @"terminals";
 		{
 			subMenu = [self _menuForNode: childNode action: aSelector target: aTarget withShortcuts: withShortcuts];
 			[aMenuItem setSubmenu: subMenu];
+			[aMenuItem setAction: @selector(noAction:)];
+			[aMenuItem setTarget: self];
 		}
 		else
 		{
