@@ -1058,14 +1058,12 @@ static NSString *ConfigToolbarItem = @"Config";
 
 - (IBAction)windowConfigOk:(id)sender
 {
-#if 0 // Not sure why this limit was imposed.
-    if ([CONFIG_COL intValue]>150||[CONFIG_COL intValue]<10||[CONFIG_ROW intValue]>150||[CONFIG_ROW intValue]<3) {
+    if ([CONFIG_COL intValue]<1||[CONFIG_ROW intValue]<1) {
         NSRunAlertPanel(NSLocalizedStringFromTable(@"Wrong Input",@"iTerm",@"wrong input"),
                         NSLocalizedStringFromTable(@"Please enter a valid window size",@"iTerm",@"wrong input"),
                         NSLocalizedStringFromTable(@"OK",@"iTerm",@"OK"),
                         nil,nil);
     }else
-#endif
     if ([AI_CODE intValue]>255||[AI_CODE intValue]<0) {
         NSRunAlertPanel(NSLocalizedStringFromTable(@"Wrong Input",@"iTerm",@"wrong input"),
                         NSLocalizedStringFromTable(@"Please enter a valid code (0~255)",@"iTerm",@"Anti-Idle: wrong input"),

@@ -450,7 +450,7 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
 
 - (IBAction)adEditOK:(id)sender
 {
-    if ([adCol intValue]>150||[adCol intValue]<10||[adRow intValue]>150||[adRow intValue]<3) {
+    if ([adCol intValue]<1||[adRow intValue]<1) {
         NSRunAlertPanel(NSLocalizedStringFromTable(@"Wrong Input",@"iTerm",@"wrong input"),
                         NSLocalizedStringFromTable(@"Please enter a valid window size",@"iTerm",@"wrong input"),
                         NSLocalizedStringFromTable(@"OK",@"iTerm",@"OK"),
