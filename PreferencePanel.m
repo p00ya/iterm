@@ -147,10 +147,14 @@ static int TRANSPARENCY  =10;
     [defaultFont release];                        
     defaultFont=[([prefs objectForKey:@"Font"]?
     [NSUnarchiver unarchiveObjectWithData:[prefs objectForKey:@"Font"]]:FONT) copy];
+    if(defaultFont == nil)
+	defaultFont = [[NSFont userFixedPitchFontOfSize: 12] copy];
                       
     [defaultNAFont release];                        
     defaultNAFont=[([prefs objectForKey:@"NAFont"]?
                    [NSUnarchiver unarchiveObjectWithData:[prefs objectForKey:@"NAFont"]]:FONT) copy];
+    if(defaultNAFont == nil)
+	defaultNAFont = [[NSFont userFixedPitchFontOfSize: 12] copy];
         
     defaultAutoclose=[prefs objectForKey:@"AutoClose"]?[[prefs objectForKey:@"AutoClose"] boolValue]: YES;
     defaultOption=[prefs objectForKey:@"OptionKey"]?[prefs integerForKey:@"OptionKey"]:0;
