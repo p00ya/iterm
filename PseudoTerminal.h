@@ -89,8 +89,6 @@
           encoding:(NSStringEncoding)encoding
               term:(NSString *)term;
 
-- (void) sessionPopupSelectionDidChange: (id) sender;
-- (void) selectPopupSession: (id) anObject;
 - (void) switchSession: (id) sender;
 - (void) selectSession: (int) sessionIndex;
 - (IBAction) closeCurrentSession: (id) sender;
@@ -163,6 +161,8 @@
 
 - (void) _addressbookPopupSelectionDidChange: (id) sender;
 - (void) _reloadAddressBookMenu: (NSNotification *) aNotification;
+- (void) _sessionPopupSelectionDidChange: (id) sender;
+
 
 @end
 
