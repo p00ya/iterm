@@ -237,7 +237,7 @@ static NSString *ConfigToolbarItem = @"Config";
     [[aSession TEXTVIEW] setDataSource: [aSession SCREEN]];
     [[aSession SCREEN] setDisplay:[aSession TEXTVIEW]];
     [[aSession TEXTVIEW] setLineHeight: [VT100Screen fontSize: FONT].height];
-    [[aSession TEXTVIEW] setLineWidth: WIDTH * [VT100Screen fontSize: FONT].height];
+    [[aSession TEXTVIEW] setLineWidth: WIDTH * [VT100Screen fontSize: FONT].width];
 #else
     [[aSession SCREEN] setTextStorage:[[aSession TEXTVIEW] textStorage]];
 #endif
