@@ -60,6 +60,9 @@
 			else
 				[super sendEvent: anEvent];
 		}
+		else
+		   [super sendEvent: anEvent];
+
 	}
 	else
 		[super sendEvent: anEvent];
