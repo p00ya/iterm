@@ -2234,7 +2234,11 @@
 
 - (void)mouseEntered:(NSEvent *)theEvent
 {
-    // no-op. Overridden to prevent I-beam cursor from activating.
+    // Overridden to prevent I-beam cursor from activating.
+    
+    // check for focus follows mouse
+    if([[PreferencePanel sharedInstance] focusFollowsMouse] == YES)
+	[[self window] makeKeyAndOrderFront: self];
 }
 
 - (void) setCursorIndex:(int) idx
