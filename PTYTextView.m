@@ -1515,7 +1515,15 @@
     NSLog(@"%s(%d):-[PTYTextView scrollEnd]", __FILE__, __LINE__ );
 #endif
 
+    // force layout
     [self scrollRangeToVisible:NSMakeRange([[self textStorage] length]-1,1)];
+
+    // make sure we are at the bottom indeed!
+    NSRect scrollRect;
+    scrollRect= [self visibleRect];
+    scrollRect.origin.y = [self frame].origin.y + [self frame].size.height - scrollRect.size.height;
+    [self scrollRectToVisible: scrollRect];
+    
 }
 
 - (void)drawRect:(NSRect)rect
