@@ -119,7 +119,7 @@ static NSString *ConfigToolbarItem = @"Config";
     tabviewRect = [[WINDOW contentView] frame];
     tabviewRect.origin.x -= 10;
     tabviewRect.size.width += 20;
-    tabviewRect.origin.y -= 12;
+    tabviewRect.origin.y -= 13;
     tabviewRect.size.height += 10;
     TABVIEW = [[PTYTabView alloc] initWithFrame: tabviewRect];
     [TABVIEW setAutoresizingMask: NSViewWidthSizable|NSViewHeightSizable];
