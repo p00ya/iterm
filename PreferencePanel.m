@@ -32,6 +32,7 @@
 #import <iTerm/ITAddressBookMgr.h>
 #import <iTerm/iTermKeyBindingMgr.h>
 #import <iTerm/iTermDisplayProfileMgr.h>
+#import <iTerm/iTermTerminalProfileMgr.h>
 
 
 static float versionNumber;
@@ -102,6 +103,7 @@ static float versionNumber;
 	
 	[[iTermKeyBindingMgr singleInstance] setProfiles: [prefs objectForKey: @"KeyBindings"]];
 	[[iTermDisplayProfileMgr singleInstance] setProfiles: [prefs objectForKey: @"Displays"]];
+	[[iTermTerminalProfileMgr singleInstance] setProfiles: [prefs objectForKey: @"Terminals"]];
 }
 
 - (void)run
@@ -145,6 +147,7 @@ static float versionNumber;
 	[prefs setObject: [wordChars stringValue] forKey: @"WordCharacters"];
 	[prefs setObject: [[iTermKeyBindingMgr singleInstance] profiles] forKey: @"KeyBindings"];
 	[prefs setObject: [[iTermDisplayProfileMgr singleInstance] profiles] forKey: @"Displays"];
+	[prefs setObject: [[iTermTerminalProfileMgr singleInstance] profiles] forKey: @"Terminals"];
 
     [[self window] performClose: self];
 }
