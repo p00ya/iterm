@@ -490,6 +490,8 @@ NSString *terminalsKey = @"terminals";
     if([terminalWindows containsObject: object] == YES)
 	return;
     [terminalWindows insertObject: object atIndex: index];
+    // make sure we have a window
+    [object initWindow];
 }
 
 -(void)removeFromTerminalsAtIndex:(unsigned)index

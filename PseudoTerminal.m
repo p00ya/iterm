@@ -145,6 +145,9 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 // Do not use both initViewWithFrame and initWindow
 - (void)initWindow
 {
+    if([self windowInited])
+	return;
+
     _toolbarController = [[PTToolbarController alloc] initWithPseudoTerminal:self];
     
     // Create the tabview
@@ -178,7 +181,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 #endif
 
     NSParameterAssert(aSession != nil);    
-    
+
     // Init the rest of the session
     [aSession setParent: self];
     [aSession initScreen: [TABVIEW contentRect]];
@@ -191,6 +194,10 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	addressBookPreferences = [[ITAddressBookMgr sharedInstance] addressBookEntry: 0];
 	[aSession setAddressBookEntry:addressBookPreferences];
     }
+    if(FONT == nil)
+    {
+	[self setAllFont: [addressBookPreferences objectForKey:@"Font"] nafont: [addressBookPreferences objectForKey:@"NAFont"]];
+    }    
     [aSession setPreferencesFromAddressBookEntry: addressBookPreferences];
     
     // Set the bell option
