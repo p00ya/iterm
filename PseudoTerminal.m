@@ -9,7 +9,7 @@
 //
 
 // Debug option
-#define DEBUG_ALLOC           1
+#define DEBUG_ALLOC           0
 #define DEBUG_METHOD_TRACE    0
 #define DEBUG_SCREENDUMP      0
 #define DEBUG_KEYDOWNDUMP     0
