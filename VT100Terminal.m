@@ -1786,7 +1786,8 @@ static VT100TCC decode_string(unsigned char *datap,
     [defaultCharacterAttributeDictionary[0] setObject:fg
                                                                     forKey:NSForegroundColorAttributeName];
     [defaultCharacterAttributeDictionary[0] removeObjectForKey:NSBackgroundColorAttributeName];
-    [defaultCharacterAttributeDictionary[0] setObject:[SCREEN font] forKey:NSFontAttributeName];
+    if([SCREEN font] != nil)
+	[defaultCharacterAttributeDictionary[0] setObject:[SCREEN font] forKey:NSFontAttributeName];
     //[defaultCharacterAttributeDictionary[0] setObject:[NSNumber numberWithInt:(1)]
     //                                           forKey:@"NSCharWidthAttributeName"];
     [defaultCharacterAttributeDictionary[0] setObject:pstyle
@@ -1794,7 +1795,8 @@ static VT100TCC decode_string(unsigned char *datap,
     [defaultCharacterAttributeDictionary[1] setObject:fg
                                                forKey:NSForegroundColorAttributeName];
     [defaultCharacterAttributeDictionary[1] removeObjectForKey:NSBackgroundColorAttributeName];
-    [defaultCharacterAttributeDictionary[1] setObject:[SCREEN nafont] forKey:NSFontAttributeName];
+    if([SCREEN nafont] != nil)
+	[defaultCharacterAttributeDictionary[1] setObject:[SCREEN nafont] forKey:NSFontAttributeName];
     [defaultCharacterAttributeDictionary[1] setObject:[NSNumber numberWithInt:(2)]
                                                forKey:@"NSCharWidthAttributeName"];
     [defaultCharacterAttributeDictionary[1] setObject:pstyle
