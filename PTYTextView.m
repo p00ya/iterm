@@ -28,7 +28,7 @@
  */
 
 #define DEBUG_ALLOC           0
-#define DEBUG_METHOD_TRACE    1
+#define DEBUG_METHOD_TRACE    0
 #define GREED_KEYDOWN         1
 
 #import <iTerm/iTerm.h>
