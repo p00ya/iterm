@@ -273,6 +273,7 @@ static float versionNumber;
 - (void)windowDidBecomeKey:(NSNotification *)aNotification
 {
 	// make sure buttons are properly enabled/disabled
+	[bookmarksView reloadData];
 	[self outlineViewSelectionDidChange: nil];
     // Post a notification
     [[NSNotificationCenter defaultCenter] postNotificationName: @"nonTerminalWindowBecameKey" object: nil userInfo: nil];        
