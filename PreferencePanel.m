@@ -36,6 +36,16 @@ static float versionNumber;
 
 @implementation PreferencePanel
 
++ (PreferencePanel*)sharedInstance;
+{
+    static PreferencePanel* shared = nil;
+    
+    if (!shared)
+        shared = [[PreferencePanel alloc] init];
+    
+    return shared;
+}
+
 - (id)init
 {
     unsigned int storedMajorVersion = 0, storedMinorVersion = 0, storedMicroVersion = 0;
@@ -255,10 +265,7 @@ static float versionNumber;
 
     abWindowController = [AddressBookWindowController singleInstance];
     if([[abWindowController window] isVisible] == NO)
-    {
 	[abWindowController setAddressBook: [[iTermController sharedInstance] addressBook]];
-	[abWindowController setPreferences: self];
-    }
     
     [abWindowController adbEditEntryAtIndex: 0 newEntry: NO];
 }

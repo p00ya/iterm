@@ -215,7 +215,6 @@ static BOOL PLAYBELL = YES;
     NSLog(@"%s(%d):-[VT100Screen dealloc]", __FILE__, __LINE__);
 #endif
 
-
     if([self screenIsLocked])
 	[self removeScreenLock];
     [screenLock release];
@@ -2313,7 +2312,7 @@ static BOOL PLAYBELL = YES;
                    attributes:[TERMINAL characterAttributeDictionary:asc]];
 
     // Mark graphical characters and use our embedded font that has the necessary glyphs
-    if(charset[[TERMINAL charset]] && [[SESSION preference] enforceCharacterAlignment])
+    if(charset[[TERMINAL charset]] && [[PreferencePanel sharedInstance] enforceCharacterAlignment])
     {
 	[attr addAttribute: NSFontAttributeName value: [NSFont fontWithName:@"FreeMonoBold" size:[[self font] pointSize]] range: NSMakeRange(0, [attr length])];
 	[attr addAttribute: @"VT100GraphicalCharacter" value: [NSNumber numberWithInt:1] range: NSMakeRange(0, [attr length])];

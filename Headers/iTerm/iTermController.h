@@ -35,9 +35,6 @@
 
 @interface iTermController : NSObject
 {
-    // preference window
-    PreferencePanel *PREF_PANEL;
-
     // about window
     IBOutlet id ABOUT;
     IBOutlet NSTextView *AUTHORS;
@@ -84,9 +81,7 @@
 - (PTYTextView *) frontTextView;
 
 // Preference Panel
-- (void) initPreferences;
 - (IBAction)showPrefWindow:(id)sender;
-- (PreferencePanel *) preferencePanel;
 
 @end
 

@@ -38,13 +38,11 @@
 
 - (void) dealloc
 {
-
 #if DEBUG_ALLOC
     NSLog(@"%s(%d):-[PTYScrollView dealloc", __FILE__, __LINE__);
 #endif
     
     [super dealloc];
-
 }
 
 - (id)initWithFrame:(NSRect)frame

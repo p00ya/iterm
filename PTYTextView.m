@@ -1677,12 +1677,11 @@
 	  __FILE__, __LINE__, event );
 #endif
 
-
     // Hide the cursor
     [NSCursor setHiddenUntilMouseMoves: YES];    
 
     // Check for dead keys if OPTION key is used as normal
-    if ([[delegate preference] option]==0) {
+    if ([[PreferencePanel sharedInstance] option]==0) {
         if (deadkey) {
             [self interpretKeyEvents:[NSArray arrayWithObject:event]];
             deadkey=[self hasMarkedText];
