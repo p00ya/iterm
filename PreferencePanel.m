@@ -796,6 +796,12 @@ static int TRANSPARENCY  =10;
     return (defaultPromptOnClose);
 }
 
+- (IBAction)editColorScheme: (id) sender
+{
+    // set the color scheme to custom
+    [colorScheme selectItemAtIndex: 0];
+}
+
 - (IBAction)changeColorScheme:(id)sender
 {
     int i;
