@@ -106,6 +106,7 @@ typedef struct
 	
 	// blinking cursor
 	BOOL showCursor;
+	BOOL blinkShow;
 	
 	// trackingRect tab
 	NSTrackingRectTag trackingRectTag;
