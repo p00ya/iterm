@@ -157,7 +157,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     contentSize = [NSScrollView contentSizeForFrameSize: [TABVIEW contentRect].size
 							    hasHorizontalScroller: NO
 							    hasVerticalScroller: YES
-							    borderType: NSBezelBorder];
+							    borderType: NSNoBorder];
 	
     termSize = [VT100Screen screenSizeInFrame: NSMakeRect(0, 0, contentSize.width, contentSize.height) font: aFont1];
     [self setWidth: (int) termSize.width height: (int) termSize.height];
