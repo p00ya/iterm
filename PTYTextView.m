@@ -990,10 +990,7 @@ static SInt32 systemVersion;
         put = YES;
     
     if (put == YES) {
-        if ([delegate respondsToSelector:@selector(keyDown:)])
-            [delegate keyDown:event];
-        else
-            [super keyDown:event];
+		[delegate keyDown:event];
     }
 }
 
