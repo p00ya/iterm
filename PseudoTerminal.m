@@ -1581,12 +1581,5 @@ static NSString *ConfigToolbarItem = @"Config";
     
 }
 
-// Called by session popup to switch sessions
-- (void) _sessionPopupSelectionDidChange: (id) sender
-{
-    [self selectSession: ([sender indexOfSelectedItem] - 1)];
-    
-}
-
 
 @end

@@ -177,7 +177,6 @@
 - (void) _executeABMenuCommandInNewTab: (id) sender;
 - (void) _executeABMenuCommandInNewWindow: (id) sender;
 - (void) _executeABMenuCommand: (int) commandIndex newWindow: (BOOL) theFlag;
-- (void) _sessionPopupSelectionDidChange: (id) sender;
 
 
 @end
