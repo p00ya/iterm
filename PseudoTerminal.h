@@ -77,7 +77,6 @@
 - (void) newSession: (id) sender;
 
 - (id)init;
-- (id) initWithWindowNibName: (NSString *) windowNibName owner: (id) owner;
 - (void)dealloc;
 - (void)releaseObjects;
 
