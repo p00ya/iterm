@@ -1373,7 +1373,7 @@ static BOOL PLAYBELL = YES;
     
     // Show cursor at new position by reversing foreground/background colors
     if (CURSOR_X >= 0 && CURSOR_X < WIDTH &&
-        CURSOR_Y >= 0 && CURSOR_Y < HEIGHT && !updateIndex)
+        CURSOR_Y >= 0 && CURSOR_Y < HEIGHT)
     {
 	int idx;
         idx = [self getTVIndex:CURSOR_X y:CURSOR_Y];
