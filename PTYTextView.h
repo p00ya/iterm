@@ -46,6 +46,7 @@
 - (void)unmarkText;
 - (BOOL)hasMarkedText;
 - (NSRange)markedRange;
+- (void) copy: (id) sender;
 - (void)paste:(id)sender;
 - (BOOL)validateMenuItem:(NSMenuItem *)item;
 - (void)changeFont:(id)sender;
