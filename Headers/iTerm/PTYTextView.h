@@ -133,6 +133,7 @@ typedef struct
 - (NSString *) content;
 - (void)copy: (id) sender;
 - (void)paste:(id)sender;
+- (void) pasteSelection: (id) sender;
 - (BOOL)validateMenuItem:(NSMenuItem *)item;
 - (void)changeFont:(id)sender;
 - (NSMenu *)menuForEvent:(NSEvent *)theEvent;

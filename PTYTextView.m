@@ -868,9 +868,7 @@
     NSLog(@"%s: %@]", __PRETTY_FUNCTION__, sender );
 #endif
     
-    if ([[self selectedText] length] > 0 && [_delegate respondsToSelector:@selector(pasteString:)])
-        [_delegate pasteString:[self selectedText]];
-	
+	[self pasteSelection: nil];
 }
 
 - (void)mouseExited:(NSEvent *)event
@@ -1128,7 +1126,7 @@
 {
 	
 #if DEBUG_METHOD_TRACE
-    NSLog(@"%s(%d):-[PTYTextView copy:%@]", __FILE__, __LINE__, sender );
+    NSLog(@"%s: insertLineBreaks = %d]", __PRETTY_FUNCTION__, insertLineBreaks );
 #endif
 	
 	if (startX == -1) return nil;
@@ -1163,21 +1161,16 @@
 		{
 			if (bg[x] & SELECTION_MASK) {
 				if (buf[x] != 0xffff) {
-					temp[last++] = buf[x] ? buf[x]:' ';
+					temp[last++] = buf[x] ? buf[x]:'\n'; // insert hard line break if line ends with 0
 				}
+				if(buf[x] == 0)
+					break; // continue onto next line
 			}
 			else if (last) {
 				keep_going = NO;
 				break;
 			}
-		}
-		if (last) {
-			while (last>=0 && temp[last-1]==' ') last--; // trim the trailing blanks
-			if (x>=width) {
-				temp[last++]='\n';
-			}
-		}
-		
+		}		
 	}
 	
 	if (!last) {
@@ -1235,7 +1228,7 @@
     NSLog(@"%s: %@]", __PRETTY_FUNCTION__, sender );
 #endif
     
-    if ([[self selectedText] length] > 0 && [_delegate respondsToSelector:@selector(pasteString:)])
+    if (startX >= 0 && [_delegate respondsToSelector:@selector(pasteString:)])
         [_delegate pasteString:[self selectedText]];
 	
 }
