@@ -57,8 +57,9 @@
     
 }
 
++ (iTermController*)sharedInstance;
+
 // NSApplication Delegate methods
-- (void)applicationWillFinishLaunching:(NSNotification *)aNotification;
 - (BOOL) applicationShouldTerminate: (NSNotification *) theNotification;
 - (BOOL)applicationOpenUntitledFile:(NSApplication *)app;
 - (NSMenu *)applicationDockMenu:(NSApplication *)sender;
@@ -66,11 +67,6 @@
 
 - (IBAction)newWindow:(id)sender;
 - (IBAction)newSession:(id)sender;
-
-
-// About window
-- (IBAction)showAbout:(id)sender;
-- (IBAction)aboutOK:(id)sender;
 
 // navigation
 - (IBAction) previousTerminal: (id) sender;
@@ -127,7 +123,7 @@
 -(void)removeFromTerminalsAtIndex:(unsigned)index;
 
 // a class method to provide the keys for KVC:
-+(NSArray*)kvcKeys;
+- (NSArray*)kvcKeys;
 
 @end
 

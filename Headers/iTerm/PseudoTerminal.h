@@ -37,9 +37,6 @@
 
 @interface PseudoTerminal : NSWindowController
 {
-    /// iTermController reference
-    iTermController *iTerm;
-    
     /// tab view
     PTYTabView *TABVIEW;
 
@@ -123,8 +120,6 @@
 
 
 // iTermController
-- (iTermController *) iTerm;
-- (void)setITermController:(id) sender;
 - (void)clearBuffer:(id)sender;
 - (void)clearScrollbackBuffer:(id)sender;
 - (IBAction)logStart:(id)sender;
