@@ -257,7 +257,12 @@
 #endif
 
     if ([item action] == @selector(paste:))
-        return YES;
+    {
+        NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+        
+        // Check if there is a string type on the pasteboard
+        return ([pboard stringForType:NSStringPboardType] != nil);
+    }
     else if ([item action ] == @selector(cut:))
         return NO;
     else if ([item action]==@selector(saveDocumentAs:))
