@@ -55,6 +55,7 @@
 // NSApplication Delegate methods
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification;
 - (BOOL) applicationShouldTerminate: (NSNotification *) theNotification;
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename;
 - (BOOL)applicationOpenUntitledFile:(NSApplication *)app;
 - (NSMenu *)applicationDockMenu:(NSApplication *)sender;
 - (void)applicationDidUnhide:(NSNotification *)aNotification;
