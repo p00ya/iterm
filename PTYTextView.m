@@ -1169,6 +1169,8 @@ static SInt32 systemVersion;
 		return;
 	mouseDown = NO;
 		
+	// make sure we have key focus
+	[[self window] makeFirstResponder: self];
     
     if (startY>endY||(startY==endY&&startX>endX)) {
         int t;
