@@ -746,6 +746,8 @@ static BOOL PLAYBELL = YES;
 #endif
 
 #if DEBUG_USE_ARRAY
+    int i;
+    
     for(i = 0; i < TOP_LINE; i++)
         [screenLines removeObjectAtIndex: 0];
 #endif
