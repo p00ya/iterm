@@ -35,7 +35,6 @@
 
 @interface iTermController : NSObject
 {
-    
     // preference window
     PreferencePanel *PREF_PANEL;
 
