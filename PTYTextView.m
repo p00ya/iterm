@@ -1097,13 +1097,11 @@
 		for(; x1 <= x2; x1++) 
 		{
 			if (buf[x1]!=0xffff) {
-				temp[j++]=buf[x1]?buf[x1]:' ';
+				temp[j++]=buf[x1]?buf[x1]:'\n'; // insert line break on hard wrap
 			}
+			if(buf[x1] == 0)
+				break; // continue to next line
 		}		
-		while (j>=0&&temp[j-1]==' ') j--; // trim the trailing blanks
-	    if (x1>=width && y != endy) {
-			temp[j++]='\n';
-		}
 	}
 	
 	str=[NSString stringWithCharacters:temp length:j];
