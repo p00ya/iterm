@@ -281,7 +281,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 	free(dirty);
 	dirty=(char*)malloc(height*width*sizeof(char));
 	memset(dirty, 1, width*height*sizeof(char));
-	[display forceUpdate];
+	[display setForceUpdate: YES];
 	
 	WIDTH = width;
 	HEIGHT = height;
@@ -1511,7 +1511,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 - (void)setDirty
 {
 	memset(dirty,1,WIDTH*HEIGHT*sizeof(char));
-	[display forceUpdate];
+	[display setForceUpdate: YES];
 }
 
 @end

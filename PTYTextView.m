@@ -650,11 +650,6 @@ static SInt32 systemVersion;
     CURSOR=YES;
 }
 
--(void) forceUpdate
-{
-	forceUpdate = YES;
-}
-
 - (void)drawRect:(NSRect)rect
 {
 #if DEBUG_METHOD_TRACE

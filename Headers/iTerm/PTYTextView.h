@@ -176,7 +176,6 @@ typedef struct
 - (void)setCursorColor:(NSColor*) color;
 - (void) setSelectedTextColor: (NSColor *) aColor;
 - (void) setCursorTextColor:(NSColor*) color;
-- (void) forceUpdate;
 
 
 - (NSDictionary*) markedTextAttributes;
