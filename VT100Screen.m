@@ -48,7 +48,6 @@
 
 #define DEFAULT_WIDTH     80
 #define DEFAULT_HEIGHT    25
-#define DEFAULT_FONTNAME  @"Osaka-Mono"
 #define DEFAULT_FONTSIZE  14
 #define DEFAULT_SCROLLBACK 1000
 
@@ -181,9 +180,7 @@ static BOOL PLAYBELL = YES;
     SCROLL_BOTTOM = HEIGHT - 1;
 
     STORAGE = nil;
-    FONT = [[NSFont fontWithName:DEFAULT_FONTNAME
-			    size:DEFAULT_FONTSIZE]
-	       retain];
+    FONT = [[NSFont userFixedPitchFontOfSize:0] retain];
     TERMINAL = nil;
     SHELL = nil;
 
