@@ -2618,7 +2618,7 @@ static BOOL PLAYBELL = YES;
     int len, slen;
     int idx;
     //NSRange selectedRange;
-    NSString *selectedString;
+    //NSString *selectedString;
     
     idx=[self getIndexAtX:CURSOR_X Y:CURSOR_Y withPadding:YES];
     if ([[SESSION TEXTVIEW] hasMarkedText]) {
@@ -2635,7 +2635,7 @@ static BOOL PLAYBELL = YES;
     [self setScreenLock];
 
     // cache any text selection
-    selectedRange = [[SESSION TEXTVIEW] selectedRange];
+    //selectedRange = [[SESSION TEXTVIEW] selectedRange];
     //if(selectedRange.length > 0)
 	//selectedString = [[[SESSION TEXTVIEW] string] substringWithRange: selectedRange];    
 
