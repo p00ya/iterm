@@ -53,6 +53,7 @@
     // Session list
     NSMutableArray *ptyList;
     NSMutableArray *buttonList;
+    IBOutlet NSPopUpButton *sessionPopup;
     int currentSessionIndex;
     PTYSession *currentPtySession;
     NSLock *ptyListLock;
@@ -88,6 +89,8 @@
           encoding:(NSStringEncoding)encoding
               term:(NSString *)term;
 
+- (void) sessionPopupSelectionDidChange: (id) sender;
+- (void) selectPopupSession: (id) anObject;
 - (void) switchSession: (id) sender;
 - (void) selectSession: (int) sessionIndex;
 - (void) closeSession: (PTYSession *)theSession;
