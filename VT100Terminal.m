@@ -1194,7 +1194,7 @@ static VT100TCC decode_string(unsigned char *datap,
     TRACE = NO;
 
     strictAnsiMode = NO;
-    allowColumnMode = NO;
+    allowColumnMode = YES;
     printToAnsi = NO;
     pipeFile = NULL;
 
