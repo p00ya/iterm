@@ -160,7 +160,7 @@ typedef struct
 - (NSColor *) defaultFGColor;
 - (NSColor *) defaultBGColor;
 - (NSColor *) defaultBoldColor;
-- (NSColor *) colorForCode:(int) index;
+- (NSColor *) colorForCode:(unsigned int) index;
 - (NSColor *) selectionColor;
 - (NSColor *) defaultCursorColor;
 - (NSColor *) selectedTextColor;

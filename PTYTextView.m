@@ -295,7 +295,7 @@
 	[self setNeedsDisplay: YES];
 }
 
-- (NSColor *) colorForCode:(int) index 
+- (NSColor *) colorForCode:(unsigned int) index 
 {
     NSColor *color;
 	int reversed;
@@ -823,6 +823,7 @@
 		showCursor = YES;
 	if (CURSOR) {
 		i = y1*[dataSource width]+x1;
+		fg=[dataSource screenFGColor]+y1*WIDTH;
 		if(showCursor)
 		{
 			[[[self defaultCursorColor] colorWithAlphaComponent: (1 - transparency)] set];
@@ -853,7 +854,7 @@
 				}
 				double_width = ([dataSource screenLines][i+1] == 0xffff);
 				[self _drawCharacter: aChar 
-							 fgColor: [[self window] isKeyWindow]?CURSOR_TEXT:fg[i] 
+							 fgColor: [[self window] isKeyWindow]?CURSOR_TEXT:(fg[x1] & 0xff)
 								AtX: x1 * charWidth + MARGIN 
 								  Y: (y1+[dataSource numberOfLines]-[dataSource height]+1)*lineHeight
 						doubleWidth: double_width];
