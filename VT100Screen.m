@@ -717,6 +717,7 @@ static BOOL PLAYBELL = YES;
 	}
 	
 	bufferWrapped = lastBufferLineIndex = 0;
+	[(PTYTextView *) display refresh];
 }
 
 - (void) saveBuffer

@@ -386,7 +386,7 @@
         numberOfLines = [dataSource numberOfLines];
         aSize = [self frame].size;
         height = numberOfLines * lineHeight;
-        if(height > [self frame].size.height)
+        if(height != [self frame].size.height)
         {
             NSRect aFrame;
             
