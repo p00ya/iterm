@@ -249,6 +249,7 @@ typedef struct {
 - (NSData *)keyInsert;
 - (NSData *)keyHome;
 - (NSData *)keyDelete;
+- (NSData *)keyBackspace;
 - (NSData *)keyEnd;
 - (NSData *)keyPageUp;
 - (NSData *)keyPageDown;
