@@ -38,7 +38,7 @@
 - (void)trackScrollButtons:(NSEvent *)theEvent;
 - (void)trackKnob:(NSEvent *)theEvent;
 - (BOOL)userScroll;
-- (void)resetUserScroll;
+- (void)setUserScroll: (BOOL) scroll;
 
 @end
 
@@ -48,5 +48,6 @@
 
 - (void) dealloc;
 - (id)initWithFrame:(NSRect)frame;
+- (void)scrollWheel:(NSEvent *)theEvent;
 
 @end
