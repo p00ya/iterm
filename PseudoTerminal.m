@@ -1627,8 +1627,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     old=[currentPtySession addressBookEntry];
     
     new=[[NSDictionary alloc] initWithObjectsAndKeys:
-	([[old objectForKey:@"Name"] isEqualToString:[currentPtySession name]]?[old objectForKey:@"Name"]:[self currentSessionName]),@"Name",
-	(old?[old objectForKey:@"Command"]:[[currentPtySession SHELL] path]),@"Command",
+	[currentPtySession name],@"Name",
+	[[currentPtySession SHELL] path],@"Command",
 	[NSNumber numberWithUnsignedInt:[[currentPtySession TERMINAL] encoding]],@"Encoding",
 	[[currentPtySession TERMINAL] defaultFGColor],@"Foreground",
 	[[currentPtySession TERMINAL] defaultBGColor],@"Background",
@@ -1642,7 +1642,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	[NSNumber numberWithBool:[[self currentSession] antiIdle]],@"AntiIdle",
 	[NSNumber numberWithUnsignedInt:[[self currentSession] antiCode]],@"AICode",
 	[NSNumber numberWithBool:[[self currentSession] autoClose]],@"AutoClose",
-	[NSNumber numberWithBool:[[self currentSession] doubleWidth]],@"doubleWidth",
+	[NSNumber numberWithBool:[[self currentSession] doubleWidth]],@"DoubleWidth",
 	NULL];
     
 
@@ -1662,6 +1662,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
                         NSLocalizedStringFromTableInBundle(@"OK",@"iTerm", [NSBundle bundleForClass: [self class]], @"OK"),
                         nil,nil);
     }
+    [currentPtySession setAddressBookEntry: new];
     [MAINMENU saveAddressBook];
 }
 
