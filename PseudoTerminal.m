@@ -395,7 +395,7 @@ static NSString *ConfigToolbarItem = @"Config";
         return;
 
     if ([currentPtySession exited]==NO) {
-       if (![pref autoclose] && 
+       if ([pref promptOnClose] && 
             NSRunAlertPanel(NSLocalizedStringFromTable(@"The current session will be closed",@"iTerm",@"Close Session"),
                          NSLocalizedStringFromTable(@"All unsaved data will be lost",@"iTerm",@"Close window"),
                          NSLocalizedStringFromTable(@"Cancel",@"iTerm",@"Cancel"),
