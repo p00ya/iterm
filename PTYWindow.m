@@ -33,14 +33,7 @@
 
 #define DEBUG_METHOD_TRACE	0
 
-extern void _NSSetWindowOpacity(int windowNumber, BOOL isOpaque);
-
 @implementation PTYWindow
-
-- (float)_transparency 
-{
-    return 0.999999; 
-}
 
 - initWithContentRect:(NSRect)contentRect
 	    styleMask:(unsigned int)aStyle
@@ -58,7 +51,7 @@ extern void _NSSetWindowOpacity(int windowNumber, BOOL isOpaque);
 				     defer:flag])
 	!= nil) 
     {
-        _NSSetWindowOpacity([self windowNumber], 0);
+		[self setAlphaValue:0.9999];
     }
     return self;
 }

@@ -32,12 +32,10 @@
 #import <Cocoa/Cocoa.h>
 
 @interface PTYWindow : NSWindow 
-{
-}
 
-- (float)_transparency;
 - initWithContentRect:(NSRect)contentRect 
             styleMask:(unsigned int)aStyle 
 	      backing:(NSBackingStoreType)bufferingType 
 		defer:(BOOL)flag;
+
 @end
