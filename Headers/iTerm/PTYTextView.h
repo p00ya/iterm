@@ -89,6 +89,9 @@ typedef struct
 	NSColor* defaultCursorColor;
 	NSColor* selectionColor;
 	
+	// transparency
+	float transparency;
+	
     // data source
     VT100Screen *dataSource;
     id _delegate;
@@ -181,6 +184,10 @@ typedef struct
 
 // selection
 - (IBAction) selectAll: (id) sender;
+
+// transparency
+- (float) transparency;
+- (void) setTransparency: (float) fVal;
 
 //
 // Drag and Drop methods for our text view
