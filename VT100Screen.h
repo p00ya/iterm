@@ -39,7 +39,7 @@
     
     unsigned int  TOP_LINE;
     unsigned int  LINE_LIMIT;
-    unsigned int  OLD_CURSOR_INDEX;
+    int  OLD_CURSOR_INDEX;
 }
 
 + (NSSize)requireSizeWithFont:(NSFont *)font
