@@ -228,6 +228,8 @@ typedef struct {
     BOOL TRACE;
 
     BOOL strictAnsiMode;
+
+    NSMutableDictionary *defaultCharacterAttributeDictionary;
 }
 
 + (void)initialize;
@@ -299,6 +301,8 @@ typedef struct {
 
 - (unsigned int)characterAttribute;
 - (NSMutableDictionary *)characterAttributeDictionary;
+- (NSMutableDictionary *)defaultCharacterAttributeDictionary;
+- (void) initDefaultCharacterAttributeDictionary;
 
 - (void)_setMode:(VT100TCC)token;
 - (void)_setCharAttr:(VT100TCC)token;
