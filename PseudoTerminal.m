@@ -1208,6 +1208,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [[_sessionMgr currentSession] setLabelAttribute];
 	[[[_sessionMgr currentSession] SCREEN] setDirty];
 	[[[_sessionMgr currentSession] TEXTVIEW] setNeedsDisplay: YES];
+	// do this to set up mouse tracking rects again
+	[[[_sessionMgr currentSession] TEXTVIEW] becomeFirstResponder];
 }
 
 - (void)tabView:(NSTabView *)tabView willRemoveTabViewItem:(NSTabViewItem *)tabViewItem

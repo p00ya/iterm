@@ -91,7 +91,7 @@
 	if(trackingRectTag)
 		[self removeTrackingRect:trackingRectTag];
 	trackingRectTag = 0;
-	
+		
 	return (YES);
 }
 
@@ -102,8 +102,8 @@
 	// reset tracking rect
 	if(trackingRectTag)
 		[self removeTrackingRect:trackingRectTag];
-	trackingRectTag = [self addTrackingRect:[self visibleRect] owner: self userData: nil assumeInside: NO];
-	
+	trackingRectTag = [self addTrackingRect:[self frame] owner: self userData: nil assumeInside: NO];
+		
 	return (YES);
 }
 
@@ -896,12 +896,13 @@
 
 - (void)mouseExited:(NSEvent *)event
 {
+	//NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);
 	// no-op
 }
 
 - (void)mouseEntered:(NSEvent *)event
 {
-	//NSLog(@"%s", __PRETTY_FUNCTION__);
+	//NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);
 	
 	if([[PreferencePanel sharedInstance] focusFollowsMouse])
 		[[self window] makeKeyWindow];
