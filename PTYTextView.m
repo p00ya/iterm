@@ -942,6 +942,17 @@
     }
 }
 
+- (void) otherMouseDown: (NSEvent *) event
+{
+#if DEBUG_METHOD_TRACE
+    NSLog(@"%s: %@]", __PRETTY_FUNCTION__, sender );
+#endif
+    
+    if ([[self selectedText] length] > 0 && [_delegate respondsToSelector:@selector(pasteString:)])
+        [_delegate pasteString:[self selectedText]];
+	
+}
+
 - (void)mouseDown:(NSEvent *)event
 {
 #if DEBUG_METHOD_TRACE
