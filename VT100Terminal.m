@@ -1394,7 +1394,8 @@ static VT100TCC decode_string(unsigned char *datap,
 - (void) printToken: (VT100TCC) token
 {
     //NSLog(@"Printing token at 0x%x; length = %d", token.position, token.length);
-    fwrite(token.position, token.length, 1, pipeFile);
+    if(pipeFile != NULL)
+	fwrite(token.position, token.length, 1, pipeFile);
 }
 
 - (NSData *)keyArrowUp
