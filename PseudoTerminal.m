@@ -549,6 +549,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     int i;
     NSRect tabviewRect, oldFrame;
     NSPoint topLeft;
+    PTYTextView *theTextView;
 
     if([self windowInited] == NO)
 	return;
@@ -615,8 +616,9 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
         [[[_sessionMgr sessionAtIndex: i] SCROLLVIEW] setVerticalLineScroll: [[[_sessionMgr currentSession] SCREEN] characterSize].height];
 	if(resizeContentFrames)
 	{
-	    [[[_sessionMgr sessionAtIndex: i] SCROLLVIEW] setFrameSize: size];
-	    [[[[_sessionMgr sessionAtIndex: i] SCROLLVIEW] documentView] setFrameSize:vsize];
+	    [[[_sessionMgr sessionAtIndex: i] view] setFrameSize: size];
+	    theTextView = [[[_sessionMgr sessionAtIndex: i] SCROLLVIEW] documentView];
+	    [theTextView setFrameSize: vsize];
 	}
     }
     
