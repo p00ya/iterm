@@ -82,9 +82,6 @@ static NSString *ConfigToolbarItem = @"Config";
 
 - (id)init
 {
-#if DEBUG_OBJALLOC
-    NSLog(@"%s(%d):-[PseudoTerminal init]", __FILE__, __LINE__);
-#endif
     if ((self = [super init]) == nil)
 	return nil;
 
@@ -93,6 +90,10 @@ static NSString *ConfigToolbarItem = @"Config";
     ptyList = [[NSMutableArray alloc] init];
     ptyListLock = [[NSLock alloc] init];
 
+#if DEBUG_ALLOC
+    NSLog(@"%s(%d):-[PseudoTerminal init: 0x%x]", __FILE__, __LINE__, self);
+#endif
+    
     return self;
 }
 
@@ -264,15 +265,19 @@ static NSString *ConfigToolbarItem = @"Config";
     [TABVIEW selectTabViewItem: aTabViewItem];
     [self setCurrentSessionName: nil];
 
-    if ([TABVIEW numberOfTabViewItems]>1||![pref hideTab]) {
-        [TABVIEW setTabViewType: [pref tabViewType]];
-    }
-    else [TABVIEW setTabViewType: NSNoTabsBezelBorder];
-
     if ([TABVIEW numberOfTabViewItems] == 1)
+    {
+	if(![pref hideTab])
+	    [TABVIEW setTabViewType: [pref tabViewType]];
+	else
+	    [TABVIEW setTabViewType: NSNoTabsBezelBorder];
 	[self setWindowSize: YES];
+    }
     else if([TABVIEW numberOfTabViewItems] == 2)
+    {
+	[TABVIEW setTabViewType: [pref tabViewType]];
 	[self setWindowSize: NO];
+    }
 
     [aTabViewItem release];
     
@@ -353,14 +358,18 @@ static NSString *ConfigToolbarItem = @"Config";
         }
     }
 
-    if ([TABVIEW numberOfTabViewItems]>1||![pref hideTab]) [TABVIEW setTabViewType: [pref tabViewType]];
-    else {
-        [TABVIEW setTabViewType: NSNoTabsBezelBorder];
-        [self setWindowSize: NO];
-	// Scroll to end
-	[[currentPtySession TEXTVIEW] scrollRangeToVisible: NSMakeRange([[[currentPtySession TEXTVIEW] string] length] - 1, 1)];
-
+    if ([TABVIEW numberOfTabViewItems] == 1)
+    {
+	if(![pref hideTab])
+	    [TABVIEW setTabViewType: [pref tabViewType]];
+	else
+	{
+	    [TABVIEW setTabViewType: NSNoTabsBezelBorder];
+	    [self setWindowSize: NO];
+	    [[currentPtySession TEXTVIEW] scrollRangeToVisible: NSMakeRange([[[currentPtySession TEXTVIEW] string] length] - 1, 1)];
+	}
     }
+    
     
 }
 
@@ -461,7 +470,7 @@ static NSString *ConfigToolbarItem = @"Config";
 - (void)dealloc
 {
 #if DEBUG_ALLOC
-    NSLog(@"%s(%d):-[PseudoTerminal dealloc]", __FILE__, __LINE__);
+    NSLog(@"%s(%d):-[PseudoTerminal dealloc: 0x%x]", __FILE__, __LINE__, self);
 #endif
     [self releaseObjects];
     
