@@ -905,14 +905,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [[iTermController sharedInstance] setCurrentTerminal: self];
 }
 
-- (IBAction) toggleRemapDeleteKey: (id) sender
-{
-	[[_sessionMgr currentSession] setRemapDeleteKey: ![[_sessionMgr currentSession] remapDeleteKey]];
-	
-	// cause reloading of menus
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"iTermSessionDidBecomeActive" object: [_sessionMgr currentSession]];
-}
-
 // NSWindow delegate methods
 - (void)windowDidDeminiaturize:(NSNotification *)aNotification
 {

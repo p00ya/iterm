@@ -103,7 +103,6 @@
 - (void) setSendInputToAllSessions: (BOOL) flag;
 - (IBAction) toggleInputToAllSessions: (id) sender;
 - (void) sendInputToAllSessions: (NSData *) data;
-- (IBAction) toggleRemapDeleteKey: (id) sender;
 
 // iTermController
 - (void)clearBuffer:(id)sender;
