@@ -1920,6 +1920,8 @@ static SInt32 systemVersion;
 - (void) setTransparency: (float) fVal
 {
 	transparency = fVal;
+	forceUpdate = YES;
+	[self setNeedsDisplay: YES];
 }
 
 @end
