@@ -43,8 +43,19 @@
 	id aWindow;
 	PseudoTerminal *currentTerminal;
 	PTYSession *currentSession;
+	unsigned int modflag;
+    NSString *unmodkeystr;
+    unichar unmodunicode;	
 	
-	if([anEvent type] == NSKeyDown && ([anEvent modifierFlags] & NSCommandKeyMask))
+	
+	if([anEvent type] == NSKeyDown)
+	{
+		modflag = [anEvent modifierFlags];
+		unmodkeystr = [anEvent charactersIgnoringModifiers];
+		unmodunicode = [unmodkeystr length]>0?[unmodkeystr characterAtIndex:0]:0;			
+	}
+	
+	if([anEvent type] == NSKeyDown && (([anEvent modifierFlags] & NSCommandKeyMask) || (unmodunicode == NSHelpFunctionKey)))
 	{
 		
 		aWindow = [self keyWindow];
