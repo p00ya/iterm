@@ -103,6 +103,12 @@ typedef struct
 	
 	//cache
 	CharCache	charImages[CACHESIZE];
+	
+	// blinking cursor
+	BOOL showCursor;
+	
+	// trackingRect tab
+	NSTrackingRectTag trackingRectTag;
 }
 
 - (id)initWithFrame: (NSRect) aRect;
@@ -112,6 +118,8 @@ typedef struct
 - (BOOL)shouldDrawInsertionPoint;
 - (void)drawRect:(NSRect)rect;
 - (void)keyDown:(NSEvent *)event;
+- (void)mouseExited:(NSEvent *)event;
+- (void)mouseEntered:(NSEvent *)event;
 - (void)mouseDown:(NSEvent *)event;
 - (void)mouseUp:(NSEvent *)event;
 - (void)mouseDragged:(NSEvent *)event;

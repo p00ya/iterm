@@ -108,6 +108,9 @@
     [markedTextAttributes release];
 	[markedText release];
 	
+	if(trackingRectTag)
+		[self removeTrackingRect:trackingRectTag];
+	
     [self resetCharCache];
     [super dealloc];
 }
@@ -397,6 +400,11 @@
 	anotherSize.height = [dataSource numberOfLines] * lineHeight;
 	
 	[super setFrameSize: anotherSize];
+	
+	// reset tracking rect
+	if(trackingRectTag)
+		[self removeTrackingRect:trackingRectTag];
+	trackingRectTag = [self addTrackingRect:[self visibleRect] owner: self userData: nil assumeInside: NO];
 }
 
 - (void) refresh
@@ -824,25 +832,34 @@
 	x1=[dataSource cursorX]-1;
 	y1=[dataSource cursorY]-1;
 	//draw cursor
+	if([[PreferencePanel sharedInstance] blinkingCursor])
+		showCursor = !showCursor;
+	else
+		showCursor = YES;
+	if([[self window] isKeyWindow] == NO)
+		showCursor = YES;
 	if (CURSOR) {
 		i = y1*[dataSource width]+x1;
-		[[self defaultCursorColor] set];
-		NSRectFill(NSMakeRect(x1*charWidth,
-							  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight,
-							  charWidth,lineHeight));
-		// draw any character on cursor if we need to
-		unichar aChar = [dataSource screenLines][i];
-		if (aChar)
+		if(showCursor)
 		{
-			if (aChar==0xffff && x1>0) {
-				i--;
-				x1--;
-				aChar = [dataSource screenLines][i];
+			[[self defaultCursorColor] set];
+			NSRectFill(NSMakeRect(x1*charWidth,
+								  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight,
+								  charWidth,lineHeight));
+			// draw any character on cursor if we need to
+			unichar aChar = [dataSource screenLines][i];
+			if (aChar)
+			{
+				if (aChar==0xffff && x1>0) {
+					i--;
+					x1--;
+					aChar = [dataSource screenLines][i];
+				}
+				[self drawCharacter: aChar 
+							fgColor:[dataSource screenFGColor][i] 
+								AtX:x1*charWidth 
+								  Y:(y1+[dataSource numberOfLines]-[dataSource height]+1)*lineHeight];
 			}
-			[self drawCharacter: aChar 
-						fgColor:[dataSource screenFGColor][i] 
-							AtX:x1*charWidth 
-							  Y:(y1+[dataSource numberOfLines]-[dataSource height]+1)*lineHeight];
 		}
 		[dataSource dirty][i] = 1; //cursor loc is dirty
 		
@@ -929,6 +946,19 @@
     if ([[self selectedText] length] > 0 && [_delegate respondsToSelector:@selector(pasteString:)])
         [_delegate pasteString:[self selectedText]];
 	
+}
+
+- (void)mouseExited:(NSEvent *)event
+{
+	// no-op
+}
+
+- (void)mouseEntered:(NSEvent *)event
+{
+	//NSLog(@"%s", __PRETTY_FUNCTION__);
+	
+	if([[PreferencePanel sharedInstance] focusFollowsMouse])
+		[[self window] makeKeyWindow];
 }
 
 - (void)mouseDown:(NSEvent *)event
