@@ -858,7 +858,12 @@ static BOOL PLAYBELL = YES;
 				bufferWrapped=1;
 			}
 		}
+		// move screen buffer one line up with its attributes
 		memmove(screenLines,screenLines+WIDTH,(HEIGHT-1)*WIDTH*sizeof(unichar));
+		memmove(screenFGColor,screenFGColor+WIDTH,(HEIGHT-1)*WIDTH*sizeof(unichar));
+		memmove(screenBGColor,screenBGColor+WIDTH,(HEIGHT-1)*WIDTH*sizeof(unichar));
+
+		// set last blank line to default
 		memset(screenLines+WIDTH*(HEIGHT-1),0,WIDTH*sizeof(unichar));
 		memset(screenFGColor+WIDTH*(HEIGHT-1),DEFAULT_FG_COLOR_CODE,WIDTH*sizeof(char));
 		memset(screenBGColor+WIDTH*(HEIGHT-1),DEFAULT_BG_COLOR_CODE,WIDTH*sizeof(char));
