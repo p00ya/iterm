@@ -9,6 +9,7 @@
 //
 
 #import "VT100Terminal.h"
+#import "VT100Screen.h"
 #import "NSStringITerm.h"
 
 /*

@@ -104,7 +104,6 @@
 
 - (void)doCommandBySelector:(SEL)aSelector
 {
-    id delegate = [self delegate];
 
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PTYTextView doCommandBySelector:...]",
@@ -112,6 +111,8 @@
 #endif
 
 #if GREED_KEYDOWN == 0
+    id delegate = [self delegate];
+
     if ([delegate respondsToSelector:aSelector]) {
 	[delegate performSelector:aSelector withObject:nil];
     }
