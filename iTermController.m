@@ -327,7 +327,7 @@ static BOOL usingAutoLaunchScript = NO;
 	[self setFrontPseudoTerminal: nil];
 
     if(theTerminalWindow)
-        [terminalWindows removeObject: theTerminalWindow];
+        [self removeFromTerminalsAtIndex: [terminalWindows indexOfObject: theTerminalWindow]];
 }
 
 - (NSStringEncoding const*) encodingList
