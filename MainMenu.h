@@ -72,7 +72,6 @@
 
 // Utility methods
 + (void) breakDown:(NSString *)cmdl cmdPath: (NSString **) cmd cmdArgs: (NSArray **) path;
-- (NSDictionary *)newDeafultObject;
 - (void) setFrontPseudoTerminal: (PseudoTerminal *) thePseudoTerminal;
 - (PseudoTerminal *) frontPseudoTerminal;
 - (void) buildSessionSubmenu;
@@ -97,6 +96,8 @@
 - (void) initAddressBook;
 - (void) saveAddressBook;
 - (NSArray *)addressBookNames;
+- (NSDictionary *)newDefaultAddressBookEntry;
+- (NSMutableDictionary *) defaultAddressBookEntry;
 - (NSDictionary *)addressBookEntry: (int) entryIndex;
 - (void) addAddressBookEntry: (NSDictionary *) entry;
 - (void) replaceAddressBookEntry:(NSDictionary *) old with:(NSDictionary *)new;
