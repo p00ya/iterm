@@ -880,7 +880,7 @@ static NSDictionary *newOutputStateAttribute;
         }
 
         [self resizeWindow:[CONFIG_COL intValue] height:[CONFIG_ROW intValue]];
-        if(([pref transparency] != [CONFIG_TRANSPARENCY intValue]) || 
+        if(([pref transparency] != (100-[[TERMINAL defaultBGColor] alphaComponent]*100)) || 
             ([TERMINAL defaultFGColor] != [CONFIG_FOREGROUND color]) || 
             ([TERMINAL defaultBGColor] != [CONFIG_BACKGROUND color]))
         {
@@ -895,7 +895,7 @@ static NSDictionary *newOutputStateAttribute;
             [currentPtySession setBGColor:  bgColor]; 
             
             // Change the transparency for all the sessions.
-            if([pref transparency] != [CONFIG_TRANSPARENCY intValue])
+            if([pref transparency] != (100-[[TERMINAL defaultBGColor] alphaComponent]*100))
             {
                 for(i = 0; i < [ptyList count]; i++)
                 {
