@@ -2786,7 +2786,7 @@ static BOOL PLAYBELL = YES;
 - (void) textViewDidChangeSelection: (NSRange) selectedRange
 {
 #if DEBUG_USE_BUFFER
-	if(selectedRange.length <= 0)
+	if(selectedRange.length <= 0 || selectedRange.location < updateIndex)
 	{
 		selectionStartColumn = 0;
 		selectionStartRow = 0;
