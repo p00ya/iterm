@@ -24,6 +24,7 @@
     MainMenu *MAINMENU;
     
     /// Terminal Window
+    IBOutlet id TABVIEW;
     IBOutlet id SCROLLVIEW;	// PTYScrollView
     IBOutlet id WINDOW;
 
@@ -51,8 +52,6 @@
        
     // Session list
     NSMutableArray *ptyList;
-    NSMutableArray *buttonList;
-    IBOutlet NSPopUpButton *sessionPopup;
     int currentSessionIndex;
     PTYSession *currentPtySession;
     NSLock *ptyListLock;
@@ -143,6 +142,9 @@
 // Close Window
 - (BOOL)showCloseWindow;
 
+// NSTabView
+- (void)tabView:(NSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem;
+
 
 // Config Window
 - (IBAction)windowConfigOk:(id)sender;
@@ -157,7 +159,6 @@
 // Preferences
 - (void)setPreference:(id)pref;
 
-- (void) _drawSessionButtons;
 
 @end
 
