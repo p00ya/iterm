@@ -220,6 +220,8 @@
 
     // for the typesetter
     NSFont *font;
+    
+    BOOL _inFrameChanged;
 }
 
 - (id)init;

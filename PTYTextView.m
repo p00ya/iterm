@@ -2059,7 +2059,15 @@
 - (void)frameChanged:(NSNotification*)notification
 {
     if([notification object] == [self window] && [[self delegate] respondsToSelector: @selector(textViewResized:)])
-	[[self delegate] textViewResized: self];
+    {
+        // SNG - hack to prevent this getting caught in a loop
+        if (!_inFrameChanged)
+        {
+            _inFrameChanged = YES;
+            [[self delegate] textViewResized: self];
+            _inFrameChanged = NO;
+        }
+    }
 }
 
 
