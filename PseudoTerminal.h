@@ -131,6 +131,7 @@
 - (void)windowWillClose:(NSNotification *)aNotification;
 - (void)windowDidBecomeKey:(NSNotification *)aNotification;
 - (void)windowDidResignMain:(NSNotification *)aNotification;
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)proposedFrameSize;
 - (void)windowDidResize:(NSNotification *)aNotification;
 - (NSWindow *) window;
 
