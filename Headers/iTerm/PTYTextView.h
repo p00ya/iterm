@@ -93,8 +93,6 @@ typedef struct
     VT100Screen *dataSource;
     id _delegate;
 	
-	int pre_x1, pre_x2, pre_y1, pre_y2;
-
     //selection
     int startX, startY, endX, endY;
 	
