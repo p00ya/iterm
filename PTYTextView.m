@@ -523,7 +523,7 @@
 	attrib=[NSDictionary dictionaryWithObjectsAndKeys:
         aFont, NSFontAttributeName,
         color, NSForegroundColorAttributeName,
-		[NSNumber numberWithFloat: (float)bold*0.2], NSStrokeWidthAttributeName,
+		//[NSNumber numberWithFloat: (float)bold*0.2], NSStrokeWidthAttributeName,
         nil];
 	
 	
@@ -532,6 +532,11 @@
 	[image lockFocus];
 	[[NSGraphicsContext currentContext] setShouldAntialias:antiAlias];
 	[crap drawAtPoint:NSMakePoint(0,0)];
+	// for bold, redraw offset by a pixel
+	if (bold)
+	{
+		[crap drawAtPoint:NSMakePoint(1,0)];
+	}
 	[image unlockFocus];
 } // renderChar
 
