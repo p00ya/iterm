@@ -853,7 +853,7 @@
 				}
 				double_width = ([dataSource screenLines][i+1] == 0xffff);
 				[self _drawCharacter: aChar 
-							fgColor: CURSOR_TEXT 
+							 fgColor: [[self window] isKeyWindow]?CURSOR_TEXT:fg[i] 
 								AtX: x1 * charWidth + MARGIN 
 								  Y: (y1+[dataSource numberOfLines]-[dataSource height]+1)*lineHeight
 						doubleWidth: double_width];
