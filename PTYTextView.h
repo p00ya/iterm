@@ -93,6 +93,7 @@
 - (void)mouseDown:(NSEvent *)event;
 - (void)mouseUp:(NSEvent *)event;
 - (void)mouseDragged:(NSEvent *)event;
+- (NSString *) selectedText;
 - (void)copy: (id) sender;
 - (void)paste:(id)sender;
 - (BOOL)validateMenuItem:(NSMenuItem *)item;
