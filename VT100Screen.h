@@ -68,6 +68,9 @@
     BOOL blinkingCursor;
 
     NSView *display;
+
+    NSAttributedString *newLineString;
+
 }
 
 + (NSSize)requireSizeWithFont:(NSFont *)font
