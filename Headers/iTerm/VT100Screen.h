@@ -48,6 +48,10 @@
     int SCROLL_BOTTOM;
     BOOL tabStop[TABWINDOW];
     BOOL CURSOR_IN_MIDDLE;
+	int selectionStartColumn;
+	int selectionStartRow;
+	int selectionEndColumn;
+	int selectionEndRow;
 
     NSTextStorage *STORAGE;
     NSFont *FONT, *NAFONT;
@@ -169,6 +173,7 @@
 - (void) renewBuffer;
 - (int) numberOfLines;
 
+- (void) textViewDidChangeSelection: (NSRange) selectedRange;
 - (void) setScreenAttributes;
 - (void) setScreenLock;
 - (void) removeScreenLock;
@@ -177,6 +182,7 @@
 - (NSAttributedString *)attrString:(NSString *)str ascii:(BOOL)asc;
 - (NSAttributedString *)defaultAttrString:(NSString *)str;
 - (int) getIndexAtX:(int)x Y:(int)y withPadding:(BOOL)padding;
+- (int) getX: (int *)x Y: (int *)y atIndex: (int) index;
 - (int) getTVIndex:(int)x y:(int)y;
 - (BOOL) isDoubleWidthCharacter:(unichar)code;
 
