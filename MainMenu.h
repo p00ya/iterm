@@ -63,6 +63,7 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification;
 - (BOOL) applicationShouldTerminate: (NSNotification *) theNotification;
 - (BOOL)applicationOpenUntitledFile:(NSApplication *)app;
+- (NSMenu *)applicationDockMenu:(NSApplication *)sender;
 
 - (IBAction)newWindow:(id)sender;
 - (IBAction)newSession:(id)sender;
@@ -102,8 +103,18 @@
 - (NSDictionary *)addressBookEntry: (int) entryIndex;
 - (void) addAddressBookEntry: (NSDictionary *) entry;
 - (void) replaceAddressBookEntry:(NSDictionary *) old with:(NSDictionary *)new;
+- (void) buildAddressBookMenu: (NSMenu *) abMenu forTerminal: (id) sender;
+- (void) executeABCommandAtIndex: (int) theIndex inTerminal: (PseudoTerminal *) theTerm;
 
 // Preference Panel
 - (IBAction)showPrefWindow:(id)sender;
+
+@end
+
+// Private interface
+@interface MainMenu (Private)
+
+- (void) _executeABMenuCommandInNewTab: (id) sender;
+- (void) _executeABMenuCommandInNewWindow: (id) sender;
 
 @end
