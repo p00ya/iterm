@@ -239,7 +239,7 @@
 - (void) setDelegate: (id) aDelegate
 {
     [_delegate release];
-    [_delegate retain];
+    [aDelegate retain];
     _delegate = aDelegate;
 }    
 
