@@ -60,6 +60,7 @@ static NSString *NSBlinkAttributeName=@"NSBlinkAttributeName";
 #define KEY_PAGE_DOWN        "\033[6~"
 #define KEY_HOME             "\033[1~"
 #define KEY_END              "\033[4~"
+#define KEY_DEL		     "\033[3~"
 
 #define KEY_FUNCTION_FORMAT  "\033[%d~"
 
@@ -1195,8 +1196,9 @@ static VT100TCC decode_string(unsigned char *datap,
 
 - (NSData *)keyDelete
 {
-    unsigned char del = 0x7f;
-    return [NSData dataWithBytes:&del length:1];
+//    unsigned char del = 0x7f;
+//    return [NSData dataWithBytes:&del length:1];
+    return [NSData dataWithBytes:KEY_DEL length:conststr_sizeof(KEY_DEL)];
 }
 
 - (NSData *)keyEnd

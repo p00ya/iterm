@@ -69,6 +69,8 @@
     float alpha;
     NSFont *configFont, *configNAFont;
     BOOL changingNA;
+    BOOL newwin;
+    id newwinItem;
     PreferencePanel *pref;
 }
 
