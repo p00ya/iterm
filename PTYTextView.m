@@ -274,7 +274,6 @@
                     dic=[NSMutableDictionary dictionaryWithDictionary: [s attributesAtIndex:idx effectiveRange:nil]];
                     fg=[dic objectForKey:NSBackgroundColorAttributeName];
                     bg=[dic objectForKey:NSForegroundColorAttributeName];
-                    //        NSLog(@"set fg=%@\nbg=%@",fg,bg);
                     [dic setObject:bg forKey:NSBackgroundColorAttributeName];
                     [dic setObject:fg forKey:NSForegroundColorAttributeName];
                     [s setAttributes:dic range:NSMakeRange(idx,1)];

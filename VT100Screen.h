@@ -101,6 +101,7 @@
 - (void)setFont:(NSFont *)font nafont:(NSFont *)nafont;
 - (NSFont *)font;
 - (NSFont *)nafont;
+- (NSFont *)tallerFont;
 - (void)setLineLimit:(unsigned int)maxline;
 
 - (NSView *) display;

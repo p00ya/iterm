@@ -1680,7 +1680,7 @@ static VT100TCC decode_string(unsigned char *datap,
     if(bold)    {
         aFont = [[NSFontManager sharedFontManager] convertFont: defaultFont toHaveTrait: NSBoldFontMask];
 //        NSLog(@"%@->%@(%f, %f)",[SCREEN font], aFont, [VT100Screen fontSize:[SCREEN font]].height, [VT100Screen fontSize:aFont].height);
-        if ([VT100Screen fontSize:aFont].height!=[VT100Screen fontSize:defaultFont].height) aFont=defaultFont;
+        if ([VT100Screen fontSize:aFont].height>[VT100Screen fontSize: [SCREEN tallerFont]].height) aFont=defaultFont;
     }
     else
     {
