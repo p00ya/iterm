@@ -48,7 +48,6 @@ NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictionary *en
 
     // set the TERM_PROGRAM environment variable
     putenv("TERM_PROGRAM=iTerm.app");
-
 }
 
 - (BOOL) applicationShouldTerminate: (NSNotification *) theNotification

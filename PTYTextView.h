@@ -72,6 +72,9 @@
 - (BOOL) performDragOperation: (id<NSDraggingInfo>) sender;
 - (void) concludeDragOperation: (id<NSDraggingInfo>) sender;
 
+// Cursor control
+- (void)resetCursorRects;
+
 // Save method
 - (void) saveDocumentAs: (id) sender;
 
