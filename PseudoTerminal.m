@@ -737,7 +737,7 @@ static NSString *ConfigToolbarItem = @"Config";
 	  __FILE__, __LINE__, proposedFrameSize.width, proposedFrameSize.height);
 #endif
 
-#if 1
+#if 0
 
     return (proposedFrameSize);
 
@@ -766,7 +766,7 @@ static NSString *ConfigToolbarItem = @"Config";
     //NSLog(@"textview size: width = %f; height = %f", textviewSize.width, textviewSize.height);
 
                                        
-    // Now calculate an appriate terminal height for this in integers.
+    // Now calculate an appropriate terminal height for this in integers.
     h = ceil(textviewSize.height/[VT100Screen requireSizeWithFont: [SCREEN font]].height);
     //NSLog(@"h = %d", h);
     
