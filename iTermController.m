@@ -426,11 +426,7 @@ static BOOL usingAutoLaunchScript = NO;
     
     // Start the command        
     [term startProgram:cmd arguments:arg environment:env];
-    
-    // If we created a new window, set the size
-    if (theTerm == nil)
-        [term setWindowSize: NO];
-    
+        
     [term setCurrentSessionName:[entry objectForKey:@"Name"]];
 }
 
