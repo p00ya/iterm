@@ -487,6 +487,10 @@ static VT100TCC decode_csi(unsigned char *datap,
                     result.type = ANSICSI_VPR;
                     SET_PARAM_DEFAULT(param,0,1);
                     break;
+                case 'X':
+                    result.type = ANSICSI_ECH;
+                    SET_PARAM_DEFAULT(param,0,1);
+                    break;
                 default:
 		    NSLog(@"2: Unknown token (%c); %s", param.cmd, datap);
                     result.type = VT100_NOTSUPPORT;

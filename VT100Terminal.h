@@ -112,6 +112,7 @@
 #define ANSICSI_CHA	     3000	// Cursor Horizontal Absolute
 #define ANSICSI_VPA	     3001	// Vert Position Absolute
 #define ANSICSI_VPR	     3002	// Vert Position Relative
+#define ANSICSI_ECH	     3003	// Erase Character
 
 // Toggle between ansi/vt52
 #define STRICT_ANSI_MODE		4000

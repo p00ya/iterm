@@ -662,6 +662,9 @@ static BOOL PLAYBELL = YES;
     case ANSICSI_VPR:
         [self cursorToX: CURSOR_X Y: token.u.csi.p[0]+CURSOR_Y];
         break;
+    case ANSICSI_ECH:
+        [self setASCIIString:[NSString stringWithCharacters:spaces length:token.u.csi.p[0]<=WIDTH?token.u.csi.p[0]:WIDTH]];
+        break;
         
     case STRICT_ANSI_MODE:
 	[TERMINAL setStrictAnsiMode: ![TERMINAL strictAnsiMode]];
