@@ -65,6 +65,7 @@
 - (void)setDelegate:(id)object;
 - (id)delegate;
 
+- (void) doIdleTasks;
 - (NSData *)readData;
 - (void)readTask:(NSData *)data;
 - (void)writeTask:(NSData *)data;
