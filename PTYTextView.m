@@ -626,6 +626,7 @@
 	unsigned int bgcode, fgcode;
 	int y1, x1;
 	BOOL double_width;
+	float cursorHeight;
 	
     if(lineHeight <= 0 || lineWidth <= 0)
         return;
@@ -825,17 +826,20 @@
 		if(showCursor)
 		{
 			[[[self defaultCursorColor] colorWithAlphaComponent: (1 - transparency)] set];
+			
+			cursorHeight = [font defaultLineHeightForFont];
+			
 			if([[self window] isKeyWindow])
 			{
 				NSRectFill(NSMakeRect(x1 * charWidth + MARGIN,
-									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight,
-									  charWidth,lineHeight));
+									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight + (lineHeight - cursorHeight),
+									  charWidth, cursorHeight));
 			}
 			else
 			{
 				NSFrameRect(NSMakeRect(x1 * charWidth + MARGIN,
-									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight,
-									  charWidth,lineHeight));
+									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight + (lineHeight - cursorHeight),
+									  charWidth, cursorHeight));
 				
 			}
 			// draw any character on cursor if we need to

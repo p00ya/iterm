@@ -44,6 +44,7 @@
     /////////////////////////////////////////////////////////////////////////
     int WIDTH,HEIGHT;
 	int charWidth, charHeight;
+	float charHorizontalSpacingMultiplier, charVerticalSpacingMultiplier;
     NSFont *FONT, *NAFONT;
     float alpha;
     BOOL tabViewDragOperationInProgress;
@@ -82,6 +83,7 @@
 - (void)setWindowTitle;
 - (void)setWindowTitle: (NSString *)title;
 - (void)setFont:(NSFont *)font nafont:(NSFont *)nafont;
+- (void) setCharacterSpacingHorizontal: (float) horizontal vertical: (float) vertical;
 - (void) changeFontSize: (BOOL) increase;
 - (float) largerSizeForSize: (float) aSize;
 - (float) smallerSizeForSize: (float) aSize;
