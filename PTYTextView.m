@@ -842,10 +842,15 @@
     
 }
 
-- (void)otherMouseDown:(NSEvent *)theEvent
+- (void)mouseDown:(NSEvent *)theEvent
 {
-    NSLog(@"otherMouseDown");
-    //[self paste];
+    // Check if the delegate will handle the event
+    id delegate = [self delegate];
+    if([delegate respondsToSelector: @selector(willHandleEvent:)] &&
+       [delegate willHandleEvent: theEvent])
+	[delegate handleEvent: theEvent];
+    else
+	[super mouseDown: theEvent];
 }
 
 - (void)resetCursorRects
