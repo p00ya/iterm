@@ -1100,7 +1100,10 @@
 - (IBAction) selectAll: (id) sender
 {
 	// set the selection region for the whole text
-	[self _selectFromX:0 Y:0 toX:[dataSource width] Y:[dataSource numberOfLines]-1];
+	startX = startY = 0;
+	endX = [dataSource width] - 1;
+	endY = [dataSource numberOfLines] - 1;
+	[self _selectFromX:startX Y:startY toX:endX Y:endY];
 	[self setNeedsDisplay: YES];
 }
 
