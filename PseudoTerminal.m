@@ -118,6 +118,8 @@ static NSString *ConfigToolbarItem = @"Config";
     // Read the preference on whether to open new sessions in new tabs or windows
     newwin = [[NSUserDefaults standardUserDefaults] boolForKey:@"SESSION_IN_NEW_WINDOW"];
 
+    tabViewDragOperationInProgress = NO;
+
 #if DEBUG_ALLOC
     NSLog(@"%s(%d):-[PseudoTerminal init: 0x%x]", __FILE__, __LINE__, self);
 #endif
@@ -1475,11 +1477,34 @@ static NSString *ConfigToolbarItem = @"Config";
     
 }
 
+- (void)tabViewWillPerformDragOperation:(NSTabView *)tabView
+{
+#if DEBUG_METHOD_TRACE
+    NSLog(@"%s(%d):-[PseudoTerminal tabViewWillPerformDragOperation]", __FILE__, __LINE__);
+#endif
+
+    tabViewDragOperationInProgress = YES;
+    
+}
+
+- (void)tabViewDidPerformDragOperation:(NSTabView *)tabView
+{
+#if DEBUG_METHOD_TRACE
+    NSLog(@"%s(%d):-[PseudoTerminal tabViewDidPerformDragOperation]", __FILE__, __LINE__);
+#endif
+
+    tabViewDragOperationInProgress = NO;
+    [self tabViewDidChangeNumberOfTabViewItems: tabView];
+}
+
 - (void)tabViewDidChangeNumberOfTabViewItems:(NSTabView *)tabView
 {
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PseudoTerminal tabViewDidChangeNumberOfTabViewItems]", __FILE__, __LINE__);
 #endif
+
+    if(tabViewDragOperationInProgress == YES)
+	return;
     
     currentSessionIndex = [TABVIEW indexOfTabViewItem: [TABVIEW selectedTabViewItem]];
 
