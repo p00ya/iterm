@@ -282,10 +282,10 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     [self selectSessionAtIndex: [sender tag]];
 }
 
-- (void) selectSession: (PTYSession *) aSession
+- (void) setCurrentSession: (PTYSession *) aSession
 {
 #if DEBUG_METHOD_TRACE
-    NSLog(@"%s(%d):-[PseudoTerminal selectSession:%@]",
+    NSLog(@"%s(%d):-[PseudoTerminal setCurrentSession:%@]",
           __FILE__, __LINE__, aSession);
 #endif
     
@@ -323,7 +323,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     if (sessionIndex < 0 || sessionIndex >= [_sessionMgr numberOfSessions]) 
         return;
 
-    [self selectSession:[_sessionMgr sessionAtIndex:sessionIndex]];
+    [self setCurrentSession:[_sessionMgr sessionAtIndex:sessionIndex]];
 }
 
 - (void) insertSession: (PTYSession *) aSession atIndex: (int) index
@@ -371,7 +371,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 
 	if([self windowInited])
 	    [[self window] makeKeyAndOrderFront: self];
-	[[iTermController sharedInstance] setFrontPseudoTerminal: self];
+	[[iTermController sharedInstance] setCurrentTerminal: self];
     }
 }
 
@@ -859,7 +859,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 
     [self selectSessionAtIndex: [self currentSessionIndex]];
     
-    [[iTermController sharedInstance] setFrontPseudoTerminal: self];
+    [[iTermController sharedInstance] setCurrentTerminal: self];
 
     // update the cursor
     [[[_sessionMgr currentSession] SCREEN] showCursor];
@@ -1545,6 +1545,12 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 }
 
 // Handlers for supported commands:
+
+-(void)handleSelectScriptCommand: (NSScriptCommand *)command
+{
+    [[iTermController sharedInstance] setCurrentTerminal: self];
+}
+
 -(void)handleLaunchScriptCommand: (NSScriptCommand *)command
 {
     // Get the command's arguments:

@@ -307,16 +307,20 @@ static BOOL usingAutoLaunchScript = NO;
     [p release];
 }
 
-- (void) setFrontPseudoTerminal: (PseudoTerminal *) thePseudoTerminal
+- (void) setCurrentTerminal: (PseudoTerminal *) thePseudoTerminal
 {
     FRONT = thePseudoTerminal;
+
+    // make sure this window is the key window
+    if([[thePseudoTerminal window] isKeyWindow] == NO)
+	[[thePseudoTerminal window] makeKeyAndOrderFront: self];
 
     // Post a notification
     [[NSNotificationCenter defaultCenter] postNotificationName: @"iTermWindowBecameKey" object: nil userInfo: nil];    
 
 }
 
-- (PseudoTerminal *) frontPseudoTerminal
+- (PseudoTerminal *) currentTerminal
 {
     return (FRONT);
 }
@@ -324,7 +328,7 @@ static BOOL usingAutoLaunchScript = NO;
 - (void) terminalWillClose: (PseudoTerminal *) theTerminalWindow
 {
     if(FRONT == theTerminalWindow)
-	[self setFrontPseudoTerminal: nil];
+	[self setCurrentTerminal: nil];
 
     if(theTerminalWindow)
         [self removeFromTerminalsAtIndex: [terminalWindows indexOfObject: theTerminalWindow]];
@@ -443,8 +447,10 @@ NSString *terminalsKey = @"terminals";
 
 - (BOOL)application:(NSApplication *)sender delegateHandlesKey:(NSString *)key
 {
+    BOOL ret;
     // NSLog(@"key = %@", key);
-    return [key isEqualToString:@"terminals"];
+    ret = [key isEqualToString:@"terminals"] || [key isEqualToString:@"currentTerminal"];
+    return (ret);
 }
 
 // accessors for to-many relationships:

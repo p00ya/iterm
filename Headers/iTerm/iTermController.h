@@ -58,8 +58,8 @@
 
 // Utility methods
 + (void) breakDown:(NSString *)cmdl cmdPath: (NSString **) cmd cmdArgs: (NSArray **) path;
-- (void) setFrontPseudoTerminal: (PseudoTerminal *) thePseudoTerminal;
-- (PseudoTerminal *) frontPseudoTerminal;
+- (void) setCurrentTerminal: (PseudoTerminal *) thePseudoTerminal;
+- (PseudoTerminal *) currentTerminal;
 - (void) terminalWillClose: (PseudoTerminal *) theTerminalWindow;
 - (NSStringEncoding const*) encodingList;
 - (void) buildAddressBookMenu:(NSMenu *)abMenu target:(id)target withShortcuts: (BOOL) withShortcuts;

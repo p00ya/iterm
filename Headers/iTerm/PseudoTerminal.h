@@ -60,7 +60,6 @@
 - (void)setupSession: (PTYSession *) aSession title: (NSString *)title;
 - (void) insertSession: (PTYSession *) aSession atIndex: (int) index;
 - (void) switchSession: (id) sender;
-- (void) selectSession: (PTYSession *) aSession;
 - (void) selectSessionAtIndex: (int) sessionIndex;
 - (void) closeSession: (PTYSession*) aSession;
 - (IBAction) closeCurrentSession: (id) sender;
@@ -68,6 +67,7 @@
 - (IBAction) nextSession:(id)sender;
 - (IBAction) saveSession:(id)sender;
 - (PTYSession *) currentSession;
+- (void) setCurrentSession: (PTYSession *) aSession;
 - (int) currentSessionIndex;
 - (NSString *) currentSessionName;
 - (void) setCurrentSessionName: (NSString *) theSessionName;
@@ -153,6 +153,8 @@
 
 // Object specifier
 - (NSScriptObjectSpecifier *)objectSpecifier;
+
+-(void)handleSelectScriptCommand: (NSScriptCommand *)command;
 
 -(void)handleLaunchScriptCommand: (NSScriptCommand *)command;
 

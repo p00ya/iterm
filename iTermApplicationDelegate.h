@@ -81,6 +81,8 @@
 
 - (BOOL)application:(NSApplication *)sender delegateHandlesKey:(NSString *)key;
 
+- (PseudoTerminal *)currentTerminal;
+
 // accessors for to-many relationships:
 -(NSArray*)terminals;
 -(void)setTerminals: (NSArray*)terminals;
