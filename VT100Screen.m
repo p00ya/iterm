@@ -449,7 +449,7 @@ static BOOL PLAYBELL = YES;
 
     for(i=0;i<HEIGHT-1;i++) {
 #if DEBUG_USE_BUFFER
-        [STORAGE appendAttributedString:[self defaultAttrString:@"\n"]];
+        //[STORAGE appendAttributedString:[self defaultAttrString:@"\n"]];
         [BUFFER appendAttributedString:[self defaultAttrString:@"\n"]];
 #endif
 
