@@ -872,19 +872,32 @@ static SInt32 systemVersion;
 		fg=[dataSource screenFGColor]+y1*WIDTH;
 		if(showCursor)
 		{
+			float cursorWidth, cursorHeight;
+			
 			[[[self defaultCursorColor] colorWithAlphaComponent: (1 - transparency)] set];
-						
+			
+			if(charWidth < charWidthWithoutSpacing)
+				cursorWidth = charWidth;
+			else
+				cursorWidth = charWidthWithoutSpacing;
+			
+			if(lineHeight < charHeightWithoutSpacing)
+				cursorHeight = lineHeight;
+			else
+				cursorHeight = charHeightWithoutSpacing;
+			
+			
 			if([[self window] isKeyWindow])
 			{
 				NSRectFill(NSMakeRect(x1 * charWidth + MARGIN,
-									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight + (lineHeight - charHeightWithoutSpacing),
-									  charWidthWithoutSpacing, charHeightWithoutSpacing));
+									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight + (lineHeight - cursorHeight),
+									  cursorWidth, cursorHeight));
 			}
 			else
 			{
 				NSFrameRect(NSMakeRect(x1 * charWidth + MARGIN,
-									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight + (lineHeight - charHeightWithoutSpacing),
-									  charWidthWithoutSpacing, charHeightWithoutSpacing));
+									  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight + (lineHeight - cursorHeight),
+									  cursorWidth, cursorHeight));
 				
 			}
 			// draw any character on cursor if we need to
