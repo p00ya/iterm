@@ -1426,8 +1426,6 @@ static BOOL PLAYBELL = YES;
 #endif
 	int i;
 	
-	return;
-		
 	for (i=0; i<WIDTH*HEIGHT; i++) {
 		if (dirty[i]) break;
 	}
