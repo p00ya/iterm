@@ -164,7 +164,7 @@ static int writep(int fds, char *buf, size_t len)
       data receive loop
     */
     while (exitf == NO) {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSAutoreleasePool *arPool = [[NSAutoreleasePool alloc] init];
 	fd_set rfds,efds;
 	int sts;
 	char readbuf[4096];
@@ -184,6 +184,7 @@ static int writep(int fds, char *buf, size_t len)
 #endif
 	
 	if (sts < 0) {
+	    [arPool release];
 	    break;
 	}
 	else if (FD_ISSET(boss->FILDES, &efds)) {
@@ -250,7 +251,7 @@ static int writep(int fds, char *buf, size_t len)
 	}
 #endif
 
-	[pool release];
+	[arPool release];
     }
 
     [rootProxy brokenPipe];
