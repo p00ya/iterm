@@ -98,6 +98,7 @@ typedef struct
 	
     //selection
     int startX, startY, endX, endY;
+	BOOL mouseDragged;
 	
 	//find support
 	int lastFindX, lastFindY;
