@@ -136,7 +136,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 											 borderType: NSNoBorder];
 	
     [self setCharSizeUsingFont: aFont1];
-    [self setWidth: (int) (contentSize.width/charWidth + 0.1)
+    [self setWidth: (int) ((contentSize.width - MARGIN * 2)/charWidth + 0.1)
 			height: (int) (contentSize.height/charHeight + 0.1)];
 	
     return ([TABVIEW autorelease]);
@@ -1030,7 +1030,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		  frame.size.width, frame.size.height);
 #endif
 		    
-    w = (int)(frame.size.width/charWidth);
+    w = (int)((frame.size.width - MARGIN * 2)/charWidth);
     h = (int)(frame.size.height/charHeight);
     //NSLog(@"here:%d,%d",w,h);
 	
@@ -1091,7 +1091,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
           __FILE__, __LINE__, w, h);
 #endif
     
-    vsize.width = charWidth * w;
+    vsize.width = charWidth * w + MARGIN *2;
 	vsize.height = charHeight * h;
     
     for(i=0;i<[_sessionMgr numberOfSessions]; i++) {

@@ -31,7 +31,7 @@
 #import <Cocoa/Cocoa.h>
 #import <iTerm/iTerm.h>
 
-#define MARGIN  6
+#define MARGIN  5
 
 
 @class VT100Screen;
