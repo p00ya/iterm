@@ -91,7 +91,6 @@ static BOOL newWindow=YES;
     [term startProgram:cmd arguments:arg];
     [[term window] setAlphaValue:1.0-[PREF_PANEL transparency]/100.0];
     [term setCurrentSessionName:nil];
-    [term autorelease];
 }
 
 - (IBAction)newSession:(id)sender
@@ -629,10 +628,13 @@ static BOOL newWindow=YES;
 
 - (void) removeTerminalWindow: (PseudoTerminal *) theTerminalWindow
 {
-    if(theTerminalWindow)
-        [terminalWindows removeObject: theTerminalWindow];
     if(FRONT == theTerminalWindow)
         FRONT = nil;
+    if(theTerminalWindow)
+    {
+        [terminalWindows removeObject: theTerminalWindow];
+        [theTerminalWindow autorelease];
+    }
 }
 
 
