@@ -70,9 +70,6 @@ static int TRANSPARENCY  =10;
 #endif
     if ((self = [super init]) == nil)
         return nil;
-
-    if ([NSBundle loadNibNamed:@"PreferencePanel" owner:self] == NO)
-	return nil;
     
     // Get the user's default shell
     if((thisUser = getenv("USER")) != NULL)
@@ -173,6 +170,10 @@ static int TRANSPARENCY  =10;
 {
     NSStringEncoding const *p=encodingList;
     int r;
+
+    // Load our bundle
+    if ([NSBundle loadNibNamed:@"PreferencePanel" owner:self] == NO)
+	return;
     
     [prefPanel center];
     [shell setStringValue:defaultShell];
