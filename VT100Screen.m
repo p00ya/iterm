@@ -681,6 +681,7 @@ static BOOL PLAYBELL = YES;
 //            [STORAGE endEditing];
             [[SESSION parent] resizeWindow:([TERMINAL columnMode]?132:80)
                                     height:HEIGHT];
+            [[SESSION TEXTVIEW] scrollEnd];
 //            [STORAGE beginEditing];
         }
         break;
@@ -1509,36 +1510,6 @@ static BOOL PLAYBELL = YES;
     {
         for (i=0;i<HEIGHT;i++)
             [BUFFER appendAttributedString:[self attrString:@"\n" ascii:YES]];
-        NSLog(@"Clear all");
-        /*
-	[self setScreenLock];
-	[STORAGE beginEditing];
-	//NSLog(@"'%@'", [BUFFER string]);
-	[STORAGE appendAttributedString:[self attrString:@"\n" ascii:YES]];
-	TOP_LINE++;
-	updateIndex = [STORAGE length];
-	// turn off the cursor
-	if(cursorIndex < [STORAGE length])
-	{
-	    NSMutableDictionary *dic;
-	    dic =  [NSMutableDictionary dictionaryWithDictionary: [STORAGE attributesAtIndex:cursorIndex effectiveRange:nil]];
-	    [dic setObject:[TERMINAL defaultBGColor] forKey:NSBackgroundColorAttributeName];
-	    [dic setObject:[TERMINAL defaultFGColor] forKey:NSForegroundColorAttributeName];
-	    [STORAGE setAttributes:dic range:NSMakeRange(cursorIndex,1)];
-	}
-	[STORAGE endEditing];
-	[self removeScreenLock];
-	[[SESSION TEXTVIEW] scrollEnd];
-
-	// update TOP_LINE
-	for(i = 0; i < [BUFFER length]; i++)
-	{
-	    if([[BUFFER string] characterAtIndex: i] == '\n')
-		TOP_LINE++;
-	}
-    }
-    else
-	clearingBuffer = NO;*/
         return;
     }
 #endif
