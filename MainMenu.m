@@ -269,6 +269,50 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
 //        [FRONT newSession: self];
 }
 
+// navigation
+- (IBAction) previousTerminal: (id) sender
+{
+    unsigned int currentIndex;
+
+    currentIndex = [[self terminals] indexOfObject: FRONT];
+    if(FRONT == nil || currentIndex == NSNotFound)
+    {
+	NSBeep();
+	return;
+    }
+
+    // get the previous terminal
+    if(currentIndex == 0)
+	currentIndex = [[self terminals] count] - 1;
+    else
+	currentIndex--;
+
+    // make that terminal's window active
+    [[[[self terminals] objectAtIndex: currentIndex] window] makeKeyAndOrderFront: self];
+    
+}
+- (IBAction) nextTerminal: (id) sender
+{
+    unsigned int currentIndex;
+
+    currentIndex = [[self terminals] indexOfObject: FRONT];
+    if(FRONT == nil || currentIndex == NSNotFound)
+    {
+	NSBeep();
+	return;
+    }
+
+    // get the next terminal
+    if(currentIndex == [[self terminals] count] - 1)
+	currentIndex = 0;
+    else
+	currentIndex++;
+
+    // make that terminal's window active
+    [[[[self terminals] objectAtIndex: currentIndex] window] makeKeyAndOrderFront: self];
+    
+}
+
 
 /// About window
 
@@ -425,6 +469,10 @@ extern  NSComparisonResult addressBookComparator (NSDictionary *entry1, NSDictio
 - (void) setFrontPseudoTerminal: (PseudoTerminal *) thePseudoTerminal
 {
     FRONT = thePseudoTerminal;
+
+    [previousTerminal setAction: (FRONT?@selector(previousTerminal:):nil)];
+    [nextTerminal setAction: (FRONT?@selector(nextTerminal:):nil)];
+
 
     [self buildSessionSubmenu];
 

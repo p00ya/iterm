@@ -45,6 +45,8 @@
 
     // Menu items
     IBOutlet NSMenuItem *selectTab;
+    IBOutlet NSMenuItem *previousTerminal;
+    IBOutlet NSMenuItem *nextTerminal;
     
     // bookmarks data
     NSMutableArray *addressBook;
@@ -69,6 +71,10 @@
 // About window
 - (IBAction)showAbout:(id)sender;
 - (IBAction)aboutOK:(id)sender;
+
+// navigation
+- (IBAction) previousTerminal: (id) sender;
+- (IBAction) nextTerminal: (id) sender;
 
 // Utility methods
 + (void) breakDown:(NSString *)cmdl cmdPath: (NSString **) cmd cmdArgs: (NSArray **) path;
