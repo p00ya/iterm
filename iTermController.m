@@ -405,13 +405,12 @@ static BOOL usingAutoLaunchScript = NO;
     
     // Initialize a new session
     aSession = [[PTYSession alloc] init];
+    // set our preferences
     [aSession setAddressBookEntry:entry];
     // Add this session to our term and make it current
     [term addInSessions: aSession];
     [aSession release];
 
-    // set our preferences
-    [aSession setPreferencesFromAddressBookEntry: entry];
     if ([entry objectForKey: @"Scrollback"])
         [[aSession SCREEN] setScrollback:[[entry objectForKey: @"Scrollback"] intValue]];
     else
