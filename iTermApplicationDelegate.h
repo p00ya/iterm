@@ -50,6 +50,7 @@
     IBOutlet NSMenuItem *sendInputToAllSessions;
 	IBOutlet NSMenuItem *fontSizeFollowWindowResize;
 	IBOutlet NSMenuItem *toggleBookmarksView;
+  IBOutlet NSMenuItem *toggleTransparency;
 
 }
 
@@ -84,6 +85,9 @@
 // font control
 - (IBAction) biggerFont: (id) sender;
 - (IBAction) smallerFont: (id) sender;
+
+// transparency
+- (IBAction) useTransparency: (id) sender;
 
 @end
 

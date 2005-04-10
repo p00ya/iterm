@@ -97,6 +97,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 	
 	// transparency
 	float transparency;
+  BOOL useTransparency;
 	
     // data source
     VT100Screen *dataSource;
@@ -221,6 +222,8 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 // transparency
 - (float) transparency;
 - (void) setTransparency: (float) fVal;
+- (BOOL) useTransparency;
+- (void) setUseTransparency: (BOOL) flag;
 
 //
 // Drag and Drop methods for our text view
