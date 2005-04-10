@@ -339,7 +339,7 @@ static size_t getCSIParam(unsigned char *datap,
 		else {
             switch (*datap) {
                 case VT100CC_ENQ: break;
-                case VT100CC_BEL: [SCREEN playBell]; break;
+                case VT100CC_BEL: [SCREEN activateBell]; break;
                 case VT100CC_BS:  [SCREEN backSpace]; break;
                 case VT100CC_HT:  [SCREEN setTab]; break;
                 case VT100CC_LF:
