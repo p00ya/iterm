@@ -1710,6 +1710,8 @@ static SInt32 systemVersion;
 						j++;
 						break; // continue to next line
 					}
+					else if(y == endy)
+						break;
 					else
 						temp[j] = ' '; // represent blank with space
 				}
