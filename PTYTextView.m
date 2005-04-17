@@ -1506,7 +1506,7 @@ static SInt32 systemVersion;
 			 [mouseDownEvent locationInWindow].y == [event locationInWindow].y && 
 			 !([event modifierFlags] & NSCommandKeyMask) &&
 			 [event clickCount] < 2 && !mouseDragged) 
-	{
+	{		
 		startX=-1;
 	}
 	
