@@ -888,6 +888,7 @@ static VT100TCC decode_utf8(unsigned char *datap,
                 else break;
             }
             else {
+				NSLog(@"unknown code in UTF8: %d(%c)",*p,*p);
                 *p=UNKNOWN;
                 p++;
                 len--;
@@ -1130,7 +1131,7 @@ static VT100TCC decode_string(unsigned char *datap,
     VT100TCC result;
     NSData *data;
 	
-    *rmlen = 1;
+    *rmlen = 0;
     result.type = VT100_UNKNOWNCHAR;
     result.u.code = datap[0];
 	
@@ -1170,11 +1171,15 @@ static VT100TCC decode_string(unsigned char *datap,
                                        encoding:encoding]
             autorelease];
 		
-        if (result.u.string==nil) {
-            int i;
+		if (result.u.string==nil) {
+            /*int i;
             NSLog(@"Null:%@",data);
             for(i=0;i<*rmlen;i++) datap[i]=UNKNOWN;
-            result.u.string = [[[NSString alloc] initWithCString:datap length:*rmlen] autorelease];
+            result.u.string = [[[NSString alloc] initWithCString:datap length:*rmlen] autorelease];*/
+			NSLog(@"Null:%@",data);
+			*rmlen = 0;
+			result.type = VT100_UNKNOWNCHAR;
+			result.u.code = datap[0];
         }
     }
     return result;
