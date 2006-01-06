@@ -81,7 +81,7 @@ static BOOL usingAutoLaunchScript = NO;
     // populate the submenu with ascripts found in the script directory
     NSDirectoryEnumerator *directoryEnumerator = [[NSFileManager defaultManager] enumeratorAtPath: [SCRIPT_DIRECTORY stringByExpandingTildeInPath]];
     NSString *file;
-    while (file = [directoryEnumerator nextObject])
+    while ((file = [directoryEnumerator nextObject]))
     {
 		NSMenuItem *scriptItem = [[NSMenuItem alloc] initWithTitle: file action: @selector(launchScript:) keyEquivalent: @""];
 		[scriptItem setTarget: [iTermController sharedInstance]];
