@@ -129,12 +129,12 @@ static BOOL editingBookmark = NO;
 	
 	// load saved profiles or default if we don't have any
 	keybindingProfiles = [prefs objectForKey: @"KeyBindings"];
-	displayProfiles = [prefs objectForKey: @"Displays"];
+	displayProfiles =  [prefs objectForKey: @"Displays"];
 	terminalProfiles = [prefs objectForKey: @"Terminals"];
 	
 	// if we got no profiles, load from our embedded plist
 	plistFile = [[NSBundle bundleForClass: [self class]] pathForResource:@"Profiles" ofType:@"plist"];
-	profilesDictionary = [NSMutableDictionary dictionaryWithContentsOfFile: plistFile];
+	profilesDictionary = [NSDictionary dictionaryWithContentsOfFile: plistFile];
 	if([keybindingProfiles count] == 0)
 		keybindingProfiles = [profilesDictionary objectForKey: @"KeyBindings"];
 	if([displayProfiles count] == 0)

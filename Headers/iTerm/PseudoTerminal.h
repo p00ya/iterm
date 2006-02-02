@@ -63,7 +63,7 @@
 
 - (id)init;
 - (id) initWithWindowNibName: (NSString *) windowNibName;
-- (id) initViewWithFrame: (NSRect) frame;
+- (PTYTabView*) initViewWithFrame: (NSRect) frame;
 - (void)dealloc;
 - (void)releaseObjects;
 
