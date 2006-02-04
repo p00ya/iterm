@@ -1385,7 +1385,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
     
 //    NSLog(@"insertLines %d[%d,%d]",n, CURSOR_X,CURSOR_Y);
 	idx1=CURSOR_Y*WIDTH;
-	if (n+CURSOR_Y<SCROLL_BOTTOM) {
+	if (n+CURSOR_Y<=SCROLL_BOTTOM) {
 		idx2=(CURSOR_Y+n)*WIDTH;
 		len=(SCROLL_BOTTOM-n-CURSOR_Y+1)*WIDTH;
 		memmove(screenLines+idx2, screenLines+idx1, len*sizeof(unichar));
@@ -1411,7 +1411,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
     
 	//    NSLog(@"insertLines %d[%d,%d]",n, CURSOR_X,CURSOR_Y);
 	idx1=CURSOR_Y*WIDTH;
-	if (n+CURSOR_Y<SCROLL_BOTTOM) {
+	if (n+CURSOR_Y<=SCROLL_BOTTOM) {
 		idx2=(CURSOR_Y+n)*WIDTH;
 		len=(SCROLL_BOTTOM-n-CURSOR_Y+1)*WIDTH;
 		memmove(screenLines+idx1, screenLines+idx2, len*sizeof(unichar));
