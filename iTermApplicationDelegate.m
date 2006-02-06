@@ -310,7 +310,7 @@ static BOOL usingAutoLaunchScript = NO;
 //    [NSApp orderFrontStandardAboutPanel:nil];
 
     // First Author
-    author1URL = [NSURL URLWithString: @"mailto:fabian@macvillage.net"];
+    author1URL = [NSURL URLWithString: @"mailto:yfabian@gmail.com"];
     linkAttributes= [NSDictionary dictionaryWithObjectsAndKeys: author1URL, NSLinkAttributeName,
                         [NSNumber numberWithInt: NSSingleUnderlineStyle], NSUnderlineStyleAttributeName,
 					    [NSColor blueColor], NSForegroundColorAttributeName,
