@@ -1,16 +1,14 @@
 ##
 ## $Id$
 ## iTerm Makefile
-## 2003 Copyright(C) Ujwal S. Sathyam
+## 2003 Copyright(C) Ujwal S. Setlur
 ##
 
-PBXBUILD=pbxbuild
-XCODEBUILD="xcodebuild -project iTerm.xcode"  
-BUILDSTYLE=Development
+CONFIGURATION=Development
 PROJECTNAME=iTerm
 
 all:
-	./iTermBuild.sh -alltargets -buildstyle $(BUILDSTYLE)
+	./iTermBuild.sh -alltargets -configuration $(CONFIGURATION)
 
 clean:
 	./iTermBuild.sh -alltargets clean
@@ -18,9 +16,9 @@ clean:
 	rm -f *~
 
 Development:
-	./iTermBuild.sh -alltargets -buildstyle Development
+	./iTermBuild.sh -alltargets -configuration Development
 
 Deployment:
-	./iTermBuild.sh -alltargets -buildstyle Deployment
+	./iTermBuild.sh -alltargets -configuration Deployment
 
 
