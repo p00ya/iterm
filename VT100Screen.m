@@ -90,7 +90,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 - (id)init
 {
 #if DEBUG_ALLOC
-    NSLog(@"%s(%d):-[VT100Screen init]", __FILE__, __LINE__);
+    NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);
 #endif
     if ((self = [super init]) == nil)
 	return nil;
@@ -127,7 +127,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 - (void)dealloc
 {
 #if DEBUG_ALLOC
-    NSLog(@"%s(%d):-[VT100Screen dealloc]", __FILE__, __LINE__);
+    NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);
 #endif
 	free(screenLines);
 	free(screenBGColor);

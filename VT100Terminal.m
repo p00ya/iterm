@@ -1193,7 +1193,7 @@ static VT100TCC decode_string(unsigned char *datap,
 {
 	
 #if DEBUG_ALLOC
-    NSLog(@"%s(%d):-[VT100Terminal init 0x%x]", __FILE__, __LINE__, self);
+    NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);
 #endif
     
     if ([super init] == nil)
@@ -1240,7 +1240,7 @@ static VT100TCC decode_string(unsigned char *datap,
 - (void)dealloc
 {
 #if DEBUG_ALLOC
-    NSLog(@"%s(%d):-[VT100Terminal dealloc 0x%x]", __FILE__, __LINE__, self);
+    NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);
 #endif
     
     [STREAM release];

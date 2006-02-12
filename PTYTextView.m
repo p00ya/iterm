@@ -57,7 +57,7 @@ static SInt32 systemVersion;
 - (id)initWithFrame: (NSRect) aRect
 {
 #if DEBUG_ALLOC
-    NSLog(@"%s 0x%x", __PRETTY_FUNCTION__, self);
+    NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);
 #endif
     	
     self = [super initWithFrame: aRect];
@@ -116,7 +116,7 @@ static SInt32 systemVersion;
 - (void) dealloc
 {
 #if DEBUG_ALLOC
-    NSLog(@"PTYTextView: -dealloc 0x%x", self);
+    NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);
 #endif
 	int i;
     
