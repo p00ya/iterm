@@ -44,9 +44,6 @@
     NSMutableData *RECVDATA;
     NSString *TTY;
     NSString *PATH;
-    NSPort *SENDPORT;
-    NSPort *RECVPORT;
-    NSConnection *CONNECTION;
 
     NSString *LOG_PATH;
     NSFileHandle *LOG_HANDLE;

@@ -1532,12 +1532,9 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[VT100Screen blink]", __FILE__, __LINE__);
 #endif
-	int i;
 	
-	for (i=0; i<WIDTH*HEIGHT; i++) {
-		if (dirty[i]) break;
-	}
-    if (i<WIDTH*HEIGHT) [display refresh];
+    if (memchr(dirty, 1, WIDTH*HEIGHT)) [display refresh];
+	
 }
 
 - (int) cursorX

@@ -688,7 +688,7 @@ static VT100TCC decode_other(unsigned char *datap,
 				switch (c2) {
 					case '8': result.type=VT100CSI_DECALN; break;
 					default:
-						NSLog(@"4: Unknown token %c", c2);
+						NSLog(@"4: Unknown token ESC # %c", c2);
 						result.type = VT100_NOTSUPPORT;
 				}
 				*rmlen = 3;
