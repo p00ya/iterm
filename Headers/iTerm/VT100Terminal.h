@@ -236,6 +236,7 @@ typedef enum {
     NSMutableData     *STREAM;
     VT100Screen       *SCREEN;
 	PseudoTerminal    *PARENT;
+	NSLock			  *streamLock;
 
     BOOL LINE_MODE;			// YES=Newline, NO=Line feed
     BOOL CURSOR_MODE;		// YES=Application, NO=Cursor

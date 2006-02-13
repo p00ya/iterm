@@ -1201,6 +1201,7 @@ static VT100TCC decode_string(unsigned char *datap,
 	
     ENCODING = NSASCIIStringEncoding;
     STREAM   = [[NSMutableData alloc] init];
+	streamLock = [[NSLock alloc] init];
     
 	
 	
@@ -1245,6 +1246,8 @@ static VT100TCC decode_string(unsigned char *datap,
     
     [STREAM release];
     [SCREEN release];
+	[streamLock unlock];
+	[streamLock release];
         
     [super dealloc];
 }
@@ -1291,15 +1294,19 @@ static VT100TCC decode_string(unsigned char *datap,
 
 - (void)cleanStream
 {
+	[streamLock lock];
     [STREAM autorelease];
     STREAM = [[NSMutableData data] retain];
+	[streamLock unlock];
 }
 
 - (void)putStreamData:(NSData *)data
 {
+	[streamLock lock];
     if([STREAM length] == 0)
 		streamOffset = 0;
     [STREAM appendData:data];
+	[streamLock unlock];
 }
 
 - (VT100TCC)getNextToken
@@ -1307,11 +1314,15 @@ static VT100TCC decode_string(unsigned char *datap,
     unsigned char *datap;
     size_t datalen;
     VT100TCC result;
+
+	// acquire lock
+	[streamLock lock];
+
 	
 #if 0
     NSLog(@"buffer data = %@", STREAM);
 #endif
-	
+		
     // get our current position in the stream
     datap = (unsigned char *)[STREAM bytes] + streamOffset;
     datalen = (size_t)[STREAM length] - streamOffset;
@@ -1365,6 +1376,9 @@ static VT100TCC decode_string(unsigned char *datap,
 	
     [self _setMode:result];
     [self _setCharAttr:result];
+	
+	// release lock
+	[streamLock unlock];
 	
     return result;
 }
