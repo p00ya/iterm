@@ -141,6 +141,7 @@ static int writep(int fds, char *buf, size_t len)
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSData *data = nil;
     BOOL exitf = NO;
+    int sts;
 	int iterationCount = 0;
 	NSAutoreleasePool *arPool = nil;
 
@@ -157,7 +158,7 @@ static int writep(int fds, char *buf, size_t len)
     while (exitf == NO) 
 	{
 		fd_set rfds,efds;
-		int sts;
+		//int sts;
 		char readbuf[4096];
 		
 		// periodically refresh our autorelease pool
@@ -173,8 +174,6 @@ static int writep(int fds, char *buf, size_t len)
 		sts = select(boss->FILDES + 1, &rfds, NULL, &efds, NULL);
 
 		if (sts < 0) {
-			[arPool release];
-			arPool = nil;
 			break;
 		}
 		else if (FD_ISSET(boss->FILDES, &efds)) {
@@ -198,7 +197,7 @@ static int writep(int fds, char *buf, size_t len)
 			if (sts == 0) {
 				// session close
 				exitf = YES;
-                [boss readTask: nil];
+                //[boss readTask: nil];
 			}
 		}
 		else if (FD_ISSET(boss->FILDES, &rfds)) {
@@ -239,6 +238,8 @@ static int writep(int fds, char *buf, size_t len)
 		
     }
 	
+    [boss brokenPipe];
+	
 	if(arPool != nil)
 	{
 		[arPool release];
@@ -251,7 +252,7 @@ static int writep(int fds, char *buf, size_t len)
 #endif
 
     [pool release];
-    [NSThread exit];
+    //[NSThread exit];
 }
 
 - (id)init
