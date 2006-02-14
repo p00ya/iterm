@@ -459,7 +459,7 @@ static int writep(int fds, char *buf, size_t len)
 - (void)brokenPipe
 {
     if ([DELEGATEOBJECT respondsToSelector:@selector(brokenPipe)]) {
-	[DELEGATEOBJECT brokenPipe];
+        [DELEGATEOBJECT brokenPipe];
     }
 }
 

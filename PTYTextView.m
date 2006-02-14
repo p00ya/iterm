@@ -675,11 +675,12 @@ static SInt32 systemVersion;
 	BOOL double_width;
 	BOOL reversed = [[dataSource terminal] screenMode]; 
 	
-  float trans = useTransparency ? 1.0 - transparency : 1.0;
+    float trans = useTransparency ? 1.0 - transparency : 1.0;
     
     if(lineHeight <= 0 || lineWidth <= 0)
         return;
     
+    [dataSource acquireLock];
 	// make sure margins are filled in
 	if (forceUpdate) {
 		if([(PTYScrollView *)[self enclosingScrollView] backgroundImage] != nil)
@@ -871,6 +872,9 @@ static SInt32 systemVersion;
 	}
 	
 	blinkShow = !blinkShow;
+    
+    // Double check if dataSource is still available
+    if (!dataSource) return;
 	x1=[dataSource cursorX]-1;
 	y1=[dataSource cursorY]-1;
 	
@@ -948,6 +952,7 @@ static SInt32 systemVersion;
 	
 
 	forceUpdate=NO;
+	[dataSource releaseLock];
 	
 }
 

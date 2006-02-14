@@ -502,7 +502,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 
 	WIDTH=width;
 	HEIGHT=height;
-	CURSOR_X = CURSOR_Y = 0;
+	CURSOR_X = CURSOR_Y = 1;
 	SAVE_CURSOR_X = SAVE_CURSOR_Y = 0;
 	SCROLL_TOP = 0;
 	SCROLL_BOTTOM = HEIGHT - 1;	
@@ -530,6 +530,8 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
     NSLog(@"%s(%d):-[VT100Screen putToken:%d]",__FILE__, __LINE__, token);
 #endif
     int i,j;
+    
+    [self acquireLock];
     
     switch (token.type) {
     // our special code
@@ -728,7 +730,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 	break;
     }
 //    NSLog(@"Done");
-    
+    [self releaseLock];
 }
 
 - (void)clearBuffer
@@ -755,7 +757,7 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 	}
 	
 	bufferWrapped = lastBufferLineIndex = 0;
-	[display refresh];
+	[self updateScreen];
 }
 
 - (void) saveBuffer
@@ -1533,7 +1535,9 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
     NSLog(@"%s(%d):-[VT100Screen blink]", __FILE__, __LINE__);
 #endif
 	
-    if (memchr(dirty, 1, WIDTH*HEIGHT)) [display refresh];
+    if (memchr(dirty, 1, WIDTH*HEIGHT)) {
+        [self updateScreen];
+    }     
 	
 }
 
