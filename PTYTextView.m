@@ -728,7 +728,8 @@ static SInt32 systemVersion;
 		if(line >= [dataSource numberOfLines])
 		{
 			NSLog(@"%s (0x%x): illegal line index %d >= %d", __PRETTY_FUNCTION__, self, line, [dataSource numberOfLines]);
-			break;
+			[dataSource releaseLock];
+			return;
 		}
 		
 		// Check if we are drawing a line in buffer

@@ -44,6 +44,9 @@
     NSMutableData *RECVDATA;
     NSString *TTY;
     NSString *PATH;
+	NSPort *recvPort;
+	NSPort *sendPort;
+	NSConnection *serverConnection;
 
     NSString *LOG_PATH;
     NSFileHandle *LOG_HANDLE;
@@ -74,7 +77,6 @@
 - (int)wait;
 - (BOOL)exist;
 - (void)stop;
-- (void)stopNoWait;
 - (int)status;
 - (NSString *)tty;
 - (NSString *)path;
