@@ -875,11 +875,8 @@ static SInt32 systemVersion;
 	blinkShow = !blinkShow;
     
     // Double check if dataSource is still available
-    if (!dataSource)
-	{
-		[dataSource releaseLock];
-		return;
-	}
+    if (!dataSource) return;
+	
 	x1=[dataSource cursorX]-1;
 	y1=[dataSource cursorY]-1;
 	
