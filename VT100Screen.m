@@ -651,10 +651,13 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 
     case VT100CSI_DECSET:
     case VT100CSI_DECRST:
-        if (token.u.csi.p[0]==3 && [TERMINAL allowColumnMode] == YES) {	// set the column
+        if (token.u.csi.p[0]==3 && [TERMINAL allowColumnMode] == YES) {
+			// set the column
+			[self releaseLock];
             [[SESSION parent] resizeWindow:([TERMINAL columnMode]?132:80)
                                     height:HEIGHT];
             [[SESSION TEXTVIEW] scrollEnd];
+			return;
         }
         break;
 
