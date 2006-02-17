@@ -430,10 +430,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	[aSession release];
 	[TABVIEW removeTabViewItem: aTabViewItem];
 	[aTabViewItem release];	
-	
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName: @"iTermNumberOfSessionsDidChange" object: self userInfo: nil];		
-	
 		
 }
 
@@ -1529,6 +1525,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		}
 		
     }
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName: @"iTermNumberOfSessionsDidChange" object: self userInfo: nil];		
     
 }
 
