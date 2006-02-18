@@ -214,6 +214,8 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 		return;
 		
 	if (width==WIDTH&&height==HEIGHT) return;
+	
+	[self acquireLock];
 		
 	if (width != WIDTH && bufferLines) {
 		//copy the buffer over
@@ -302,6 +304,8 @@ void padString(NSString *s, unichar *buf, char doubleWidth, int *len)
 		free(tempBuffer);
 		tempBuffer=NULL;
 	}
+	
+	[self releaseLock];
 	
 }
 
