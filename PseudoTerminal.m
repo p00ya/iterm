@@ -419,10 +419,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
         [[self window] close];
         return;
     }
-	
-	// select the next session
-	[self selectSessionAtIndex:[_sessionMgr currentSessionIndex] + 1];
-	
+		
 	[aSession retain];  
 	aTabViewItem = [aSession tabViewItem];
 	[aTabViewItem retain];
