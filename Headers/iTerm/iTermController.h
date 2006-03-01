@@ -39,6 +39,7 @@
     // PseudoTerminal objects
     NSMutableArray *terminalWindows;
     id FRONT;
+    NSLock *terminalLock;
 }
 
 + (iTermController*)sharedInstance;

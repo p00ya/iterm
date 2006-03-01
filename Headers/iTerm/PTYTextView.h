@@ -31,6 +31,8 @@
 #import <Cocoa/Cocoa.h>
 #import <iTerm/iTerm.h>
 
+#include <sys/time.h>
+
 #define MARGIN  5
 
 @class VT100Screen;
@@ -97,7 +99,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 	
 	// transparency
 	float transparency;
-  BOOL useTransparency;
+    BOOL useTransparency;
 	
     // data source
     VT100Screen *dataSource;
@@ -123,6 +125,8 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 	BOOL blinkingCursor;
 	BOOL showCursor;
 	BOOL blinkShow;
+    struct timeval lastBlink;
+    int oldCursorX, oldCursorY;
 	
 	// trackingRect tab
 	NSTrackingRectTag trackingRectTag;
