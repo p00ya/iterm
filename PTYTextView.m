@@ -141,8 +141,6 @@ static SInt32 systemVersion;
     [selectionColor release];
 	[defaultCursorColor release];
 	
-    [dataSource release];
-    [_delegate release];
     [font release];
 	[nafont release];
     [markedTextAttributes release];
@@ -457,8 +455,6 @@ static SInt32 systemVersion;
 
 - (void) setDataSource: (id) aDataSource
 {
-    [dataSource release];
-    [aDataSource retain];
     dataSource = aDataSource;
 }
 
@@ -469,8 +465,6 @@ static SInt32 systemVersion;
 
 - (void) setDelegate: (id) aDelegate
 {
-    [_delegate release];
-    [aDelegate retain];
     _delegate = aDelegate;
 }    
 

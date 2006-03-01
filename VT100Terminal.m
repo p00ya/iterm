@@ -1249,7 +1249,6 @@ static VT100TCC decode_string(unsigned char *datap,
 #endif
     
     [STREAM release];
-    [SCREEN release];
 	[streamLock unlock];
 	[streamLock release];
         
@@ -1929,8 +1928,6 @@ static VT100TCC decode_string(unsigned char *datap,
 
 - (void) setScreen:(VT100Screen*) sc
 {
-    [SCREEN release];
-    [sc retain];
     SCREEN=sc;
 }
 

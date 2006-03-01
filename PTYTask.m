@@ -295,7 +295,6 @@ static int writep(int fds, char *buf, size_t len)
     if (FILDES >= 0)
 		close(FILDES);
 	
-    [DELEGATEOBJECT release];
     [RECVDATA release];
     [TTY release];
     [PATH release];
@@ -413,9 +412,7 @@ static int writep(int fds, char *buf, size_t len)
 
 - (void)setDelegate:(id)object
 {
-    [DELEGATEOBJECT release];
     DELEGATEOBJECT = object;
-    [DELEGATEOBJECT retain];
 }
 
 - (id)delegate
