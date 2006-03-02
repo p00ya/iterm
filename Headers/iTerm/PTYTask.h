@@ -52,6 +52,8 @@
     NSFileHandle *LOG_HANDLE;
     BOOL hasOutput;
     BOOL firstOutput;
+
+    MPSemaphoreID threadEndSemaphore;
 }
 
 - (id)init;
