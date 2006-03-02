@@ -1759,13 +1759,17 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		if(pool == nil)
 			pool = [[NSAutoreleasePool alloc] init];
 		
-		n = [_sessionMgr numberOfSessions];
-		for (i = 0; i < n; i++)
-		{
-			aSession = [_sessionMgr sessionAtIndex: i];
-			[aSession updateDisplay];
+        if (iterationCount % 3 ==0) {
+            n = [_sessionMgr numberOfSessions];
+            for (i = 0; i < n; i++)
+            {
+                aSession = [_sessionMgr sessionAtIndex: i];
+                [aSession updateDisplay];
+            }
 		}
-		
+        else {
+            [[self currentSession] updateDisplay];
+        }
 		// periodically create and release autorelease pools
 		if((iterationCount % 50) == 0)
 		{
@@ -1774,7 +1778,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 			iterationCount = 0;
 		}
 			
-		usleep(30000);
+		usleep(50000);
 	}
 	
 	if(pool != nil)
