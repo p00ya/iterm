@@ -950,6 +950,9 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 		CURSOR_X = newx;
 		idx += j;
     }
+	
+	free(buffer);
+	
 #if DEBUG_METHOD_TRACE
     NSLog(@"setString done at %d", CURSOR_X);
 #endif
