@@ -41,7 +41,6 @@
     int FILDES;
     int STATUS;
     id DELEGATEOBJECT;
-    NSMutableData *RECVDATA;
     NSString *TTY;
     NSString *PATH;
 	NSPort *recvPort;
@@ -69,8 +68,7 @@
 - (id)delegate;
 
 - (void) doIdleTasks;
-- (NSData *)readData;
-- (void)readTask:(NSData *)data;
+- (void)readTask:(char *)buf length:(int)length;
 - (void)writeTask:(NSData *)data;
 - (void)brokenPipe;
 - (void)sendSignal:(int)signo;

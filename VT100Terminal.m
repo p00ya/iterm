@@ -1303,12 +1303,12 @@ static VT100TCC decode_string(unsigned char *datap,
 	[streamLock unlock];
 }
 
-- (void)putStreamData:(NSData *)data
+- (void)putStreamData:(char *)data length: (int)length
 {
 	[streamLock lock];
     if([STREAM length] == 0)
 		streamOffset = 0;
-    [STREAM appendData:data];
+    [STREAM appendBytes:data length:length];
 	[streamLock unlock];
 }
 
