@@ -531,6 +531,8 @@ static SInt32 systemVersion;
     
     if(dataSource != nil)
     {
+		[dataSource acquireLock];
+		
         numberOfLines = [dataSource numberOfLines];
         aSize = [self frame].size;
         height = numberOfLines * lineHeight;
@@ -545,9 +547,12 @@ static SInt32 systemVersion;
             [self setFrame: aFrame];
 			if (![(PTYScroller *)([[self enclosingScrollView] verticalScroller]) userScroll]) [self scrollEnd];
         }
+		
+		[self setNeedsDisplay: YES];
+
+		[dataSource releaseLock];
     }
 	
-	[self setNeedsDisplay: YES];
 	
 }
 
