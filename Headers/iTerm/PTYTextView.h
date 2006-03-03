@@ -244,6 +244,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 
 // Scrolling control
 - (NSRect)adjustScroll:(NSRect)proposedVisibleRect;
+- (void) scrollLineUpWithoutMoving;
 - (void) scrollLineUp: (id) sender;
 - (void) scrollLineDown: (id) sender;
 - (void) scrollPageUp: (id) sender;
