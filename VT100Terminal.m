@@ -1253,6 +1253,9 @@ static VT100TCC decode_string(unsigned char *datap,
 	[streamLock release];
         
     [super dealloc];
+#if DEBUG_ALLOC
+    NSLog(@"%s: 0x%x, done", __PRETTY_FUNCTION__, self);
+#endif
 }
 
 - (BOOL)trace

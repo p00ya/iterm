@@ -149,6 +149,7 @@ typedef struct screen_char_t
 // lock
 - (void) acquireLock;
 - (void) releaseLock;
+- (BOOL) tryLock;
 
 // edit screen buffer
 - (void)putToken:(VT100TCC)token;

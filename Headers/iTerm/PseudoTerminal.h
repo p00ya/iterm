@@ -55,7 +55,9 @@
 	BOOL sendInputToAllSessions;
 	BOOL fontSizeFollowWindowResize;
 	BOOL suppressContextualMenu;
-	
+    
+    NSLock *PTLock;
+
 	BOOL EXIT;
 }
 
