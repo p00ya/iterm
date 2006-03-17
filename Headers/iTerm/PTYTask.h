@@ -43,9 +43,6 @@
     id DELEGATEOBJECT;
     NSString *TTY;
     NSString *PATH;
-	NSPort *recvPort;
-	NSPort *sendPort;
-	NSConnection *serverConnection;
 
     NSString *LOG_PATH;
     NSFileHandle *LOG_HANDLE;
