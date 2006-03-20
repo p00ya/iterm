@@ -1372,7 +1372,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		{
 			aMenuItem = [[NSMenuItem alloc] initWithTitle:[[TABVIEW tabViewItemAtIndex: i] label]
 												   action:@selector(selectTab:) keyEquivalent:@""];
-			[aMenuItem setRepresentedObject: [[[TABVIEW tabViewItemAtIndex: i] identifier] content]];
+			[aMenuItem setRepresentedObject: [[TABVIEW tabViewItemAtIndex: i] identifier]];
 			[aMenuItem setTarget: TABVIEW];
 			[tabMenu addItem: aMenuItem];
 			[aMenuItem release];
