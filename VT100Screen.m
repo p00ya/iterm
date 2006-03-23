@@ -255,11 +255,13 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 
 - (void) acquireLock
 {
+	//NSLog(@"%s", __PRETTY_FUNCTION__);
 	[screenLock lock];
 }
 
 - (void) releaseLock
 {
+	//NSLog(@"%s", __PRETTY_FUNCTION__);
 	[screenLock unlock];
 }
 
@@ -454,10 +456,11 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 		free(dirty);
 	dirty=(char*)malloc(height*width*sizeof(char));
 	memset(dirty, 1, width*height*sizeof(char));
-	[display setForceUpdate: YES];	
 	
 	// release lock
 	[self releaseLock];
+	
+	[display setForceUpdate: YES];	
 	
 }
 
