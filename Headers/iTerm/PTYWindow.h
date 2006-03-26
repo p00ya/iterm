@@ -50,4 +50,5 @@
 - (void)toggleToolbarShown:(id)sender;
 
 - (NSDrawer *) drawer;
+- (void) setDrawer: (NSDrawer *) aDrawer;
 @end
