@@ -1698,7 +1698,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
     }
 	if (SHOWBELL)
 	{
-		[SESSION setBell];
+		[SESSION setBell: YES];
 	}
 }
 
