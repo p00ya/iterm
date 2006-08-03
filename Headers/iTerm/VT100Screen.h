@@ -35,6 +35,7 @@
 @class PTYTask;
 @class PTYSession;
 @class PTYTextView;
+@class iTermGrowlDelegate;
 
 typedef struct screen_char_t
 {
@@ -110,6 +111,9 @@ typedef struct screen_char_t
 	NSMutableString *printToAnsiString;
 	
 	NSLock *screenLock;
+	
+	// Growl stuff
+	iTermGrowlDelegate* gd;
 }
 
 
