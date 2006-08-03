@@ -34,11 +34,14 @@
 #define DefaultNotificationName @"Miscellaneous"
 
 @interface iTermGrowlDelegate : NSObject <GrowlApplicationBridgeDelegate> {
+	BOOL enabled;
 	NSArray * notifications;
 }
 
 + (id) sharedInstance;
 
+- (BOOL) enabled;
+- (void) setEnabled: (BOOL) newState;
 - (void) growlNotify: (NSString *) title;
 - (void) growlNotify: (NSString *) title withDescription: (NSString *) description;
 - (void) growlNotify: (NSString *) title withDescription: (NSString *) description andNotification: (NSString *) notification;

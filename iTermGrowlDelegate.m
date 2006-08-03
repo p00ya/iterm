@@ -12,6 +12,32 @@
  **
  **  Description: Implements the delegate for Growl notifications.
  **
+ **  Usage:
+ **      In your class header file, add the following @class directive
+ **
+ **          @class iTermGrowlDelegate;
+ **
+ **      and declare an iTermGrowlDelegate variable in the @interface
+ **
+ **          iTermGrowlDelegate* gd;
+ **
+ **      In your class implementation file, add the following import
+ **
+ **          #import "iTermGrowlDelegate.h"
+ **
+ **      In the class init, get a copy of the shared delegate
+ **
+ **          gd = [iTermGrowlDelegate sharedInstance];
+ **
+ **      There are several growlNotify methods in iTermGrowlDelegate.
+ **      See the header file for details.
+ **
+ **      Example usage:
+ **
+ **          [gd growlNotify:@"Bell"
+ **          withDescription:@"This is the description"
+ **          andNotification:@"Bells"];
+ **
  **  This program is free software; you can redistribute it and/or modify
  **  it under the terms of the GNU General Public License as published by
  **  the Free Software Foundation; either version 2 of the License, or
@@ -50,6 +76,7 @@
 		
 		[GrowlApplicationBridge setGrowlDelegate:self];
 		[self registrationDictionaryForGrowl];
+		[self setEnabled: YES];
 
 		return self;
 	} else {
@@ -61,10 +88,21 @@
 	[super dealloc];
 }
 
+- (BOOL) enabled {
+	return enabled;
+}
+
+- (void) setEnabled: (BOOL) newState {
+	enabled = newState;
+}
+
 - (void) growlNotify: (NSString *) title {
-#if DEBUG_METHOD_TRACE
-    NSLog(@"%s(%d):-[iTermGrowlDelegate growlTest]",  __FILE__, __LINE__);
-#endif
+
+	if(![self enabled]) {
+		NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
+		return;
+	}
+
 	[GrowlApplicationBridge 
 		notifyWithTitle:title
 			description:nil
@@ -75,10 +113,14 @@
 		   clickContext:nil];
 }
 
-- (void) growlNotify: (NSString *) title withDescription: (NSString *) description {
-#if DEBUG_METHOD_TRACE
-    NSLog(@"%s(%d):-[iTermGrowlDelegate growlTest]",  __FILE__, __LINE__);
-#endif
+- (void) growlNotify: (NSString *) title 
+	 withDescription: (NSString *) description {
+
+	if(![self enabled]) {
+		NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
+		return;
+	}
+	
 	[GrowlApplicationBridge 
 		notifyWithTitle:title
 			description:description
@@ -89,10 +131,15 @@
 		   clickContext:nil];
 }
 
-- (void) growlNotify: (NSString *) title withDescription: (NSString *) description andNotification: (NSString *) notification {
-#if DEBUG_METHOD_TRACE
-    NSLog(@"%s(%d):-[iTermGrowlDelegate growlTest]",  __FILE__, __LINE__);
-#endif
+- (void) growlNotify: (NSString *) title 
+	 withDescription: (NSString *) description 
+	 andNotification: (NSString *) notification {
+
+	if(![self enabled]) {
+		NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
+		return;
+	}
+	
 	[GrowlApplicationBridge 
 		notifyWithTitle:title
 			description:description
