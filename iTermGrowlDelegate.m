@@ -65,7 +65,7 @@
 		[GrowlApplicationBridge setGrowlDelegate: self];
 		[self registrationDictionaryForGrowl];
 		[self setEnabled: YES];
-
+		
 		return self;
 	} else {
 		return nil;
@@ -77,7 +77,11 @@
 }
 
 - (BOOL) isEnabled {
-	return enabled;
+	if ([GrowlApplicationBridge isGrowlInstalled]) {
+		return enabled;
+	} else {
+		return NO;
+	}
 }
 
 - (void) setEnabled: (BOOL) newState {
