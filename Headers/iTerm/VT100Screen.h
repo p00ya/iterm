@@ -67,6 +67,7 @@ typedef struct screen_char_t
     BOOL blinkShow;
 	BOOL PLAYBELL;
 	BOOL SHOWBELL;
+	BOOL GROWL;
 
     
     BOOL blinkingCursor;
@@ -143,6 +144,7 @@ typedef struct screen_char_t
 - (void) setBlinkingCursor: (BOOL) flag;
 - (void)setPlayBellFlag:(BOOL)flag;
 - (void)setShowBellFlag:(BOOL)flag;
+- (void)setGrowlFlag:(BOOL)flag;
 
 // line access
 - (screen_char_t *) getLineAtIndex: (int) theIndex;
