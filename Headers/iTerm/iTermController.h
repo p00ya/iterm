@@ -32,7 +32,6 @@
 @class PseudoTerminal;
 @class PTYTextView;
 @class TreeNode;
-@class ItermGrowlDelegate;
 
 @interface iTermController : NSObject
 {
@@ -41,7 +40,6 @@
     NSMutableArray *terminalWindows;
     id FRONT;
     NSLock *terminalLock;
-	ItermGrowlDelegate *gd;
 }
 
 + (iTermController*)sharedInstance;
