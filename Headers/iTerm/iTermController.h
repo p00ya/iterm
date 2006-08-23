@@ -52,8 +52,6 @@
 - (void)newSessionInTabAtIndex: (id) sender;
 - (void)newSessionInWindowAtIndex: (id) sender;
 
-// Utility methods
-+ (void) breakDown:(NSString *)cmdl cmdPath: (NSString **) cmd cmdArgs: (NSArray **) path;
 - (PseudoTerminal *) currentTerminal;
 - (void) terminalWillClose: (PseudoTerminal *) theTerminalWindow;
 - (NSArray *) sortedEncodingList;
