@@ -235,7 +235,6 @@ typedef enum {
     NSStringEncoding  ENCODING;
     NSMutableData     *STREAM;
     VT100Screen       *SCREEN;
-	PseudoTerminal    *PARENT;
 	NSLock			  *streamLock;
 
     BOOL LINE_MODE;			// YES=Newline, NO=Line feed
@@ -273,7 +272,7 @@ typedef enum {
 
 + (void)initialize;
 
-- (id)init:(PseudoTerminal *) parent;
+- (id)init;
 - (void)dealloc;
 
 - (BOOL)trace;

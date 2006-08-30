@@ -1193,7 +1193,7 @@ static VT100TCC decode_string(unsigned char *datap,
 {
 }
 
-- (id)init:(PseudoTerminal *) parent
+- (id)init
 {
 	
 #if DEBUG_ALLOC
@@ -1237,8 +1237,7 @@ static VT100TCC decode_string(unsigned char *datap,
     streamOffset = 0;
 	
     numLock = YES;
-	PARENT=parent;
-    
+	
     return self;
 }
 
