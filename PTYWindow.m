@@ -111,8 +111,7 @@
 			[self makeKeyWindow];
 	}
 	
-	[super sendEvent:event];
-		
+	if (super) [super sendEvent:event];
 }
 
 @end

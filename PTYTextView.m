@@ -1673,7 +1673,7 @@ static SInt32 systemVersion;
     }
     
 	// if we are on an empty line, we select the current line to the end
-	if([self _isBlankLine: y] && y >= 0)
+	if(y>=0 && [self _isBlankLine: y])
 		x = width - 1;
 	
 	if(locationInTextView.x < MARGIN && startY < y)
