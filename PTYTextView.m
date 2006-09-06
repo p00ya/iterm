@@ -721,7 +721,7 @@ static SInt32 systemVersion;
     if (![dataSource tryLock]) return;
 	
     gettimeofday(&now, NULL);
-    if (now.tv_sec*10+now.tv_sec/100000 >= lastBlink.tv_sec*10+lastBlink.tv_sec/100000+5) {
+    if (now.tv_sec*10+now.tv_usec/100000 >= lastBlink.tv_sec*10+lastBlink.tv_usec/100000+5) {
         blinkShow = !blinkShow;
         lastBlink = now;
     }

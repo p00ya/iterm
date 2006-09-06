@@ -348,7 +348,8 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 	if (width==WIDTH && height==HEIGHT) return;
 	
 	// get lock
-	[self acquireLock];
+    if (![self tryLock])
+        return;	
 					
 	// create a new buffer
 	total_height = max_scrollback_lines + height;
