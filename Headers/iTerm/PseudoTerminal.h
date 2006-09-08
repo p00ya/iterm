@@ -147,6 +147,8 @@
 - (void) menuForEvent:(NSEvent *)theEvent menu: (NSMenu *) theMenu;
 - (BOOL) suppressContextualMenu;
 - (void) setSuppressContextualMenu: (BOOL) aBool;
+- (NSMenu *)tabView:(NSTabView *)aTabView menuForTabViewItem:(NSTabViewItem *)tabViewItem;
+
 
 // Close Window
 - (BOOL)showCloseWindow;
