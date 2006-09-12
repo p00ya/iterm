@@ -901,6 +901,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	
     [thisWindow setFrameTopLeftPoint: topLeft];
     [[[_sessionMgr currentSession] TEXTVIEW] setForceUpdate: YES];
+    [[[_sessionMgr currentSession] TEXTVIEW] setNeedsDisplay: YES];
+    
     
 }
 

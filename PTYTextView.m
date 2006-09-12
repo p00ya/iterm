@@ -2575,6 +2575,8 @@ static SInt32 systemVersion;
 	seed <<= 8;
 	srand( seed + c );
 	i = rand() % (CACHESIZE-CELLSIZE);
+    /*seed = code * (c%10);
+    i = seed % (CACHESIZE-CELLSIZE);*/
 	for(j = 0;(charImages[i].code!=code || charImages[i].color!=c) && charImages[i].image && j<CELLSIZE; i++, j++);
 	if (!charImages[i].image) {
 		//  NSLog(@"add into cache");
