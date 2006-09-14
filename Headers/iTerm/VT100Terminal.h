@@ -119,6 +119,8 @@
 // Toggle between ansi/vt52
 #define STRICT_ANSI_MODE		4000
 
+// iTerm extension
+#define ITERM_GROWL     5000
 
 #define VT100CSIPARAM_MAX    16
 

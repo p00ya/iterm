@@ -654,6 +654,9 @@ static VT100TCC decode_xterm(unsigned char *datap,
             case 1:
 				result.type = XTERMCC_ICON_TITLE;
 				break;
+            case 9:
+                result.type = ITERM_GROWL;
+                break;
             case 2:
             default:
                 result.type = XTERMCC_WIN_TITLE;
