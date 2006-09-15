@@ -515,7 +515,7 @@ static SInt32 systemVersion;
 // So we do not allow the size to be set larger than what the data source can fill
 - (void) setFrameSize: (NSSize) aSize
 {
-	//NSLog(@"%s (0x%x): setFrameSize to (%f,%f)", __PRETTY_FUNCTION__, self, aSize.width, aSize.height);
+//	NSLog(@"%s (0x%x): setFrameSize to (%f,%f)", __PRETTY_FUNCTION__, self, aSize.width, aSize.height);
 
 	NSSize anotherSize = aSize;
 	
