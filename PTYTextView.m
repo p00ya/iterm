@@ -523,6 +523,11 @@ static SInt32 systemVersion;
 	
 	[super setFrameSize: anotherSize];
 	
+    if (![(PTYScroller *)([[self enclosingScrollView] verticalScroller]) userScroll]) 
+    {
+        [self scrollEnd];
+    }
+    
 	// reset tracking rect
 	if(trackingRectTag)
 		[self removeTrackingRect:trackingRectTag];

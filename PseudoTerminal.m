@@ -1289,7 +1289,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		proposedFrameSize.height = [font defaultLineHeightForFont] * charVerticalSpacingMultiplier * HEIGHT + nch;
 	}
     else {
-		int new_height = (proposedFrameSize.height - nch) / charHeight;
+		int new_height = (proposedFrameSize.height - nch) / charHeight + 0.5;
 		proposedFrameSize.height = charHeight * new_height + nch;
 		NSLog(@"actual height: %f",proposedFrameSize.height);
     }
@@ -1358,8 +1358,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	}	
     
     // Reset the scrollbar to the bottom
-    [[[_sessionMgr currentSession] TEXTVIEW] scrollEnd];
-	
+    //[[[_sessionMgr currentSession] TEXTVIEW] scrollEnd];
+	[self setWindowSize];
     
 	// Post a notification
     [[NSNotificationCenter defaultCenter] postNotificationName: @"iTermWindowDidResize" object: self userInfo: nil];    
