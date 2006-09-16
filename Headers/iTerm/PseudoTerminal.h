@@ -156,6 +156,7 @@
 // NSTabView
 - (void) closeTabContextualMenuAction: (id) sender;
 - (void) moveTabToNewWindowContextualMenuAction: (id) sender;
+- (PSMTabBarControl*) tabBarControl;
 
 // Profiles
 - (IBAction) saveDisplayProfile: (id) sender;
