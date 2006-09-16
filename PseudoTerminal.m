@@ -330,6 +330,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	aRect.origin.y = [TABVIEW frame].size.height;
 	aRect.size.width = [[[self window] contentView] bounds].size.width;
 	[tabBarControl setFrame: aRect];	
+    [tabBarControl setSizeCellsToFit:YES];
 	
 	
     [[[self window] contentView] setAutoresizesSubviews: YES];
