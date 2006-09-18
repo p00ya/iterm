@@ -758,7 +758,18 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
     case XTERMCC_INSLN: [self insertLines:token.u.csi.p[0]]; break;
     case XTERMCC_DELCH: [self deleteCharacters:token.u.csi.p[0]]; break;
     case XTERMCC_DELLN: [self deleteLines:token.u.csi.p[0]]; break;
-
+    case XTERMCC_WINDOWSIZE:
+        NSLog(@"setting window size to H=%d, W=%d", token.u.csi.p[1], token.u.csi.p[2]);
+        [self releaseLock];
+        [[SESSION parent] resizeWindow: token.u.csi.p[2]
+                                height: token.u.csi.p[1]];
+        [[SESSION TEXTVIEW] scrollEnd];
+        return;
+    case XTERMCC_WINDOWPOS:
+        NSLog(@"setting window position to Y=%d, X=%d", token.u.csi.p[1], token.u.csi.p[2]);
+        // ?? what to do here?
+        break;
+            
     // Our iTerm specific codes    
     case ITERM_GROWL:
         if (GROWL) {
