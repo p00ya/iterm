@@ -127,7 +127,7 @@ static BOOL editingBookmark = NO;
 	defaultEnableGrowl = [prefs objectForKey:@"EnableGrowl"]?[[prefs objectForKey:@"EnableGrowl"] boolValue]: NO;
 	defaultCmdSelection = [prefs objectForKey:@"CommandSelection"]?[[prefs objectForKey:@"CommandSelection"] boolValue]: YES;
 	defaultMaxVertically = [prefs objectForKey:@"MaxVertically"]?[[prefs objectForKey:@"MaxVertically"] boolValue]: YES;
-	defaultRefreshRate = [prefs objectForKey:@"RefreshRate"]?[[prefs objectForKey:@"RefreshRate"] intValue]: 50;
+	defaultRefreshRate = [prefs objectForKey:@"RefreshRate"]?[[prefs objectForKey:@"RefreshRate"] intValue]: 25;
 	[defaultWordChars release];
 	defaultWordChars = [[prefs objectForKey: @"WordCharacters"] retain];
 	
