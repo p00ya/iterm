@@ -453,8 +453,8 @@ static BOOL usingAutoLaunchScript = NO;
 
         if(i < 10)
         {
-            aMenuItem  = [[NSMenuItem alloc] initWithTitle: [aSession name] action: @selector(selectSessionAtIndexAction:) keyEquivalent: [NSString stringWithFormat: @"%d", i]];
-            [aMenuItem setTag: i-1];
+            aMenuItem  = [[NSMenuItem alloc] initWithTitle: [aSession name] action: @selector(selectSessionAtIndexAction:) keyEquivalent: [NSString stringWithFormat: @"%d", i+1]];
+            [aMenuItem setTag: i];
 
             [aMenu addItem: aMenuItem];
             [aMenuItem release];
