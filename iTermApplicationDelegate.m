@@ -437,30 +437,28 @@ static BOOL usingAutoLaunchScript = NO;
 {
     // build a submenu to select tabs
     NSMenu *aMenu = [[NSMenu alloc] initWithTitle: @"SessionMenu"];
-    NSEnumerator *anEnumerator;
+    PTYTabView *aTabView = [[[iTermController sharedInstance] currentTerminal] tabView];
     PTYSession *aSession;
+    int n = [aTabView numberOfTabViewItems];
     int i;
 
     // clear whatever menu we already have
     [selectTab setSubmenu: nil];
 
-    anEnumerator = [[[[iTermController sharedInstance] currentTerminal] sessions] objectEnumerator];
-
-    i = 0;
-    while((aSession = [anEnumerator nextObject]) != nil)
+    for (i=0; i<n; i++)
     {
-	NSMenuItem *aMenuItem;
+        aSession = [[aTabView tabViewItemAtIndex:i] identifier];
+        NSMenuItem *aMenuItem;
 
-	i++;
 
-	if(i < 10)
-	{
-	    aMenuItem  = [[NSMenuItem alloc] initWithTitle: [aSession name] action: @selector(selectSessionAtIndexAction:) keyEquivalent: [NSString stringWithFormat: @"%d", i]];
-	    [aMenuItem setTag: i-1];
+        if(i < 10)
+        {
+            aMenuItem  = [[NSMenuItem alloc] initWithTitle: [aSession name] action: @selector(selectSessionAtIndexAction:) keyEquivalent: [NSString stringWithFormat: @"%d", i]];
+            [aMenuItem setTag: i-1];
 
-	    [aMenu addItem: aMenuItem];
-	    [aMenuItem release];
-	}
+            [aMenu addItem: aMenuItem];
+            [aMenuItem release];
+        }
 
     }
     [selectTab setSubmenu: aMenu];
