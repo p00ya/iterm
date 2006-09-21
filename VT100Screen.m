@@ -775,7 +775,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
         if (GROWL) {
             [gd growlNotify:NSLocalizedStringFromTableInBundle(@"Alert",@"iTerm", [NSBundle bundleForClass: [self class]], @"Growl Alerts")
             withDescription:[NSString stringWithFormat:@"Session %@ #%d: %@", [SESSION name], [SESSION objectCount], token.u.string]
-            andNotification:@"Bells"];
+            andNotification:@"Customized Message"];
         }
         break;
         

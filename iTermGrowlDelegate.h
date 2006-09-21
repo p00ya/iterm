@@ -62,7 +62,8 @@
 							@"Broken Pipes",	\
 							@"Miscellaneous",	\
 							@"Idle",			\
-							@"New Output"
+							@"New Output",      \
+                            @"Customized Message"
 
 @interface iTermGrowlDelegate : NSObject <GrowlApplicationBridgeDelegate> {
 	BOOL enabled;

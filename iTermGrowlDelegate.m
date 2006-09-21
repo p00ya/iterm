@@ -54,15 +54,15 @@
 
 - (id) init {
 	if ((self = [super init])) {
-		
-		notifications = [NSArray arrayWithObjects: 
+
+		notifications = [[NSArray arrayWithObjects: 
 			OURNOTIFICATIONS,
-			nil];
+			nil] retain];
 
 		[GrowlApplicationBridge setGrowlDelegate: self];
 		[self registrationDictionaryForGrowl];
 		[self setEnabled: YES];
-		
+        
 		return self;
 	} else {
 		return nil;
@@ -70,6 +70,7 @@
 }
 
 - (void) dealloc {
+    [notifications release];
 	[super dealloc];
 }
 
@@ -128,7 +129,7 @@
 		NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
 		return;
 	}
-	
+    
 	[GrowlApplicationBridge 
 		notifyWithTitle: title
 			description: description
