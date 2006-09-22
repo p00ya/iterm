@@ -1303,7 +1303,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 			nafont = [self _getMaxFont:nafont height:frame.size.height lines:HEIGHT];
 			
 			[self setFont:font nafont:nafont];
-			NSString *aTitle = [NSString stringWithFormat:@"%@ (@%.0f)", [[self currentSession] name], [font pointSize]];
+			NSString *aTitle = [NSString stringWithFormat:@"%@ (%.0f)", [[self currentSession] name], [font pointSize]];
 			[self setWindowTitle: aTitle];    
 
 		}
@@ -1339,8 +1339,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		[self setWindowTitle: aTitle];    
 	}	
     
-    // Reset the scrollbar to the bottom
-    //[[[_sessionMgr currentSession] TEXTVIEW] scrollEnd];
     [self setWindowSize];
     
 	// Post a notification
@@ -1535,7 +1533,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PseudoTerminal tabView: willSelectTabViewItem]", __FILE__, __LINE__);
 #endif
-    [[self currentSession] resetStatus];
+    if (![[self currentSession] exited]) [[self currentSession] resetStatus];
     [[TABVIEW window] makeFirstResponder:[[tabViewItem identifier] TEXTVIEW]];
     
 }

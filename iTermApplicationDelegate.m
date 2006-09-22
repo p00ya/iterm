@@ -351,7 +351,7 @@ static BOOL usingAutoLaunchScript = NO;
     [[AUTHORS textStorage] deleteCharactersInRange: NSMakeRange(0, [[AUTHORS textStorage] length])];
     [tmpAttrString initWithString: versionString];
     [[AUTHORS textStorage] appendAttributedString: tmpAttrString];
-    [tmpAttrString initWithString: @"\n"];
+    [tmpAttrString initWithString: @"\n\n"];
     [[AUTHORS textStorage] appendAttributedString: tmpAttrString];
     [[AUTHORS textStorage] appendAttributedString: author1];
     tmpAttrString = [[NSMutableAttributedString alloc] initWithString: @", "];

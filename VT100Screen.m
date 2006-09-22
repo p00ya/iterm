@@ -825,7 +825,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 	}
 	
 	[self releaseLock];
-	
+	[self setDirty];
 	[self updateScreen];
 }
 
@@ -1812,7 +1812,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 
 - (void)setDirty
 {
-	memset(dirty,1,WIDTH*HEIGHT*sizeof(char));
+//	memset(dirty,1,WIDTH*HEIGHT*sizeof(char));
 	[display setForceUpdate: YES];
 }
 

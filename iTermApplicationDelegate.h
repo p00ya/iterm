@@ -50,7 +50,7 @@
     IBOutlet NSMenuItem *sendInputToAllSessions;
 	IBOutlet NSMenuItem *fontSizeFollowWindowResize;
 	IBOutlet NSMenuItem *toggleBookmarksView;
-  IBOutlet NSMenuItem *toggleTransparency;
+    IBOutlet NSMenuItem *toggleTransparency;
 
 }
 
