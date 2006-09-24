@@ -188,6 +188,10 @@
 -(void)removeFromSessionsAtIndex:(unsigned)index;
 -(NSArray*)sessions;
 -(void)setSessions: (NSArray*)sessions;
+-(void)replaceInSessions:(PTYSession *)object atIndex:(unsigned)index;
+-(void)addInSessions:(PTYSession *)object;
+-(void)insertInSessions:(PTYSession *)object;
+-(void)insertInSessions:(PTYSession *)object atIndex:(unsigned)index;
 
 - (BOOL)windowInited;
 - (void) setWindowInited: (BOOL) flag;

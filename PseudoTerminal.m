@@ -2143,8 +2143,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 			pool = nil;
 			iterationCount = 0;
 		}
-        
-        [self releaseLock];
+        [PTLock unlock];
+        //[self releaseLock];
 		usleep(2000*[[PreferencePanel sharedInstance] refreshRate]);
 	}
 	
@@ -2343,6 +2343,31 @@ end_thread:
     // NSLog(@"PseudoTerminal: -appendSession: 0x%x", object);
     [self setupSession: object title: nil];
     [self insertSession: object atIndex:[TABVIEW numberOfTabViewItems]];
+}
+
+-(void)replaceInSessions:(PTYSession *)object atIndex:(unsigned)index
+{
+    // NSLog(@"PseudoTerminal: -replaceInSessions: 0x%x atIndex: %d", object, index);
+    NSLog(@"Replace Sessions: not implemented.");
+}
+
+-(void)addInSessions:(PTYSession *)object
+{
+    // NSLog(@"PseudoTerminal: -addInSessions: 0x%x", object);
+    [self insertInSessions: object];
+}
+
+-(void)insertInSessions:(PTYSession *)object
+{
+    // NSLog(@"PseudoTerminal: -insertInSessions: 0x%x", object);
+    [self insertInSessions: object atIndex:[TABVIEW numberOfTabViewItems]];
+}
+
+-(void)insertInSessions:(PTYSession *)object atIndex:(unsigned)index
+{
+    // NSLog(@"PseudoTerminal: -insertInSessions: 0x%x atIndex: %d", object, index);
+    [self setupSession: object title: nil];
+    [self insertSession: object atIndex: index];
 }
 
 -(void)removeFromSessionsAtIndex:(unsigned)index
