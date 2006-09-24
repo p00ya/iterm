@@ -186,6 +186,8 @@
 -(void)addNewSession:(NSDictionary *)addressbookEntry;
 -(void)appendSession:(PTYSession *)object;
 -(void)removeFromSessionsAtIndex:(unsigned)index;
+-(NSArray*)sessions;
+-(void)setSessions: (NSArray*)sessions;
 
 - (BOOL)windowInited;
 - (void) setWindowInited: (BOOL) flag;

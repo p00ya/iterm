@@ -316,7 +316,7 @@ NSString *terminalsKey = @"terminals";
 // (See NSScriptKeyValueCoding.h)
 -(id)valueInTerminalsAtIndex:(unsigned)index
 {
-    // NSLog(@"iTerm: valueInTerminalsAtIndex %d", index);
+    //NSLog(@"iTerm: valueInTerminalsAtIndex %d: %@", index, [terminalWindows objectAtIndex: index]);
     return ([terminalWindows objectAtIndex: index]);
 }
 

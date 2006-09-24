@@ -2106,7 +2106,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	{
 		iterationCount++;
 		
-        [self acquireLock];
+        //[self acquireLock];
+        [PTLock lock];
         if (EXIT) break;
 		// periodically create and release autorelease pools
 		if(pool == nil)
@@ -2233,6 +2234,26 @@ end_thread:
     // NSLog(@"PseudoTerminal: -valueInSessionsAtIndex: %d", index);
     return ([[TABVIEW tabViewItemAtIndex:index] identifier]);
 }
+
+-(NSArray*)sessions
+{
+    //[self acquireLock];
+    
+    int n = [TABVIEW numberOfTabViewItems];
+    NSMutableArray *sessions = [NSMutableArray arrayWithCapacity: n];
+    int i;
+    
+    for (i= 0; i < n; i++)
+    {
+        [sessions addObject: [[TABVIEW tabViewItemAtIndex:i] identifier]];
+    } 
+    
+    //[self releaseLock];
+
+    return sessions;
+}
+
+-(void)setSessions: (NSArray*)sessions {}
 
 -(id)valueWithName: (NSString *)uniqueName inPropertyWithKey: (NSString*)propertyKey
 {
