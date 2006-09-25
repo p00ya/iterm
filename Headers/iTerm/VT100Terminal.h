@@ -109,7 +109,10 @@
 #define XTERMCC_DELCH	     89       // delete blank
 #define XTERMCC_DELLN	     90	      // delete lines
 #define XTERMCC_WINDOWSIZE	 93       // (8,H,W) NK: added for Vim resizing window
+#define XTERMCC_WINDOWSIZE_PIXEL	 94       // (8,H,W) NK: added for Vim resizing window
 #define XTERMCC_WINDOWPOS	 95       // (3,Y,X) NK: added for Vim positioning window
+#define XTERMCC_ICONIFY      96
+#define XTERMCC_DEICONIFY    97
 
 // Some ansi stuff
 #define ANSICSI_CHA	     3000	// Cursor Horizontal Absolute
