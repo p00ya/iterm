@@ -107,6 +107,7 @@
 	
 	if([event type] == NSMouseEntered)
 	{		
+        //NSLog(@"window mouse entered");
 		if([[PreferencePanel sharedInstance] focusFollowsMouse])
 			[self makeKeyWindow];
 	}

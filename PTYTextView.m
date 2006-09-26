@@ -129,7 +129,10 @@ static SInt32 systemVersion;
 		[mouseDownEvent release];
 		mouseDownEvent = nil;
     }
-	    
+	 
+    if(trackingRectTag)
+		[self removeTrackingRect:trackingRectTag];
+	
     [[NSNotificationCenter defaultCenter] removeObserver:self];    
     for(i=0;i<16;i++) {
         [colorTable[i] release];
@@ -543,8 +546,9 @@ static SInt32 systemVersion;
     if(dataSource != nil)
     {
 		[dataSource acquireLock];
-		
         numberOfLines = [dataSource numberOfLines];
+		[dataSource releaseLock];
+
         height = numberOfLines * lineHeight;
 		aFrame = [self frame];
 		
@@ -561,7 +565,6 @@ static SInt32 systemVersion;
 			}
         }
 				
-		[dataSource releaseLock];
 		
 		[self setNeedsDisplay: YES];
     }

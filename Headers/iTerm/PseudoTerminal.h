@@ -137,7 +137,8 @@
 - (void)windowDidResignMain:(NSNotification *)aNotification;
 - (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)proposedFrameSize;
 - (void)windowDidResize:(NSNotification *)aNotification;
-- (void) resizeWindow:(int) w height:(int)h;
+- (void) resizeWindow:(int)w height:(int)h;
+- (void) resizeWindowToPixelsWidth:(int)w height:(int)h;
 - (NSRect)windowWillUseStandardFrame:(NSWindow *)sender defaultFrame:(NSRect)defaultFrame;
 
 // Contextual menu
