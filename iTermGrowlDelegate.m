@@ -28,7 +28,8 @@
  **  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#import "iTermGrowlDelegate.h"
+#import <iTermGrowlDelegate.h>
+#import <PreferencePanel.h>
 
 /**
  **  The category is used to extend iTermGrowlDelegate with private methods.
@@ -93,14 +94,15 @@
 		return;
 	}
 
-	[GrowlApplicationBridge 
-		notifyWithTitle: title
-			description: nil
-	   notificationName: DEFAULTNOTIFICATION
-			   iconData: nil
-			   priority: 0
-			   isSticky: NO
-		   clickContext: nil];
+    if ([[PreferencePanel sharedInstance] enableGrowl])
+        [GrowlApplicationBridge 
+            notifyWithTitle: title
+                description: nil
+           notificationName: DEFAULTNOTIFICATION
+                   iconData: nil
+                   priority: 0
+                   isSticky: NO
+               clickContext: nil];
 }
 
 - (void) growlNotify: (NSString *) title 
@@ -111,14 +113,15 @@
 		return;
 	}
 	
-	[GrowlApplicationBridge 
-		notifyWithTitle: title
-			description: description
-	   notificationName: DEFAULTNOTIFICATION
-			   iconData: nil
-			   priority: 0
-			   isSticky: NO
-		   clickContext: nil];
+    if ([[PreferencePanel sharedInstance] enableGrowl])
+        [GrowlApplicationBridge 
+            notifyWithTitle: title
+                description: description
+           notificationName: DEFAULTNOTIFICATION
+                   iconData: nil
+                   priority: 0
+                   isSticky: NO
+               clickContext: nil];
 }
 
 - (void) growlNotify: (NSString *) title 
@@ -130,14 +133,15 @@
 		return;
 	}
     
-	[GrowlApplicationBridge 
-		notifyWithTitle: title
-			description: description
-	   notificationName: notification
-			   iconData: nil
-			   priority: 0
-			   isSticky: NO
-		   clickContext: nil];
+    if ([[PreferencePanel sharedInstance] enableGrowl])
+        [GrowlApplicationBridge 
+            notifyWithTitle: title
+                description: description
+           notificationName: notification
+                   iconData: nil
+                   priority: 0
+                   isSticky: NO
+               clickContext: nil];
 }
 
 - (NSDictionary *) registrationDictionaryForGrowl {

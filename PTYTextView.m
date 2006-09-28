@@ -2129,17 +2129,17 @@ static SInt32 systemVersion;
                         [aMutableString replaceOccurrencesOfString: @"(" withString: @"\\(" options: 0 range: NSMakeRange(0, [aMutableString length])];
                         [aMutableString replaceOccurrencesOfString: @")" withString: @"\\)" options: 0 range: NSMakeRange(0, [aMutableString length])];
                         [aMutableString replaceOccurrencesOfString: @"\"" withString: @"\\\"" options: 0 range: NSMakeRange(0, [aMutableString length])];
-    [aMutableString replaceOccurrencesOfString: @"&" withString: @"\\&" options: 0 range: NSMakeRange(0, [aMutableString length])];
-    [aMutableString replaceOccurrencesOfString: @"'" withString: @"\\'" options: 0 range: NSMakeRange(0, [aMutableString length])];
+                        [aMutableString replaceOccurrencesOfString: @"&" withString: @"\\&" options: 0 range: NSMakeRange(0, [aMutableString length])];
+                        [aMutableString replaceOccurrencesOfString: @"'" withString: @"\\'" options: 0 range: NSMakeRange(0, [aMutableString length])];
 
-    [delegate pasteString: aMutableString];
-    [delegate pasteString: @" "];
-    [aMutableString release];
+                        [delegate pasteString: aMutableString];
+                        [delegate pasteString: @" "];
+                        [aMutableString release];
                     }
 
                 }
-    bResult = YES;
-    break;				
+                bResult = YES;
+                break;				
         }
 
     }
@@ -2168,7 +2168,7 @@ static SInt32 systemVersion;
 {
     static NSCursor *cursor=nil;
 	//    NSLog(@"Setting mouse here");
-    if (!cursor) cursor=[[NSCursor alloc] initWithImage:[[NSCursor arrowCursor] image] hotSpot:NSMakePoint(0,0)];
+    if (!cursor) cursor=[NSCursor IBeamCursor];
     [self addCursorRect:[self bounds] cursor:cursor];
     [cursor setOnMouseEntered:YES];
 }
