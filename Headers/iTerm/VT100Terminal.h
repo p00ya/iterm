@@ -113,6 +113,8 @@
 #define XTERMCC_WINDOWPOS	 95       // (3,Y,X) NK: added for Vim positioning window
 #define XTERMCC_ICONIFY      96
 #define XTERMCC_DEICONIFY    97
+#define XTERMCC_RAISE        98
+#define XTERMCC_LOWER        99
 
 // Some ansi stuff
 #define ANSICSI_CHA	     3000	// Cursor Horizontal Absolute

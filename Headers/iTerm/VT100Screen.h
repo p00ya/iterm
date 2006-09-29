@@ -54,12 +54,10 @@ typedef struct screen_char_t
     int CURSOR_Y;
     int SAVE_CURSOR_X;
     int SAVE_CURSOR_Y;
-    int cursorIndex;
     int SCROLL_TOP;
     int SCROLL_BOTTOM;
     BOOL tabStop[TABWINDOW];
-    BOOL CURSOR_IN_MIDDLE;
-
+    
     VT100Terminal *TERMINAL;
     PTYTask *SHELL;
     PTYSession *SESSION;
