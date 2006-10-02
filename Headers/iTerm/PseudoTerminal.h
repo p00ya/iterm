@@ -156,6 +156,7 @@
 - (void) closeTabContextualMenuAction: (id) sender;
 - (void) moveTabToNewWindowContextualMenuAction: (id) sender;
 - (PSMTabBarControl*) tabBarControl;
+- (void) setLabelColor: (NSColor *) color forTabViewItem: tabViewItem;
 
 // Profiles
 - (IBAction) saveDisplayProfile: (id) sender;

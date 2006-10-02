@@ -132,9 +132,10 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 	NSTrackingRectTag trackingRectTag;
 	
 	BOOL keyIsARepeat;
-	
+    
 }
 
++ (NSCursor *) textViewCursor;
 - (id)initWithFrame: (NSRect) aRect;
 - (void)dealloc;
 - (BOOL) becomeFirstResponder;
