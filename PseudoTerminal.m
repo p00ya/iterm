@@ -335,7 +335,9 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	aRect.origin.y = [TABVIEW frame].size.height;
 	aRect.size.width = [[[self window] contentView] bounds].size.width;
 	[tabBarControl setFrame: aRect];	
-    [tabBarControl setSizeCellsToFit:YES];
+    [tabBarControl setSizeCellsToFit:NO];
+    [tabBarControl setCellMinWidth:75];
+    [tabBarControl setCellOptimumWidth:175];
 	
 	
     [[[self window] contentView] setAutoresizesSubviews: YES];
@@ -1607,6 +1609,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PseudoTerminal tabView: willRemoveTabViewItem]", __FILE__, __LINE__);
 #endif
+    [[tabViewItem identifier] terminate];
 }
 
 - (void)tabView:(NSTabView *)tabView willAddTabViewItem:(NSTabViewItem *)tabViewItem
