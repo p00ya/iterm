@@ -47,6 +47,7 @@
 
 static SInt32 systemVersion;
 static NSCursor* textViewCursor =  nil;
+static float strokeWidth, boldStrokeWidth;
 
 @implementation PTYTextView
 
@@ -69,6 +70,8 @@ static NSCursor* textViewCursor =  nil;
     [reverseCursorImage compositeToPoint:NSMakePoint(1,0) operation:NSCompositePlusLighter];
     [aCursorImage unlockFocus];
     textViewCursor = [[NSCursor alloc] initWithImage:aCursorImage hotSpot:hotspot];
+    strokeWidth = [[PreferencePanel sharedInstance] strokeWidth];
+    boldStrokeWidth = [[PreferencePanel sharedInstance] boldStrokeWidth];
 }
 
 + (NSCursor *) textViewCursor
@@ -2531,7 +2534,7 @@ static NSCursor* textViewCursor =  nil;
 	NSAttributedString  *crap;
 	NSDictionary *attrib;
 	NSFont *theFont;
-	float strokeWidth;
+	float sw;
 	BOOL renderBold;
 	
 	//NSLog(@"%s: drawing char %c", __PRETTY_FUNCTION__, carac);
@@ -2548,18 +2551,18 @@ static NSCursor* textViewCursor =  nil;
 		// if conversion was successful, else use our own methods to convert to bold
 		if([[NSFontManager sharedFontManager] fontNamed: [theFont fontName] hasTraits: NSBoldFontMask] == YES)
 		{
-			strokeWidth = antiAlias ? -3:0;
+			sw = antiAlias ? strokeWidth:0;
 			renderBold = NO;
 		}
 		else
 		{
-			strokeWidth = antiAlias?-5:0;
+			sw = antiAlias?boldStrokeWidth:0;
 			theFont = aFont;
 		}
 	}
     else 
     {
-        strokeWidth = antiAlias ? -3:0;
+        sw = antiAlias ? strokeWidth:0;
     }
 	
 	if (systemVersion >= 0x00001030)
@@ -2567,7 +2570,7 @@ static NSCursor* textViewCursor =  nil;
 		attrib=[NSDictionary dictionaryWithObjectsAndKeys:
 			theFont, NSFontAttributeName,
 			color, NSForegroundColorAttributeName,
-			[NSNumber numberWithFloat: strokeWidth], @"NSStrokeWidth",
+			[NSNumber numberWithFloat: sw], @"NSStrokeWidth",
 			nil];
 	}
 	else

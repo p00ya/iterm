@@ -866,7 +866,11 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     }
     
     [tabBarControl setDisableTabClose:[[PreferencePanel sharedInstance] useCompactLabel]];
-    [tabBarControl setCellMinWidth: [[PreferencePanel sharedInstance] useCompactLabel]?60:75];
+    [tabBarControl setCellMinWidth: [[PreferencePanel sharedInstance] useCompactLabel]?
+                                  [[PreferencePanel sharedInstance] minCompactTabWidth]:
+                                  [[PreferencePanel sharedInstance] minTabWidth]];
+    [tabBarControl setSizeCellsToFit: [[PreferencePanel sharedInstance] useUnevenTabs]];
+    [tabBarControl setCellOptimumWidth:  [[PreferencePanel sharedInstance] optimumTabWidth]];
     
     int i;
     for (i=0;i<[TABVIEW numberOfTabViewItems];i++) 
