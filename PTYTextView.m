@@ -1004,7 +1004,7 @@ static NSCursor* textViewCursor =  nil;
 
     oldCursorX = x1;
     oldCursorY = y1;
-	if (CURSOR) {
+	if (CURSOR && x1<[dataSource width] && x1>=0 && y1>=0 && y1<[dataSource height]) {
 		i = y1*[dataSource width]+x1;
 		// get the cursor line
 		theLine = [dataSource getLineAtScreenIndex: y1];
@@ -1056,7 +1056,7 @@ static NSCursor* textViewCursor =  nil;
 		[markedText drawInRect:NSMakeRect(floor(x1 * charWidth + MARGIN),
 										  (y1+[dataSource numberOfLines]-[dataSource height])*lineHeight + (lineHeight - cursorHeight),
 										  ceil((WIDTH-x1)*cursorWidth),cursorHeight)];
-		memset([dataSource dirty]+y1*[dataSource width]+x1, 1,len*2); //len*2 is an over-estimation, but safe
+		memset([dataSource dirty]+y1*[dataSource width]+x1, 1,[dataSource width]-x1>len*2?len*2:[dataSource width]-x1); //len*2 is an over-estimation, but safe
 	}
 	
 

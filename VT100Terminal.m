@@ -355,7 +355,7 @@ static size_t getCSIParam(unsigned char *datap,
                 case VT100CC_SUB: break;
                 case VT100CC_DEL: [SCREEN deleteCharacters:1];break;
                 default:
-                    NSLog(@"Unrecognized escape sequence: %c (0x%x)", *datap, *datap);
+                    //NSLog(@"Unrecognized escape sequence: %c (0x%x)", *datap, *datap);
 					param->cmd=0xff;
                     unrecognized=YES;
                     break;
@@ -1225,7 +1225,7 @@ static VT100TCC decode_string(unsigned char *datap,
             NSLog(@"Null:%@",data);
             for(i=0;i<*rmlen;i++) datap[i]=UNKNOWN;
             result.u.string = [[[NSString alloc] initWithCString:datap length:*rmlen] autorelease];*/
-			NSLog(@"Null(%d bytes)",*rmlen);
+			//NSLog(@"Null(%d bytes)",*rmlen);
 			*rmlen = 0;
 			result.type = VT100_UNKNOWNCHAR;
 			result.u.code = datap[0];
