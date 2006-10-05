@@ -992,6 +992,20 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 		CURSOR_X = newx;
 		idx += j;
     }
+    
+    if (CURSOR_X >= WIDTH) 
+    {
+        if ([TERMINAL wraparoundMode]) 
+        {
+            CURSOR_X=0;    
+            [self setNewLine];
+        }
+        else 
+        {
+            CURSOR_X=WIDTH-1;
+        }
+    }
+    
 	
 	free(buffer);
 	
