@@ -90,7 +90,7 @@
 - (void) growlNotify: (NSString *) title {
 
 	if(![self isEnabled]) {
-		NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
+		//NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
 		return;
 	}
 
@@ -109,7 +109,7 @@
 	 withDescription: (NSString *) description {
 
 	if(![self isEnabled]) {
-		NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
+		//NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
 		return;
 	}
 	
@@ -129,7 +129,7 @@
 	 andNotification: (NSString *) notification {
 
 	if(![self isEnabled]) {
-		NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
+		//NSLog(@"%s(%d):-[Growl not enabled.]",  __FILE__, __LINE__);
 		return;
 	}
     
