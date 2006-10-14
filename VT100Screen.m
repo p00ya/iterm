@@ -45,6 +45,8 @@
 #import <iTerm/iTermGrowlDelegate.h>
 #include <string.h>
 
+#define MAX_SCROLLBACK_LINES 1000000
+
 /* translates normal char into graphics char */
 void translate(screen_char_t *s, int len)
 {
@@ -480,7 +482,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 	if(buffer_chars != NULL)
 		return;
 	
-    max_scrollback_lines = lines;
+    max_scrollback_lines = lines<MAX_SCROLLBACK_LINES?lines:MAX_SCROLLBACK_LINES;
 }
 
 - (PTYSession *) session

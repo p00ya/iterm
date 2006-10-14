@@ -38,6 +38,7 @@
     IBOutlet NSTextView *AUTHORS;
     
     // Menu items
+    IBOutlet NSMenu     *bookmarkMenu;
     IBOutlet NSMenuItem *selectTab;
     IBOutlet NSMenuItem *previousTerminal;
     IBOutlet NSMenuItem *nextTerminal;
