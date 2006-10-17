@@ -34,6 +34,7 @@
 #include <sys/time.h>
 
 #define MARGIN  5
+#define VMARGIN 50
 
 @class VT100Screen;
 

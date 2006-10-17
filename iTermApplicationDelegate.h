@@ -62,6 +62,7 @@
 - (BOOL)applicationOpenUntitledFile:(NSApplication *)app;
 - (NSMenu *)applicationDockMenu:(NSApplication *)sender;
 - (void)applicationDidUnhide:(NSNotification *)aNotification;
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)app;
 
 - (IBAction)newWindow:(id)sender;
 - (IBAction)newSession:(id)sender;
@@ -71,6 +72,7 @@
 - (IBAction)aboutOK:(id)sender;
 
 - (IBAction)showPrefWindow:(id)sender;
+- (IBAction)showBookmarkWindow:(id)sender;
 
     // navigation
 - (IBAction) previousTerminal: (id) sender;
@@ -89,6 +91,9 @@
 
 // transparency
 - (IBAction) useTransparency: (id) sender;
+
+// size
+- (IBAction) returnToDefaultSize: (id) sender;
 
 @end
 

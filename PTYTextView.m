@@ -616,18 +616,22 @@ static float strokeWidth, boldStrokeWidth;
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PTYTextView adjustScroll]", __FILE__, __LINE__ );
 #endif
-	//forceUpdate = YES;
-	proposedVisibleRect.origin.y=(int)(proposedVisibleRect.origin.y/lineHeight+0.5)*lineHeight;
+    proposedVisibleRect.origin.y=(int)(proposedVisibleRect.origin.y/lineHeight+0.5)*lineHeight;
 
-    NSRect currentRect;    
-    currentRect= [self visibleRect];
-    
-    int i, line;
-    int lineNum = (proposedVisibleRect.origin.y - currentRect.origin.y)/lineHeight;
-    for(i=lineNum-1; i>=0; i--) {
-        line = (currentRect.origin.y+currentRect.size.height)/lineHeight + i -[dataSource numberOfLines]+[dataSource height];
-        if (line>0) memset([dataSource dirty]+line*[dataSource width]*sizeof(char), 1, [dataSource width]*sizeof(char));
-        else break;
+	if([(PTYScrollView *)[self enclosingScrollView] backgroundImage] != nil)
+        forceUpdate = YES; // we have to update everything if there's a background image
+    else {
+
+        NSRect currentRect;    
+        currentRect= [self visibleRect];
+        
+        int i, line;
+        int lineNum = (proposedVisibleRect.origin.y - currentRect.origin.y)/lineHeight;
+        for(i=lineNum-1; i>=0; i--) {
+            line = (currentRect.origin.y+currentRect.size.height)/lineHeight + i -[dataSource numberOfLines]+[dataSource height];
+            if (line>0) memset([dataSource dirty]+line*[dataSource width]*sizeof(char), 1, [dataSource width]*sizeof(char));
+            else break;
+        }
     }
     
 	return proposedVisibleRect;
