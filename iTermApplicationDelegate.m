@@ -108,8 +108,6 @@ static BOOL usingAutoLaunchScript = NO;
     id prefs = [NSUserDefaults standardUserDefaults];
     NSString *version = [prefs objectForKey: @"Last Updated Version"];
     
-    NSLog(version);
-    
     if (!version || ![version isEqualToString:[prefs objectForKey: @"iTerm Version"]]) {
         [prefs setObject:[prefs objectForKey: @"iTerm Version"] forKey:@"Last Updated Version"];
         [self showAbout:nil];
