@@ -2384,6 +2384,48 @@ end_thread:
     [self releaseLock];
 }
 
+-(void)addNewSession:(NSDictionary *) addressbookEntry withURL: (NSString *)url
+{
+    // NSLog(@"PseudoTerminal: -addInSessions: 0x%x", object);
+    PTYSession *aSession;
+    NSString *terminalProfile;
+    
+    terminalProfile = [addressbookEntry objectForKey: KEY_TERMINAL_PROFILE];
+	if(terminalProfile == nil)
+		terminalProfile = [[iTermTerminalProfileMgr singleInstance] defaultProfileName];	
+	
+    // Initialize a new session
+    aSession = [[PTYSession alloc] init];
+	[[aSession SCREEN] setScrollback:[[iTermTerminalProfileMgr singleInstance] scrollbackLinesForProfile: [addressbookEntry objectForKey: KEY_TERMINAL_PROFILE]]];
+    // set our preferences
+    [aSession setAddressBookEntry: addressbookEntry];
+    // Add this session to our term and make it current
+    [self acquireLock];
+    [self appendSession: aSession];
+    
+    
+    NSString *cmd;
+    NSArray *arg;
+    NSString *pwd;
+	
+    // Grab the addressbook command
+	cmd = [NSString stringWithFormat:@"%@ %@", [addressbookEntry objectForKey: KEY_COMMAND], url];
+    [PseudoTerminal breakDown:cmd cmdPath:&cmd cmdArgs:&arg];
+    
+	pwd = [addressbookEntry objectForKey: KEY_WORKING_DIRECTORY];
+	if([pwd length] <= 0)
+		pwd = NSHomeDirectory();
+    NSDictionary *env=[NSDictionary dictionaryWithObject: pwd forKey:@"PWD"];
+    
+    [self setCurrentSessionName:[addressbookEntry objectForKey: KEY_NAME]];	
+    
+    // Start the command        
+    [self startProgram:cmd arguments:arg environment:env];
+	
+    [aSession release];
+    [self releaseLock];
+}
+
 -(void)appendSession:(PTYSession *)object
 {
     // NSLog(@"PseudoTerminal: -appendSession: 0x%x", object);

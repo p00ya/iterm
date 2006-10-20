@@ -94,10 +94,10 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 	terminalLock = [[NSLock alloc] init];
     
 	// read preferences
-	[PreferencePanel sharedInstance];
-    [iTermProfileWindowController sharedInstance];
+    [PreferencePanel sharedInstance];
     [iTermBookmarkController sharedInstance];
-    
+    [iTermProfileWindowController sharedInstance];
+	
     // Activate Growl
 	/*
 	 * Need to add routine in iTerm prefs for Growl support and
@@ -319,6 +319,30 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
         term = theTerm;
 		
 	[term addNewSession: aDict];
+}
+
+- (void) launchBookmark: (NSDictionary *) bookmarkData inTerminal: (PseudoTerminal *) theTerm withURL: (NSString *)url
+{
+    PseudoTerminal *term;
+    NSDictionary *aDict;
+	
+	aDict = bookmarkData;
+	if(aDict == nil)
+		aDict = [[ITAddressBookMgr sharedInstance] defaultBookmarkData];
+		
+	// Where do we execute this command?
+    if(theTerm == nil)
+    {
+        term = [[PseudoTerminal alloc] init];
+		[term initWindowWithAddressbook: aDict];
+		[self addInTerminals: term];
+		[term release];
+		
+    }
+    else
+        term = theTerm;
+		
+	[term addNewSession: aDict withURL: url];
 }
 
 - (void) launchScript: (id) sender

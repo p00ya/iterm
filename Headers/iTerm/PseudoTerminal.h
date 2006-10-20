@@ -183,6 +183,7 @@
 -(id)valueWithName: (NSString *)uniqueName inPropertyWithKey: (NSString*)propertyKey;
 -(id)valueWithID: (NSString *)uniqueID inPropertyWithKey: (NSString*)propertyKey;
 -(void)addNewSession:(NSDictionary *)addressbookEntry;
+-(void)addNewSession:(NSDictionary *)addressbookEntry withURL: (NSString *)url;
 -(void)appendSession:(PTYSession *)object;
 -(void)removeFromSessionsAtIndex:(unsigned)index;
 -(NSArray*)sessions;

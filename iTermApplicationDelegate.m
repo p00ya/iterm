@@ -39,6 +39,7 @@
 #import <iTermProfileWindowController.h>
 #import <iTermBookmarkController.h>
 #import <iTermDisplayProfileMgr.h>
+#import <Tree.h>
 
 
 static NSString *SCRIPT_DIRECTORY = @"~/Library/Application Support/iTerm/Scripts";
@@ -246,7 +247,22 @@ static BOOL usingAutoLaunchScript = NO;
                                                  name:@"nonTerminalWindowBecameKey"
                                                object:nil];    
 
+	[[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(getUrl:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+
+
     return self;
+}
+
+- (void)getUrl:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent
+{
+	NSString *urlStr = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+	NSURL *url = [NSURL URLWithString: urlStr];
+	NSString *urlType = [url scheme];
+
+	id bm = [[PreferencePanel sharedInstance] handlerBookmarkForURL: urlType];
+
+	//NSLog(@"Got the URL:%@\n%@", urlType, bm);
+	[[iTermController sharedInstance] launchBookmark:[bm nodeData] inTerminal:[[iTermController sharedInstance] currentTerminal] withURL:urlStr];
 }
 
 - (void) dealloc

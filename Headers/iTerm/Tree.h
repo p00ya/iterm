@@ -84,6 +84,9 @@
 - (void)recursiveSortChildren;
     // sort children using the compare: method in TreeNodeData
 
+- (int) indexForNode: (id) node;
+- (id) nodeForIndex: (int) index;
+
 	// Returns the minimum nodes from 'allNodes' required to cover the nodes in 'allNodes'.
 	// This methods returns an array containing nodes from 'allNodes' such that no node in
 	// the returned array has an ancestor in the returned array.

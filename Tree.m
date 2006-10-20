@@ -141,6 +141,29 @@
 	
 }
 
+// return an array of all nodes
+- (NSArray *) array
+{
+	NSEnumerator *entryEnum;
+	TreeNode *child;
+	NSMutableArray *aMutableArray;
+	
+	// recursively encode the children
+	aMutableArray = [NSMutableArray array];
+	entryEnum = [nodeChildren objectEnumerator];
+	while ((child = [entryEnum nextObject]))
+	{
+		if ([child isLeaf])
+			[aMutableArray addObject: child];
+		else
+			[aMutableArray addObjectsFromArray: [child array]];
+	}
+	
+	return (aMutableArray);
+	
+}
+
+
 - (void)dealloc {
     [nodeData release];
     [nodeChildren release];
@@ -271,6 +294,14 @@
 - (void)recursiveSortChildren {
     [nodeChildren sortUsingSelector:@selector(compare:)];
     [nodeChildren makeObjectsPerformSelector: @selector(recursiveSortChildren)];
+}
+
+- (int) indexForNode: (id) node {
+	return ([[self array] indexOfObject:node]);
+}
+
+- (id) nodeForIndex: (int) index {
+	return ([[self array] objectAtIndex:index]);
 }
 
 - (NSString*)description {
