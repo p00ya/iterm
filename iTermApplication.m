@@ -38,7 +38,7 @@
 @implementation iTermApplication
 
 // override to catch key mappings
-- (void)sendEvent:(NSEvent *)anEvent
+/*- (void)sendEvent:(NSEvent *)anEvent
 {
 	id aWindow;
 	PseudoTerminal *currentTerminal;
@@ -68,5 +68,5 @@
 	else
 		[super sendEvent: anEvent];
 }
-
+*/
 @end

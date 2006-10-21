@@ -35,6 +35,6 @@
 
 }
 
-- (void)sendEvent:(NSEvent *)anEvent;
+//- (void)sendEvent:(NSEvent *)anEvent;
 
 @end

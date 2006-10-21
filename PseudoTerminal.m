@@ -2148,14 +2148,12 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	iterationCount = 0;
 	while (EXIT == NO)
 	{
+
 		iterationCount++;
 		
         //[self acquireLock];
         [PTLock lock];
         if (EXIT) break;
-		// periodically create and release autorelease pools
-		if(pool == nil)
-			pool = [[NSAutoreleasePool alloc] init];
 		
         if (iterationCount % 5 ==0) {
             n = [TABVIEW numberOfTabViewItems];
@@ -2183,8 +2181,9 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		// periodically create and release autorelease pools
 		if((iterationCount % 50) == 0)
 		{
+			// periodically create and release autorelease pools
             [pool release];
-			pool = nil;
+			pool = [[NSAutoreleasePool alloc] init];
 			iterationCount = 0;
 		}
         [PTLock unlock];
