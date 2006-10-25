@@ -92,12 +92,7 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
     
     terminalWindows = [[NSMutableArray alloc] init];
 	terminalLock = [[NSLock alloc] init];
-    
-	// read preferences
-    [PreferencePanel sharedInstance];
-    [iTermBookmarkController sharedInstance];
-    [iTermProfileWindowController sharedInstance];
-	
+    	
     // Activate Growl
 	/*
 	 * Need to add routine in iTerm prefs for Growl support and

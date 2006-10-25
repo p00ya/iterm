@@ -387,12 +387,12 @@ static NSString *NoHandler = @"<No Handler>";
 
 - (float) strokeWidth
 {
-    return [prefs objectForKey:@"StrokeWidth"]?[[prefs objectForKey:@"StrokeWidth"] floatValue]:-3;
+    return [prefs objectForKey:@"StrokeWidth"]?[[prefs objectForKey:@"StrokeWidth"] floatValue]:-2;
 }
 
 - (float) boldStrokeWidth
 {
-    return [prefs objectForKey:@"BoldStrokeWidth"]?[[prefs objectForKey:@"BoldStrokeWidth"] floatValue]:-5;
+    return [prefs objectForKey:@"BoldStrokeWidth"]?[[prefs objectForKey:@"BoldStrokeWidth"] floatValue]:-3;
 }
 
 // URL handler stuff
@@ -498,6 +498,11 @@ static NSString *NoHandler = @"<No Handler>";
 		[urlHandlers setObject:[urlHandlerOutline itemAtRow:j] forKey: [urlTypes objectAtIndex: i]];
 	}
 	//NSLog(@"urlHandlers:%@", urlHandlers);
+}
+
+- (IBAction)closeWindow:(id)sender
+{
+	[[self window] close];
 }
 
 @end

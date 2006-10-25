@@ -102,10 +102,17 @@ static BOOL usingAutoLaunchScript = NO;
         [scriptMenuItem release];
         [scriptMenuItem setTitle: NSLocalizedStringFromTableInBundle(@"Script",@"iTerm", [NSBundle bundleForClass: [iTermController class]], @"Script")];
     }
+	
+	// read preferences
+    [iTermProfileWindowController sharedInstance];
+    [iTermBookmarkController sharedInstance];
+    [PreferencePanel sharedInstance];
+	
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+		
     id prefs = [NSUserDefaults standardUserDefaults];
     NSString *version = [prefs objectForKey: @"Last Updated Version"];
     

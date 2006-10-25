@@ -140,6 +140,7 @@ typedef struct screen_char_t
 
 - (BOOL) blinkingCursor;
 - (void) setBlinkingCursor: (BOOL) flag;
+- (void)showCursor:(BOOL)show;
 - (void)setPlayBellFlag:(BOOL)flag;
 - (void)setShowBellFlag:(BOOL)flag;
 - (void)setGrowlFlag:(BOOL)flag;

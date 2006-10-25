@@ -1961,6 +1961,7 @@ else {
                 case 7:  WRAPAROUND_MODE = mode; break;
                 case 8:  AUTOREPEAT_MODE = mode; break;
                 case 9:  INTERLACE_MODE  = mode; break;
+				case 25: [SCREEN showCursor: mode]; break;
 				case 40: allowColumnMode = mode; break;
 				case 47: if(mode) [SCREEN saveBuffer]; else [SCREEN restoreBuffer]; break; // alternate screen buffer mode
 				case 1000:
