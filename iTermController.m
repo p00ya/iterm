@@ -407,7 +407,7 @@ NSString *terminalsKey = @"terminals";
 		[[thePseudoTerminal window] makeKeyAndOrderFront: self];
 
     // Post a notification
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"iTermWindowBecameKey" object: nil userInfo: nil];    
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"iTermWindowBecameKey" object: thePseudoTerminal userInfo: nil];    
 
 }
 

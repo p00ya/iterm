@@ -406,7 +406,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 		
 	// copy the screen content
 	screen_lines_top = bl + current_scrollback_lines*width;
-    for(i = 0; i < HEIGHT; i++) 
+    for(i = 0; i < height && i< HEIGHT; i++) 
     {
         aLine = [self getLineAtScreenIndex: i+skip_lines];
         memcpy(screen_lines_top+width*i, aLine, sw*sizeof(screen_char_t));
