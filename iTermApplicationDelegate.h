@@ -34,16 +34,24 @@
 @interface iTermApplicationDelegate : NSObject
 {
     // about window
+	NSWindowController *aboutController;
     IBOutlet id ABOUT;
+	IBOutlet id scrollingInfo;
     IBOutlet NSTextView *AUTHORS;
+
+	//Scrolling
+    NSTimer	*scrollTimer;
+	NSTimer	*eventLoopScrollTimer;
+    float	scrollLocation;
+    int		maxScroll;
+    float   scrollRate;
+	
     
     // Menu items
     IBOutlet NSMenu     *bookmarkMenu;
     IBOutlet NSMenuItem *selectTab;
     IBOutlet NSMenuItem *previousTerminal;
     IBOutlet NSMenuItem *nextTerminal;
-    IBOutlet NSMenuItem *newTab;
-    IBOutlet NSMenuItem *newWindow;
     IBOutlet NSMenuItem *logStart;
     IBOutlet NSMenuItem *logStop;
     IBOutlet NSMenuItem *closeTab;
