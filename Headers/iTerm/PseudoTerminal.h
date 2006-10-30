@@ -38,6 +38,12 @@
 	
 	NSOutlineView *bookmarksView;
 	
+	// Parameter Panel
+	IBOutlet NSTextField *parameterName;
+	IBOutlet NSPanel     *parameterPanel;
+	IBOutlet NSTextField *parameterValue;
+	IBOutlet NSTextField *parameterPrompt;
+	
     /// tab view
     PTYTabView *TABVIEW;
 	PSMTabBarControl *tabBarControl;

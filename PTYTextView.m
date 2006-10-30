@@ -2945,24 +2945,7 @@ static float strokeWidth, boldStrokeWidth;
         return;
 	    
     // Check for common types of URLs
-/*    if ([trimmedURLString hasPrefix:@"file://"])
-        url = [NSURL URLWithString:trimmedURLString];
-    else if ([trimmedURLString hasPrefix:@"ftp"])
-    {
-        if (![trimmedURLString hasPrefix:@"ftp://"])
-            url = [NSURL URLWithString:[@"ftp://" stringByAppendingString:trimmedURLString]];
-        else
-            url = [NSURL URLWithString:trimmedURLString];
-    }
-	else if ([trimmedURLString hasPrefix:@"mailto:"])
-        url = [NSURL URLWithString:trimmedURLString];
-	else if([trimmedURLString rangeOfString: @"@"].location != NSNotFound)
-		url = [NSURL URLWithString:[@"mailto:" stringByAppendingString:trimmedURLString]];
-	else if ([trimmedURLString hasPrefix:@"https://"])
-        url = [NSURL URLWithString:trimmedURLString];
-    else if (![trimmedURLString hasPrefix:@"http"])
-        url = [NSURL URLWithString:[@"http://" stringByAppendingString:trimmedURLString]];
-    else */
+
 	NSRange range = [trimmedURLString rangeOfString:@"://"];
 	if (range.location == NSNotFound)
 		url = [NSURL URLWithString:[@"http://" stringByAppendingString:trimmedURLString]];
