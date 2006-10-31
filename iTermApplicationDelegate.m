@@ -106,6 +106,14 @@ static BOOL usingAutoLaunchScript = NO;
         [scriptMenuItem setTitle: NSLocalizedStringFromTableInBundle(@"Script",@"iTerm", [NSBundle bundleForClass: [iTermController class]], @"Script")];
     }
 	
+#if defined(MAC_OS_X_VERSION_10_4) && (MAC_OS_X_VERSION >= MAC_OS_X_VERSION_10_4)
+	NSString *patherAppCast = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUFeedURL"];
+	[[NSUserDefaults standardUserDefaults] setObject: patherAppCast forKey:@"SUFeedURL"];
+#else
+	NSString *patherAppCast = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SUFeedURLForPanther"];
+	[[NSUserDefaults standardUserDefaults] setObject: patherAppCast forKey:@"SUFeedURL"];
+#endif
+	
 	// read preferences
     [iTermProfileWindowController sharedInstance];
     [iTermBookmarkController sharedInstance];
