@@ -315,6 +315,8 @@ typedef enum {
 - (void)putStreamData:(char *)data length: (int)length;
 - (VT100TCC)getNextToken;
 
+- (void)reset;
+
 - (NSData *)keyArrowUp:(unsigned int)modflag;
 - (NSData *)keyArrowDown:(unsigned int)modflag;
 - (NSData *)keyArrowLeft:(unsigned int)modflag;
