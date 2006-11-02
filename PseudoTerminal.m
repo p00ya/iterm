@@ -2429,7 +2429,7 @@ end_thread:
     [self appendSession: aSession];
     
     // We process the cmd to insert URL parts
-    NSMutableString *cmd = [[[NSMutableString alloc] initWithString:[self _getSessionParameters: [addressbookEntry objectForKey: KEY_COMMAND]]] autorelease];
+    NSMutableString *cmd = [[[NSMutableString alloc] initWithString:[addressbookEntry objectForKey: KEY_COMMAND]] autorelease];
 	NSURL *urlRep = [NSURL URLWithString: url];
 	
     
@@ -2453,7 +2453,7 @@ end_thread:
     [self setCurrentSessionName:[addressbookEntry objectForKey: KEY_NAME]];	
     
     // Start the command        
-    [self startProgram:cmd arguments:arg environment:env];
+    [self startProgram:[self _getSessionParameters: cmd] arguments:arg environment:env];
 	
     [aSession release];
     [self releaseLock];
