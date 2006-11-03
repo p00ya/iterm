@@ -207,8 +207,6 @@
 @interface PseudoTerminal (Private)
 
 - (void) _commonInit;
-- (void) _updateDisplayThread: (void *) incoming;
-
 - (NSFont *) _getMaxFont:(NSFont* ) font 
 				  height:(float) height
 				   lines:(float) lines;
