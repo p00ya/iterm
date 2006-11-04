@@ -143,6 +143,7 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 	NSEnumerator *entryEnumerator;
 	NSDictionary *dataDict;
 	TreeNode *childNode;
+	PseudoTerminal *term =terminal;
 	
 	entryEnumerator = [[theNode children] objectEnumerator];
 	
@@ -151,23 +152,21 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 		dataDict = [childNode nodeData];
 		if([childNode isGroup])
 		{
-			terminal = [self newSessionsInWindow:terminal forNode:childNode];
+			[self newSessionsInWindow:terminal forNode:childNode];
 		}
 		else
 		{
-			if(terminal == nil)
-			{
-				terminal = [[PseudoTerminal alloc] init];
-				[terminal initWindowWithAddressbook: [childNode nodeData]];
-				[self addInTerminals: terminal];
-				[terminal release];
+			if (!term) {
+				term = [[PseudoTerminal alloc] init];
+				[term initWindowWithAddressbook: [childNode nodeData]];
+				[self addInTerminals: term];
+				[term release];
 			}
-			
-			[self launchBookmark:[childNode nodeData] inTerminal:terminal];
+			[self launchBookmark:[childNode nodeData] inTerminal:term];
 		}
 	}
 
-	return terminal;
+	return term;
 }
 
 - (void) newSessionsInWindow: (id) sender

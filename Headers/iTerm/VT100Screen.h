@@ -32,6 +32,8 @@
 
 #define ISDOUBLEWIDTHCHARACTER(c) ((c)>=0x1000)
 
+enum { NO_CHANGE, CHANGE, CHANGE_PIXEL };
+	
 @class PTYTask;
 @class PTYSession;
 @class PTYTextView;
@@ -113,6 +115,10 @@ typedef struct screen_char_t
 
 	// Growl stuff
 	iTermGrowlDelegate* gd;
+	
+	// resize-related
+	int changeSize;
+	int newWidth,  newHeight;
 }
 
 
@@ -208,5 +214,11 @@ typedef struct screen_char_t
 - (BOOL) printToAnsi;
 - (void) setPrintToAnsi: (BOOL) aFlag;
 - (void) printStringToAnsi: (NSString *) aString;
+
+// resize-related
+- (int)changeSize;
+- (int)newWidth;
+- (int)newHeight;
+- (void) resetChangeSize;
 
 @end

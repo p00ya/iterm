@@ -469,8 +469,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
         [self setWindowTitle: title];
         [aSession setName: title];
     }
-
-
 }
 
 - (void)selectSessionAtIndexAction:(id)sender
@@ -513,6 +511,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		if([self windowInited])
 			[[self window] makeKeyAndOrderFront: self];
 		[[iTermController sharedInstance] setCurrentTerminal: self];
+		[self setWindowSize];
     }
 }
 
@@ -750,12 +749,12 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     NSPoint topLeft;
 		
 #if DEBUG_METHOD_TRACE
-    NSLog(@"%s(%d):-[PseudoTerminal setWindowSize]", __FILE__, __LINE__ );
+    NSLog(@"%s(%d):-[PseudoTerminal setWindowSize] (%d,%d)", __FILE__, __LINE__, WIDTH, HEIGHT );
 #endif
     
     if([self windowInited] == NO)
 		return;
-		
+	
     if (WIDTH<20) WIDTH=20;
     if (HEIGHT<2) HEIGHT=2;
     // desired size of textview
@@ -1802,7 +1801,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		(([TABVIEW numberOfTabViewItems] > 1 && [tabBarControl isHidden]) || ([TABVIEW numberOfTabViewItems] < 2 && ![tabBarControl isHidden])))
     {
         [self setWindowSize];
-		[self windowDidResize:nil];
 		/*
         PTYSession *aSession = [[TABVIEW tabViewItemAtIndex: 0] identifier];
         [[aSession TEXTVIEW] scrollEnd];
