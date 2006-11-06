@@ -679,7 +679,7 @@ static VT100TCC decode_xterm(unsigned char *datap,
 	
     if (unrecognized||!(*rmlen)) {
         result.type = VT100_WAIT;
-        NSLog(@"invalid: %d",*rmlen);
+        //NSLog(@"invalid: %d",*rmlen);
     }
     else {
         data = [NSData dataWithBytes:s length:c-s];

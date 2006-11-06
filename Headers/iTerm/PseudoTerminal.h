@@ -63,8 +63,6 @@
 	BOOL fontSizeFollowWindowResize;
 	BOOL suppressContextualMenu;
     
-    NSLock *PTLock;
-
 	BOOL EXIT;
 }
 
@@ -167,8 +165,6 @@
 
 // Utility methods
 + (void) breakDown:(NSString *)cmdl cmdPath: (NSString **) cmd cmdArgs: (NSArray **) path;
-- (void) acquireLock;
-- (void) releaseLock;
 
 @end
 
