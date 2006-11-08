@@ -1905,6 +1905,12 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	
 }
 
+- (void)tabView:(NSTabView *)tabView doubleClickTabViewItem:(NSTabViewItem *)tabViewItem
+{
+	[tabView selectTabViewItem:tabViewItem];
+	[ITConfigPanelController show];
+}
+
 - (void) setLabelColor: (NSColor *) color forTabViewItem: tabViewItem
 {
     [tabBarControl setLabelColor: color forTabViewItem:tabViewItem];
