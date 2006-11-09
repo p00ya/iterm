@@ -48,6 +48,7 @@
     PTYTabView *TABVIEW;
 	PSMTabBarControl *tabBarControl;
     PTToolbarController* _toolbarController;
+	IBOutlet id commandField;
 
     
     /////////////////////////////////////////////////////////////////////////
@@ -162,6 +163,7 @@
 
 // Bookmarks
 - (IBAction) toggleBookmarksView: (id) sender;
+-  (id) commandField;
 
 // Utility methods
 + (void) breakDown:(NSString *)cmdl cmdPath: (NSString **) cmd cmdArgs: (NSArray **) path;

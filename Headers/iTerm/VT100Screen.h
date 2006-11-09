@@ -116,9 +116,12 @@ typedef struct screen_char_t
 	// Growl stuff
 	iTermGrowlDelegate* gd;
 	
-	// resize-related
+	// UI related
 	int changeSize;
 	int newWidth,  newHeight;
+	int changeTitle;
+	NSString *newTitle;
+	BOOL bell;
 }
 
 
@@ -215,10 +218,15 @@ typedef struct screen_char_t
 - (void) setPrintToAnsi: (BOOL) aFlag;
 - (void) printStringToAnsi: (NSString *) aString;
 
-// resize-related
+// UI stuff
 - (int)changeSize;
 - (int)newWidth;
 - (int)newHeight;
 - (void) resetChangeSize;
+- (int) changeTitle;
+- (NSString *) newTitle;
+- (void) resetChangeTitle;
+- (void) updateBell;
+
 
 @end

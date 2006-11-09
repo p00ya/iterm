@@ -276,6 +276,8 @@ static int writep(int fds, char *buf, size_t len)
 		kill(PID, SIGKILL);
     if (FILDES >= 0)
 		close(FILDES);
+
+	FILDES = -1;
 	
     MPWaitOnSemaphore(threadEndSemaphore, kDurationForever);
     MPDeleteSemaphore(threadEndSemaphore);

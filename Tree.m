@@ -331,5 +331,15 @@
     return minimumCover;
 }
 
+- (id)initWithCoder:(NSCoder *)coder { 
+	self = 	[coder decodeObject]; 
+	return self; 
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder { 
+	if (self) { 
+		[coder encodeByrefObject: self]; 
+	} 
+}
 
 @end

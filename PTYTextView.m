@@ -39,6 +39,8 @@
 #import <iTerm/PreferencePanel.h>
 #import <iTerm/PTYScrollView.h>
 #import <iTerm/PTYTask.h>
+#import <iTerm/iTermController.h>
+#import <iTerm/Tree.h>
 
 #include <sys/time.h>
 
@@ -823,7 +825,7 @@ static float strokeWidth, boldStrokeWidth;
 		
 		if(line >= [dataSource numberOfLines])
 		{
-			NSLog(@"%s (0x%x): illegal line index %d >= %d", __PRETTY_FUNCTION__, self, line, [dataSource numberOfLines]);
+			//NSLog(@"%s (0x%x): illegal line index %d >= %d", __PRETTY_FUNCTION__, self, line, [dataSource numberOfLines]);
 			[dataSource releaseLock];
 			return;
 		}
@@ -2954,12 +2956,18 @@ static float strokeWidth, boldStrokeWidth;
 
 	NSRange range = [trimmedURLString rangeOfString:@"://"];
 	if (range.location == NSNotFound)
-		url = [NSURL URLWithString:[@"http://" stringByAppendingString:trimmedURLString]];
-	else
-		url = [NSURL URLWithString:trimmedURLString];
+		trimmedURLString = [@"http://" stringByAppendingString:trimmedURLString];
 	
-    [[NSWorkspace sharedWorkspace] openURL:url];
+	url = [NSURL URLWithString:trimmedURLString];
+
+	TreeNode *bm = [[PreferencePanel sharedInstance] handlerBookmarkForURL: [url scheme]];
 	
+	//NSLog(@"Got the URL:%@\n%@", [url scheme], bm);
+	if (bm != nil) 
+		[[iTermController sharedInstance] launchBookmark:[bm nodeData] inTerminal:[[iTermController sharedInstance] currentTerminal] withURL:trimmedURLString];
+	else 
+		[[NSWorkspace sharedWorkspace] openURL:url];
+		
 }
 
 - (void) _clearCacheForColor:(int)colorIndex

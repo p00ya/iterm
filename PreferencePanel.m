@@ -396,7 +396,7 @@ static NSString *NoHandler = @"<No Handler>";
 }
 
 // URL handler stuff
-- (NSDictionary *) handlerBookmarkForURL:(NSString *)url
+- (TreeNode *) handlerBookmarkForURL:(NSString *)url
 {
 	return [urlHandlers objectForKey: url];
 }
