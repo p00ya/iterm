@@ -69,7 +69,7 @@ static float strokeWidth, boldStrokeWidth;
     [ibeamImage compositeToPoint:NSMakePoint(0,0) operation:NSCompositeDestinationIn];
     [reverseCursorImage unlockFocus];
     [aCursorImage lockFocus];
-    [reverseCursorImage compositeToPoint:NSMakePoint(1,0) operation:NSCompositePlusLighter];
+    [reverseCursorImage compositeToPoint:NSMakePoint(2,0) operation:NSCompositePlusLighter];
     [aCursorImage unlockFocus];
     textViewCursor = [[NSCursor alloc] initWithImage:aCursorImage hotSpot:hotspot];
     strokeWidth = [[PreferencePanel sharedInstance] strokeWidth];
