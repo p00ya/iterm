@@ -38,7 +38,7 @@
 @interface NSString (iTerm)
 
 + (NSString *)stringWithInt:(int)num;
-+ (BOOL)isDoubleWidthCharacter:(unichar)unicode;
++ (BOOL)isDoubleWidthCharacter:(unichar)unicode encoding:(NSStringEncoding) e;
 
 - (NSMutableString *) stringReplaceSubstringFrom:(NSString *)oldSubstring to:(NSString *)newSubstring;
 

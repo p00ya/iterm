@@ -47,6 +47,8 @@
 #define  SELECT_CODE 0x40
 #define  CURSOR_CODE 0x80
 
+#define ISDOUBLEWIDTHCHARACTER(c) ((c)>0xa0 && [dataSource isDoubleWidthCharacter:(c)])
+
 static SInt32 systemVersion;
 static NSCursor* textViewCursor =  nil;
 static float strokeWidth, boldStrokeWidth;

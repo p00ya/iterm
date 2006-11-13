@@ -30,8 +30,6 @@
 #import <Cocoa/Cocoa.h>
 #import <iTerm/VT100Terminal.h>
 
-#define ISDOUBLEWIDTHCHARACTER(c) ((c)>=0x1000)
-
 enum { NO_CHANGE, CHANGE, CHANGE_PIXEL };
 	
 @class PTYTask;
@@ -228,5 +226,7 @@ typedef struct screen_char_t
 - (void) resetChangeTitle;
 - (void) updateBell;
 
+// double width
+- (BOOL) isDoubleWidthCharacter:(unichar) c;
 
 @end
