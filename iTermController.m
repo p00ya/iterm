@@ -283,7 +283,8 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 			subMenu = [[[NSMenu alloc] init] autorelease];
             [self alternativeMenu: subMenu forNode: childNode target: aTarget withShortcuts: withShortcuts]; 
 			[aMenuItem setSubmenu: subMenu];
-			[aMenuItem setAction:nil];
+			[aMenuItem setAction:@selector(noAction:)];
+			[aMenuItem setTarget: self];
 			[aMenu addItem: aMenuItem];
 			
 		}

@@ -332,13 +332,13 @@
 }
 
 - (id)initWithCoder:(NSCoder *)coder { 
-	self = 	[coder decodeObject]; 
+	self = 	[[TreeNode alloc] initFromDictionary:[coder decodeObject]]; 
 	return self; 
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder { 
 	if (self) { 
-		[coder encodeByrefObject: self]; 
+		[coder encodeObject: [self dictionary]]; 
 	} 
 }
 

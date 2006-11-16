@@ -933,7 +933,7 @@ static VT100TCC decode_utf8(unsigned char *datap,
                 else break;
             }
             else {
-				NSLog(@"unknown code in UTF8: %d(%c)",*p,*p);
+				//NSLog(@"unknown code in UTF8: %d(%c)",*p,*p);
                 *p=UNKNOWN;
                 p++;
                 len--;
