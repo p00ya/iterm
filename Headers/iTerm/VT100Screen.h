@@ -225,6 +225,7 @@ typedef struct screen_char_t
 - (NSString *) newTitle;
 - (void) resetChangeTitle;
 - (void) updateBell;
+- (void) setBell;
 
 // double width
 - (BOOL) isDoubleWidthCharacter:(unichar) c;
