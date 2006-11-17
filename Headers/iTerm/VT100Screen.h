@@ -171,10 +171,11 @@ typedef struct screen_char_t
 - (void)restoreBuffer;
 
 // internal
-- (void)setString:(NSString *)s;
+- (void)setString:(NSString *)s ascii:(BOOL)ascii;
 - (void)setStringToX:(int)x
 				   Y:(int)y
-			  string:(NSString *)string;
+			  string:(NSString *)string
+			   ascii:(BOOL)ascii;
 - (void)setNewLine;
 - (void)deleteCharacters:(int)n;
 - (void)backSpace;
