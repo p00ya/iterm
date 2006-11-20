@@ -151,6 +151,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	
 	//enforce the nib to load
 	[self window];
+	[commandField retain];
 	
 	// create the window programmatically with appropriate style mask
 	styleMask = NSTitledWindowMask | 
@@ -634,6 +635,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
         [[aTabViewItem identifier] terminate];
         [TABVIEW removeTabViewItem: aTabViewItem];
     }
+	[commandField release];
 	
     [_toolbarController release];
     
