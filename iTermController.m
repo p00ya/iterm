@@ -385,16 +385,21 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 {
     NSString *fullPath = [NSString stringWithFormat: @"%@/%@", [SCRIPT_DIRECTORY stringByExpandingTildeInPath], [sender title]];
 
-    NSAppleScript *script;
-    NSDictionary *errorInfo = [NSDictionary dictionary];
-    NSURL *aURL = [NSURL fileURLWithPath: fullPath];
+	if ([[[sender title] pathExtension] isEqualToString: @"scpt"]) {
+		NSAppleScript *script;
+		NSDictionary *errorInfo = [NSDictionary dictionary];
+		NSURL *aURL = [NSURL fileURLWithPath: fullPath];
 
-    // Make sure our script suite registry is loaded
-    [NSScriptSuiteRegistry sharedScriptSuiteRegistry];
+		// Make sure our script suite registry is loaded
+		[NSScriptSuiteRegistry sharedScriptSuiteRegistry];
 
-    script = [[NSAppleScript alloc] initWithContentsOfURL: aURL error: &errorInfo];
-    [script executeAndReturnError: &errorInfo];
-    [script release];
+		script = [[NSAppleScript alloc] initWithContentsOfURL: aURL error: &errorInfo];
+		[script executeAndReturnError: &errorInfo];
+		[script release];
+	}
+	else {
+		[[NSWorkspace sharedWorkspace] launchApplication:fullPath];
+	}
     
 }
 

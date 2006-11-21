@@ -959,6 +959,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 		if (charset[[TERMINAL charset]]) 
 			translate(buffer,len);
 		//    NSLog(@"%d(%d):%@",[TERMINAL charset],charset[[TERMINAL charset]],string);
+		free(sc);
 	}
 	else {
 		string = [string precomposedStringWithCanonicalMapping];
@@ -970,7 +971,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 			return;		
 		}
 		
-		padString(string,buffer, [TERMINAL foregroundColorCode], [TERMINAL backgroundColorCode], &len, [TERMINAL encoding]);
+		padString(string, buffer, [TERMINAL foregroundColorCode], [TERMINAL backgroundColorCode], &len, [TERMINAL encoding]);
 	}
 
     if (len < 1) 

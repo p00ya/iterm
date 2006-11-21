@@ -74,6 +74,7 @@
 
 - (IBAction)newWindow:(id)sender;
 - (IBAction)newSession:(id)sender;
+- (IBAction)buildScriptMenu:(id)sender;
 
     // About window
 - (IBAction)showAbout:(id)sender;
