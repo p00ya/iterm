@@ -72,7 +72,6 @@
 - (void)setWidth:(int)width height:(int)height;
 - (pid_t)pid;
 - (int)wait;
-- (BOOL)exist;
 - (void)stop;
 - (int)status;
 - (NSString *)tty;

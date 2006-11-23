@@ -39,7 +39,6 @@
     // PseudoTerminal objects
     NSMutableArray *terminalWindows;
     id FRONT;
-    NSLock *terminalLock;
 	ItermGrowlDelegate *gd;
 }
 

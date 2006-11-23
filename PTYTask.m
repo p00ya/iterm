@@ -473,18 +473,6 @@ static int writep(int fds, char *buf, size_t len)
     return STATUS;
 }
 
-- (BOOL)exist
-{
-    BOOL result;
-	
-    if (WIFEXITED(STATUS))
-		result = YES;
-    else
-		result = NO;
-	
-    return result;
-}
-
 - (void)stop
 {
     [self sendSignal:SIGKILL];
