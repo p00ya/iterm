@@ -387,12 +387,17 @@ static NSString *NoHandler = @"<No Handler>";
 
 - (float) strokeWidth
 {
-    return [prefs objectForKey:@"StrokeWidth"]?[[prefs objectForKey:@"StrokeWidth"] floatValue]:-2;
+    return [prefs objectForKey:@"StrokeWidth"]?[[prefs objectForKey:@"StrokeWidth"] floatValue]:0;
 }
 
 - (float) boldStrokeWidth
 {
-    return [prefs objectForKey:@"BoldStrokeWidth"]?[[prefs objectForKey:@"BoldStrokeWidth"] floatValue]:-3;
+    return [prefs objectForKey:@"BoldStrokeWidth"]?[[prefs objectForKey:@"BoldStrokeWidth"] floatValue]:-2;
+}
+
+- (int) cacheSize
+{
+    return [prefs objectForKey:@"CacheSize"]?[[prefs objectForKey:@"CacheSize"] intValue]:2048;
 }
 
 // URL handler stuff

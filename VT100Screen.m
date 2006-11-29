@@ -1982,16 +1982,10 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 - (screen_char_t *) _getDefaultLineWithWidth: (int) width
 {
 	int i;
-	static int entry=0;
 	
-	if (entry>0) {
-		NSLog(@"Re-entry!");
-	}
-	entry++;
 	// check if we have to generate a new line
 	if(default_line && default_fg_code == [TERMINAL foregroundColorCode] && 
 	   default_bg_code == [TERMINAL backgroundColorCode] && default_line_width >= width) {
-		entry--;
 		return (default_line);
 	}
 	
@@ -2010,7 +2004,6 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 	default_fg_code = [TERMINAL foregroundColorCode];
 	default_bg_code = [TERMINAL backgroundColorCode];
 	default_line_width = width;
-	entry--;
 	return (default_line);
 	
 }
