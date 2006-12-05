@@ -170,6 +170,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 - (void)changeFont:(id)sender;
 - (NSMenu *)menuForEvent:(NSEvent *)theEvent;
 - (void) browse:(id)sender;
+- (void) searchInBrowser:(id)sender;
 - (void) mail:(id)sender;
 
 //get/set methods
@@ -283,6 +284,8 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 - (BOOL)readSelectionFromPasteboard:(NSPasteboard *)pboard;	
 
 - (void)resetCharCache;
+
+- (void)topOfLineRemoved;
 
 @end
 

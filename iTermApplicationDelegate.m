@@ -634,7 +634,7 @@ static BOOL usingAutoLaunchScript = NO;
     }
 	if (count>0) {
 		[scriptMenu addItem:[NSMenuItem separatorItem]];
-		NSMenuItem *scriptItem = [[NSMenuItem alloc] initWithTitle: @"Refresh"
+		NSMenuItem *scriptItem = [[NSMenuItem alloc] initWithTitle: NSLocalizedStringFromTableInBundle(@"Refresh",@"iTerm", [NSBundle bundleForClass: [iTermController class]], @"Script")
 															action: @selector(buildScriptMenu:) 
 													 keyEquivalent: @""];
 		[scriptItem setTarget: self];

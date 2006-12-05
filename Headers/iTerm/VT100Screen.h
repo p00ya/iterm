@@ -130,6 +130,7 @@ typedef struct screen_char_t
 
 - (void)initScreenWithWidth:(int)width Height:(int)height;
 - (void)resizeWidth:(int)width height:(int)height;
+- (void)reset;
 - (void)setWidth:(int)width height:(int)height;
 - (int)width;
 - (int)height;

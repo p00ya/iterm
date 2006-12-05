@@ -1417,6 +1417,7 @@ static VT100TCC decode_string(unsigned char *datap,
 	
     strictAnsiMode = NO;
     allowColumnMode = YES;
+	[SCREEN reset];
 }
 
 - (BOOL)trace
