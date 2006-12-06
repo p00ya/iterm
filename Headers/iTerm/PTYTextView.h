@@ -307,7 +307,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 				 endY: (int *) endy;
 - (NSString *) _getURLForX: (int) x y: (int) y;
 - (void) _renderChar:(NSImage *)image withChar:(unichar) carac withColor:(NSColor*)color withBGColor:(NSColor*)color withFont:(NSFont*)aFont bold:(int)bold;
-- (NSImage *) _getCharImage:(unichar) code color:(int)fg bgColor:(int)bg doubleWidth:(BOOL) dw;
+- (NSImage *) _getCharImage:(unichar) code color:(unsigned int)fg bgColor:(unsigned int)bg doubleWidth:(BOOL) dw;
 - (void) _drawCharacter:(unichar)c fgColor:(int)fg bgColor:(int)bg AtX:(float)X Y:(float)Y doubleWidth:(BOOL) dw;
 - (BOOL) _isBlankLine: (int) y;
 - (void) _openURL: (NSString *) aURLString;

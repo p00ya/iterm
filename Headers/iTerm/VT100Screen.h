@@ -40,8 +40,8 @@ enum { NO_CHANGE, CHANGE, CHANGE_PIXEL };
 typedef struct screen_char_t
 {
 	unichar ch;    // the actual character
-	char bg_color; // background color
-	char fg_color; // foreground color
+	unsigned int bg_color; // background color
+	unsigned int fg_color; // foreground color
 } screen_char_t;
 
 #define TABWINDOW	300
