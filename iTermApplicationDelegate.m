@@ -115,7 +115,11 @@ static BOOL usingAutoLaunchScript = NO;
 	terminals = [[iTermController sharedInstance] terminals];
     if(([terminals count] > 0) && 
 	   [[PreferencePanel sharedInstance] promptOnClose] && 
-	   ![[terminals objectAtIndex: 0] showCloseWindow])
+	   NSRunAlertPanel(NSLocalizedStringFromTableInBundle(@"Quit iTerm?",@"iTerm", [NSBundle bundleForClass: [self class]], @"Close window"),
+					   NSLocalizedStringFromTableInBundle(@"All sessions will be closed",@"iTerm", [NSBundle bundleForClass: [self class]], @"Close window"),
+					   NSLocalizedStringFromTableInBundle(@"OK",@"iTerm", [NSBundle bundleForClass: [self class]], @"OK"),
+					   NSLocalizedStringFromTableInBundle(@"Cancel",@"iTerm", [NSBundle bundleForClass: [self class]], @"Cancel")
+					   ,nil)!=NSAlertDefaultReturn)
 		return (NO);
     
 	// save preferences
