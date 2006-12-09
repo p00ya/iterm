@@ -130,11 +130,14 @@ static NSString *NoHandler = @"<No Handler>";
 	if (tempDict) {
 		NSEnumerator *enumerator = [tempDict keyEnumerator];
 		id key;
+		int index;
 	   
 		while ((key = [enumerator nextObject])) {
 			//NSLog(@"%@\n%@",[tempDict objectForKey:key], [[ITAddressBookMgr sharedInstance] bookmarkForIndex:[[tempDict objectForKey:key] intValue]]);
-			[urlHandlers setObject:[[ITAddressBookMgr sharedInstance] bookmarkForIndex:[[tempDict objectForKey:key] intValue]]
-						    forKey:key];
+			index = [[tempDict objectForKey:key] intValue];
+			if (index>=0 && index  < [[[ITAddressBookMgr sharedInstance] bookmarks] count])
+				[urlHandlers setObject:[[ITAddressBookMgr sharedInstance] bookmarkForIndex:index]
+								forKey:key];
 		}
 	}
 	urlArray = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleURLTypes"];
@@ -191,6 +194,7 @@ static NSString *NoHandler = @"<No Handler>";
 		[self initWithWindowNibName: @"PreferencePanel"];
 			    
 	[[self window] setDelegate: self]; // also forces window to load
+	[wordChars setDelegate: self];
 	
 	[windowStyle selectItemAtIndex: defaultWindowStyle];
 	[tabPosition selectItemAtIndex: defaultTabViewType];
@@ -551,6 +555,13 @@ static NSString *NoHandler = @"<No Handler>";
 - (IBAction)closeWindow:(id)sender
 {
 	[[self window] close];
+}
+
+
+// NSTextField delegate
+- (void)controlTextDidChange:(NSNotification *)aNotification
+{
+	defaultWordChars = [[wordChars stringValue] retain];
 }
 
 @end

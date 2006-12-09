@@ -482,6 +482,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 	
     for(i=0;i<4;i++) saveCharset[i]=charset[i]=0;
 	
+	[self showCursor: YES];
 	changeSize = NO_CHANGE;
 	changeTitle = 0;
 	newTitle = nil;
@@ -1063,7 +1064,22 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 		{
 			if (CURSOR_X>0) aLine[CURSOR_X-1].ch = '#';
 		}
-    }
+
+		// ANSI termianls will go to a new line after displaying a character at rightest column.
+		if (CURSOR_X >= WIDTH && [[TERMINAL termtype] rangeOfString:@"ANSI" options:NSCaseInsensitiveSearch | NSAnchoredSearch ].location != NSNotFound) 
+		{
+            if ([TERMINAL wraparoundMode]) 
+			{
+                CURSOR_X=0;    
+				[self setNewLine];
+            }
+            else 
+			{
+                CURSOR_X=WIDTH-1;
+                idx=len-1;
+            }
+        }
+	}
 	
 	free(buffer);
 	
