@@ -2526,6 +2526,7 @@ static int cacheSize;
 {
 	transparency = fVal;
 	forceUpdate = YES;
+	useTransparency = fVal >=0.01;
 	[self setNeedsDisplay: YES];
 	[self resetCharCache];
 }
@@ -2540,6 +2541,7 @@ static int cacheSize;
   useTransparency = flag;
   forceUpdate = YES;
   [self setNeedsDisplay: YES];
+  [self resetCharCache];
 }
 
 // service stuff
