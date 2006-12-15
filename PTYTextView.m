@@ -418,8 +418,10 @@ static int cacheSize;
 				}
 		}
     }
-    else
+    else 
     {
+		index &= 0xff;
+		
         if (index<16) {
 			color=colorTable[index];
 		}
