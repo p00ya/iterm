@@ -751,6 +751,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     NSWindow *thisWindow = [self window];
     NSRect aRect;
     NSPoint topLeft;
+	float max_height;
 		
 #if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[PseudoTerminal setWindowSize] (%d,%d)", __FILE__, __LINE__, WIDTH, HEIGHT );
@@ -759,8 +760,15 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     if([self windowInited] == NO)
 		return;
 	
+	aRect = [thisWindow contentRectForFrameRect:[[thisWindow screen] visibleFrame]];
+	if ([TABVIEW numberOfTabViewItems] > 1 || ![[PreferencePanel sharedInstance] hideTab])
+		aRect.size.height -= [tabBarControl frame].size.height;
+	max_height = aRect.size.height / charHeight;
+		
     if (WIDTH<20) WIDTH=20;
     if (HEIGHT<2) HEIGHT=2;
+	if (HEIGHT>max_height) HEIGHT=max_height;
+	
     // desired size of textview
     vsize.width = charWidth * WIDTH + MARGIN * 2;
 	vsize.height = charHeight * HEIGHT;
@@ -1297,11 +1305,11 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		  __FILE__, __LINE__, [[self window] frame].size.width, [[self window] frame].size.height);
 #endif
 		
-	int tabBarHeight = [tabBarControl isHidden] ? 0 : [tabBarControl frame].size.height;
+//	int tabBarHeight = [tabBarControl isHidden] ? 0 : [tabBarControl frame].size.height;
     frame = [[[self currentSession] SCROLLVIEW] documentVisibleRect];
-    if (frame.size.height + tabBarHeight > [[[self window] contentView] frame].size.height) {
+/*    if (frame.size.height + tabBarHeight > [[[self window] contentView] frame].size.height) {
         frame.size.height = [[[self window] contentView] frame].size.height - tabBarHeight;
-    }
+    } */
     
 #if 0
     NSLog(@"scrollview content size %.1f, %.1f, %.1f, %.1f",

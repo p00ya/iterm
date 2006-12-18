@@ -59,7 +59,7 @@ static void setup_tty_param(struct termios *term,
     term->c_iflag = ICRNL | IXON | IXANY | IMAXBEL | BRKINT;
     term->c_oflag = OPOST | ONLCR;
     term->c_cflag = CREAD | CS8 | HUPCL;
-    term->c_lflag = ICANON | ISIG | IEXTEN | ECHO | ECHOE | ECHOKE | ECHOCTL;
+    term->c_lflag = ICANON | ISIG | IEXTEN | ECHO | ECHOE | ECHOK | ECHOKE | ECHOCTL;
 	
     term->c_cc[VEOF]      = CTRLKEY('D');
     term->c_cc[VEOL]      = -1;
