@@ -410,7 +410,7 @@ static int cacheSize;
 			default:
 				if(index&BOLD_MASK)
 				{
-					color = [self defaultBoldColor];
+					color = index-BOLD_MASK == DEFAULT_BG_COLOR_CODE ? defaultBGColor : [self defaultBoldColor];
 				}
 				else
 				{
