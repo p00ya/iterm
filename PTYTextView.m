@@ -3367,7 +3367,7 @@ static int cacheSize;
 	col = (locationInView.x - MARGIN)/charWidth;
 	row = locationInView.y/lineHeight;
 	
-	theLine = [dataSource getLineAtScreenIndex: row];
+	theLine = [dataSource getLineAtIndex: row];
 	
 	theBackgroundAttribute = theLine[col].bg_color;
 	

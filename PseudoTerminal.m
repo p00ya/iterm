@@ -1240,7 +1240,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
     //[self selectSessionAtIndex: [self currentSessionIndex]];
     [[iTermController sharedInstance] setCurrentTerminal: self];
 	
-    // update the cursor
+	// update the cursor
     [[[self currentSession] TEXTVIEW] setNeedsDisplay: YES];
 }
 
