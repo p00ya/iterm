@@ -507,8 +507,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		NSParameterAssert(aTabViewItem != nil);
 		[aTabViewItem setLabel: [aSession name]];
 		[aTabViewItem setView: [aSession view]];
-		[[aSession SCROLLVIEW] setLineScroll: charHeight];
-        [[aSession SCROLLVIEW] setPageScroll: HEIGHT*charHeight/2];
+		//[[aSession SCROLLVIEW] setLineScroll: charHeight];
+        //[[aSession SCROLLVIEW] setPageScroll: HEIGHT*charHeight/2];
         [TABVIEW insertTabViewItem: aTabViewItem atIndex: index];
 		
         [aTabViewItem release];
@@ -869,6 +869,9 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
         [aSession setObjectCount:i+1];
         [[aSession SCREEN] resizeWidth:WIDTH height:HEIGHT];
         [[aSession SHELL] setWidth:WIDTH  height:HEIGHT];
+		[[aSession SCROLLVIEW] setLineScroll: [[aSession TEXTVIEW] lineHeight]];
+		[[aSession SCROLLVIEW] setPageScroll: 2*[[aSession TEXTVIEW] lineHeight]];
+
     }
     
 #if 0
@@ -1122,7 +1125,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
         aSession = [[TABVIEW tabViewItemAtIndex: i] identifier];
 		
 		[[aSession SHELL] writeTask:data];
-		[[aSession TEXTVIEW] deselect];
+		//[[aSession TEXTVIEW] deselect];
     }    
 }
 

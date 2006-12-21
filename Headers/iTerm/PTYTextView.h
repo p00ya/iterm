@@ -248,7 +248,6 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 
 // Scrolling control
 - (NSRect)adjustScroll:(NSRect)proposedVisibleRect;
-- (void) scrollLineUpWithoutMoving;
 - (void) scrollLineUp: (id) sender;
 - (void) scrollLineDown: (id) sender;
 - (void) scrollPageUp: (id) sender;
@@ -286,8 +285,6 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 
 - (void)resetCharCache;
 
-- (void)topOfLineRemoved;
-
 @end
 
 //
@@ -300,6 +297,7 @@ enum { SELECT_CHAR, SELECT_WORD, SELECT_LINE };
 
 - (void) _scrollToLine:(int)line;
 - (void) _selectFromX:(int)startx Y:(int)starty toX:(int)endx Y:(int)endy;
+- (void) _updateSelectionLocation;
 - (NSString *) _getWordForX: (int) x 
 					y: (int) y 
 			   startX: (int *) startx 

@@ -86,6 +86,13 @@
     userScroll=scroll;
 }
 
+- (NSScrollerPart)hitPart
+{
+	NSScrollerPart h = [super hitPart];
+	
+	return h;
+}
+
 @end
 
 @implementation PTYScrollView
@@ -117,8 +124,9 @@
     PTYScroller *aScroller;
 	
     aScroller=[[PTYScroller alloc] init];
-    [self setVerticalScroller: aScroller];
-    [aScroller release];
+	//[aScroller setControlSize:NSSmallControlSize];
+	[self setVerticalScroller: aScroller];
+	[aScroller release];
 	
     return self;
 }
