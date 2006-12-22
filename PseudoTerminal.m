@@ -166,7 +166,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	myWindow = [[PTYWindow alloc] initWithContentRect: [[NSScreen mainScreen] frame]
 											styleMask: styleMask 
 											  backing: NSBackingStoreBuffered 
-												defer: YES];
+												defer: NO];
 	[self setWindow: myWindow];
 	[myWindow release];
 	
