@@ -172,6 +172,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 	changeTitle = 0;
 	newTitle = nil;
 	bell = NO;
+	scrollUpLines = 0;
 
     return self;
 }
@@ -1135,7 +1136,7 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 			[self setDirty];
 			if ([(PTYScroller *)([[display enclosingScrollView] verticalScroller]) userScroll]) 
 			{
-				[display scrollLineUp: nil];
+				scrollUpLines++;
 			}
 		}
 		else
@@ -1990,6 +1991,16 @@ static screen_char_t *incrementLinePointer(screen_char_t *buf_start, screen_char
 {
 	bell = YES;
 }		
+
+- (int) scrollUpLines
+{
+	return scrollUpLines;
+}
+
+- (void) resetScrollUpLines
+{
+	scrollUpLines = 0;
+}
 
 - (BOOL) isDoubleWidthCharacter:(unichar) c
 {

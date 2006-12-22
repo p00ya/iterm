@@ -120,6 +120,7 @@ typedef struct screen_char_t
 	int changeTitle;
 	NSString *newTitle;
 	BOOL bell;
+	int scrollUpLines;
 }
 
 
@@ -228,6 +229,8 @@ typedef struct screen_char_t
 - (void) resetChangeTitle;
 - (void) updateBell;
 - (void) setBell;
+- (int) scrollUpLines;
+- (void) resetScrollUpLines;
 
 // double width
 - (BOOL) isDoubleWidthCharacter:(unichar) c;
