@@ -116,6 +116,8 @@
 #define XTERMCC_DEICONIFY    97
 #define XTERMCC_RAISE        98
 #define XTERMCC_LOWER        99
+#define XTERMCC_SU			 100	 // scroll up
+#define XTERMCC_SD			 101     // scroll down
 
 // Some ansi stuff
 #define ANSICSI_CHA	     3000	// Cursor Horizontal Absolute

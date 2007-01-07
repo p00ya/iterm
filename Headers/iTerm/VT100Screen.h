@@ -99,6 +99,8 @@ typedef struct screen_char_t
 	char default_fg_code;
 	int default_line_width;
 
+	//scroll back stuff
+	BOOL dynamic_scrollback_size;
 	// max size of scrollback buffer
     unsigned int  max_scrollback_lines;
 	// current number of lines in scrollback buffer
