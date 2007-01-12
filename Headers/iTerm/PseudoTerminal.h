@@ -63,6 +63,10 @@
 	BOOL sendInputToAllSessions;
 	BOOL fontSizeFollowWindowResize;
 	BOOL suppressContextualMenu;
+	
+	// update timer
+	NSTimer *updateTimer;
+	int updateCount;
     
 	BOOL EXIT;
 }
@@ -208,6 +212,9 @@
 - (NSFont *) _getMaxFont:(NSFont* ) font 
 				  height:(float) height
 				   lines:(float) lines;
+
+//Update the display if necessary
+- (void)_updateTimerTick:(NSTimer *)aTimer;
 
 @end
 
