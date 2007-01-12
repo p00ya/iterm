@@ -355,6 +355,30 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 	[term addNewSession: aDict];
 }
 
+- (void) launchBookmark: (NSDictionary *) bookmarkData inTerminal: (PseudoTerminal *) theTerm withCommand: (NSString *)command
+{
+    PseudoTerminal *term;
+    NSDictionary *aDict;
+	
+	aDict = bookmarkData;
+	if(aDict == nil)
+		aDict = [[ITAddressBookMgr sharedInstance] defaultBookmarkData];
+	
+	// Where do we execute this command?
+    if(theTerm == nil)
+    {
+        term = [[PseudoTerminal alloc] init];
+		[term initWindowWithAddressbook: aDict];
+		[self addInTerminals: term];
+		[term release];
+		
+    }
+    else
+        term = theTerm;
+	
+	[term addNewSession: aDict withCommand: command];
+}
+
 - (void) launchBookmark: (NSDictionary *) bookmarkData inTerminal: (PseudoTerminal *) theTerm withURL: (NSString *)url
 {
     PseudoTerminal *term;

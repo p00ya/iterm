@@ -455,9 +455,11 @@ static int writep(int fds, char *buf, size_t len)
 		return;
 	
     ioctl(FILDES, TIOCGWINSZ, &winsize);
-    winsize.ws_col = width;
-    winsize.ws_row = height;
-    ioctl(FILDES, TIOCSWINSZ, &winsize);
+	if (winsize.ws_col != width || winsize.ws_row != height) {
+		winsize.ws_col = width;
+		winsize.ws_row = height;
+		ioctl(FILDES, TIOCSWINSZ, &winsize);
+	}
 }
 
 - (pid_t)pid
