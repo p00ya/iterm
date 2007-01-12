@@ -271,6 +271,12 @@ static NSString *NoHandler = @"<No Handler>";
 	[self savePreferences];
 }
 
+- (void)windowDidBecomeKey:(NSNotification *)aNotification
+{
+    // Post a notification
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"nonTerminalWindowBecameKey" object: nil userInfo: nil];        
+}
+
 
 // accessors for preferences
 

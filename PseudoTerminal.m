@@ -2251,6 +2251,12 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 		}
 		else {
 			VT100Screen *theScreen = [aSession SCREEN];
+			
+			if ([theScreen printPending]) {
+				[theScreen doPrint];
+				[aSession signalUpdateSemaphore];
+			}
+			
 			if ([theScreen changeTitle]) {
 				NSString *newTitle = [theScreen newTitle];
 				if ([[iTermTerminalProfileMgr singleInstance] appendTitleForProfile: [[aSession addressBookEntry] objectForKey: @"Terminal Profile"]]) 

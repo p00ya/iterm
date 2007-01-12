@@ -2263,8 +2263,9 @@ static int cacheSize;
 {
 	NSRect visibleRect;
 	int lineOffset, numLines;
+	int type = sender ? [sender tag] : 0;
 	
-	switch ([sender tag])
+	switch (type)
 	{
 		case 0: // visible range
 			visibleRect = [[self enclosingScrollView] documentVisibleRect];
