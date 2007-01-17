@@ -112,8 +112,8 @@ typedef struct screen_char_t
 	// UI related
 	int changeSize;
 	int newWidth,  newHeight;
-	int changeTitle;
-	NSString *newTitle;
+	NSString *newWinTitle;
+	NSString *newIconTitle;
 	BOOL bell;
 	int scrollUpLines;
 	BOOL printPending;
@@ -220,8 +220,8 @@ typedef struct screen_char_t
 - (int)newWidth;
 - (int)newHeight;
 - (void) resetChangeSize;
-- (int) changeTitle;
-- (NSString *) newTitle;
+- (NSString *) newWinTitle;
+- (NSString *) newIconTitle;
 - (void) resetChangeTitle;
 - (void) updateBell;
 - (void) setBell;
