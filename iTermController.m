@@ -98,7 +98,9 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 	 * PLIST check here.
 	 */
     gd = [iTermGrowlDelegate sharedInstance];
-    
+
+	_fullScreenTerminal = nil;
+
     return (self);
 }
 
@@ -429,6 +431,17 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 {
     return ([[FRONT currentSession] TEXTVIEW]);
 }
+
+- (PseudoTerminal *) fullScreenTerminal
+{
+	return _fullScreenTerminal;
+}
+
+- (void) setFullScreenTerminal:(PseudoTerminal *)terminal
+{
+	_fullScreenTerminal = terminal;
+}
+
 
 @end
 

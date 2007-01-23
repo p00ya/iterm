@@ -58,6 +58,9 @@
 	float charHorizontalSpacingMultiplier, charVerticalSpacingMultiplier;
     NSFont *FONT, *NAFONT;
 	BOOL antiAlias;
+	BOOL useTransparency;
+	
+	BOOL _fullScreen;
     
     BOOL windowInited;
 	BOOL sendInputToAllSessions;
@@ -113,6 +116,8 @@
 - (int)charHeight;
 - (float) charSpacingVertical;
 - (float) charSpacingHorizontal;
+- (BOOL) useTransparency;
+- (void) setUseTransparency: (BOOL) flag;
 
 // controls which sessions see key events
 - (BOOL) sendInputToAllSessions;
@@ -124,6 +129,9 @@
 - (BOOL) fontSizeFollowWindowResize;
 - (void) setFontSizeFollowWindowResize: (BOOL) flag;
 - (IBAction) toggleFontSizeFollowWindowResize: (id) sender;
+
+// full screen support
+- (IBAction) toggleFullScreen:(id)sender;
 
 // iTermController
 - (void)clearBuffer:(id)sender;

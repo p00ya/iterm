@@ -40,6 +40,9 @@
     NSMutableArray *terminalWindows;
     id FRONT;
 	ItermGrowlDelegate *gd;
+
+	// Full screen  mode
+	PseudoTerminal *_fullScreenTerminal;
 }
 
 + (iTermController*)sharedInstance;
@@ -60,6 +63,10 @@
 - (void) launchBookmark: (NSDictionary *) bookmarkData inTerminal: (PseudoTerminal *) theTerm withCommand: (NSString *)command;
 - (void) launchBookmark: (NSDictionary *) bookmarkData inTerminal: (PseudoTerminal *) theTerm withURL: (NSString *)url;
 - (PTYTextView *) frontTextView;
+
+// full screen support
+- (PseudoTerminal *) fullScreenTerminal;
+- (void) setFullScreenTerminal:(PseudoTerminal *)terminal;
 
 @end
 

@@ -101,6 +101,11 @@
 	drawer = aDrawer;
 }
 
+- (BOOL)canBecomeKeyWindow
+{
+	return YES;
+}
+
 - (void)sendEvent:(NSEvent *)event
 {
 	// NSLog(@"%s: 0x%x", __PRETTY_FUNCTION__, self);

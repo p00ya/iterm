@@ -219,7 +219,11 @@ static NSString *NoHandler = @"<No Handler>";
 	[useBorder setState: defaultUseBorder?NSOnState:NSOffState];
     
 	[self showWindow: self];
-
+	[[self window] setLevel:CGShieldingWindowLevel()];
+	
+	// Show the window.
+	[[self window] makeKeyAndOrderFront:self];
+	
 }
 
 - (IBAction)settingChanged:(id)sender

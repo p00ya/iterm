@@ -543,6 +543,9 @@ static VT100TCC decode_csi(unsigned char *datap,
                         case 6:
                             result.type = XTERMCC_LOWER;
                             break;
+						default:
+							result.type = VT100_NOTSUPPORT;
+							break;
                     }
                     break;
 				case 'S':
@@ -554,6 +557,9 @@ static VT100TCC decode_csi(unsigned char *datap,
 						result.type = XTERMCC_SD;
 						SET_PARAM_DEFAULT(param,0,1);
 					}
+					else
+						result.type = VT100_NOTSUPPORT;
+
 					break;
 					
                     
