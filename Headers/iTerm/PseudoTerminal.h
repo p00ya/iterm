@@ -68,6 +68,9 @@
 	BOOL suppressContextualMenu;
 	
 	BOOL EXIT;
+	
+	// flags
+	BOOL _resizeInProgressFlag;
 }
 
 
@@ -132,6 +135,7 @@
 
 // full screen support
 - (IBAction) toggleFullScreen:(id)sender;
+- (BOOL) fullScreen;
 
 // iTermController
 - (void)clearBuffer:(id)sender;

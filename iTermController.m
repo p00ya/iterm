@@ -245,6 +245,8 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 
     if(theTerminalWindow)
         [self removeFromTerminalsAtIndex: [terminalWindows indexOfObject: theTerminalWindow]];
+	
+	if (theTerminalWindow == _fullScreenTerminal) _fullScreenTerminal = nil;
 }
 
 // Build sorted list of encodings
