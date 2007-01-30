@@ -811,7 +811,6 @@ static __inline__ screen_char_t *incrementLinePointer(screen_char_t *buf_start, 
 			changeSize = CHANGE;
 			newWidth = [TERMINAL columnMode]?132:80;
 			newHeight = HEIGHT;
-			break;
         }
         
         break;
