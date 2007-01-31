@@ -222,8 +222,9 @@ static NSString *NoHandler = @"<No Handler>";
 	[hideScrollbar setState: defaultHideScrollbar?NSOnState:NSOffState];
 	
 	[self showWindow: self];
-	[[self window] setLevel:CGShieldingWindowLevel()];
-	
+	if ([[iTermController sharedInstance] fullScreenTerminal]) [[self window] setLevel:CGShieldingWindowLevel()];
+	else [[self window] setLevel:NSNormalWindowLevel];
+		
 	// Show the window.
 	[[self window] makeKeyAndOrderFront:self];
 	

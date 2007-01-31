@@ -1706,6 +1706,7 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	else
 	{
 		PseudoTerminal *normalScreenTerminal = [[PseudoTerminal alloc] init];
+		if ([[[PreferencePanel sharedInstance] window] isVisible]) [[[PreferencePanel sharedInstance] window] setLevel:NSNormalWindowLevel];
 		if (normalScreenTerminal) {
 			PTYSession *currentSession = [self currentSession];
 			[normalScreenTerminal initWindowWithSettingsFrom: self];
