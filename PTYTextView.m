@@ -1030,7 +1030,7 @@ static int cacheSize;
 							x1--;
 							aChar = theLine[x1].ch;
 						}
-						double_width = x1 < WIDTH-1 || (theLine[x1+1].ch == 0xffff);
+						double_width = (x1 < WIDTH-1) && (theLine[x1+1].ch == 0xffff);
 						[self _drawCharacter: aChar 
 									 fgColor: [[self window] isKeyWindow]?CURSOR_TEXT:(theLine[x1].fg_color & 0x1ff)
 									 bgColor: -1 // not to draw any background

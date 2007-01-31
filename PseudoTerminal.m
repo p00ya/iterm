@@ -518,6 +518,8 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 			   nafont: [aPseudoTerminal nafont]];
 		oldFont = [FONT retain];
 		oldNAFont = [NAFONT retain];
+		fontSizeFollowWindowResize = [aPseudoTerminal fontSizeFollowWindowResize];
+		useTransparency = [aPseudoTerminal useTransparency];
 		[self setCharacterSpacingHorizontal: [aPseudoTerminal charSpacingVertical] 
                                    vertical: [aPseudoTerminal charSpacingHorizontal]];
 		
@@ -526,7 +528,6 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 			WIDTH = oldWidth = [aPseudoTerminal width];
 			HEIGHT = oldHeight = [aPseudoTerminal height];
 			aRect = [TABVIEW frame];
-			fontSizeFollowWindowResize = [aPseudoTerminal fontSizeFollowWindowResize];
 			if (fontSizeFollowWindowResize) {
 				float scale = (aRect.size.height) / HEIGHT / charHeight;
 				NSFont *font = [[NSFontManager sharedFontManager] convertFont:FONT toSize:(int)(([FONT pointSize] * scale))];
