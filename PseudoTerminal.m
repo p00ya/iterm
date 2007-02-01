@@ -164,8 +164,10 @@ static unsigned int windowPositions[CACHED_WINDOW_POSITIONS];
 	// set the window style according to preference
 	if([[PreferencePanel sharedInstance] windowStyle] == 0)
 		styleMask |= NSTexturedBackgroundWindowMask;
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
 	else if([[PreferencePanel sharedInstance] windowStyle] == 2)
 		styleMask |= NSUnifiedTitleAndToolbarWindowMask;
+#endif
 	
 	myWindow = [[PTYWindow alloc] initWithContentRect: [[NSScreen mainScreen] frame]
 											styleMask: styleMask 
