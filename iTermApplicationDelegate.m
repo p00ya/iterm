@@ -256,11 +256,7 @@ static BOOL usingAutoLaunchScript = NO;
 }
 
 - (IBAction)newSession:(id)sender
-{
-	// turn full screen off first
-	//if ([[iTermController sharedInstance] fullScreenTerminal]) 
-	//	[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
-	
+{	
     [[iTermController sharedInstance] newSession:sender];
 }
 
@@ -291,8 +287,8 @@ static BOOL usingAutoLaunchScript = NO;
 - (IBAction)showBookmarkWindow:(id)sender
 {
 	// turn full screen off first
-	if ([[iTermController sharedInstance] fullScreenTerminal]) 
-		[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
+	//if ([[iTermController sharedInstance] fullScreenTerminal]) 
+	//	[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
 	
     [[iTermBookmarkController sharedInstance] showWindow];
 }
@@ -300,8 +296,8 @@ static BOOL usingAutoLaunchScript = NO;
 - (IBAction)showProfileWindow:(id)sender
 {
 	// turn full screen off first
-	if ([[iTermController sharedInstance] fullScreenTerminal]) 
-		[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
+	//if ([[iTermController sharedInstance] fullScreenTerminal]) 
+	//	[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
 	
     [[iTermProfileWindowController sharedInstance] showProfilesWindow: nil];
 }
