@@ -303,6 +303,8 @@ typedef enum {
 
     BOOL strictAnsiMode;
     BOOL allowColumnMode;
+	
+	BOOL allowKeypadMode;
     
     unsigned int streamOffset;
     
@@ -340,11 +342,11 @@ typedef enum {
 - (NSData *)keyArrowDown:(unsigned int)modflag;
 - (NSData *)keyArrowLeft:(unsigned int)modflag;
 - (NSData *)keyArrowRight:(unsigned int)modflag;
+- (NSData *)keyHome:(unsigned int)modflag;
+- (NSData *)keyEnd:(unsigned int)modflag;
 - (NSData *)keyInsert;
-- (NSData *)keyHome;
 - (NSData *)keyDelete;
 - (NSData *)keyBackspace;
-- (NSData *)keyEnd;
 - (NSData *)keyPageUp;
 - (NSData *)keyPageDown;
 - (NSData *)keyFunction:(int)no;
