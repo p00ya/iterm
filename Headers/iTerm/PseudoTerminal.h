@@ -74,7 +74,8 @@
 	
 	// for full screen windows
 	int oldWidth, oldHeight;
-	NSFont *oldFont, *oldNAFont;
+	float oldCharHorizontalSpacingMultiplier, oldCharVerticalSpacingMultiplier;
+    NSFont *oldFont, *oldNAFont;
 }
 
 
@@ -128,6 +129,8 @@
 - (int)charHeight;
 - (float) charSpacingVertical;
 - (float) charSpacingHorizontal;
+- (float) oldCharSpacingVertical;
+- (float) oldCharSpacingHorizontal;
 - (BOOL) useTransparency;
 - (void) setUseTransparency: (BOOL) flag;
 
