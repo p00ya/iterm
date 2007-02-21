@@ -619,7 +619,7 @@ static BOOL usingAutoLaunchScript = NO;
 
 - (IBAction)buildScriptMenu:(id)sender
 {
-	if ([[[[NSApp mainMenu] itemAtIndex: 5] title] isEqualToString:@"Script"])
+	if ([[[[NSApp mainMenu] itemAtIndex: 5] title] isEqualToString:NSLocalizedStringFromTableInBundle(@"Script",@"iTerm", [NSBundle bundleForClass: [iTermController class]], @"Script")])
 		[[NSApp mainMenu] removeItemAtIndex:5];
 
 	// add our script menu to the menu bar

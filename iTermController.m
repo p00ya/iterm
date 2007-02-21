@@ -319,7 +319,7 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 	
 	if (count>1) {
 		[aMenu addItem:[NSMenuItem separatorItem]];
-		aMenuItem = [[[NSMenuItem alloc] initWithTitle: @"Open All" action:@selector(newSessionsInWindow:) keyEquivalent:@""] autorelease];
+		aMenuItem = [[[NSMenuItem alloc] initWithTitle: NSLocalizedStringFromTableInBundle(@"Open All",@"iTerm", [NSBundle bundleForClass: [iTermController class]], @"Context Menu") action:@selector(newSessionsInWindow:) keyEquivalent:@""] autorelease];
 		[aMenuItem setKeyEquivalentModifierMask: modifierMask];
 		[aMenuItem setRepresentedObject: theNode];
 		[aMenuItem setTarget: self];
