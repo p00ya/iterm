@@ -2585,7 +2585,7 @@ static int cacheSize;
 		}
 		else
 		{
-			sw = antiAlias?boldStrokeWidth:0;
+			sw = antiAlias? boldStrokeWidth : 0;
 			theFont = aFont;
 		}
 	}
