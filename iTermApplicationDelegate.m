@@ -518,7 +518,7 @@ static BOOL usingAutoLaunchScript = NO;
 		else
 		{
 			[toggleBookmarksView setTitle: 
-				NSLocalizedStringFromTableInBundle(@"Hide Bookmarks Drawer", @"iTerm", [NSBundle bundleForClass: [self class]], @"Bookmarks")];
+				NSLocalizedStringFromTableInBundle(@"Hide Bookmark Drawer", @"iTerm", [NSBundle bundleForClass: [self class]], @"Bookmarks")];
 		}
 	}
 	else {
