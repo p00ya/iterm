@@ -856,9 +856,13 @@ static int cacheSize;
 			if (theLine[j].ch == 0xffff) 
 				continue;
 			
-			// Check if we need to redraw the char
+			// Check if we need to redraw the background
 			// do something to define need_draw
-			need_draw = ((line < startScreenLineIndex || dirty[j] || forceUpdate) && (theLine[j].ch == 0 || (theLine[j].bg_color & SELECTION_MASK) || hasBGImage)) || ((theLine[j].fg_color & BLINK_MASK) && !blinkShow);
+			need_draw = ((line < startScreenLineIndex || dirty[j] || forceUpdate) 
+                         && (theLine[j].ch == 0 || // it's a space, so we have to redraw the bg
+                             (theLine[j].bg_color & SELECTION_MASK) || // selected, redraw the bg
+                             hasBGImage)) // there's a background image
+                || (!blinkShow &&(theLine[j].fg_color & BLINK_MASK)); // force to draw if it's the off-phase of blinking
 			
 			// if we don't have to update next char, finish pending jobs
 			if (!need_draw)
@@ -882,11 +886,13 @@ static int cacheSize;
 			}
 			else 
 			{
-				// find out if the current char is being selected
-				if (bgstart < 0) {
+				if (bgstart < 0) { // any left over job?
 					bgstart = j; 
 					bgcode = theLine[j].bg_color & 0x3ff;
-					fillBG = (bgcode & SELECTION_MASK) || (theLine[j].ch == 0 && (reversed || bgcode!=DEFAULT_BG_COLOR_CODE || !hasBGImage)) || (theLine[j].fg_color & BLINK_MASK && !blinkShow && (!hasBGImage || bgcode!=DEFAULT_BG_COLOR_CODE));
+					fillBG = (bgcode & SELECTION_MASK) || 
+                        (theLine[j].ch == 0 && (reversed || bgcode!=DEFAULT_BG_COLOR_CODE || !hasBGImage)) || 
+                        (theLine[j].fg_color & BLINK_MASK && !blinkShow && // off-phase of a blink character?
+                            (!hasBGImage || bgcode!=DEFAULT_BG_COLOR_CODE)); // No draw if it has a bg image or the background color is the default
 				}
 				else if (theLine[j].bg_color != bgcode || ((bgcode & SELECTION_MASK) || (theLine[j].ch == 0 && (reversed || bgcode!=DEFAULT_BG_COLOR_CODE || !hasBGImage)) || (theLine[j].fg_color & BLINK_MASK && !blinkShow && (!hasBGImage ||bgcode!=DEFAULT_BG_COLOR_CODE))) != fillBG) 
 				{ 
@@ -904,7 +910,7 @@ static int cacheSize;
 						NSRectFillUsingOperation(bgRect, hasBGImage?NSCompositeSourceOver:NSCompositeCopy);
 					}
 					bgstart = j; 
-					bgcode = theLine[j].bg_color & 0x1ff; 
+					bgcode = theLine[j].bg_color & 0x3ff; 
 					fillBG = (bgcode & SELECTION_MASK) || (theLine[j].ch == 0 && (reversed || bgcode!=DEFAULT_BG_COLOR_CODE || !hasBGImage)) || (theLine[j].fg_color & BLINK_MASK && !blinkShow && (!hasBGImage ||bgcode!=DEFAULT_BG_COLOR_CODE));
 				}
 				
