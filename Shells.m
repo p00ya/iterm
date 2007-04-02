@@ -76,9 +76,8 @@ NSString *shells;
 	if (!shells) {
 		return (NULL);
 	}
-
-	NSArray *shellArray = [shells componentsSeparatedByString:@"\n"];
-	NSEnumerator *shellEnum = [shellArray objectEnumerator];
+	
+	NSEnumerator *shellEnum = [[shells componentsSeparatedByString:@"\n"] objectEnumerator];
 	NSMutableSet *shellSet;
 	NSString *shell;
 	
