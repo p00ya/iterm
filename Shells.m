@@ -69,21 +69,27 @@ NSString *shells;
 	shells = [NSString stringWithContentsOfFile:shellsPath];
 	if (!shells) return (NO);
 	
-#if DEBUG_ALLOC
-	NSArray *shellArray = [shells componentsSeparatedByString:@"\n"];
-	
-	NSEnumerator *nse = [shellArray objectEnumerator];
-	
-	while(shell = [nse nextObject]) {
-		NSLog(shell);
-	}
-#endif
-	
 	return (YES);
 }
 
-- (NSString *) getShells {
-	return shells;
+- (NSSet *) getShells {
+	if (!shells) {
+		return (NULL);
+	}
+
+	NSArray *shellArray = [shells componentsSeparatedByString:@"\n"];
+	NSEnumerator *shellEnum = [shellArray objectEnumerator];
+	NSMutableSet *shellSet;
+	NSString *shell;
+	
+	while((shell = [shellEnum nextObject])) {
+		// Get rid of commented lines
+		if (![shell hasPrefix:@"#"]) {
+			[shellSet addObject:shell];
+		}
+	}
+	
+	return shellSet;
 }
 
 @end
