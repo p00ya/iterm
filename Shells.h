@@ -40,7 +40,7 @@
 	@function getShells
 	@abstract Gets the list of shells
 	@discussion This method is used to retrieve shells listed in /etc/shells.
-	@return NSSet of shells, NULL if empty
+	@return NSSet of shells. Caller should check set size.
 */
 - (NSSet *) getShells;
 
