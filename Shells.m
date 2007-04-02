@@ -73,12 +73,16 @@ NSString *shells;
 }
 
 - (NSSet *) getShells {
-	if (!shells) {
-		return (NULL);
+	
+	NSMutableSet *shellSet = [NSMutableSet set];
+
+	// We want to ping /etc/shells each time getShells is called, just in
+	// case the admin updates /etc/shells while iTerm is running.
+	if ((![self loadShells]) || ([shells length] <= 0)) {
+		return (shellSet);
 	}
 	
 	NSEnumerator *shellEnum = [[shells componentsSeparatedByString:@"\n"] objectEnumerator];
-	NSMutableSet *shellSet;
 	NSString *shell;
 	
 	while((shell = [shellEnum nextObject])) {
