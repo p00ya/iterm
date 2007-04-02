@@ -4,7 +4,7 @@
 /*!
 	@class Shells
 	
-	This class encapsulates access to /etc/shells
+	@abstract This class encapsulates access to /etc/shells
 	
 	Copyright (c) 2007
 	
@@ -36,6 +36,12 @@
 
 + (id) sharedInstance;
 
-- (NSString *) getShells;
+/*!
+	@function getShells
+	@abstract Gets the list of shells
+	@discussion This method is used to retrieve shells listed in /etc/shells.
+	@return NSSet of shells, NULL if empty
+*/
+- (NSSet *) getShells;
 
 @end
