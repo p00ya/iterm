@@ -1705,9 +1705,9 @@ static __inline__ screen_char_t *incrementLinePointer(screen_char_t *buf_start, 
 	int i;
 	screen_char_t *sourceLine, *targetLine;
 	
-#if DEBUG_METHOD_TRACE
+//#if DEBUG_METHOD_TRACE
     NSLog(@"%s(%d):-[VT100Screen scrollUp]", __FILE__, __LINE__);
-#endif
+//#endif
 
     NSParameterAssert(SCROLL_TOP >= 0 && SCROLL_TOP < HEIGHT);
     NSParameterAssert(SCROLL_BOTTOM >= 0 && SCROLL_BOTTOM < HEIGHT);
@@ -1803,7 +1803,9 @@ static __inline__ screen_char_t *incrementLinePointer(screen_char_t *buf_start, 
 //    NSLog(@"insertBlank[%d@(%d,%d)]",n,CURSOR_X,CURSOR_Y);
 
     if (CURSOR_X>=WIDTH) return;
-    	
+
+    if (n + CURSOR_X > WIDTH) n = WIDTH - CURSOR_X; 	
+    
 	// get the appropriate line
 	aLine = [self getLineAtScreenIndex:CURSOR_Y];
 	
