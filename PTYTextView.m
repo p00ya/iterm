@@ -1899,6 +1899,7 @@ static int cacheSize;
 	
 	if (startX == -1) return nil;
 	[self _updateSelectionLocation];
+	if (startX == -1) return nil;
 	
 	return ([self contentFromX: startX Y: startY ToX: endX Y: endY pad: pad]);
 	
@@ -2976,8 +2977,14 @@ static int cacheSize;
 		x2++;
 		if (x2>=w) y2++, x2=0;
     }
+
+    NSMutableString *url = [[[NSMutableString alloc] initWithString:[self contentFromX:startx Y:starty ToX:endx Y:endy pad: YES]] autorelease];
+	
     
-	return ([self contentFromX:startx Y:starty ToX:endx Y:endy pad: YES]);
+    // Grab the addressbook command
+	[url replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [url length])];
+    
+	return (url);
 	
 }
 

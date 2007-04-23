@@ -266,8 +266,8 @@ static BOOL usingAutoLaunchScript = NO;
 - (IBAction) previousTerminal: (id) sender
 {
 	// turn full screen off first
-	if ([[iTermController sharedInstance] fullScreenTerminal]) 
-		[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
+//	if ([[iTermController sharedInstance] fullScreenTerminal]) 
+//		[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
 	
     [[iTermController sharedInstance] previousTerminal:sender];
 }
@@ -275,8 +275,8 @@ static BOOL usingAutoLaunchScript = NO;
 - (IBAction) nextTerminal: (id) sender
 {
 	// turn full screen off first
-	if ([[iTermController sharedInstance] fullScreenTerminal]) 
-		[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
+//	if ([[iTermController sharedInstance] fullScreenTerminal]) 
+//		[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
 	
     [[iTermController sharedInstance] nextTerminal:sender];
 }
@@ -671,6 +671,13 @@ static BOOL usingAutoLaunchScript = NO;
         [scriptMenuItem release];
         [scriptMenuItem setTitle: NSLocalizedStringFromTableInBundle(@"Script",@"iTerm", [NSBundle bundleForClass: [iTermController class]], @"Script")];
     }
+}
+
+- (void)applicationDidResignActive:(NSNotification *)aNotification
+{
+	// turn full screen off first
+	if ([[iTermController sharedInstance] fullScreenTerminal] && [[NSScreen mainScreen] isEqual:[[[[iTermController sharedInstance] fullScreenTerminal] window] screen]]) 
+		[[[iTermController sharedInstance] fullScreenTerminal] toggleFullScreen:nil];
 }
 
 @end
