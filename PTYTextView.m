@@ -90,7 +90,7 @@ static int cacheSize;
         [NSDictionary dictionaryWithObjectsAndKeys:
             [NSColor yellowColor], NSBackgroundColorAttributeName,
             [NSColor blackColor], NSForegroundColorAttributeName,
-            font, NSFontAttributeName,
+            nafont, NSFontAttributeName,
             [NSNumber numberWithInt:2],NSUnderlineStyleAttributeName,
             NULL]];
 	CURSOR=YES;
@@ -494,7 +494,7 @@ static int cacheSize;
         [NSDictionary dictionaryWithObjectsAndKeys:
             [NSColor yellowColor], NSBackgroundColorAttributeName,
             [NSColor blackColor], NSForegroundColorAttributeName,
-            font, NSFontAttributeName,
+            nafont, NSFontAttributeName,
             [NSNumber numberWithInt:2],NSUnderlineStyleAttributeName,
             NULL]];
 	[self resetCharCache];
