@@ -33,6 +33,7 @@
 
 #import <iTerm/iTerm.h>
 #import <iTerm/PTYTextView.h>
+#import <iTerm/PseudoTerminal.h>
 #import <iTerm/PTYSession.h>
 #import <iTerm/VT100Screen.h>
 #import <iTerm/FindPanelWindowController.h>
