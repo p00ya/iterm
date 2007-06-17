@@ -221,7 +221,7 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
 - (IBAction)nextTerminal: (id) sender
 {
     unsigned int currentIndex;
-    BOOL looped;
+    BOOL looped = NO;
 
     currentIndex = [[self terminals] indexOfObject: FRONT];
     if(FRONT == nil || currentIndex == NSNotFound)
