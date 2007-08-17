@@ -211,7 +211,7 @@ static int _compareEncodingByLocalizedName(id a, id b, void *unused)
             looped = YES;
         }
         else
-        currentIndex--;
+            currentIndex--;
     } while ([[[[self terminals] objectAtIndex: currentIndex] window] isMiniaturized]);
     
     // make sure that terminal's window active
