@@ -125,7 +125,7 @@ typedef struct screen_char_t
 
 - (NSString *)description;
 
-- (void)initScreenWithWidth:(int)width Height:(int)height;
+- (screen_char_t*)initScreenWithWidth:(int)width Height:(int)height;
 - (void)resizeWidth:(int)width height:(int)height;
 - (void)reset;
 - (void)setWidth:(int)width height:(int)height;

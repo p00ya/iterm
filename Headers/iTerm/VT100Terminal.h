@@ -124,7 +124,9 @@
 #define ANSICSI_VPA	     3001	// Vert Position Absolute
 #define ANSICSI_VPR	     3002	// Vert Position Relative
 #define ANSICSI_ECH	     3003	// Erase Character
-#define ANSICSI_PRINT	     3004	// Print to Ansi
+#define ANSICSI_PRINT	 3004	// Print to Ansi
+#define ANSICSI_SCP      3005   // Save cursor position
+#define ANSICSI_RCP      3006   // Restore cursor position
 
 // Toggle between ansi/vt52
 #define STRICT_ANSI_MODE		4000

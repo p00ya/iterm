@@ -587,6 +587,14 @@ static VT100TCC decode_csi(unsigned char *datap,
 					result.type = ANSICSI_PRINT;
 					SET_PARAM_DEFAULT(param,0,0);
 					break;
+                case 's':
+                    result.type = ANSICSI_SCP;
+                    SET_PARAM_DEFAULT(param,0,0);
+                    break;
+                case 'u':
+                    result.type = ANSICSI_RCP;
+                    SET_PARAM_DEFAULT(param,0,0);
+                    break;
                 default:
 #if LOG_UNKNOWN
                     NSLog(@"2: Unknown token (%c); %s", param.cmd, datap);
