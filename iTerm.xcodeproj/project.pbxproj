@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28E5A39A0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */; };
+		28E5A39B0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */; };
+		28E5A39C0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */; };
+		28E5A39D0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */; };
+		28E5A3A30E1BDA3100FFBB4D /* Shells.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3A10E1BDA3100FFBB4D /* Shells.h */; };
+		28E5A3A40E1BDA3100FFBB4D /* Shells.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E5A3A20E1BDA3100FFBB4D /* Shells.m */; };
+		28E5A3A50E1BDA3100FFBB4D /* Shells.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3A10E1BDA3100FFBB4D /* Shells.h */; };
+		28E5A3A60E1BDA3100FFBB4D /* Shells.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E5A3A20E1BDA3100FFBB4D /* Shells.m */; };
 		874205F00564168A00CFC3F1 /* NSStringITerm.h in Headers */ = {isa = PBXBuildFile; fileRef = 872EBC5304E42E320073D10E /* NSStringITerm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		874205F10564168A00CFC3F1 /* PTYTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 872EBC5404E42E320073D10E /* PTYTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		874205F30564168A00CFC3F1 /* PTYTabView.h in Headers */ = {isa = PBXBuildFile; fileRef = 872EBC5704E42E320073D10E /* PTYTabView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -224,6 +232,10 @@
 		20D5CC6404E7AA0500000106 /* iTermApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTermApplicationDelegate.m; sourceTree = "<group>"; };
 		20E74F4804E9089700000106 /* ITAddressBookMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITAddressBookMgr.h; sourceTree = "<group>"; };
 		20E74F4904E9089700000106 /* ITAddressBookMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITAddressBookMgr.m; sourceTree = "<group>"; };
+		28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTermSecurityMgr.h; sourceTree = "<group>"; };
+		28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTermSecurityMgr.m; sourceTree = "<group>"; };
+		28E5A3A10E1BDA3100FFBB4D /* Shells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shells.h; sourceTree = "<group>"; };
+		28E5A3A20E1BDA3100FFBB4D /* Shells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shells.m; sourceTree = "<group>"; };
 		870BCD84047070AC0073D10E /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FindPanel.nib; sourceTree = "<group>"; };
 		870EAAB604325A880073D10E /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/PreferencePanel.nib; sourceTree = "<group>"; };
 		8723EDED04EAADBB0073D10E /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ITConfigPanel.nib; sourceTree = "<group>"; };
@@ -469,6 +481,8 @@
 		0464AB0E006CD2EC7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				28E5A3A20E1BDA3100FFBB4D /* Shells.m */,
+				28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */,
 				F67332400AED82E5003D786E /* iTermOutlineView.m */,
 				DD4BAB7C0470C44C00A8A065 /* FindPanelWindowController.m */,
 				DDF0FD64062916F70080EF74 /* iTermApplication.m */,
@@ -514,6 +528,7 @@
 				F69E78910AB7AC85001EC0FF /* iTermGrowlDelegate.h */,
 				DDDB7AD605D773B400E197C2 /* iTermKeyBindingMgr.h */,
 				8787B13F05FD191400901149 /* iTermProfileWindowController.h */,
+				28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */,
 				F658CAFA060587A0000A13D5 /* iTermTerminalProfileMgr.h */,
 				20E74F4804E9089700000106 /* ITAddressBookMgr.h */,
 				20B8891904E924CD00000106 /* ITConfigPanelController.h */,
@@ -529,6 +544,7 @@
 				872EBC5404E42E320073D10E /* PTYTextView.h */,
 				872EBC5B04E42E320073D10E /* PTYWindow.h */,
 				2076B15704E8817300000106 /* PTToolbarController.h */,
+				28E5A3A10E1BDA3100FFBB4D /* Shells.h */,
 				DD8EC958060980C90085A27D /* Tree.h */,
 				872EBC5A04E42E320073D10E /* VT100Screen.h */,
 				872EBC6104E42E320073D10E /* VT100Terminal.h */,
@@ -826,6 +842,8 @@
 				F69E78920AB7AC85001EC0FF /* iTermGrowlDelegate.h in Headers */,
 				F6B077100ADDB7D400F4BB37 /* iTermBookmarkController.h in Headers */,
 				F67332410AED82E5003D786E /* iTermOutlineView.h in Headers */,
+				28E5A39C0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */,
+				28E5A3A50E1BDA3100FFBB4D /* Shells.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +853,8 @@
 			files = (
 				874206490564169600CFC3F1 /* iTermApplicationDelegate.h in Headers */,
 				DDF0FD65062916F70080EF74 /* iTermApplication.h in Headers */,
+				28E5A39A0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */,
+				28E5A3A30E1BDA3100FFBB4D /* Shells.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1084,6 +1104,8 @@
 				F69E788D0AB7AC6D001EC0FF /* iTermGrowlDelegate.m in Sources */,
 				F6B077110ADDB7D400F4BB37 /* iTermBookmarkController.m in Sources */,
 				F67332420AED82E5003D786E /* iTermOutlineView.m in Sources */,
+				28E5A39D0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */,
+				28E5A3A60E1BDA3100FFBB4D /* Shells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1094,6 +1116,8 @@
 				8742064F0564169600CFC3F1 /* main.m in Sources */,
 				874206500564169600CFC3F1 /* iTermApplicationDelegate.m in Sources */,
 				DDF0FD66062916F70080EF74 /* iTermApplication.m in Sources */,
+				28E5A39B0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */,
+				28E5A3A40E1BDA3100FFBB4D /* Shells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
