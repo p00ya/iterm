@@ -8,7 +8,6 @@
 
 #include <Carbon/Carbon.h>
 #include "CFGrowlAdditions.h"
-#include <c.h>
 #include <unistd.h>
 
 static CFStringRef _CFURLAliasDataKey  = CFSTR("_CFURLAliasData");
@@ -222,7 +221,8 @@ URL_TYPE createURLByMakingDirectoryAtURLWithName(URL_TYPE parent, STRING_TYPE na
 				FSRef newDirectoryRef;
 
 				struct HFSUniStr255 nameUnicode;
-				CFRange range = { 0, MIN(CFStringGetLength(name), USHRT_MAX) };
+				unsigned namelen = CFStringGetLength(name);
+				CFRange range = { 0, (namelen < USHRT_MAX ? namelen : USHRT_MAX) };
 				CFStringGetCharacters(name, range, nameUnicode.unicode);
 				nameUnicode.length = range.length;
 
