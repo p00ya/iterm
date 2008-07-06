@@ -31,6 +31,7 @@
 
 #import <iTerm/PTYWindow.h>
 #import <iTerm/PreferencePanel.h>
+#import <CGSInternal.h>
 
 #define DEBUG_METHOD_ALLOC	0
 #define DEBUG_METHOD_TRACE	0
@@ -65,8 +66,42 @@
 	!= nil) 
     {
 		[self setAlphaValue:0.9999];
+		blurFilter = 0;
     }
     return self;
+}
+
+
+- (void)enableBlur
+{
+	if (blurFilter)
+		return;
+
+	CGSConnectionID con = CGSMainConnectionID();
+	if (!con)
+		return;
+
+	if (CGSNewCIFilterByName(con, (CFStringRef)@"CIGaussianBlur", &blurFilter))
+		return;
+
+	// should really set this from options:
+	NSDictionary *optionsDict = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:2.0] forKey:@"inputRadius"];
+	CGSSetCIFilterValuesFromDictionary(con, blurFilter, (CFDictionaryRef)optionsDict);
+
+	CGSAddWindowFilter(con, [self windowNumber], blurFilter, kCGWindowFilterUnderlay);
+}
+
+- (void)disableBlur
+{
+	if (blurFilter) {
+		CGSConnectionID con = CGSMainConnectionID();
+		if (!con)
+			return;
+
+		CGSRemoveWindowFilter(con, (CGSWindowID)[self windowNumber], blurFilter);
+		CGSReleaseCIFilter(CGSMainConnectionID(), blurFilter);
+		blurFilter = 0;
+	}
 }
 
 - (void)toggleToolbarShown:(id)sender

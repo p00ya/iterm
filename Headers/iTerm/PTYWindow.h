@@ -40,6 +40,8 @@
 @interface PTYWindow : NSWindow 
 {
 	IBOutlet NSDrawer *drawer;
+
+	int blurFilter;
 }
 
 - initWithContentRect:(NSRect)contentRect 
@@ -51,4 +53,7 @@
 
 - (NSDrawer *) drawer;
 - (void) setDrawer: (NSDrawer *) aDrawer;
+
+- (void)enableBlur;
+- (void)disableBlur;
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		281F4D200E1BF19F0050D46D /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D1F0E1BF19F0050D46D /* Growl.framework */; };
 		281F4D310E1BF8980050D46D /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D1F0E1BF19F0050D46D /* Growl.framework */; };
+		281F4D5C0E1BFCE60050D46D /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D5B0E1BFCE60050D46D /* ApplicationServices.framework */; };
 		28E5A39A0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */; };
 		28E5A39B0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */; };
 		28E5A39C0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */; };
@@ -207,6 +208,23 @@
 		20E74F4804E9089700000106 /* ITAddressBookMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITAddressBookMgr.h; sourceTree = "<group>"; };
 		20E74F4904E9089700000106 /* ITAddressBookMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITAddressBookMgr.m; sourceTree = "<group>"; };
 		281F4D1F0E1BF19F0050D46D /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
+		281F4D390E1BFC730050D46D /* CarbonHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonHelpers.h; sourceTree = "<group>"; };
+		281F4D3A0E1BFC730050D46D /* CGSAccessibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSAccessibility.h; sourceTree = "<group>"; };
+		281F4D3B0E1BFC730050D46D /* CGSCIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSCIFilter.h; sourceTree = "<group>"; };
+		281F4D3C0E1BFC730050D46D /* CGSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSConnection.h; sourceTree = "<group>"; };
+		281F4D3D0E1BFC730050D46D /* CGSCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSCursor.h; sourceTree = "<group>"; };
+		281F4D3E0E1BFC730050D46D /* CGSDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSDebug.h; sourceTree = "<group>"; };
+		281F4D3F0E1BFC730050D46D /* CGSDisplays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSDisplays.h; sourceTree = "<group>"; };
+		281F4D400E1BFC730050D46D /* CGSHotKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSHotKeys.h; sourceTree = "<group>"; };
+		281F4D410E1BFC730050D46D /* CGSInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSInternal.h; sourceTree = "<group>"; };
+		281F4D420E1BFC730050D46D /* CGSMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSMisc.h; sourceTree = "<group>"; };
+		281F4D430E1BFC730050D46D /* CGSNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSNotifications.h; sourceTree = "<group>"; };
+		281F4D440E1BFC730050D46D /* CGSRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSRegion.h; sourceTree = "<group>"; };
+		281F4D450E1BFC730050D46D /* CGSSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSSession.h; sourceTree = "<group>"; };
+		281F4D460E1BFC730050D46D /* CGSTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSTransitions.h; sourceTree = "<group>"; };
+		281F4D470E1BFC730050D46D /* CGSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSWindow.h; sourceTree = "<group>"; };
+		281F4D480E1BFC730050D46D /* CGSWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSWorkspace.h; sourceTree = "<group>"; };
+		281F4D5B0E1BFCE60050D46D /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTermSecurityMgr.h; sourceTree = "<group>"; };
 		28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTermSecurityMgr.m; sourceTree = "<group>"; };
 		28E5A3A10E1BDA3100FFBB4D /* Shells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shells.h; sourceTree = "<group>"; };
@@ -386,6 +404,7 @@
 				874206390564168A00CFC3F1 /* AppKit.framework in Frameworks */,
 				8742063A0564168A00CFC3F1 /* Foundation.framework in Frameworks */,
 				281F4D200E1BF19F0050D46D /* Growl.framework in Frameworks */,
+				281F4D5C0E1BFCE60050D46D /* ApplicationServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +425,7 @@
 		0464AB0D006CD2EC7F000001 /* JTerminal */ = {
 			isa = PBXGroup;
 			children = (
+				281F4D380E1BFC730050D46D /* CGSInternal */,
 				0464AB0E006CD2EC7F000001 /* Classes */,
 				0464AB15006CD2EC7F000001 /* Headers */,
 				0464AB1F006CD2EC7F000001 /* Other Sources */,
@@ -546,6 +566,7 @@
 		0464AB2E006CD2EC7F000001 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				281F4D5B0E1BFCE60050D46D /* ApplicationServices.framework */,
 				281F4D1F0E1BF19F0050D46D /* Growl.framework */,
 				F6E2DED70AE2F67200D20B3B /* Sparkle.framework */,
 				0464AB2F006CD2EC7F000001 /* AppKit.framework */,
@@ -561,6 +582,29 @@
 				8742065A0564169600CFC3F1 /* iTerm.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		281F4D380E1BFC730050D46D /* CGSInternal */ = {
+			isa = PBXGroup;
+			children = (
+				281F4D390E1BFC730050D46D /* CarbonHelpers.h */,
+				281F4D3A0E1BFC730050D46D /* CGSAccessibility.h */,
+				281F4D3B0E1BFC730050D46D /* CGSCIFilter.h */,
+				281F4D3C0E1BFC730050D46D /* CGSConnection.h */,
+				281F4D3D0E1BFC730050D46D /* CGSCursor.h */,
+				281F4D3E0E1BFC730050D46D /* CGSDebug.h */,
+				281F4D3F0E1BFC730050D46D /* CGSDisplays.h */,
+				281F4D400E1BFC730050D46D /* CGSHotKeys.h */,
+				281F4D410E1BFC730050D46D /* CGSInternal.h */,
+				281F4D420E1BFC730050D46D /* CGSMisc.h */,
+				281F4D430E1BFC730050D46D /* CGSNotifications.h */,
+				281F4D440E1BFC730050D46D /* CGSRegion.h */,
+				281F4D450E1BFC730050D46D /* CGSSession.h */,
+				281F4D460E1BFC730050D46D /* CGSTransitions.h */,
+				281F4D470E1BFC730050D46D /* CGSWindow.h */,
+				281F4D480E1BFC730050D46D /* CGSWorkspace.h */,
+			);
+			path = CGSInternal;
 			sourceTree = "<group>";
 		};
 		DD02571D09CB9363008F320C /* PSMTabBarControl */ = {
@@ -1076,7 +1120,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = Headers/iTerm/;
+				HEADER_SEARCH_PATHS = (
+					Headers/iTerm/,
+					Headers/CGSInternal/,
+				);
 				INFOPLIST_FILE = iTerm_Framework.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				JAVA_COMPILER_DEBUGGING_SYMBOLS = NO;
