@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281669F50E221D7E00714962 /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D1F0E1BF19F0050D46D /* Growl.framework */; };
 		281F4D200E1BF19F0050D46D /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D1F0E1BF19F0050D46D /* Growl.framework */; };
 		281F4D310E1BF8980050D46D /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D1F0E1BF19F0050D46D /* Growl.framework */; };
 		281F4D5C0E1BFCE60050D46D /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D5B0E1BFCE60050D46D /* ApplicationServices.framework */; };
@@ -81,7 +82,7 @@
 		874206520564169600CFC3F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0464AB30006CD2EC7F000001 /* Foundation.framework */; };
 		874206530564169600CFC3F1 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0464AB2F006CD2EC7F000001 /* AppKit.framework */; };
 		8742069E056416F600CFC3F1 /* iTerm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874206430564168A00CFC3F1 /* iTerm.framework */; };
-		8742069F0564170000CFC3F1 /* iTerm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 874206430564168A00CFC3F1 /* iTerm.framework */; };
+		8742069F0564170000CFC3F1 /* iTerm.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 874206430564168A00CFC3F1 /* iTerm.framework */; };
 		8787B0DA05FD160F00901149 /* iTermProfileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8787B0D805FD160F00901149 /* iTermProfileWindowController.m */; };
 		8787B14005FD191400901149 /* iTermProfileWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8787B13F05FD191400901149 /* iTermProfileWindowController.h */; };
 		DD02573F09CB9399008F320C /* PSMAquaTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = DD02572409CB9398008F320C /* PSMAquaTabStyle.h */; };
@@ -150,7 +151,7 @@
 		F6CDC4E70AE6D3E2005E7D4F /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = F6CDC4E60AE6D3E2005E7D4F /* folder.png */; };
 		F6DA0AFD0AF066EE0098EFEB /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DA0AFC0AF066EE0098EFEB /* edit.png */; };
 		F6E2DEDA0AE2F67200D20B3B /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E2DED70AE2F67200D20B3B /* Sparkle.framework */; };
-		F6E2DF1E0AE2F72700D20B3B /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6E2DED70AE2F67200D20B3B /* Sparkle.framework */; };
+		F6E2DF1E0AE2F72700D20B3B /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F6E2DED70AE2F67200D20B3B /* Sparkle.framework */; };
 		F6E708BB0A9D0EA400D0C4EF /* NSBezierPath_AMShading.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E708B50A9D0EA400D0C4EF /* NSBezierPath_AMShading.h */; };
 		F6E708BC0A9D0EA400D0C4EF /* NSBezierPath_AMShading.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E708B60A9D0EA400D0C4EF /* NSBezierPath_AMShading.m */; };
 		F6E708BD0A9D0EA400D0C4EF /* PSMTabDragAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E708B70A9D0EA400D0C4EF /* PSMTabDragAssistant.h */; };
@@ -181,15 +182,17 @@
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		874206560564169600CFC3F1 /* CopyFiles */ = {
+		874206560564169600CFC3F1 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F6E2DF1E0AE2F72700D20B3B /* Sparkle.framework in CopyFiles */,
-				8742069F0564170000CFC3F1 /* iTerm.framework in CopyFiles */,
+				281669F50E221D7E00714962 /* Growl.framework in Copy Frameworks */,
+				F6E2DF1E0AE2F72700D20B3B /* Sparkle.framework in Copy Frameworks */,
+				8742069F0564170000CFC3F1 /* iTerm.framework in Copy Frameworks */,
 			);
+			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -822,7 +825,7 @@
 				8742064E0564169600CFC3F1 /* Sources */,
 				874206510564169600CFC3F1 /* Frameworks */,
 				874206550564169600CFC3F1 /* Rez */,
-				874206560564169600CFC3F1 /* CopyFiles */,
+				874206560564169600CFC3F1 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
