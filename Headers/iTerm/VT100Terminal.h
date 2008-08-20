@@ -1,5 +1,5 @@
 // -*- mode:objc -*-
-// $Id$
+// $Id: VT100Terminal.h,v 1.30 2008/08/20 17:04:46 delx Exp $
 /*
  **  VT100Terminal.h
  **
@@ -337,6 +337,9 @@ typedef enum {
 - (void)cleanStream;
 - (void)putStreamData:(char *)data length: (int)length;
 - (VT100TCC)getNextToken;
+
+- (void)saveCursorAttributes;
+- (void)restoreCursorAttributes;
 
 - (void)reset;
 
