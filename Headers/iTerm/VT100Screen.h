@@ -1,5 +1,5 @@
 // -*- mode:objc -*-
-// $Id$
+// $Id: VT100Screen.h,v 1.36 2008/08/20 17:10:48 delx Exp $
 /*
  **  VT100Screen.h
  **
@@ -177,6 +177,7 @@ typedef struct screen_char_t
 - (void)setNewLine;
 - (void)deleteCharacters:(int)n;
 - (void)backSpace;
+- (void)backTab;
 - (void)setTab;
 - (void)clearTabStop;
 - (void)clearScreen;
