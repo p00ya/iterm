@@ -1,4 +1,4 @@
-// $Id: PreferencePanel.m,v 1.156 2007/09/09 01:48:04 dnedrow Exp $
+// $Id: PreferencePanel.m,v 1.158 2008/08/22 06:30:40 yfabian Exp $
 /*
  **  PreferencePanel.m
  **
@@ -114,7 +114,7 @@ PreferencePanel (PrivateMethods )
     if (defaultTabViewType>1) defaultTabViewType = 0;
     defaultCopySelection=[prefs objectForKey:@"CopySelection"]?[[prefs objectForKey:@"CopySelection"] boolValue]:YES;
 	defaultPasteFromClipboard=[prefs objectForKey:@"PasteFromClipboard"]?[[prefs objectForKey:@"PasteFromClipboard"] boolValue]:YES;
-    defaultHideTab=[prefs objectForKey:@"HideTab"]?[[prefs objectForKey:@"HideTab"] boolValue]: NO;
+    defaultHideTab=[prefs objectForKey:@"HideTab"]?[[prefs objectForKey:@"HideTab"] boolValue]: YES;
     defaultPromptOnClose = [prefs objectForKey:@"PromptOnClose"]?[[prefs objectForKey:@"PromptOnClose"] boolValue]: NO;
     defaultFocusFollowsMouse = [prefs objectForKey:@"FocusFollowsMouse"]?[[prefs objectForKey:@"FocusFollowsMouse"] boolValue]: NO;
 	defaultEnableBonjour = [prefs objectForKey:@"EnableRendezvous"]?[[prefs objectForKey:@"EnableRendezvous"] boolValue]: YES;
@@ -124,7 +124,7 @@ PreferencePanel (PrivateMethods )
 	defaultUseCompactLabel = [prefs objectForKey:@"UseCompactLabel"]?[[prefs objectForKey:@"UseCompactLabel"] boolValue]: YES;
 	defaultRefreshRate = [prefs objectForKey:@"RefreshRate"]?[[prefs objectForKey:@"RefreshRate"] intValue]: 25;
 	[defaultWordChars release];
-	defaultWordChars = [prefs objectForKey: @"WordCharacters"]?[[prefs objectForKey: @"WordCharacters"] retain]:@"";
+	defaultWordChars = [prefs objectForKey: @"WordCharacters"]?[[prefs objectForKey: @"WordCharacters"] retain]:@"/-+\\~_.";
     defaultOpenBookmark = [prefs objectForKey:@"OpenBookmark"]?[[prefs objectForKey:@"OpenBookmark"] boolValue]: NO;
 	defaultQuitWhenAllWindowsClosed = [prefs objectForKey:@"QuitWhenAllWindowsClosed"]?[[prefs objectForKey:@"QuitWhenAllWindowsClosed"] boolValue]: NO;
 	defaultCursorType=[prefs objectForKey:@"CursorType"]?[prefs integerForKey:@"CursorType"]:2;
@@ -647,7 +647,9 @@ PreferencePanel (PrivateMethods )
 	
 	if(([mgr fileExistsAtPath:oldPrefs]) &&
 	   (![mgr fileExistsAtPath:newPrefs])) {
+		NSLog(@"Preference file migrated");
 		[mgr copyPath:oldPrefs toPath:newPrefs handler:nil];
+		[NSUserDefaults resetStandardUserDefaults];
 		return (YES);	
 	}
 	return (NO);	

@@ -1,5 +1,5 @@
 // -*- mode:objc -*-
-// $Id: VT100Terminal.h,v 1.29 2007/11/21 05:24:19 yfabian Exp $
+// $Id: VT100Terminal.h,v 1.33 2008/08/20 17:20:37 delx Exp $
 /*
  **  VT100Terminal.h
  **
@@ -127,6 +127,7 @@
 #define ANSICSI_PRINT	 3004	// Print to Ansi
 #define ANSICSI_SCP      3005   // Save cursor position
 #define ANSICSI_RCP      3006   // Restore cursor position
+#define ANSICSI_CBT	     3007	// Back tab
 
 // Toggle between ansi/vt52
 #define STRICT_ANSI_MODE		4000
@@ -338,6 +339,9 @@ typedef enum {
 - (void)putStreamData:(char *)data length: (int)length;
 - (VT100TCC)getNextToken;
 
+- (void)saveCursorAttributes;
+- (void)restoreCursorAttributes;
+
 - (void)reset;
 
 - (NSData *)keyArrowUp:(unsigned int)modflag;
@@ -352,7 +356,6 @@ typedef enum {
 - (NSData *)keyPageUp;
 - (NSData *)keyPageDown;
 - (NSData *)keyFunction:(int)no;
-- (NSData *)keyPFn: (int) n;
 - (NSData *)keypadData: (unichar) unicode keystr: (NSString *) keystr;
 
 - (NSData *)mousePress: (int)button withModifiers: (unsigned int)modflag atX: (int)x Y: (int)y;
@@ -376,6 +379,8 @@ typedef enum {
 
 - (int)foregroundColorCode;
 - (int)backgroundColorCode;
+- (int)foregroundColorCodeReal;
+- (int)backgroundColorCodeReal;
 
 - (NSData *)reportActivePositionWithX:(int)x Y:(int)y;
 - (NSData *)reportStatus;

@@ -1,5 +1,5 @@
 // -*- mode:objc -*-
-// $Id: PTYTextView.m,v 1.307 2007/06/17 01:56:31 ujwal Exp $
+// $Id: PTYTextView.m,v 1.309 2008/08/20 17:14:39 delx Exp $
 /*
  **  PTYTextView.m
  **
@@ -789,7 +789,8 @@ static int cacheSize;
 			[(PTYScrollView *)[self enclosingScrollView] drawBackgroundImageRect: rect];
 		}
 		else {
-			aColor = [self colorForCode:(reversed ? [[dataSource terminal] foregroundColorCode] : [[dataSource terminal] backgroundColorCode])];
+///			aColor = [self colorForCode:[[dataSource terminal] backgroundColorCodeReal]];
+			aColor = [self colorForCode:DEFAULT_BG_COLOR_CODE];
 			aColor = [aColor colorWithAlphaComponent: trans];
 			[aColor set];
 			NSRectFill(rect);
@@ -1400,8 +1401,10 @@ static int cacheSize;
 			case MOUSE_REPORTING_NORMAL:
 			case MOUSE_REPORTING_BUTTON_MOTION:
 			case MOUSE_REPORTING_ALL_MOTION:
-				[task writeTask:[terminal mousePress:([event deltaY] > 0 ? 5:4) withModifiers:[event modifierFlags] atX:rx Y:ry]];
-				return;
+				if([event deltaY] != 0) {
+					[task writeTask:[terminal mousePress:([event deltaY] > 0 ? 5:4) withModifiers:[event modifierFlags] atX:rx Y:ry]];
+					return;
+				}
 				break;
 			case MOUSE_REPORTING_NONE:
 			case MOUSE_REPORTING_HILITE:

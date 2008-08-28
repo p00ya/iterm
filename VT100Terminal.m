@@ -1,5 +1,5 @@
 // -*- mode:objc -*-
-// $Id: VT100Terminal.m,v 1.124 2007/11/21 05:24:17 yfabian Exp $
+// $Id: VT100Terminal.m,v 1.131 2008/08/20 17:21:08 delx Exp $
 //
 /*
  **  VT100Terminal.m
@@ -97,11 +97,6 @@
 #define KEY_DEL				 "\033[3~"
 #define KEY_BACKSPACE		 "\010"
 
-#define KEY_PF1		     "\033OP"
-#define KEY_PF2		     "\033OQ"
-#define KEY_PF3	         "\033OR"
-#define KEY_PF4		     "\033OS"
-
 #define ALT_KP_0		"\033Op"
 #define ALT_KP_1		"\033Oq"
 #define ALT_KP_2		"\033Or"
@@ -113,8 +108,11 @@
 #define ALT_KP_8		"\033Ox"
 #define ALT_KP_9		"\033Oy"
 #define ALT_KP_MINUS	"\033Om"
-#define ALT_KP_PLUS		"\033Ol"
+#define ALT_KP_PLUS		"\033Ok"
 #define ALT_KP_PERIOD	"\033On"
+#define ALT_KP_SLASH	"\033Oo"
+#define ALT_KP_STAR		"\033Oj"
+#define ALT_KP_EQUALS	"\033OX"
 #define ALT_KP_ENTER	"\033OM"
 
 
@@ -567,6 +565,10 @@ static VT100TCC decode_csi(unsigned char *datap,
 					
                     
 					// ANSI
+				case 'Z':
+					result.type = ANSICSI_CBT;
+					SET_PARAM_DEFAULT(param,0,1);
+					break;
 				case 'G':
 					result.type = ANSICSI_CHA;
 					SET_PARAM_DEFAULT(param,0,1);
@@ -657,7 +659,7 @@ static VT100TCC decode_xterm(unsigned char *datap,
     datalen -= 2;
     *rmlen=2;
     
-	if (isdigit(*datap)) {
+	if (datalen>0 && isdigit(*datap)) {
         int n = *datap++ - '0';
         datalen--;
         (*rmlen)++;
@@ -1356,7 +1358,7 @@ static VT100TCC decode_string(unsigned char *datap,
 #endif
     
     free(STREAM);
-	[streamLock unlock];
+///	[streamLock unlock];
 	[streamLock release];
     [termType release];
 
@@ -1421,6 +1423,25 @@ static VT100TCC decode_string(unsigned char *datap,
     }
 }
 
+- (void)saveCursorAttributes
+{
+	saveBold=bold;
+	saveUnder=under;
+	saveBlink=blink;
+	saveReversed=reversed;
+	saveHighlight=highlight;
+	saveCHARSET=CHARSET;
+}
+
+- (void)restoreCursorAttributes
+{
+	bold=saveBold;
+	under=saveUnder;
+	blink=saveBlink;
+	reversed=saveReversed;
+	highlight = saveHighlight;
+	CHARSET=saveCHARSET;
+}
 
 - (void)reset
 {
@@ -1891,30 +1912,6 @@ static VT100TCC decode_string(unsigned char *datap,
     return [NSData dataWithBytes:str length:len];
 }
 
-- (NSData *)keyPFn: (int) n
-{
-    NSData *theData;
-    
-    switch (n)
-    {
-		case 4:
-			theData = [NSData dataWithBytes:KEY_PF4 length:conststr_sizeof(KEY_PF4)];
-			break;
-		case 3:
-			theData = [NSData dataWithBytes:KEY_PF3 length:conststr_sizeof(KEY_PF3)];
-			break;
-		case 2:
-			theData = [NSData dataWithBytes:KEY_PF2 length:conststr_sizeof(KEY_PF2)];
-			break;
-		case 1:
-		default:
-			theData = [NSData dataWithBytes:KEY_PF1 length:conststr_sizeof(KEY_PF1)];
-			break;
-    }
-	
-    return (theData);
-}
-
 - (NSData *) keypadData: (unichar) unicode keystr: (NSString *) keystr
 {
     NSData *theData = nil;
@@ -1964,6 +1961,15 @@ static VT100TCC decode_string(unsigned char *datap,
 			break;	    
 		case '.':
 			theData = [NSData dataWithBytes:ALT_KP_PERIOD length:conststr_sizeof(ALT_KP_PERIOD)];
+			break;	    
+		case '/':
+			theData = [NSData dataWithBytes:ALT_KP_SLASH length:conststr_sizeof(ALT_KP_SLASH)];
+			break;	    
+		case '*':
+			theData = [NSData dataWithBytes:ALT_KP_STAR length:conststr_sizeof(ALT_KP_STAR)];
+			break;	    
+		case '=':
+			theData = [NSData dataWithBytes:ALT_KP_EQUALS length:conststr_sizeof(ALT_KP_EQUALS)];
 			break;	    
 		case 0x03:
 			theData = [NSData dataWithBytes:ALT_KP_ENTER length:conststr_sizeof(ALT_KP_ENTER)];
@@ -2098,6 +2104,19 @@ static VT100TCC decode_string(unsigned char *datap,
     return (reversed?FG_COLORCODE:BG_COLORCODE);
 }
 
+- (int)foregroundColorCodeReal
+{
+	if (FG_COLORCODE % 256 >7)
+		return (FG_COLORCODE)+bold*BOLD_MASK+under*UNDER_MASK+blink*BLINK_MASK;
+	else
+		return (FG_COLORCODE+(highlight?1:bold)*8)+bold*BOLD_MASK+under*UNDER_MASK+blink*BLINK_MASK;
+}
+
+- (int)backgroundColorCodeReal
+{
+    return BG_COLORCODE;
+}
+
 - (NSData *)reportActivePositionWithX:(int)x Y:(int)y
 {
     char buf[64];
@@ -2148,7 +2167,28 @@ static VT100TCC decode_string(unsigned char *datap,
                 case 9:  INTERLACE_MODE  = mode; break;
 				case 25: [SCREEN showCursor: mode]; break;
 				case 40: allowColumnMode = mode; break;
-				case 47: if(mode) [SCREEN saveBuffer]; else [SCREEN restoreBuffer]; break; // alternate screen buffer mode
+
+				case 1049:
+					// must save cursor position implicitly
+					if(mode) {
+						[self saveCursorAttributes];
+						[SCREEN saveCursorPosition];
+					}
+					else {
+						// XXX - shouldn't really reuse this token, but meh
+						token.u.csi.p[0] = 2;
+						[SCREEN eraseInDisplay:token];
+						[self restoreCursorAttributes];
+						[SCREEN restoreCursorPosition];
+					}
+				case 47:
+					// alternate screen buffer mode
+					if(mode)
+						[SCREEN saveBuffer];
+					else
+						[SCREEN restoreBuffer];
+					break;
+
 				case 1000:
 				/* case 1001: */ /* MOUSE_REPORTING_HILITE not implemented yet */
 				case 1002:
@@ -2186,20 +2226,10 @@ static VT100TCC decode_string(unsigned char *datap,
             XON = NO;
             break;
         case VT100CSI_DECRC:
-            bold=saveBold;
-            under=saveUnder;
-            blink=saveBlink;
-            reversed=saveReversed;
-			highlight = saveHighlight;
-            CHARSET=saveCHARSET;
+        	[self restoreCursorAttributes];
             break;
         case VT100CSI_DECSC:
-            saveBold=bold;
-            saveUnder=under;
-            saveBlink=blink;
-            saveReversed=reversed;
-			saveHighlight=highlight;
-            saveCHARSET=CHARSET;
+        	[self saveCursorAttributes];
             break;
     }
 }

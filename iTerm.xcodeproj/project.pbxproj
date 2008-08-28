@@ -11,10 +11,6 @@
 		281F4D200E1BF19F0050D46D /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D1F0E1BF19F0050D46D /* Growl.framework */; };
 		281F4D310E1BF8980050D46D /* Growl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D1F0E1BF19F0050D46D /* Growl.framework */; };
 		281F4D5C0E1BFCE60050D46D /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281F4D5B0E1BFCE60050D46D /* ApplicationServices.framework */; };
-		28E5A39A0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */; };
-		28E5A39B0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */; };
-		28E5A39C0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */; };
-		28E5A39D0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */; };
 		28E5A3A30E1BDA3100FFBB4D /* Shells.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3A10E1BDA3100FFBB4D /* Shells.h */; };
 		28E5A3A40E1BDA3100FFBB4D /* Shells.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E5A3A20E1BDA3100FFBB4D /* Shells.m */; };
 		28E5A3A50E1BDA3100FFBB4D /* Shells.h in Headers */ = {isa = PBXBuildFile; fileRef = 28E5A3A10E1BDA3100FFBB4D /* Shells.h */; };
@@ -228,8 +224,6 @@
 		281F4D470E1BFC730050D46D /* CGSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSWindow.h; sourceTree = "<group>"; };
 		281F4D480E1BFC730050D46D /* CGSWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSWorkspace.h; sourceTree = "<group>"; };
 		281F4D5B0E1BFCE60050D46D /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
-		28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTermSecurityMgr.h; sourceTree = "<group>"; };
-		28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTermSecurityMgr.m; sourceTree = "<group>"; };
 		28E5A3A10E1BDA3100FFBB4D /* Shells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shells.h; sourceTree = "<group>"; };
 		28E5A3A20E1BDA3100FFBB4D /* Shells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shells.m; sourceTree = "<group>"; };
 		870BCD84047070AC0073D10E /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FindPanel.nib; sourceTree = "<group>"; };
@@ -445,7 +439,6 @@
 			isa = PBXGroup;
 			children = (
 				28E5A3A20E1BDA3100FFBB4D /* Shells.m */,
-				28E5A3990E1BD9E500FFBB4D /* iTermSecurityMgr.m */,
 				F67332400AED82E5003D786E /* iTermOutlineView.m */,
 				DD4BAB7C0470C44C00A8A065 /* FindPanelWindowController.m */,
 				DDF0FD64062916F70080EF74 /* iTermApplication.m */,
@@ -491,7 +484,6 @@
 				F69E78910AB7AC85001EC0FF /* iTermGrowlDelegate.h */,
 				DDDB7AD605D773B400E197C2 /* iTermKeyBindingMgr.h */,
 				8787B13F05FD191400901149 /* iTermProfileWindowController.h */,
-				28E5A3980E1BD9E500FFBB4D /* iTermSecurityMgr.h */,
 				F658CAFA060587A0000A13D5 /* iTermTerminalProfileMgr.h */,
 				20E74F4804E9089700000106 /* ITAddressBookMgr.h */,
 				20B8891904E924CD00000106 /* ITConfigPanelController.h */,
@@ -776,7 +768,6 @@
 				F69E78920AB7AC85001EC0FF /* iTermGrowlDelegate.h in Headers */,
 				F6B077100ADDB7D400F4BB37 /* iTermBookmarkController.h in Headers */,
 				F67332410AED82E5003D786E /* iTermOutlineView.h in Headers */,
-				28E5A39C0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */,
 				28E5A3A50E1BDA3100FFBB4D /* Shells.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,7 +778,6 @@
 			files = (
 				874206490564169600CFC3F1 /* iTermApplicationDelegate.h in Headers */,
 				DDF0FD65062916F70080EF74 /* iTermApplication.h in Headers */,
-				28E5A39A0E1BD9E500FFBB4D /* iTermSecurityMgr.h in Headers */,
 				28E5A3A30E1BDA3100FFBB4D /* Shells.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -991,7 +981,6 @@
 				F69E788D0AB7AC6D001EC0FF /* iTermGrowlDelegate.m in Sources */,
 				F6B077110ADDB7D400F4BB37 /* iTermBookmarkController.m in Sources */,
 				F67332420AED82E5003D786E /* iTermOutlineView.m in Sources */,
-				28E5A39D0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */,
 				28E5A3A60E1BDA3100FFBB4D /* Shells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1003,7 +992,6 @@
 				8742064F0564169600CFC3F1 /* main.m in Sources */,
 				874206500564169600CFC3F1 /* iTermApplicationDelegate.m in Sources */,
 				DDF0FD66062916F70080EF74 /* iTermApplication.m in Sources */,
-				28E5A39B0E1BD9E500FFBB4D /* iTermSecurityMgr.m in Sources */,
 				28E5A3A40E1BDA3100FFBB4D /* Shells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1106,7 +1094,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				DEBUGGING_SYMBOLS = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1119,7 +1106,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G4;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
@@ -1128,20 +1114,14 @@
 					Headers/CGSInternal/,
 				);
 				INFOPLIST_FILE = iTerm_Framework.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				JAVA_COMPILER_DEBUGGING_SYMBOLS = NO;
-				OPTIMIZATION_CFLAGS = "-O0";
+				LD_DYLIB_INSTALL_NAME = "@executable_path/../Frameworks/$(EXECUTABLE_PATH)";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x14000000,
 					"-lncurses",
 				);
-				OTHER_LIBTOOL_FLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRINCIPAL_CLASS = "";
 				PRODUCT_NAME = iTerm;
-				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = "-Wmost";
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
@@ -1169,21 +1149,15 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				INFOPLIST_FILE = iTerm_Framework.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
-				JAVA_COMPILER_DEBUGGING_SYMBOLS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				OPTIMIZATION_CFLAGS = "-O3";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x14000000,
 					"-lncurses",
 				);
-				OTHER_LIBTOOL_FLAGS = "";
-				OTHER_REZFLAGS = "";
-				PRINCIPAL_CLASS = "";
 				PRODUCT_NAME = iTerm;
 				SECTORDER_FLAGS = "";
-				UNSTRIPPED_PRODUCT = NO;
 				WARNING_CFLAGS = "-Wmost";
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = NO;
@@ -1230,19 +1204,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				DEBUGGING_SYMBOLS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(FRAMEWORK_SEARCH_PATHS)",
-					"$(SRCROOT)/build/Deployment",
+					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"$(SRCROOT)/build/Development",
 					"$(SRCROOT)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "$(SRCROOT)/build/Deployment\\ <=\\ 10.3";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G4;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
@@ -1259,12 +1229,9 @@
 				HEADER_SEARCH_PATHS = Headers/iTerm/;
 				INFOPLIST_FILE = iTerm.plist;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
-				MACOSX_DEPLOYMENT_TARGET = "";
-				OPTIMIZATION_CFLAGS = "-O0";
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				OTHER_LDFLAGS = "-ltermcap";
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = iTerm;
-				REZ_EXECUTABLE = YES;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -1283,14 +1250,10 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"$(SRCROOT)/build/Development",
-					"$(SRCROOT)/build/Deployment",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"$(SRCROOT)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "$(SRCROOT)/build/Deployment\\ <=\\ 10.3";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G4;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
@@ -1306,13 +1269,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = iTerm.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				OPTIMIZATION_CFLAGS = "-O3";
-				OTHER_LDFLAGS = "";
-				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = iTerm;
-				REZ_EXECUTABLE = YES;
-				SECTORDER_FLAGS = "";
-				UNSTRIPPED_PRODUCT = NO;
 				WARNING_CFLAGS = (
 					"-Wall",
 					"-Wmost",

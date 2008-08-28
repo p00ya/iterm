@@ -100,11 +100,11 @@ static iTermTerminalProfileMgr *singleInstance = nil;
 		
 		[aProfile setObject: @"Yes" forKey: @"Default Profile"];
 		
-		[self setType: @"ansi" forProfile: defaultName];
-		[self setEncoding: NSASCIIStringEncoding  forProfile: defaultName];
+		[self setType: @"xterm" forProfile: defaultName];
+		[self setEncoding: NSUTF8StringEncoding forProfile: defaultName];
 		[self setScrollbackLines: 1000 forProfile: defaultName];
 		[self setSilenceBell: NO forProfile: defaultName];
-		[self setBlinkCursor: YES forProfile: defaultName];
+		[self setBlinkCursor: NO forProfile: defaultName];
 		[self setCloseOnSessionEnd: YES forProfile: defaultName];
 		[self setDoubleWidth: YES forProfile: defaultName];
 		[self setSendIdleChar: NO forProfile: defaultName];
@@ -205,15 +205,15 @@ static iTermTerminalProfileMgr *singleInstance = nil;
 	NSNumber *encoding;
 	
 	if([profileName length] <= 0)
-		return (NSASCIIStringEncoding);
+		return (NSUTF8StringEncoding);
 	
 	aProfile = [profiles objectForKey: profileName];
 	if(aProfile == nil)
-		return (NSASCIIStringEncoding);
+		return (NSUTF8StringEncoding);
 	
 	encoding = [aProfile objectForKey: @"Encoding"];
 	if(encoding == nil)
-		return (NSASCIIStringEncoding);
+		return (NSUTF8StringEncoding);
 	
 	return ([encoding unsignedIntValue]);	
 	

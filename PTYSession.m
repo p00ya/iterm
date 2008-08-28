@@ -52,6 +52,7 @@
 @implementation PTYSession
 
 static NSString *TERM_ENVNAME = @"TERM";
+static NSString *COLORFGBG_ENVNAME = @"COLORFGBG";
 static NSString *PWD_ENVNAME = @"PWD";
 static NSString *PWD_ENVVALUE = @"~";
 
@@ -126,6 +127,7 @@ static NSImage *warningImage;
 
 	[icon release];
     [TERM_VALUE release];
+    [COLORFGBG_VALUE release];
     [view release];
     [name release];
     [windowTitle release];
@@ -238,6 +240,9 @@ static NSImage *warningImage;
 #endif
     if ([env objectForKey:TERM_ENVNAME] == nil)
         [env setObject:TERM_VALUE forKey:TERM_ENVNAME];
+
+    if ([env objectForKey:COLORFGBG_ENVNAME] == nil && COLORFGBG_VALUE != nil)
+        [env setObject:COLORFGBG_VALUE forKey:COLORFGBG_ENVNAME];
 	
     if ([env objectForKey:PWD_ENVNAME] == nil)
         [env setObject:[PWD_ENVVALUE stringByExpandingTildeInPath] forKey:PWD_ENVNAME];
@@ -542,8 +547,7 @@ static NSImage *warningImage;
 				case NSPauseFunctionKey:
 					break;
 				case NSClearLineFunctionKey:
-					if([TERMINAL keypadMode])
-						data = [TERMINAL keyPFn: 1];
+					data = [@"\e" dataUsingEncoding: NSUTF8StringEncoding];
 					break;
 			}
 			
@@ -607,26 +611,7 @@ static NSImage *warningImage;
 			
 			// Check if we are in keypad mode
 			if (modflag & NSNumericPadKeyMask) {
-				if ([TERMINAL keypadMode])
-				{
-					switch (unicode)
-					{
-						case '=':
-							data = [TERMINAL keyPFn: 2];;
-							break;
-						case '/':
-							data = [TERMINAL keyPFn: 3];
-							break;
-						case '*':
-							data = [TERMINAL keyPFn: 4];
-							break;
-						default:
-							data = [TERMINAL keypadData: unicode keystr: keystr];
-							break;
-					}
-				}
-				else
-					data = [TERMINAL keypadData: unicode keystr: keystr];
+				data = [TERMINAL keypadData: unicode keystr: keystr];
 			}		
 			
 			
@@ -658,6 +643,13 @@ static NSImage *warningImage;
 			{
 				send_str = (unsigned char*)"\037"; // control-/
 				send_strlen = 1;
+			}
+			else if (modflag & NSShiftKeyMask &&
+					 send_strlen == 1 &&
+					 send_str[0] == '\031')
+			{
+				send_str = (unsigned char*)"\033[Z"; // backtab
+				send_strlen = 3;
 			}
 			
 		}
@@ -1110,6 +1102,9 @@ static NSImage *warningImage;
     imageFilePath = [displayProfileMgr backgroundImageForProfile: displayProfile];
     if([imageFilePath length] > 0)
 		[self setBackgroundImagePath: imageFilePath];
+
+	// colour scheme
+    [self setCOLORFGBG_VALUE: [displayProfileMgr COLORFGBGForProfile: displayProfile]];
 	
     // transparency
     [self setTransparency: [displayProfileMgr transparencyForProfile: displayProfile]];  
@@ -1298,6 +1293,17 @@ static NSImage *warningImage;
     [TERM_VALUE autorelease];
     TERM_VALUE = [theTERM_VALUE retain];
     [TERMINAL setTermType: theTERM_VALUE];
+}
+
+- (NSString *) COLORFGBG_VALUE
+{
+    return (COLORFGBG_VALUE);
+}
+
+- (void) setCOLORFGBG_VALUE: (NSString *) theCOLORFGBG_VALUE
+{
+    [COLORFGBG_VALUE autorelease];
+    COLORFGBG_VALUE = [theCOLORFGBG_VALUE retain];
 }
 
 - (VT100Screen *) SCREEN
